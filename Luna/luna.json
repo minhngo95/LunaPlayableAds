@@ -109,6 +109,8 @@
                 "Stubs/MoreMountains.NiceVibrations"
             ],
             "includes": [
+                "Assets/Sound/Background_BH.mp3",
+                "Assets/Sound/W26_Sound_frire.ogg",
                 "Assets/Resources/DOTweenSettings.asset"
             ]
         },
@@ -326,10 +328,6 @@
             },
             {
                 "name": "Bridge.ArrayEnumerable",
-                "excluded": true
-            },
-            {
-                "name": "System.Collections.Generic.KeyNotFoundException",
                 "excluded": true
             },
             {
@@ -1886,10 +1884,6 @@
             },
             {
                 "name": "UnityEngine.TouchScreenKeyboard",
-                "excluded": true
-            },
-            {
-                "name": "UnityEngine.TrailModule",
                 "excluded": true
             },
             {
@@ -25184,11 +25178,11 @@
                     },
                     {
                         "name": "init",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "ctor",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "GetParticles",
@@ -25204,7 +25198,7 @@
                     },
                     {
                         "name": "Play",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "Play$1",
@@ -25978,6 +25972,68 @@
                 "instanceMethods": [
                     {
                         "name": "UpdateState",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "System.Collections.Generic.KeyNotFoundException",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "ctor",
+                        "excluded": false
+                    },
+                    {
+                        "name": "$ctor1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "$ctor2",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "UnityEngine.TrailModule",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "enabled#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "enabled#set",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "Effect",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Awake",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Init$1",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnPushToPool",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Update",
                         "excluded": false
                     }
                 ]
