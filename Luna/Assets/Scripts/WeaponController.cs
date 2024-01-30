@@ -46,7 +46,7 @@ public class WeaponController : MonoBehaviour
         this.bullet.SetActive(true);
         var bullet = ObjectPool.Instance.PopFromPool(this.bullet, instantiateIfNone: true);
         bullet.transform.SetPositionAndRotation(_muzzleTrans.transform.position, _muzzleTrans.transform.rotation);
-        bullet.GetComponent<BulletTrail>().Init(Quaternion.Euler(0,Random.Range(-SphereRadius,SphereRadius),0)*ray.direction);
+        bullet.GetComponent<BulletTrail>().Init(Quaternion.Euler(Random.Range(-SphereRadius, SphereRadius),Random.Range(-SphereRadius, SphereRadius),0)*ray.direction);
         UICrosshairItem.Instance.Expand_Crosshair(15);
         if (Physics.SphereCast(bullet.transform.position, SphereRadius, ray.direction, out hit, Mathf.Infinity, Mask))
         {

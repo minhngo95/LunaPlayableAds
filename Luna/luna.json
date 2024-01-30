@@ -67,6 +67,8 @@
                 "resources"
             ],
             "excludes": [
+                "Assets/Prefabs/Bot_Taliban.prefab",
+                "Assets/Prefabs/Du1B.prefab",
                 "Assets/_Game/Prefabs/Player/Bot_Taliban.prefab",
                 "Assets/_Game/Resources/Bot/Bot_Taliban.prefab",
                 "**/Editor/",
@@ -7927,19 +7929,11 @@
                 "excluded": false
             },
             {
-                "name": "Path",
+                "name": "BotState",
                 "excluded": false
             },
             {
-                "name": "BotDuController",
-                "excluded": true
-            },
-            {
-                "name": "BotDuController.ParachuteState",
-                "excluded": true
-            },
-            {
-                "name": "BotState",
+                "name": "Path",
                 "excluded": false
             }
         ],
@@ -22451,16 +22445,6 @@
                 ]
             },
             {
-                "className": "test",
-                "staticMethods": [],
-                "instanceMethods": [
-                    {
-                        "name": "Update",
-                        "excluded": false
-                    }
-                ]
-            },
-            {
                 "className": "UnityEditor.Animations.AnimatorCondition",
                 "staticMethods": [],
                 "instanceMethods": [
@@ -23279,50 +23263,6 @@
                     {
                         "name": "GetBlendShapeWeight",
                         "excluded": true
-                    }
-                ]
-            },
-            {
-                "className": "UICrosshairItem",
-                "staticMethods": [],
-                "instanceMethods": [
-                    {
-                        "name": "Instance#get",
-                        "excluded": false
-                    },
-                    {
-                        "name": "init",
-                        "excluded": false
-                    },
-                    {
-                        "name": "Awake",
-                        "excluded": false
-                    },
-                    {
-                        "name": "Expand_Crosshair",
-                        "excluded": false
-                    },
-                    {
-                        "name": "Narrow_Crosshair",
-                        "excluded": false
-                    }
-                ]
-            },
-            {
-                "className": "WeaponController",
-                "staticMethods": [],
-                "instanceMethods": [
-                    {
-                        "name": "init",
-                        "excluded": false
-                    },
-                    {
-                        "name": "Update",
-                        "excluded": false
-                    },
-                    {
-                        "name": "Shoot",
-                        "excluded": false
                     }
                 ]
             },
@@ -24921,184 +24861,6 @@
                 ]
             },
             {
-                "className": "BotController",
-                "staticMethods": [],
-                "instanceMethods": [
-                    {
-                        "name": "init",
-                        "excluded": false
-                    },
-                    {
-                        "name": "Start",
-                        "excluded": false
-                    },
-                    {
-                        "name": "Update",
-                        "excluded": false
-                    },
-                    {
-                        "name": "UpdateState",
-                        "excluded": false
-                    },
-                    {
-                        "name": "ChangeState",
-                        "excluded": false
-                    },
-                    {
-                        "name": "TakeDame",
-                        "excluded": false
-                    },
-                    {
-                        "name": "Move",
-                        "excluded": false
-                    },
-                    {
-                        "name": "Shoot",
-                        "excluded": false
-                    },
-                    {
-                        "name": "MoveToPoint",
-                        "excluded": false
-                    },
-                    {
-                        "name": "MoveDone",
-                        "excluded": false
-                    },
-                    {
-                        "name": "TakeDamage",
-                        "excluded": false
-                    },
-                    {
-                        "name": "Die",
-                        "excluded": false
-                    }
-                ]
-            },
-            {
-                "className": "ObjectPool",
-                "staticMethods": [],
-                "instanceMethods": [
-                    {
-                        "name": "Instance#get",
-                        "excluded": false
-                    },
-                    {
-                        "name": "init",
-                        "excluded": false
-                    },
-                    {
-                        "name": "Awake",
-                        "excluded": false
-                    },
-                    {
-                        "name": "OnDestroy",
-                        "excluded": true
-                    },
-                    {
-                        "name": "OnSceneChanged",
-                        "excluded": false
-                    },
-                    {
-                        "name": "Reset",
-                        "excluded": true
-                    },
-                    {
-                        "name": "AddToPool",
-                        "excluded": true
-                    },
-                    {
-                        "name": "PopFromPool",
-                        "excluded": false
-                    },
-                    {
-                        "name": "FindInContainer",
-                        "excluded": false
-                    },
-                    {
-                        "name": "CreateObject",
-                        "excluded": false
-                    },
-                    {
-                        "name": "PushToPool$1",
-                        "excluded": true
-                    },
-                    {
-                        "name": "PushToPool",
-                        "excluded": false
-                    },
-                    {
-                        "name": "ReleaseItems",
-                        "excluded": true
-                    },
-                    {
-                        "name": "ReleasePool",
-                        "excluded": true
-                    }
-                ]
-            },
-            {
-                "className": "PathSigleton",
-                "staticMethods": [],
-                "instanceMethods": [
-                    {
-                        "name": "Awake",
-                        "excluded": false
-                    },
-                    {
-                        "name": "ChoosePathAndRemove",
-                        "excluded": false
-                    }
-                ]
-            },
-            {
-                "className": "PlayerView",
-                "staticMethods": [],
-                "instanceMethods": [
-                    {
-                        "name": "init",
-                        "excluded": false
-                    },
-                    {
-                        "name": "Start",
-                        "excluded": false
-                    },
-                    {
-                        "name": "SetDefaultView",
-                        "excluded": false
-                    },
-                    {
-                        "name": "Update",
-                        "excluded": false
-                    }
-                ]
-            },
-            {
-                "className": "SpawnBot",
-                "staticMethods": [],
-                "instanceMethods": [
-                    {
-                        "name": "init",
-                        "excluded": false
-                    },
-                    {
-                        "name": "Start",
-                        "excluded": false
-                    },
-                    {
-                        "name": "SpawnBotRoutine",
-                        "excluded": false
-                    },
-                    {
-                        "name": "SpawnBotInstance",
-                        "excluded": false
-                    },
-                    {
-                        "name": "Update",
-                        "excluded": false
-                    }
-                ]
-            },
-            {
                 "className": "UnityEngine.RaycastHit",
                 "staticMethods": [],
                 "instanceMethods": [
@@ -25517,36 +25279,6 @@
                 ]
             },
             {
-                "className": "BulletTrail",
-                "staticMethods": [],
-                "instanceMethods": [
-                    {
-                        "name": "init",
-                        "excluded": false
-                    },
-                    {
-                        "name": "Awake",
-                        "excluded": false
-                    },
-                    {
-                        "name": "Init",
-                        "excluded": false
-                    },
-                    {
-                        "name": "Init$1",
-                        "excluded": false
-                    },
-                    {
-                        "name": "OnPushToPool",
-                        "excluded": false
-                    },
-                    {
-                        "name": "Update",
-                        "excluded": false
-                    }
-                ]
-            },
-            {
                 "className": "UnityEngine.AnimatorTransitionInfo",
                 "staticMethods": [],
                 "instanceMethods": [
@@ -25959,6 +25691,228 @@
                 ]
             },
             {
+                "className": "BotController",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Start",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Update",
+                        "excluded": false
+                    },
+                    {
+                        "name": "UpdateState",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ChangeState",
+                        "excluded": false
+                    },
+                    {
+                        "name": "TakeDamage",
+                        "excluded": false
+                    },
+                    {
+                        "name": "MoveToPoint",
+                        "excluded": false
+                    },
+                    {
+                        "name": "MoveDone",
+                        "excluded": false
+                    },
+                    {
+                        "name": "TakeDameAction",
+                        "excluded": false
+                    },
+                    {
+                        "name": "DieAction",
+                        "excluded": true
+                    },
+                    {
+                        "name": "MoveAction",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ShootAction",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "ObjectPool",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "Instance#get",
+                        "excluded": false
+                    },
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Awake",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnDestroy",
+                        "excluded": true
+                    },
+                    {
+                        "name": "OnSceneChanged",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Reset",
+                        "excluded": true
+                    },
+                    {
+                        "name": "AddToPool",
+                        "excluded": true
+                    },
+                    {
+                        "name": "PopFromPool",
+                        "excluded": false
+                    },
+                    {
+                        "name": "FindInContainer",
+                        "excluded": false
+                    },
+                    {
+                        "name": "CreateObject",
+                        "excluded": false
+                    },
+                    {
+                        "name": "PushToPool$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "PushToPool",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ReleaseItems",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ReleasePool",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "PathSigleton",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "Awake",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ChoosePathAndRemove",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "PlayerView",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Start",
+                        "excluded": false
+                    },
+                    {
+                        "name": "SetDefaultView",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Update",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "SpawnBot",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Start",
+                        "excluded": false
+                    },
+                    {
+                        "name": "SpawnBotRoutine",
+                        "excluded": false
+                    },
+                    {
+                        "name": "SpawnBotInstance",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Update",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "UICrosshairItem",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "Instance#get",
+                        "excluded": false
+                    },
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Awake",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Expand_Crosshair",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Narrow_Crosshair",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "WeaponController",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Update",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Shoot",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
                 "className": "BotController.MoveState",
                 "staticMethods": [],
                 "instanceMethods": [
@@ -25984,6 +25938,36 @@
                 "instanceMethods": [
                     {
                         "name": "UpdateState",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "BulletTrail",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Awake",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Init$1",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnPushToPool",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Update",
                         "excluded": false
                     }
                 ]
