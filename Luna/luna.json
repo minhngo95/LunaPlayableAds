@@ -7923,15 +7923,23 @@
                 "excluded": true
             },
             {
-                "name": "BotController.BotState",
-                "excluded": false
-            },
-            {
                 "name": "IPoolObject",
                 "excluded": false
             },
             {
                 "name": "Path",
+                "excluded": false
+            },
+            {
+                "name": "BotDuController",
+                "excluded": true
+            },
+            {
+                "name": "BotDuController.ParachuteState",
+                "excluded": true
+            },
+            {
+                "name": "BotState",
                 "excluded": false
             }
         ],
@@ -24941,10 +24949,6 @@
                         "excluded": false
                     },
                     {
-                        "name": "Dead",
-                        "excluded": false
-                    },
-                    {
                         "name": "Move",
                         "excluded": false
                     },
@@ -24962,6 +24966,10 @@
                     },
                     {
                         "name": "TakeDamage",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Die",
                         "excluded": false
                     }
                 ]
@@ -25947,6 +25955,46 @@
                     {
                         "name": "public_GetLimitSign",
                         "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "BotController.MoveState",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "UpdateState",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "BotController.ShootState",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "UpdateState",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "BotController.TakeDameState",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "UpdateState",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "BotController.DieState",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "UpdateState",
+                        "excluded": false
                     }
                 ]
             }
