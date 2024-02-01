@@ -37,7 +37,7 @@ public class PlayerView : MonoBehaviour
         var input = Vector2.zero;
         if (Input.GetMouseButton(0))
         {
-            if(Input.GetMouseButton(0))  Debug.Log("Mouse");
+           // if(Input.GetMouseButton(0))  Debug.Log("Mouse");
             input = new Vector2 { x = Input.GetAxis("Mouse X"), y = Input.GetAxis("Mouse Y") };
             if (Mathf.Abs(input.x) > 1000)
                 input.x = 0;

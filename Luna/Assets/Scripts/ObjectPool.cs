@@ -122,19 +122,20 @@ public class ObjectPool : MonoBehaviour
         return obj;
     }
 
-    private Queue<GameObject> FindInContainer(GameObject prefab)
+    private Queue<GameObject>? FindInContainer(GameObject prefab)
     {
-        if (prefab == null)
-            return null;
-
-        if (container.ContainsKey(prefab) == false)
+        if (prefab is null)
         {
-            container.Add(prefab, new Queue<GameObject>());
+            return null;
         }
 
-        return container[prefab];
-    }
+        if (!container.TryGetValue(prefab, out Queue<GameObject>? prefabQueue))
+        {
+            container[prefab] = prefabQueue = new Queue<GameObject>();
+        }
 
+        return prefabQueue;
+    }
     private GameObject CreateObject(GameObject prefab, Transform parent)
     {
         IPoolObject poolObjectPrefab = prefab.GetComponent<IPoolObject>();

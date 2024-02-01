@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4279046784998516}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4228608061687326}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: gunSpring
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +73,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4409249548221952}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: MainRoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 4534996792676462}
   - component: {fileID: 82669989007015074}
   - component: {fileID: 632816581}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: LocalPlayer
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -255,7 +255,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2693864284189128964}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Ctrl_Bullet009
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -288,7 +288,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2701276537175286482}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Ctrl_BulletUP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -321,7 +321,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4166599187123350484}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Ctrl_BodyGun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -356,7 +356,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3188196023895865738}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Bone001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -387,7 +387,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1852080302320029503}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Bone002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -418,7 +418,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7146268653441544826}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Ctrl_Magazine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -455,7 +455,7 @@ GameObject:
   - component: {fileID: 968186134723583058}
   - component: {fileID: 968186134723583063}
   - component: {fileID: 968186134723583060}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -536,7 +536,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8379736579992457340}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: OpenBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -568,7 +568,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 354980418956634132}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Ctrl_Bullet013
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -601,7 +601,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3607466567505387750}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Bone005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -632,7 +632,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8181295218064217148}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: IK Chain001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -663,7 +663,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1702350320176704982}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Ctrl_Bullet011
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -696,7 +696,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6527954200480622063}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Ctrl_Magazine009
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -728,7 +728,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2277709837593915924}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Magazine009
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -759,7 +759,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5954517302447596089}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Magazine004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -792,7 +792,7 @@ GameObject:
   - component: {fileID: 8627639215315755828}
   - component: {fileID: 8408835843793560583}
   - component: {fileID: 1828324650948878151}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Weapon26
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -999,7 +999,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8933373978661360097}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: IK Chain003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1030,7 +1030,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 29901692640294508}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Muzzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1064,7 +1064,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6762722255002630697}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Magazine00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1095,7 +1095,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4859742782655910571}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Ctrl_Bullet01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1127,7 +1127,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4611074943733286277}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Bone009
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1158,7 +1158,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3488040455481619579}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Bone008
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1189,7 +1189,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4275369529009878386}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Magazinebake1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1220,7 +1220,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8170599882470945764}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Ctrl_Bullet005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1253,7 +1253,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2361143666653421217}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Bone003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1284,7 +1284,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5406868220813348221}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Ctrl_Magazine004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1319,7 +1319,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7657709266346864126}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Ctrl_Bullet006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1352,7 +1352,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6043532965030894233}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: AccCharm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1511,7 +1511,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3186281448054718559}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Ctrl_Magazine006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1545,7 +1545,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7201753975988319911}
   - component: {fileID: 1614082066}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: MainCamera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -1622,7 +1622,7 @@ GameObject:
   - component: {fileID: 3691961165413975825}
   - component: {fileID: 3691961165413975824}
   - component: {fileID: 3691961165413975827}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: muzzle efffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6511,7 +6511,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5979518390825236523}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Magazine006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6542,7 +6542,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2411466472429527957}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Muzzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6573,7 +6573,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4905891773954988151}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Special1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6604,7 +6604,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5131742908062393893}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Ctrl_Magazine007
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6636,7 +6636,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7394143753923726484}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: BulletUP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6667,7 +6667,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7144292989593172733}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Ctrl_handUpbullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6699,7 +6699,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4588136682020866190}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Ctrl_Bullet007
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6732,7 +6732,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4174640810564598094}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: handUpbullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6763,7 +6763,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3037853462009769593}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Bone006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6794,7 +6794,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7072102279104174565}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Ctrl_Bullet004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6829,7 +6829,7 @@ GameObject:
   - component: {fileID: 8640965368948130243}
   - component: {fileID: 3334195817104699597}
   - component: {fileID: 7044508688506114657}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Weapon26
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6843,7 +6843,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4733769056326120400}
-  m_LocalRotation: {x: -0.043619405, y: 0, z: 0, w: 0.9990483}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0.73, z: 1.14}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6859,7 +6859,7 @@ Transform:
   - {fileID: 2923608035105883618}
   m_Father: {fileID: 4228608061687326}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -5, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!111 &3334195817104699597
 Animation:
   m_ObjectHideFlags: 0
@@ -6898,7 +6898,8 @@ MonoBehaviour:
   _muzzleFlash: {fileID: 5893799063494825024}
   audioClip: {fileID: 8300000, guid: b2cf29f91e4700240892787807a9f98f, type: 3}
   audioSource: {fileID: 1828324650948878151}
-  SphereRadius: 1
+  SphereRadius: 0.1
+  Effect: {fileID: 1214385991556846, guid: 5101b0b18563cd64fba69182fb988727, type: 3}
 --- !u!1 &4810209333909490663
 GameObject:
   m_ObjectHideFlags: 0
@@ -6908,7 +6909,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4632455026522664116}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: AccessoryParent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6939,7 +6940,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 418053045356555992}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Ctrl_Bullet008
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6972,7 +6973,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3289997824113245411}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Magazinebake2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7003,7 +7004,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7005384489487340731}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Magazine008
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7034,7 +7035,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4725065815438455176}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: IK Chain002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7065,7 +7066,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5556644699095796036}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Ctrl_BulletOut
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7097,7 +7098,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6333491487096069295}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Bone012
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7128,7 +7129,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3232013247663624135}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Ctrl_Muzzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7160,7 +7161,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1209893078549211888}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Ctrl_Bullet003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7193,7 +7194,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5942621203034709178}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Ctrl_Magazinebake1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7226,13 +7227,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8558516265904427207}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Muzzle Normal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8558516265904427207
 Transform:
   m_ObjectHideFlags: 0
@@ -7258,7 +7259,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6191634405320358809}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Ctrl_Bullet002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7291,7 +7292,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5947235979470174014}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: BodyGun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7322,7 +7323,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7840172244830102410}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Ctrl_Magazinebake2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7354,7 +7355,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5980077772213998719}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Bone004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7385,7 +7386,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7270994738653522391}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Ctrl_Magazine008
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7418,7 +7419,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2850066365817146666}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Ctrl_Magazine005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7453,13 +7454,13 @@ GameObject:
   - component: {fileID: 6448561431775983343}
   - component: {fileID: 6448561431775982068}
   - component: {fileID: 6448561431775981582}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: DropShells
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6448561431775983343
 Transform:
   m_ObjectHideFlags: 0
@@ -10007,7 +10008,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3766491992036459163}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Bone011
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10038,7 +10039,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5096946289162616691}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: AccFlash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10069,7 +10070,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7249147071029428344}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Ctrl_OpenBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10101,7 +10102,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6642938448823305322}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: SpecialAccessory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10132,7 +10133,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3757689516654060333}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Magazine010
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10163,7 +10164,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5064837175263201345}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: IK Chain005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10194,7 +10195,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1316088284270519957}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: IK Chain004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10225,7 +10226,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7768927813777299570}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Magazine005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10256,7 +10257,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4241454476714056304}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Bone010
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10287,7 +10288,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6073888233574278141}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Bone007
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10318,7 +10319,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1384999550358421008}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Bone013
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10349,7 +10350,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3412685918540659494}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: GunBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10387,7 +10388,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1098897976797461755}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: IK Chain006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10418,7 +10419,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5582239562457958564}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Ctrl_Bullet012
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10451,7 +10452,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4215564347005057542}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Ctrl_Bullet010
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10484,7 +10485,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 131665231797787930}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: WeaponRoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10516,7 +10517,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4868180752995794011}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: IK Chain007
   m_TagString: Untagged
   m_Icon: {fileID: 0}

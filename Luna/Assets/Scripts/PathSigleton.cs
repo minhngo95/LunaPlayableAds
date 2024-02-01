@@ -6,6 +6,7 @@ using UnityEngine;
 public class PathSigleton : MonoBehaviour
 {
     [SerializeField] public List<Path> _paths;
+    [SerializeField] public List<Path> _pathsParachute;
     public static PathSigleton Instance;
 
     private void Awake()
@@ -21,6 +22,18 @@ public class PathSigleton : MonoBehaviour
         int randomIndex = UnityEngine.Random.Range(0, _paths.Count);
         Path chosenPath = _paths[randomIndex];
         _paths.RemoveAt(randomIndex);
+        return chosenPath;
+    }
+    public Path ChoosePathParachute()
+    {
+        if (_pathsParachute.Count == 0)
+        {
+            return null;
+        }
+
+        int randomIndex = UnityEngine.Random.Range(0, _pathsParachute.Count);
+        Path chosenPath = _pathsParachute[randomIndex];
+        _pathsParachute.RemoveAt(randomIndex);
         return chosenPath;
     }
 }

@@ -34,6 +34,7 @@ public class Effect : MonoBehaviour, IPoolObject
     public void Init(Vector3 pos)
     {
         transform.position=pos;
+        Update();
     }
 
     public void OnPushToPool()

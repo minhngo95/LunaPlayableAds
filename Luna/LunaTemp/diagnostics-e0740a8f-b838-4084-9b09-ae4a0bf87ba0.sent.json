@@ -1,0 +1,364 @@
+{
+    "BuildID": "e0740a8f-b838-4084-9b09-ae4a0bf87ba0",
+    "Command": "project:build",
+    "ProjectID": "19d6020580d862e46a5b6b7a32992276",
+    "ProjectStateHash": "d43ee6edb6c2a002eb073727e6588318e15bd6df5b04638a35104be5b58f1ccd",
+    "StageCompletedAt": 3,
+    "EarliestFatalError": 0,
+    "StartTime": 1706780315873,
+    "EndTime": 1706780336151,
+    "PlaygroundUserID": 13434,
+    "OperatingSystem": "win32",
+    "UnityPackageID": null,
+    "TargetPlatform": "develop",
+    "UnityVersion": "2021.3.33f1",
+    "LunaVersion": "5.5.0",
+    "LogCount": 13,
+    "Logs": [
+        {
+            "LogID": "3640be55-becb-47a7-8e2e-22aa60756588",
+            "Order": 9,
+            "Timestamp": 1706780336864,
+            "Stage": 3,
+            "ErrorType": 0,
+            "ErrorCode": "LP3014",
+            "Description": "You are using the wrong API: Application.OpenURL.",
+            "Details": [
+                "You are using the wrong API: Application.OpenURL. which can lead to ad networks rejecting the playable. Please use Luna.Unity.Playable.InstallFullGame() instead. "
+            ],
+            "DescriptionValues": [
+                "Application.OpenURL"
+            ],
+            "DetailsValues": [
+                "Application.OpenURL"
+            ],
+            "LogCount": 1,
+            "LinePosition": 34,
+            "FilePath": "C:\\Users\\Pc\\Documents\\GitHub\\LunaPlayableAds\\Luna\\Assets\\Scripts\\ClickController.cs",
+            "ClassName": "",
+            "MemberName": "",
+            "Severity": 0
+        },
+        {
+            "LogID": "8d522d63-f938-41f6-967b-569bec48d9f7",
+            "Order": 9,
+            "Timestamp": 1706780336899,
+            "Stage": 3,
+            "ErrorType": 1,
+            "ErrorCode": "LP3006",
+            "Description": "You are not using the Luna API: Playable.InstallFullGame",
+            "Details": [
+                "You are not using the Luna API: Playable.InstallFullGame. Some ad networks require these calls. Please add these calls to ensure your playable works on all ad networks. Check documentation for more information."
+            ],
+            "DescriptionValues": [
+                "Playable",
+                "InstallFullGame"
+            ],
+            "DetailsValues": [
+                "Playable",
+                "InstallFullGame"
+            ],
+            "LogCount": 1,
+            "LinePosition": null,
+            "FilePath": "",
+            "ClassName": "",
+            "MemberName": "",
+            "Severity": 0
+        },
+        {
+            "LogID": "63b2703c-67c8-4f80-87d4-d7026fd71449",
+            "Order": 9,
+            "Timestamp": 1706780336900,
+            "Stage": 3,
+            "ErrorType": 1,
+            "ErrorCode": "LP3006",
+            "Description": "You are not using the Luna API: LifeCycle.GameEnded",
+            "Details": [
+                "You are not using the Luna API: LifeCycle.GameEnded. Some ad networks require these calls. Please add these calls to ensure your playable works on all ad networks. Check documentation for more information."
+            ],
+            "DescriptionValues": [
+                "LifeCycle",
+                "GameEnded"
+            ],
+            "DetailsValues": [
+                "LifeCycle",
+                "GameEnded"
+            ],
+            "LogCount": 1,
+            "LinePosition": null,
+            "FilePath": "",
+            "ClassName": "",
+            "MemberName": "",
+            "Severity": 0
+        },
+        {
+            "LogID": "621efae7-5c0a-48f1-a975-090c8ade264f",
+            "Order": 9,
+            "Timestamp": 1706780336900,
+            "Stage": 3,
+            "ErrorType": 3,
+            "ErrorCode": "LP3007",
+            "Description": "You are not using any custom events",
+            "Details": [
+                "You are not using any custom events. It is recommended to use custom events to have a better understanding of the playable."
+            ],
+            "DescriptionValues": [
+                ""
+            ],
+            "DetailsValues": [
+                ""
+            ],
+            "LogCount": 1,
+            "LinePosition": null,
+            "FilePath": "",
+            "ClassName": "",
+            "MemberName": "",
+            "Severity": 0
+        },
+        {
+            "LogID": "1a44d280-9532-48e6-bc23-0fdcfe1b5dc6",
+            "Order": 9,
+            "Timestamp": 1706780336901,
+            "Stage": 3,
+            "ErrorType": 3,
+            "ErrorCode": "LP3012",
+            "Description": "You are not using the minimum recommended amount of LunaPlaygroundFields attributes.",
+            "Details": [
+                "You are not using the minimum recommended amount of LunaPlaygroundFields attributes, you are using: 1 and we recommend using a minimum of: 3. It allows you to configure your playable to different concepts to find the best variation, which can drastically improve playable performance on all ad networks."
+            ],
+            "DescriptionValues": [
+                "1",
+                "3"
+            ],
+            "DetailsValues": [
+                "1",
+                "3"
+            ],
+            "LogCount": 1,
+            "LinePosition": null,
+            "FilePath": "",
+            "ClassName": "",
+            "MemberName": "",
+            "Severity": 0
+        },
+        {
+            "LogID": "28c2a7ea-0131-4cd6-b8d0-2f0d58928738",
+            "Order": 0,
+            "Timestamp": 1706780316485,
+            "Stage": 1,
+            "ErrorType": 0,
+            "ErrorCode": "LP1012",
+            "Description": "Export Error: An item with the same key has already been added. Key: Legacy Shaders/VertexLit (UnityEngine.Shader)",
+            "Details": [
+                "Horus/BakeShadow",
+                ""
+            ],
+            "DescriptionValues": [
+                "An item with the same key has already been added. Key: Legacy Shaders/VertexLit (UnityEngine.Shader)"
+            ],
+            "DetailsValues": [],
+            "LogCount": 1,
+            "LinePosition": 0,
+            "FilePath": "Assets/Shader/BakeShadow.shader",
+            "ClassName": "",
+            "MemberName": "",
+            "Severity": 0
+        },
+        {
+            "LogID": "0f7c3fd2-c8d7-4007-836f-12bfda98f8b4",
+            "Order": 1,
+            "Timestamp": 1706780317035,
+            "Stage": 1,
+            "ErrorType": 0,
+            "ErrorCode": "LP1012",
+            "Description": "Export Error: An item with the same key has already been added. Key: Mobile/VertexLit (UnityEngine.Shader)",
+            "Details": [
+                "Horus/Terrain/4 Details",
+                ""
+            ],
+            "DescriptionValues": [
+                "An item with the same key has already been added. Key: Mobile/VertexLit (UnityEngine.Shader)"
+            ],
+            "DetailsValues": [],
+            "LogCount": 1,
+            "LinePosition": 0,
+            "FilePath": "Assets/Shader/Terrain-4Details.shader",
+            "ClassName": "",
+            "MemberName": "",
+            "Severity": 0
+        },
+        {
+            "LogID": "d0564f77-fdfe-455c-8556-9388eafbb0d2",
+            "Order": 2,
+            "Timestamp": 1706780317865,
+            "Stage": 1,
+            "ErrorType": 0,
+            "ErrorCode": "LP1012",
+            "Description": "Export Error: An item with the same key has already been added. Key: Legacy Shaders/VertexLit (UnityEngine.Shader)",
+            "Details": [
+                "Particles/Standard Unlit",
+                ""
+            ],
+            "DescriptionValues": [
+                "An item with the same key has already been added. Key: Legacy Shaders/VertexLit (UnityEngine.Shader)"
+            ],
+            "DetailsValues": [],
+            "LogCount": 1,
+            "LinePosition": 0,
+            "FilePath": "Resources/unity_builtin_extra\\Particles/Standard Unlit",
+            "ClassName": "",
+            "MemberName": "",
+            "Severity": 0
+        },
+        {
+            "LogID": "da3ea762-65d1-411b-82f1-161bb4f8c5f2",
+            "Order": 3,
+            "Timestamp": 1706780319210,
+            "Stage": 1,
+            "ErrorType": 0,
+            "ErrorCode": "LP1012",
+            "Description": "Export Error: An item with the same key has already been added. Key: Legacy Shaders/VertexLit (UnityEngine.Shader)",
+            "Details": [
+                "Horus/BakeShadowMobileDiffuse",
+                ""
+            ],
+            "DescriptionValues": [
+                "An item with the same key has already been added. Key: Legacy Shaders/VertexLit (UnityEngine.Shader)"
+            ],
+            "DetailsValues": [],
+            "LogCount": 1,
+            "LinePosition": 0,
+            "FilePath": "Assets/Shader/BakeShadowMobileDiffuse.shader",
+            "ClassName": "",
+            "MemberName": "",
+            "Severity": 0
+        },
+        {
+            "LogID": "6201cdc2-a56b-41a6-8e90-52c155c4760f",
+            "Order": 4,
+            "Timestamp": 1706780325216,
+            "Stage": 1,
+            "ErrorType": 2,
+            "ErrorCode": "LP1016",
+            "Description": "Extensive usage of ParticleSystem Component",
+            "Details": [
+                "There is extensive usage of the ParticleSystem component.\nExcessive usage of any component can be detrimental to performance on lower and in some cases higher end devices, consider reducing the amount the component is used.\nRecommended count: 10, current count 26."
+            ],
+            "DescriptionValues": [
+                "ParticleSystem"
+            ],
+            "DetailsValues": [
+                "ParticleSystem",
+                "10",
+                "26"
+            ],
+            "LogCount": 1,
+            "LinePosition": 0,
+            "FilePath": "",
+            "ClassName": "",
+            "MemberName": "",
+            "Severity": 0
+        },
+        {
+            "LogID": "5994d2f0-620f-4413-a3fb-a4f5e0ceee00",
+            "Order": 5,
+            "Timestamp": 1706780325219,
+            "Stage": 1,
+            "ErrorType": 0,
+            "ErrorCode": "LP1032",
+            "Description": "Package(s) is not supported in Luna",
+            "Details": [
+                "Currently package(s) com.unity.timeline are not supported in Luna. We recommend you to remove it and workaround it's functionality."
+            ],
+            "DescriptionValues": [
+                "com.unity.timeline (1.6.5)"
+            ],
+            "DetailsValues": [
+                "com.unity.timeline"
+            ],
+            "LogCount": 1,
+            "LinePosition": 0,
+            "FilePath": "C:/Users/Pc/Documents/GitHub/LunaPlayableAds/Luna/Packages\\manifest.json",
+            "ClassName": "",
+            "MemberName": "",
+            "Severity": 0
+        },
+        {
+            "LogID": "9c09fe0c-fc12-44ba-b856-8624bfb9a5b7",
+            "Order": 6,
+            "Timestamp": 1706780325219,
+            "Stage": 1,
+            "ErrorType": 2,
+            "ErrorCode": "LP1010",
+            "Description": "Looks like a collider was scaled, this might affect performance.",
+            "Details": [
+                "Terrain_MP1_L",
+                "Terrain_MP1_L",
+                "Cube",
+                "Terrain_MP1_L (2)",
+                "Terrain_MP1_L (3)",
+                "LeftUpLeg",
+                "LeftLeg",
+                "RightUpLeg",
+                "RightLeg",
+                "Spine",
+                "Spine1",
+                "LeftArm",
+                "LeftForeArm",
+                "Head",
+                "RightArm",
+                "RightForeArm",
+                "LeftUpLeg",
+                "LeftLeg",
+                "RightUpLeg",
+                "RightLeg",
+                "Spine",
+                "Spine1",
+                "LeftArm",
+                "LeftForeArm",
+                "Head",
+                "RightArm",
+                "RightForeArm",
+                "collider",
+                "Terrain_MP1_L",
+                "Cube",
+                "Terrain_MP1_L (2)",
+                "Terrain_MP1_L (3)",
+                "Terrain_MP1_L"
+            ],
+            "DescriptionValues": [],
+            "DetailsValues": [],
+            "LogCount": 33,
+            "LinePosition": 0,
+            "FilePath": "",
+            "ClassName": "",
+            "MemberName": "",
+            "Severity": 0
+        },
+        {
+            "LogID": "209f8ea6-2b2f-43b4-99ba-6fdacfbd2a38",
+            "Order": 7,
+            "Timestamp": 1706780325219,
+            "Stage": 1,
+            "ErrorType": 3,
+            "ErrorCode": "LP1008",
+            "Description": "There are missing components on Canvas.",
+            "Details": [
+                "There are missing components on Canvas."
+            ],
+            "DescriptionValues": [
+                "Canvas"
+            ],
+            "DetailsValues": [
+                "Canvas",
+                "Canvas"
+            ],
+            "LogCount": 1,
+            "LinePosition": 0,
+            "FilePath": "",
+            "ClassName": "",
+            "MemberName": "",
+            "Severity": 0
+        }
+    ]
+}

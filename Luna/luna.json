@@ -109,6 +109,8 @@
                 "Stubs/MoreMountains.NiceVibrations"
             ],
             "includes": [
+                "Assets/Merterial/M_P01_BS_Assets.mat",
+                "Assets/Merterial/M_P01_BS_Terrain.mat",
                 "Assets/Sound/Background_BH.mp3",
                 "Assets/Sound/W26_Sound_frire.ogg",
                 "Assets/Resources/DOTweenSettings.asset"
@@ -192,7 +194,7 @@
                 "forceIncluded": true
             }
         ],
-        "disableRuntimeAnalysisForCode": true,
+        "disableRuntimeAnalysisForCode": false,
         "disableRuntimeAnalysisForShaders": false,
         "useShadersCache": true,
         "preventUpdatingRAListWhenRAIsDisabled": false,
@@ -2143,10 +2145,6 @@
                 "excluded": true
             },
             {
-                "name": "UnityEngine.Mesh",
-                "excluded": true
-            },
-            {
                 "name": "UnityEngine.Networking.UnityWebRequestAsyncOperation",
                 "excluded": true
             },
@@ -2932,7 +2930,7 @@
             },
             {
                 "name": "LunaUnity.Objects.Registry.ItemNotFoundException",
-                "excluded": true
+                "excluded": false
             },
             {
                 "name": "LunaUnity.Utils.Timer",
@@ -4904,7 +4902,7 @@
             },
             {
                 "name": "UnityEngine.Space",
-                "excluded": true
+                "excluded": false
             },
             {
                 "name": "UnityEngine.SpriteAlignment",
@@ -7929,6 +7927,10 @@
             {
                 "name": "Path",
                 "excluded": false
+            },
+            {
+                "name": "Gravity",
+                "excluded": true
             }
         ],
         "unusedMethods": [
@@ -16104,7 +16106,7 @@
                     },
                     {
                         "name": "Translate$1",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "Translate$2",
@@ -16132,7 +16134,7 @@
                     },
                     {
                         "name": "TransformDirection$1",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "TransformDirection",
@@ -21764,7 +21766,7 @@
                     },
                     {
                         "name": "Raycast$3",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "Raycast",
@@ -21952,7 +21954,7 @@
                     },
                     {
                         "name": "RaycastInternal$1",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "RaycastInternal",
@@ -22658,7 +22660,7 @@
                     },
                     {
                         "name": "GetState$1",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "GetMotion",
@@ -22874,7 +22876,7 @@
                     },
                     {
                         "name": "StringToHash",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "HashToString",
@@ -23098,7 +23100,7 @@
                     },
                     {
                         "name": "Play$4",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "Play$1",
@@ -23114,7 +23116,7 @@
                     },
                     {
                         "name": "Play$2",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "Rebind",
@@ -25252,7 +25254,7 @@
                     },
                     {
                         "name": "sharedMesh#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "sharedMesh#set",
@@ -25260,7 +25262,7 @@
                     },
                     {
                         "name": "convex#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "convex#set",
@@ -25268,7 +25270,7 @@
                     },
                     {
                         "name": "ctor",
-                        "excluded": true
+                        "excluded": false
                     }
                 ]
             },
@@ -25693,10 +25695,6 @@
                         "excluded": false
                     },
                     {
-                        "name": "Start",
-                        "excluded": false
-                    },
-                    {
                         "name": "Update",
                         "excluded": false
                     },
@@ -25726,7 +25724,7 @@
                     },
                     {
                         "name": "DieAction",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "MoveAction",
@@ -25734,6 +25732,10 @@
                     },
                     {
                         "name": "ShootAction",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Awake",
                         "excluded": false
                     }
                 ]
@@ -25810,6 +25812,10 @@
                     },
                     {
                         "name": "ChoosePathAndRemove",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ChoosePathParachute",
                         "excluded": false
                     }
                 ]
@@ -26035,6 +26041,418 @@
                     {
                         "name": "Update",
                         "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "ParachuteController",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Start",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Update",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ApplyForces",
+                        "excluded": false
+                    },
+                    {
+                        "name": "CheckGround",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ParachuteAction",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "BotParachute",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "Awake",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ChangeState",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ParachuteAction",
+                        "excluded": false
+                    },
+                    {
+                        "name": "GetPos",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "BotParachute.ParachuteState",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "UpdateState",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "UnityEngine.Mesh",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "name#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "name#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "vertices#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "vertices#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "uv#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "uv#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "uv2#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "uv2#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "uv3#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "uv3#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "uv4#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "uv4#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "normals#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "normals#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "tangents#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "tangents#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "colors#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "colors#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "colors32#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "colors32#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "bindposes#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "bindposes#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "boneWeights#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "boneWeights#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "bounds#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "bounds#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "triangles#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "triangles#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "vertexCount#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "subMeshCount#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "subMeshCount#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "blendShapeCount#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "indexFormat#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "indexFormat#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "$ctor1",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ctor",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetSubMesh",
+                        "excluded": true
+                    },
+                    {
+                        "name": "MarkDynamic",
+                        "excluded": true
+                    },
+                    {
+                        "name": "UploadMeshData",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Clear",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Clear$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "RecalculateBounds",
+                        "excluded": true
+                    },
+                    {
+                        "name": "RecalculateNormals",
+                        "excluded": true
+                    },
+                    {
+                        "name": "RecalculateTangents",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ConvertUVChannelToSemantics",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetUVs",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetUVs$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetUVs$2",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetUVs",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetUVs$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetUVs$2",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetUVs$3",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetUVs$4",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetUVs$5",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetVertices",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetVertices",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetNormals",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetNormals",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetTangents",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetTangents",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetColors",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetColors$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetColors$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetColors",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetIndices$2",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetIndices",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetIndices$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetIndices$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetIndices",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetIndices$2",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetTriangles$3",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetTriangles$2",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetTriangles$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetTriangles",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetTriangles$4",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetTriangles",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetTriangles$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetTriangles$3",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetTriangles$2",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetTopology",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetBoneWeights",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetBoneWeights",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetBlendShapeIndex",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ConvertArrayToListInPlace",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Clone",
+                        "excluded": true
                     }
                 ]
             }
