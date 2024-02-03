@@ -263,6 +263,12 @@ MonoBehaviour:
     keywords:
     - UNITY_UI_ALPHACLIP
     - UNITY_UI_CLIP_RECT
+  - shader: {fileID: 10721, guid: 0000000000000000f000000000000000, type: 0}
+    passType: 0
+    passId: 0
+    subShaderIndex: 0
+    upToDate: 1
+    keywords: []
   - shader: {fileID: 211, guid: 0000000000000000f000000000000000, type: 0}
     passType: 0
     passId: 2
@@ -277,12 +283,6 @@ MonoBehaviour:
     keywords:
     - _ALPHABLEND_ON
   - shader: {fileID: 4800000, guid: b44e2a58adf570b44b8ee745d99b25f7, type: 3}
-    passType: 0
-    passId: 0
-    subShaderIndex: 0
-    upToDate: 1
-    keywords: []
-  - shader: {fileID: 10721, guid: 0000000000000000f000000000000000, type: 0}
     passType: 0
     passId: 0
     subShaderIndex: 0
@@ -512,7 +512,7 @@ MonoBehaviour:
     - DIRECTIONAL
   _includedShaderVariants: []
   _excludedShaderVariants: []
-  version: 1803
+  version: 1958
   _shaderParsedShaders:
   - ParsedSubShaders:
     - Index: 0
@@ -9690,7 +9690,7 @@ MonoBehaviour:
   _sceneLightData:
     PointLightCount: 0
     SpotLightCount: 0
-    DirectionalLightCount: 0
+    DirectionalLightCount: 8
     LightmapOn: 0
     DirlightmapCombined: 0
     DirectionalCookieExists: 0

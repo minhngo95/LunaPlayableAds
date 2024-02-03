@@ -2,17 +2,19 @@ using UnityEngine;
 
 public class ParachuteController : MonoBehaviour
 {
-    public float gravity = 9.8f;
-    public float dragForce = 1f;
-    public float objectMass = 1f;
+    [SerializeField] private float gravity = 9.8f;
+    [SerializeField] private float dragForce = 1f;
+    [SerializeField] private float objectMass = 1f;
     [SerializeField] private BotController _botController;
-    public LayerMask groundLayer;
-    public Transform ParachuteScale;
-    private readonly float groundCheckDistance = 5;
-    private float _timeCount;
-    private float scaleAmount;
-    private Vector3 velocity;
-    public bool IsGrounded { get; set; }
+    [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private Transform ParachuteScale;
+    private readonly float groundCheckDistance = Mathf.Infinity;
+    [SerializeField] private float scaleAmount;
+    [SerializeField] private Vector3 velocity;
+    [SerializeField] private float _distanceOpenParachute=10f;
+    [SerializeField] private float _distanceCloseParachute=2f;
+    private float t;
+    private bool IsGrounded { get; set; }
 
     private void Start()
     {
@@ -25,16 +27,16 @@ public class ParachuteController : MonoBehaviour
     {
         if (!IsGrounded)
         {
-            ApplyForces();
+            var distanceToGround = CheckGround();
+            ApplyForces(distanceToGround);
             transform.Translate(velocity * Time.deltaTime);
+            ParachuteAction(distanceToGround);
         }
 
-        ParachuteAction();
     }
 
-    private void ApplyForces()
+    private void ApplyForces(float distanceToGround)
     {
-        var distanceToGround = CheckGround();
         var dragMultiplier = 1f - Mathf.Clamp01(distanceToGround / groundCheckDistance);
         var dragForceVector = -velocity.normalized * (dragForce * dragMultiplier);
 
@@ -62,19 +64,20 @@ public class ParachuteController : MonoBehaviour
 
         return groundCheckDistance;
     }
-
-    private void ParachuteAction()
+    private void ParachuteAction(float distanceToGround)
     {
-        _timeCount += Time.deltaTime;
-        if (IsGrounded)
+        if (IsGrounded) (_botController as BotParachute).parachuteDone = true;
+        t +=Time.deltaTime;
+        if (t > 1.0f) t = 0.0f;
+        if (distanceToGround<=_distanceOpenParachute && distanceToGround >=_distanceCloseParachute)
         {
-            (_botController as BotParachute).parachuteDone = true;
-            ParachuteScale.transform.gameObject.SetActive(false);
+            scaleAmount = Mathf.Lerp(scaleAmount, 1, t);
+            ParachuteScale.localScale = new Vector3(scaleAmount, scaleAmount, 1);
         }
 
-        if (_timeCount > 3f)
+        if (distanceToGround < _distanceCloseParachute)
         {
-            scaleAmount = Mathf.Lerp(scaleAmount, 1, 0.1f);
+            scaleAmount = Mathf.Lerp(scaleAmount, 0, t);
             ParachuteScale.localScale = new Vector3(scaleAmount, scaleAmount, 1);
         }
     }

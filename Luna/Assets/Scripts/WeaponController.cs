@@ -31,8 +31,6 @@ public class WeaponController : MonoBehaviour
                 timeSinceLastShoot = 0f;
             }
         }
-
-        ;
     }
 
     private void Shoot()
@@ -51,7 +49,7 @@ public class WeaponController : MonoBehaviour
         UICrosshairItem.Instance.Expand_Crosshair(15);
         if (Physics.SphereCast(bullet.transform.position, SphereRadius, ray.direction, out hit, Mathf.Infinity, Mask))
         {
-            Debug.LogError("dame");
+            //Debug.LogError("dame");
             BotController botController = hit.transform.root.gameObject.GetComponent<BotController>();
             if (botController != null)
             {

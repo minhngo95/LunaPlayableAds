@@ -27,10 +27,10 @@ public class BotController : MonoBehaviour
 
     protected virtual void Awake()
     {
-        path = PathSigleton.Instance.ChoosePathAndRemove();
-        pointCount = path.points.Count;
+        path = PathManager.Instance.ChoseWayPointNormal();
+        pointCount = path.WayPoints.Count;
         if (path == null) gameObject.SetActive(false);
-        transform.position = path.points[moveIndex].position;
+        transform.position = path.WayPoints[moveIndex].position;
         ++moveIndex;
         currentState = new MoveState();
         matBlock = new MaterialPropertyBlock();
@@ -61,7 +61,7 @@ public class BotController : MonoBehaviour
             else if (isMoveDone) currentState = new ShootState();
         }
 
-        if (currentState is ShootState && isTakeDame)
+        if (currentState is ShootState)
         {
             if (isDie) currentState = new DieState();
 
@@ -116,12 +116,16 @@ public class BotController : MonoBehaviour
         _animator.SetBool("isDead", true);
         if (_animator.GetCurrentAnimatorStateInfo(0).IsName("Death") &&
             _animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
+        {
+            StepManager.Instance.test++;
             gameObject.SetActive(false);
+        }
+                
     }
 
     protected void MoveAction()
     {
-        MoveToPoint(path.points[moveIndex]);
+        MoveToPoint(path.WayPoints[moveIndex]);
     }
 
 

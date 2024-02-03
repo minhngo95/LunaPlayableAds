@@ -14,9 +14,7 @@ public class PlayerView : MonoBehaviour
     [SerializeField] private Vector2 _initRotate;
     [SerializeField] private Vector2 _totalRotate;
     private Vector2 _previousRotate;
-    protected PointerEventData PointerEventDataCache;
-
-    private void Start()
+    private void Awake()
     {
         SetDefaultView();
     }
@@ -25,7 +23,6 @@ public class PlayerView : MonoBehaviour
     {
         _totalRotate = _initRotate;
         _previousRotate = _totalRotate;
-
         _mainRoot.localRotation = Quaternion.Euler(0, _previousRotate.x, 0);
         _head.localRotation = Quaternion.Euler(-_previousRotate.y, 0, 0);
     }

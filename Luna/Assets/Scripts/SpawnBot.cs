@@ -1,36 +1,32 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SpawnBot : MonoBehaviour
 {
-    public GameObject botPrefab;
-    public float spawnInterval = 1f;
-    public int UPPER = 10;
-    void Start()
+    [SerializeField] private GameObject _botPrefab;
+    [SerializeField] private float _spawnInterval = 1f;
+    [SerializeField] private int _upper = 10;
+
+    public void InitData(int value)
+    {
+        _upper = value;
+    }
+    public void Run()
     {
         StartCoroutine(SpawnBotRoutine());
     }
 
-    // Coroutine để thực hiện việc spawn
-    IEnumerator SpawnBotRoutine()
+    private IEnumerator SpawnBotRoutine()
     {
-        for (int i = 0; i < UPPER; i++)
+        for (var i = 0; i < _upper; i++)
         {
             SpawnBotInstance();
-            yield return new WaitForSeconds(spawnInterval);
+            yield return new WaitForSeconds(_spawnInterval);
         }
-
     }
-    // Hàm để spawn một đối tượng
-    void SpawnBotInstance()
+    private void SpawnBotInstance()
     {
-        var gameObject=Instantiate(botPrefab, Vector3.zero, Quaternion.identity);
+        var gameObject = Instantiate(_botPrefab, Vector3.zero, Quaternion.identity);
         gameObject.SetActive(true);
-    }
-
-    void Update()
-    {
-        // Các logic cập nhật khác có thể được thêm vào đây
     }
 }

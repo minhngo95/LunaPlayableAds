@@ -6,11 +6,10 @@ public class BotParachute : BotController
 
     public bool parachuteDone;
 
-    // Start is called before the first frame update
     protected override void Awake()
     {
-        path = PathSigleton.Instance.ChoosePathParachute();
-        pointCount = path.points.Count;
+        path = PathManager.Instance.ChooseWayPointParachute();
+        pointCount = path.WayPoints.Count;
         if (path == null) gameObject.SetActive(false);
         currentState = new ParachuteState();
         matBlock = new MaterialPropertyBlock();
@@ -46,7 +45,7 @@ public class BotParachute : BotController
     public Vector3 GetPos(int index)
     {
         moveIndex = index;
-        return path.points[index].position;
+        return path.WayPoints[index].position;
     }
 
     public class ParachuteState : BotState
