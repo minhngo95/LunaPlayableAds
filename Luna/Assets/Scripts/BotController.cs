@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class BotController : MonoBehaviour
@@ -23,6 +24,7 @@ public class BotController : MonoBehaviour
     protected Path path;
     protected int pointCount;
     protected float shootingDelay;
+    public Action OnBotDead { get; set; }
 
 
     protected virtual void Awake()
@@ -117,7 +119,7 @@ public class BotController : MonoBehaviour
         if (_animator.GetCurrentAnimatorStateInfo(0).IsName("Death") &&
             _animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
         {
-            StepManager.Instance.test++;
+            OnBotDead.Invoke();
             gameObject.SetActive(false);
         }
                 

@@ -7909,14 +7909,6 @@
                 "excluded": false
             },
             {
-                "name": "ClickController",
-                "excluded": true
-            },
-            {
-                "name": "PlayerController",
-                "excluded": true
-            },
-            {
                 "name": "IPoolObject",
                 "excluded": false
             },
@@ -7929,7 +7921,7 @@
                 "excluded": false
             },
             {
-                "name": "Gravity",
+                "name": "BotManager",
                 "excluded": true
             }
         ],
@@ -25803,24 +25795,6 @@
                 ]
             },
             {
-                "className": "PathSigleton",
-                "staticMethods": [],
-                "instanceMethods": [
-                    {
-                        "name": "Awake",
-                        "excluded": false
-                    },
-                    {
-                        "name": "ChoosePathAndRemove",
-                        "excluded": false
-                    },
-                    {
-                        "name": "ChoosePathParachute",
-                        "excluded": false
-                    }
-                ]
-            },
-            {
                 "className": "PlayerView",
                 "staticMethods": [],
                 "instanceMethods": [
@@ -25829,15 +25803,15 @@
                         "excluded": false
                     },
                     {
-                        "name": "Start",
-                        "excluded": false
-                    },
-                    {
                         "name": "SetDefaultView",
                         "excluded": false
                     },
                     {
                         "name": "Update",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Awake",
                         "excluded": false
                     }
                 ]
@@ -25851,10 +25825,6 @@
                         "excluded": false
                     },
                     {
-                        "name": "Start",
-                        "excluded": false
-                    },
-                    {
                         "name": "SpawnBotRoutine",
                         "excluded": false
                     },
@@ -25863,7 +25833,11 @@
                         "excluded": false
                     },
                     {
-                        "name": "Update",
+                        "name": "InitData",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Run",
                         "excluded": false
                     }
                 ]
@@ -26453,6 +26427,94 @@
                     {
                         "name": "Clone",
                         "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "ConfigManager",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "Awake",
+                        "excluded": false
+                    },
+                    {
+                        "name": "GetStepData",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "PathManager",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "Awake",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ChoseWayPointNormal",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ChooseWayPointParachute",
+                        "excluded": false
+                    },
+                    {
+                        "name": "GetWayPoint",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ResetPath",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Reset",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "StepData",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "GetTotalBot",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "StepManager",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Awake",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnEnable",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Update",
+                        "excluded": false
+                    },
+                    {
+                        "name": "CheckStepDone",
+                        "excluded": false
+                    },
+                    {
+                        "name": "SetData",
+                        "excluded": false
+                    },
+                    {
+                        "name": "StepStart",
+                        "excluded": false
                     }
                 ]
             }

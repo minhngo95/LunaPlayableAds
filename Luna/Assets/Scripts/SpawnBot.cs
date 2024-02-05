@@ -15,18 +15,13 @@ public class SpawnBot : MonoBehaviour
     {
         StartCoroutine(SpawnBotRoutine());
     }
-
     private IEnumerator SpawnBotRoutine()
     {
         for (var i = 0; i < _upper; i++)
         {
-            SpawnBotInstance();
+            BotManager.Instance.SpawnBotInstance(_botPrefab);
             yield return new WaitForSeconds(_spawnInterval);
         }
     }
-    private void SpawnBotInstance()
-    {
-        var gameObject = Instantiate(_botPrefab, Vector3.zero, Quaternion.identity);
-        gameObject.SetActive(true);
-    }
+   
 }

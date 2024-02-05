@@ -17,18 +17,17 @@ public class StepManager : MonoBehaviour
       Instance = this;
    }
 
-   private void OnEnable()
-   {
-      SetData();
-      StepStart();
-   }
+   // private void OnEnable()
+   // {
+   //    SetData();
+   //    StepStart();
+   // }
 
    private void Update()
    {
       if (CheckStepDone())
       {
-         test = 0;
-         Debug.LogError("Step"+Step+"done");
+         BotManager.Instance.TotalBot= ConfigManager.Instance.GetStepData(Step).GetTotalBot();
          PathManager.Instance.ResetPath();
          SetData();
          StepStart();
@@ -36,8 +35,7 @@ public class StepManager : MonoBehaviour
    }
    public bool CheckStepDone()
    {
-      //return BotManager.I== ;
-      return false;
+      return BotManager.Instance.TotalBot<=0 ;
    }
    public void SetData()
    {

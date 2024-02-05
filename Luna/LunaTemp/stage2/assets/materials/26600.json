@@ -1,1 +1,1 @@
-{"id":26600,"path":"Assets/Merterial/M_TP_Taliban.mat","assetBundleId":-1,"data":["M_TP_Taliban",0,418,2000,0,[["_EnableShadow",1],["_ShadowRota",0],["_ShadowHeight",0]],[["_ShadowColor",0,0,0,0.137254908680916]],[["_MainTex_ST",1,1,0,0],["_LightDirection",0.150000005960464,0.769999980926514,0.300000011920929,0.300000011920929]],[["_MainTex",1,27394]],[["_ENABLESHADOW_ON",1]]]}
+{"id":26600,"path":"Assets/Merterial/M_skybox_P01.mat","assetBundleId":-1,"data":["M_skybox_P01",0,406,2000,0,[],[["_Color",1,1,1,1]],[["_MainTex_ST",1,1,0,0]],[["_MainTex",1,27264]],[]]}
