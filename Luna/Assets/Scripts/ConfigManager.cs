@@ -14,6 +14,10 @@ public class ConfigManager : MonoBehaviour
     {
         return _stepDatas[step];
     }
+    public int GetStepCount()
+    {
+        return _stepDatas.Length;
+    }
 }
 [System.Serializable]
 public class StepData

@@ -31,11 +31,12 @@ public class StepManager : MonoBehaviour
          PathManager.Instance.ResetPath();
          SetData();
          StepStart();
+         Step++;
       }
    }
    public bool CheckStepDone()
    {
-      return BotManager.Instance.TotalBot<=0 ;
+      return BotManager.Instance.TotalBot<=0&&Step<ConfigManager.Instance.GetStepCount();
    }
    public void SetData()
    {
