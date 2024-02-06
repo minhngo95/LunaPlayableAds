@@ -9,8 +9,6 @@ AnimatorOverrideController:
   m_Name: ParachuteAnimator
   m_Controller: {fileID: 9100000, guid: 821e1d0c1facd20448cd9ee9e8075193, type: 2}
   m_Clips:
-  - m_OriginalClip: {fileID: 7400000, guid: e300e287ac453a6428950c78fb0bea5d, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: bad71f2445148af4788af8d689bd886e, type: 2}
   - m_OriginalClip: {fileID: 7400000, guid: e05c51a262a2dbf4a82bb6b70ce1f1bc, type: 2}
     m_OverrideClip: {fileID: 7400000, guid: bfef9cc26c92b3348b11222c7725ea54, type: 2}
   - m_OriginalClip: {fileID: 7400000, guid: 790518730bfbf8c44ab8e7318edce46f, type: 2}

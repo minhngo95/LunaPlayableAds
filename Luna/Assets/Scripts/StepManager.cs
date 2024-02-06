@@ -27,12 +27,23 @@ public class StepManager : MonoBehaviour
    {
       if (CheckStepDone())
       {
+         
          BotManager.Instance.TotalBot= ConfigManager.Instance.GetStepData(Step).GetTotalBot();
          PathManager.Instance.ResetPath();
-         SetData();
-         StepStart();
-         Step++;
+         StartCoroutine(StepDelay());
+
       }
+   }
+
+   IEnumerator StepDelay()
+   {
+       UIManager.Instance.UpdateStepText(Step);
+       UIManager.Instance.SetEnableStepText(true);
+       yield return new WaitForSeconds(2);
+       UIManager.Instance.SetEnableStepText(false);
+       SetData();
+       StepStart();
+       Step++;
    }
    public bool CheckStepDone()
    {

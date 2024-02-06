@@ -3,8 +3,8 @@ using UnityEngine;
 public class BotParachute : BotController
 {
     public bool isMove;
-
     public bool parachuteDone;
+    public bool OnLand { get; set; }
 
     protected override void Awake()
     {
@@ -17,15 +17,50 @@ public class BotParachute : BotController
         healthBarRenderer.GetPropertyBlock(matBlock);
         currentHealth = maxHealth;
         _animator.Play("ParachuteIdle");
+        _audioSource.clip=AudioManager.Instance.GetAudioCallTeamClip();
+        _audioSource.Play();
     }
 
     protected override void ChangeState()
     {
-        base.ChangeState();
-        if (currentState is ParachuteState)
+        if (currentState is MoveState)
+        {
+            if (isTakeDame)
+                currentState = new TakeDameState();
+            else if (isDie)
+                currentState = new DieState();
+            else if (isMoveDone) currentState = new ShootState();
+        }
+
+        if (currentState is ShootState)
         {
             if (isDie) currentState = new DieState();
+            if (isTakeDame) currentState = new TakeDameState();
+        }
+
+        if (currentState is TakeDameState && !isTakeDame)
+        {
+            if (isDie)
+                currentState = new DieState();
+            else if (isMoveDone)
+                currentState = new ShootState();
+            else if (isMove)
+                currentState = new MoveState();
+            else
+                currentState = new ParachuteState();
+        }
+
+        if (currentState is ParachuteState)
+        {
+            if (isDie)
+            {
+                currentState = new DieState();
+            }
             if (isMove) currentState = new MoveState();
+            if (isTakeDame)
+            {
+                currentState = new TakeDameState();
+            }
         }
     }
 
@@ -35,7 +70,6 @@ public class BotParachute : BotController
         if (_animator.GetCurrentAnimatorStateInfo(0).IsName("Parachute_Land") &&
             _animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
         {
-            transform.SetParent(null);
             moveIndex++;
             isMove = true;
             _animator.SetBool("isMove", true);
@@ -46,6 +80,46 @@ public class BotParachute : BotController
     {
         moveIndex = index;
         return path.WayPoints[index].position;
+    }
+
+    protected override void TakeDameAction()
+    {
+        base.TakeDameAction();
+        if (OnLand)
+        {
+            _animator.SetBool("isHit", false);
+            isTakeDame = false;
+        }
+        else
+        {
+            if (_animator.GetCurrentAnimatorStateInfo(0).IsName("ParachuteHit") &&
+                _animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
+            {
+                OnLand = true;
+            }
+        }
+    }
+
+    protected override void DieAction()
+    {
+        base.DieAction();
+        if (OnLand)
+        {
+            _animator.SetBool("isOnLand", true);
+            if (_animator.GetCurrentAnimatorStateInfo(0).IsName("ParachuteOnLand"))
+                if (_animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
+                {
+                    OnBotDead.Invoke();
+                    gameObject.SetActive(false);
+                }
+        }
+        else
+        {
+            if (_animator.GetCurrentAnimatorStateInfo(0).IsName("ParachuteDead"))
+                if (_animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
+                    OnLand = parachuteDone;
+        }
+
     }
 
     public class ParachuteState : BotState

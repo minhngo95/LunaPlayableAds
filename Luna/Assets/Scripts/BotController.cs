@@ -1,12 +1,14 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
+using Random = UnityEngine.Random;
 
 public class BotController : MonoBehaviour
 {
     public Animator _animator;
     public GameObject _muzzle;
     public GameObject bullet;
-    public Transform target;
+    public Vector3 target;
     public int moveIndex;
     public bool isMoveDone;
     public bool isDie;
@@ -25,7 +27,10 @@ public class BotController : MonoBehaviour
     protected int pointCount;
     protected float shootingDelay;
     public Action OnBotDead { get; set; }
-
+    [SerializeField] protected AudioSource _audioSource;
+    [SerializeField] protected AudioSource _callTeamAudioSource;
+    [SerializeField] protected AudioSource _hitAudioSource;
+    
 
     protected virtual void Awake()
     {
@@ -39,6 +44,9 @@ public class BotController : MonoBehaviour
         healthBarRenderer.enabled = false;
         healthBarRenderer.GetPropertyBlock(matBlock);
         currentHealth = maxHealth;
+        _audioSource.clip=AudioManager.Instance.GetAudioCallTeamClip();
+        _audioSource.Play();
+        
     }
 
     protected void Update()
@@ -81,8 +89,13 @@ public class BotController : MonoBehaviour
         }
     }
 
-    public void TakeDameAction()
+    protected virtual void TakeDameAction()
     {
+        if (!_hitAudioSource.isPlaying)
+        {
+            _hitAudioSource.clip = AudioManager.Instance.GetAudioHitClip();
+            _hitAudioSource.Play();
+        }
         _animator.SetBool("isHit", true);
         if (_animator.GetCurrentAnimatorStateInfo(0).IsName("Hit") &&
             _animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
@@ -111,7 +124,7 @@ public class BotController : MonoBehaviour
         _muzzle.SetActive(false);
     }
 
-    public void DieAction()
+    protected virtual void DieAction()
     {
         _muzzle.SetActive(false);
         healthBarRenderer.enabled = false;
@@ -125,34 +138,50 @@ public class BotController : MonoBehaviour
                 
     }
 
-    protected void MoveAction()
+    protected virtual void MoveAction()
     {
         MoveToPoint(path.WayPoints[moveIndex]);
     }
 
-
+    private float time = 0;
     protected void ShootAction()
     {
          _animator.SetBool("isMoveDone", true);
         if (_animator.GetCurrentAnimatorStateInfo(0).IsName("Shoot") &&
             _animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1.0f)
         {
+            time += Time.deltaTime;
+            if (time > Random.Range(5,10))
+            {
+                time = 0;
+                if (!_callTeamAudioSource.isPlaying)
+                {
+                    _callTeamAudioSource.clip=AudioManager.Instance.GetAudioCallTeamOnFireClip();
+                    _callTeamAudioSource.Play();
+                }
+            }
+            
             _muzzle.SetActive(false);
             if (shootingDelay > 0)
             {
                 shootingDelay -= Time.deltaTime;
+                
             }
             else
             {
-                 _muzzle.SetActive(true);
-                // Vector3 targetDirection = target.position - _muzzle.transform.position;
-                //_muzzle.transform.forward = target.position - _muzzle.transform.position;
-                //transform.rotation = Quaternion.LookRotation(target.position - _muzzle.transform.position);
-                // var bullet = ObjectPool.Instance.PopFromPool(this.bullet, instantiateIfNone: true);
-                // bullet.transform.SetPositionAndRotation(_muzzle.transform.position, _muzzle.transform.rotation);
-                // bullet.GetComponent<BulletTrail>().Init(_muzzle.transform.forward);
-                // bullet.SetActive(true);
-                shootingDelay = 3f;
+                _audioSource.clip=AudioManager.Instance.GetAudioAttackClip();
+                _audioSource.Play();
+                _muzzle.SetActive(true);
+                transform.LookAt(target);
+                Vector3 targetDir = (target - transform.position).normalized;
+                _muzzle.transform.rotation = Quaternion.LookRotation(targetDir);
+                transform.rotation = Quaternion.LookRotation(targetDir);
+
+                GameObject bullet = ObjectPool.Instance.PopFromPool(this.bullet, instantiateIfNone: true);
+                bullet.transform.SetPositionAndRotation(_muzzle.transform.position, _muzzle.transform.rotation);
+                bullet.GetComponent<BulletTrail>().Init(targetDir);
+                bullet.SetActive(true);
+                shootingDelay =Random.Range(1f, 3f);
             }
         }
     }

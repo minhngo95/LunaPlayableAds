@@ -14,7 +14,12 @@ public class ParachuteController : MonoBehaviour
     [SerializeField] private float _distanceOpenParachute=10f;
     [SerializeField] private float _distanceCloseParachute=2f;
     private float t;
-    private bool IsGrounded { get; set; }
+    public bool IsGrounded { get; set; }
+    public float Gravity 
+    { 
+        get => gravity; 
+        set => gravity = value; 
+    }
 
     private void Start()
     {
@@ -31,6 +36,11 @@ public class ParachuteController : MonoBehaviour
             ApplyForces(distanceToGround);
             transform.Translate(velocity * Time.deltaTime);
             ParachuteAction(distanceToGround);
+
+        }
+        if((_botController as BotParachute).currentState is BotController.DieState)
+        {
+            gravity = 100f;
         }
 
     }
@@ -47,7 +57,7 @@ public class ParachuteController : MonoBehaviour
         velocity += acceleration * Time.deltaTime;
     }
 
-    private float CheckGround()
+    public float CheckGround()
     {
         RaycastHit hit;
         if (Physics.Raycast(transform.position, Vector3.down, out hit, groundCheckDistance, groundLayer))
@@ -57,6 +67,7 @@ public class ParachuteController : MonoBehaviour
                 IsGrounded = true;
                 velocity = Vector3.zero;
                 transform.position = hit.point;
+                ParachuteScale.gameObject.SetActive(false);
             }
 
             return hit.distance;
@@ -77,6 +88,7 @@ public class ParachuteController : MonoBehaviour
 
         if (distanceToGround < _distanceCloseParachute)
         {
+            (_botController as BotParachute).OnLand=true;
             scaleAmount = Mathf.Lerp(scaleAmount, 0, t);
             ParachuteScale.localScale = new Vector3(scaleAmount, scaleAmount, 1);
         }

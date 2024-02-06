@@ -18,10 +18,10 @@ public class BotManager : MonoBehaviour
     {
         totalBot--;
     }
-
+    
     public void SpawnBotInstance(GameObject gameObject)
     {
-        var bot = Instantiate(gameObject, Vector3.zero, Quaternion.identity);
+        var bot = Instantiate(gameObject);
         var botControllers = bot.GetComponentsInChildren<BotController>(true);
         bot.SetActive(true);
         foreach (BotController botController in botControllers)
