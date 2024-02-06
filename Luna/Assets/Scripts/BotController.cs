@@ -173,7 +173,7 @@ public class BotController : MonoBehaviour
                 _audioSource.Play();
                 _muzzle.SetActive(true);
                 transform.LookAt(target);
-                Vector3 targetDir = (target - transform.position).normalized;
+                Vector3 targetDir = (target - _muzzle.transform.position).normalized;
                 _muzzle.transform.rotation = Quaternion.LookRotation(targetDir);
                 transform.rotation = Quaternion.LookRotation(targetDir);
 
