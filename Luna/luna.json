@@ -2771,7 +2771,7 @@
             },
             {
                 "name": "Luna.Unity.DTO.UnityEngine.Assets.RenderSettings.Lightmap",
-                "excluded": false
+                "excluded": true
             },
             {
                 "name": "Luna.Unity.DTO.UnityEngine.Assets.RenderSettings.LightProbes",
@@ -2907,7 +2907,7 @@
             },
             {
                 "name": "LunaUnity.Objects.Registry.ItemNotFoundException",
-                "excluded": false
+                "excluded": true
             },
             {
                 "name": "LunaUnity.Utils.Timer",
@@ -3203,7 +3203,7 @@
             },
             {
                 "name": "UnityEngine.AnimationClipPair",
-                "excluded": false
+                "excluded": true
             },
             {
                 "name": "UnityEngine.AnimationCullingType",
@@ -3667,11 +3667,11 @@
             },
             {
                 "name": "UnityEngine.FogMode",
-                "excluded": false
+                "excluded": true
             },
             {
                 "name": "UnityEngine.FontStyle",
-                "excluded": true
+                "excluded": false
             },
             {
                 "name": "UnityEngine.ForceMode",
@@ -3719,7 +3719,7 @@
             },
             {
                 "name": "UnityEngine.HideFlags",
-                "excluded": false
+                "excluded": true
             },
             {
                 "name": "UnityEngine.HideInInspector",
@@ -3727,7 +3727,7 @@
             },
             {
                 "name": "UnityEngine.HorizontalWrapMode",
-                "excluded": true
+                "excluded": false
             },
             {
                 "name": "UnityEngine.HumanBodyBones",
@@ -3927,7 +3927,7 @@
             },
             {
                 "name": "UnityEngine.MeshTopology",
-                "excluded": false
+                "excluded": true
             },
             {
                 "name": "UnityEngine.MixedLightingMode",
@@ -4959,7 +4959,7 @@
             },
             {
                 "name": "UnityEngine.TextAnchor",
-                "excluded": true
+                "excluded": false
             },
             {
                 "name": "UnityEngine.TextClipping",
@@ -5151,7 +5151,7 @@
             },
             {
                 "name": "UnityEngine.TouchPhase",
-                "excluded": false
+                "excluded": true
             },
             {
                 "name": "UnityEngine.TouchScreenKeyboardType",
@@ -5159,7 +5159,7 @@
             },
             {
                 "name": "UnityEngine.TouchType",
-                "excluded": false
+                "excluded": true
             },
             {
                 "name": "UnityEngine.TransitionType",
@@ -5495,7 +5495,7 @@
             },
             {
                 "name": "UnityEngine.VerticalWrapMode",
-                "excluded": true
+                "excluded": false
             },
             {
                 "name": "UnityEngine.VFX.VFXCameraBufferTypes",
@@ -6091,10 +6091,6 @@
             },
             {
                 "name": "UnityEngine.UI.Dropdown.OptionDataList",
-                "excluded": true
-            },
-            {
-                "name": "UnityEngine.UI.FontData",
                 "excluded": true
             },
             {
@@ -7827,15 +7823,15 @@
                     },
                     {
                         "name": "isWhiteSpace",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "isDigit",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "isLetter",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "isHighSurrogate",
@@ -7859,7 +7855,7 @@
                     },
                     {
                         "name": "isSeparator",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "isPunctuation",
@@ -9905,7 +9901,7 @@
                     },
                     {
                         "name": "First#get",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "Last#get",
@@ -10143,7 +10139,7 @@
                 "instanceMethods": [
                     {
                         "name": "getDefaultValue",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "init",
@@ -10371,11 +10367,11 @@
                     },
                     {
                         "name": "ctor",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "GetEnumerator",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "System$Collections$Generic$IEnumerable$1$GetEnumerator",
@@ -11295,11 +11291,11 @@
                     },
                     {
                         "name": "add",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "clear",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "ArrayClear",
@@ -11307,7 +11303,7 @@
                     },
                     {
                         "name": "contains",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "copyTo",
@@ -11323,7 +11319,7 @@
                     },
                     {
                         "name": "remove",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "GetEnumerator",
@@ -11387,7 +11383,7 @@
                     },
                     {
                         "name": "Initialize",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "IncreaseCapacity",
@@ -11399,7 +11395,7 @@
                     },
                     {
                         "name": "AddIfNotPresent",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "ContainsAllElements",
@@ -11443,7 +11439,7 @@
                     },
                     {
                         "name": "InternalGetHashCode",
-                        "excluded": false
+                        "excluded": true
                     }
                 ]
             },
@@ -11537,11 +11533,11 @@
                     },
                     {
                         "name": "init",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "ctor",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "getHashCode",
@@ -11685,7 +11681,7 @@
                     },
                     {
                         "name": "Peek",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "Contains",
@@ -12087,7 +12083,7 @@
                     },
                     {
                         "name": "Count#get",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "System$Collections$ICollection$IsSynchronized#get",
@@ -12115,11 +12111,11 @@
                     },
                     {
                         "name": "ctor",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "getItem",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "System$Collections$Generic$IList$1$getItem",
@@ -14253,7 +14249,7 @@
                     },
                     {
                         "name": "NextPowerOfTwo",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "ClosestPowerOfTwo",
@@ -14473,7 +14469,7 @@
                     },
                     {
                         "name": "height#get",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "height#set",
@@ -14513,7 +14509,7 @@
                     },
                     {
                         "name": "size#get",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "size#set",
@@ -14525,7 +14521,7 @@
                     },
                     {
                         "name": "width#get",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "width#set",
@@ -14541,7 +14537,7 @@
                     },
                     {
                         "name": "xMax#get",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "xMax#set",
@@ -14565,7 +14561,7 @@
                     },
                     {
                         "name": "yMax#get",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "yMax#set",
@@ -14637,7 +14633,7 @@
                     },
                     {
                         "name": "$clone",
-                        "excluded": false
+                        "excluded": true
                     }
                 ]
             },
@@ -14691,11 +14687,11 @@
                     },
                     {
                         "name": "LoadScene$2",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "LoadScene$3",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "LoadScene",
@@ -14743,7 +14739,7 @@
                     },
                     {
                         "name": "UnloadSceneInternal",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "UnloadSceneAsync",
@@ -14839,7 +14835,7 @@
                     },
                     {
                         "name": "width#get",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "width#set",
@@ -14847,7 +14843,7 @@
                     },
                     {
                         "name": "height#get",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "height#set",
@@ -14855,7 +14851,7 @@
                     },
                     {
                         "name": "horizontalBearingX#get",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "horizontalBearingX#set",
@@ -14863,7 +14859,7 @@
                     },
                     {
                         "name": "horizontalBearingY#get",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "horizontalBearingY#set",
@@ -14871,7 +14867,7 @@
                     },
                     {
                         "name": "horizontalAdvance#get",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "horizontalAdvance#set",
@@ -14879,11 +14875,11 @@
                     },
                     {
                         "name": "$ctor1",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "ctor",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "getHashCode",
@@ -14899,7 +14895,7 @@
                     },
                     {
                         "name": "$clone",
-                        "excluded": false
+                        "excluded": true
                     }
                 ]
             },
@@ -14913,7 +14909,7 @@
                     },
                     {
                         "name": "zero#get",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "init",
@@ -14929,11 +14925,11 @@
                     },
                     {
                         "name": "getDefaultValue",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "x#get",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "x#set",
@@ -14941,7 +14937,7 @@
                     },
                     {
                         "name": "y#get",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "y#set",
@@ -14949,7 +14945,7 @@
                     },
                     {
                         "name": "width#get",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "width#set",
@@ -14957,7 +14953,7 @@
                     },
                     {
                         "name": "height#get",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "height#set",
@@ -14989,7 +14985,7 @@
                     },
                     {
                         "name": "$clone",
-                        "excluded": false
+                        "excluded": true
                     }
                 ]
             },
@@ -15727,7 +15723,7 @@
                     },
                     {
                         "name": "lossyScale#get",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "localEulerAngles#get",
@@ -15767,7 +15763,7 @@
                     },
                     {
                         "name": "forward#set",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "right#get",
@@ -15935,7 +15931,7 @@
                     },
                     {
                         "name": "LookAt",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "LookAt$2",
@@ -16757,7 +16753,7 @@
                     },
                     {
                         "name": "pivot#get",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "pivot#set",
@@ -16781,11 +16777,11 @@
                     },
                     {
                         "name": "rect#get",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "cachedRect#get",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "anchoredPosition3D#get",
@@ -16813,7 +16809,7 @@
                     },
                     {
                         "name": "GetLocalCorners",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "SetInsetAndSizeFromParentEdge",
@@ -17653,7 +17649,7 @@
                     },
                     {
                         "name": "OnDisable",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "OnCanvasChanged",
@@ -17723,7 +17719,7 @@
                     },
                     {
                         "name": "OnDisable",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "OnTransformParentChanged",
@@ -18033,7 +18029,7 @@
                 "instanceMethods": [
                     {
                         "name": "material#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "material#set",
@@ -18041,7 +18037,7 @@
                     },
                     {
                         "name": "fontData#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "fontData#set",
@@ -18049,7 +18045,7 @@
                     },
                     {
                         "name": "mainTexture#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "alignment#get",
@@ -18065,7 +18061,7 @@
                     },
                     {
                         "name": "text#set",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "font#get",
@@ -18181,7 +18177,7 @@
                     },
                     {
                         "name": "init",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "$ctor1",
@@ -18189,27 +18185,27 @@
                     },
                     {
                         "name": "ctor",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "ConfigureForEntity",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "Awake",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "OnEnable",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "OnDisable",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "ApplyFontDataChanges",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "CalculateLayoutInputHorizontal",
@@ -18581,19 +18577,19 @@
                     },
                     {
                         "name": "Load",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "Load$2",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "UpdateUnityObject",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "LoadObjectFromResources",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "LoadComponent",
@@ -18645,7 +18641,7 @@
                     },
                     {
                         "name": "NormalizeResourcePath",
-                        "excluded": false
+                        "excluded": true
                     }
                 ]
             },
@@ -18735,7 +18731,7 @@
                     },
                     {
                         "name": "shaderKeywords#get",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "shaderKeywords#set",
@@ -18759,27 +18755,27 @@
                     },
                     {
                         "name": "HasProperty$1",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "HasProperty",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "GetFloat$1",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "GetFloat",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "SetFloat$1",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "SetFloat",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "GetInt$1",
@@ -18851,7 +18847,7 @@
                     },
                     {
                         "name": "GetTexture",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "SetTexture$1",
@@ -19009,7 +19005,7 @@
                     },
                     {
                         "name": "IDToProperty",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "IsKeywordEnabled",
@@ -19171,7 +19167,7 @@
                     },
                     {
                         "name": "scaleFactor#get",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "scaleFactor#set",
@@ -19223,7 +19219,7 @@
                     },
                     {
                         "name": "worldCamera#get",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "worldCamera#set",
@@ -19271,11 +19267,11 @@
                     },
                     {
                         "name": "additionalShaderChannels#get",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "additionalShaderChannels#set",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "targetDisplay#get",
@@ -19303,11 +19299,11 @@
                     },
                     {
                         "name": "OnDisable",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "OnDestroy",
-                        "excluded": false
+                        "excluded": true
                     }
                 ]
             },
@@ -20717,7 +20713,7 @@
                     },
                     {
                         "name": "sun#get",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "sun#set",
@@ -20993,7 +20989,7 @@
                     },
                     {
                         "name": "ConstructColor",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "Lerp",
@@ -21009,7 +21005,7 @@
                     },
                     {
                         "name": "op_Implicit$1",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "op_Multiply",
@@ -21037,7 +21033,7 @@
                     },
                     {
                         "name": "Set",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "Set32",
@@ -21045,11 +21041,11 @@
                     },
                     {
                         "name": "Copy",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "MultiplyByColor",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "MultiplyByColor32",
@@ -21065,7 +21061,7 @@
                     },
                     {
                         "name": "$clone",
-                        "excluded": false
+                        "excluded": true
                     }
                 ]
             },
@@ -21091,15 +21087,15 @@
                     },
                     {
                         "name": "ctor",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "CallAwake",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "CallOnEnable",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "CallOnDisable",
@@ -21611,7 +21607,7 @@
                     },
                     {
                         "name": "SphereCast$1",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "SphereCastAll$1",
@@ -21905,7 +21901,7 @@
                     },
                     {
                         "name": "RemoveRaycasters",
-                        "excluded": false
+                        "excluded": true
                     }
                 ]
             },
@@ -21935,7 +21931,7 @@
                     },
                     {
                         "name": "SetFrom",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "getHashCode",
@@ -22085,7 +22081,7 @@
                     },
                     {
                         "name": "OnDisable",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "OnCanvasHierarchyChanged",
@@ -22365,7 +22361,7 @@
                     },
                     {
                         "name": "SendNotification",
-                        "excluded": false
+                        "excluded": true
                     }
                 ]
             },
@@ -22753,7 +22749,7 @@
                     },
                     {
                         "name": "runtimeAnimatorController#set",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "hasBoundPlayables#get",
@@ -24119,7 +24115,7 @@
                     },
                     {
                         "name": "cullTransparentMesh#get",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "cullTransparentMesh#set",
@@ -24139,7 +24135,7 @@
                     },
                     {
                         "name": "GetColor",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "SetColor",
@@ -24151,7 +24147,7 @@
                     },
                     {
                         "name": "Clear",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "SetTexture",
@@ -24175,7 +24171,7 @@
                     },
                     {
                         "name": "SetMesh",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "GetMesh",
@@ -25743,7 +25739,7 @@
                 "instanceMethods": [
                     {
                         "name": "ctor",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "$ctor1",
@@ -25833,7 +25829,7 @@
                     },
                     {
                         "name": "Gravity#set",
-                        "excluded": false
+                        "excluded": true
                     }
                 ]
             },
@@ -25895,7 +25891,7 @@
                     },
                     {
                         "name": "vertices#set",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "uv#get",
@@ -25903,7 +25899,7 @@
                     },
                     {
                         "name": "uv#set",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "uv2#get",
@@ -25911,7 +25907,7 @@
                     },
                     {
                         "name": "uv2#set",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "uv3#get",
@@ -25935,7 +25931,7 @@
                     },
                     {
                         "name": "normals#set",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "tangents#get",
@@ -25943,7 +25939,7 @@
                     },
                     {
                         "name": "tangents#set",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "colors#get",
@@ -25959,7 +25955,7 @@
                     },
                     {
                         "name": "colors32#set",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "bindposes#get",
@@ -25983,7 +25979,7 @@
                     },
                     {
                         "name": "bounds#set",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "triangles#get",
@@ -25991,7 +25987,7 @@
                     },
                     {
                         "name": "triangles#set",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "vertexCount#get",
@@ -26027,7 +26023,7 @@
                     },
                     {
                         "name": "ctor",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "GetSubMesh",
@@ -26035,7 +26031,7 @@
                     },
                     {
                         "name": "MarkDynamic",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "UploadMeshData",
@@ -26043,7 +26039,7 @@
                     },
                     {
                         "name": "Clear",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "Clear$1",
@@ -26051,7 +26047,7 @@
                     },
                     {
                         "name": "RecalculateBounds",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "RecalculateNormals",
@@ -26063,7 +26059,7 @@
                     },
                     {
                         "name": "ConvertUVChannelToSemantics",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "GetUVs",
@@ -26079,7 +26075,7 @@
                     },
                     {
                         "name": "SetUVs",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "SetUVs$1",
@@ -26103,7 +26099,7 @@
                     },
                     {
                         "name": "SetVertices",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "GetVertices",
@@ -26115,11 +26111,11 @@
                     },
                     {
                         "name": "SetNormals",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "SetTangents",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "GetTangents",
@@ -26135,7 +26131,7 @@
                     },
                     {
                         "name": "SetColors$1",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "SetColors",
@@ -26163,11 +26159,11 @@
                     },
                     {
                         "name": "SetIndices$2",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "SetTriangles$3",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "SetTriangles$2",
@@ -26175,11 +26171,11 @@
                     },
                     {
                         "name": "SetTriangles$1",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "SetTriangles",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "SetTriangles$4",
@@ -26219,7 +26215,7 @@
                     },
                     {
                         "name": "ConvertArrayToListInPlace",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "Clone",
@@ -26329,11 +26325,11 @@
                     },
                     {
                         "name": "parameters#get",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "parameters#set",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "states#get",
@@ -26345,11 +26341,11 @@
                     },
                     {
                         "name": "layers#get",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "layers#set",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "overridesCount#get",
@@ -26361,7 +26357,7 @@
                     },
                     {
                         "name": "runtimeAnimatorController#set",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "clips#get",
@@ -26377,11 +26373,11 @@
                     },
                     {
                         "name": "animationClips#set",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "$ctor1",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "getItem",
@@ -26413,11 +26409,11 @@
                     },
                     {
                         "name": "GetState$1",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "GetMotion",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "GetClip",
@@ -26441,15 +26437,15 @@
                     },
                     {
                         "name": "GetOverrideClip",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "GetEffectiveController",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "SyncWithEffectiveController",
-                        "excluded": false
+                        "excluded": true
                     }
                 ]
             },
@@ -26597,7 +26593,7 @@
                     },
                     {
                         "name": "pointSize#get",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "pointSize#set",
@@ -26605,7 +26601,7 @@
                     },
                     {
                         "name": "scale#get",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "scale#set",
@@ -26613,7 +26609,7 @@
                     },
                     {
                         "name": "lineHeight#get",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "lineHeight#set",
@@ -26621,7 +26617,7 @@
                     },
                     {
                         "name": "ascentLine#get",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "ascentLine#set",
@@ -26629,7 +26625,7 @@
                     },
                     {
                         "name": "capLine#get",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "capLine#set",
@@ -26637,7 +26633,7 @@
                     },
                     {
                         "name": "meanLine#get",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "meanLine#set",
@@ -26645,7 +26641,7 @@
                     },
                     {
                         "name": "baseline#get",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "baseline#set",
@@ -26653,7 +26649,7 @@
                     },
                     {
                         "name": "descentLine#get",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "descentLine#set",
@@ -26709,7 +26705,7 @@
                     },
                     {
                         "name": "strikethroughOffset#get",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "strikethroughOffset#set",
@@ -26737,7 +26733,7 @@
                     },
                     {
                         "name": "ctor",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "Compare",
@@ -26753,7 +26749,7 @@
                     },
                     {
                         "name": "$clone",
-                        "excluded": false
+                        "excluded": true
                     }
                 ]
             },
@@ -26763,7 +26759,7 @@
                 "instanceMethods": [
                     {
                         "name": "index#get",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "index#set",
@@ -26771,7 +26767,7 @@
                     },
                     {
                         "name": "metrics#get",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "metrics#set",
@@ -26779,7 +26775,7 @@
                     },
                     {
                         "name": "glyphRect#get",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "glyphRect#set",
@@ -26787,7 +26783,7 @@
                     },
                     {
                         "name": "scale#get",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "scale#set",
@@ -26795,7 +26791,7 @@
                     },
                     {
                         "name": "atlasIndex#get",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "atlasIndex#set",
@@ -26803,11 +26799,11 @@
                     },
                     {
                         "name": "init",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "ctor",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "$ctor3",
@@ -26823,7 +26819,7 @@
                     },
                     {
                         "name": "$ctor2",
-                        "excluded": false
+                        "excluded": true
                     },
                     {
                         "name": "Compare",
@@ -29467,7 +29463,113 @@
                     },
                     {
                         "name": "GetAudioCallTeamOnFireClip",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "UnityEngine.UI.FontData",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "defaultFontData#get",
                         "excluded": false
+                    },
+                    {
+                        "name": "font#get",
+                        "excluded": false
+                    },
+                    {
+                        "name": "font#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "fontSize#get",
+                        "excluded": false
+                    },
+                    {
+                        "name": "fontSize#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "fontStyle#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "fontStyle#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "bestFit#get",
+                        "excluded": false
+                    },
+                    {
+                        "name": "bestFit#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "minSize#get",
+                        "excluded": false
+                    },
+                    {
+                        "name": "minSize#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "maxSize#get",
+                        "excluded": false
+                    },
+                    {
+                        "name": "maxSize#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "alignment#get",
+                        "excluded": false
+                    },
+                    {
+                        "name": "alignment#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "alignByGeometry#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "alignByGeometry#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "richText#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "richText#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "horizontalOverflow#get",
+                        "excluded": false
+                    },
+                    {
+                        "name": "horizontalOverflow#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "verticalOverflow#get",
+                        "excluded": false
+                    },
+                    {
+                        "name": "verticalOverflow#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "lineSpacing#get",
+                        "excluded": false
+                    },
+                    {
+                        "name": "lineSpacing#set",
+                        "excluded": true
                     }
                 ]
             }
@@ -29539,7 +29641,18 @@
                     "script": "",
                     "ext": ""
                 },
-                "overrides": []
+                "overrides": [
+                    {
+                        "channels": 1,
+                        "startTime": "00:00.000",
+                        "endTime": "00:30.000",
+                        "lengthInSeconds": 30.0,
+                        "bitrate": 128,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/Sound/Background_BH1.ogg"
+                    }
+                ]
             },
             "font": {
                 "default": {

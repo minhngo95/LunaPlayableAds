@@ -10,8 +10,6 @@ public class StepManager : MonoBehaviour
    public static StepManager Instance;
    public int test=0;
    public int Step  { get; set; }
-
-
    private void Awake()
    {
       Instance = this;
