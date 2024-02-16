@@ -11,7 +11,6 @@
         "environmentID": 1144182322,
         "scripts": {
             "excludes": [
-                "Assets/AnimationBaker/",
                 "Assets/AnimationBaker/Core/",
                 "Assets/AnimationBaker/Core/AnimationBaker.cs",
                 "Assets/AnimationBaker/Core/BINS.cs",
@@ -118,13 +117,13 @@
             ]
         },
         "scenes": [
+            "Assets/EndScene.unity",
             "Assets/Scenes/SampleScene.unity"
         ],
         "disabledScenes": [
-            "Assets/Scenes/LunaAds.unity",
-            "Assets/Scenes/New Scene.unity"
+            "Assets/Scenes/LunaAds.unity"
         ],
-        "startupScene": 0,
+        "startupScene": 1,
         "packages": {
             "default": {
                 "applicationName": "",
@@ -158,10 +157,10 @@
         "enableMecanimWASM": true,
         "minify": true,
         "forceUncompressed": false,
-        "forceBase64": false,
+        "forceBase64": true,
         "genericCheck": true,
         "disableAntiAliasing": true,
-        "preferWebGl2": false,
+        "preferWebGl2": true,
         "forceStableRandomSeed": false,
         "unusedModules": [
             {
@@ -6818,10 +6817,6 @@
                 "excluded": false
             },
             {
-                "name": "IAmAnEmptyScriptJustToMakeCodelessProjectsCompileProperty",
-                "excluded": true
-            },
-            {
                 "name": "System.IComparable",
                 "excluded": false
             },
@@ -7694,12 +7689,16 @@
                 "excluded": false
             },
             {
+                "name": "BotState",
+                "excluded": false
+            },
+            {
                 "name": "IPoolObject",
                 "excluded": false
             },
             {
-                "name": "BotState",
-                "excluded": false
+                "name": "IAmAnEmptyScriptJustToMakeCodelessProjectsCompileProperty",
+                "excluded": true
             },
             {
                 "name": "Path",
@@ -10139,7 +10138,7 @@
                 "instanceMethods": [
                     {
                         "name": "getDefaultValue",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "init",
@@ -10169,7 +10168,7 @@
                 "instanceMethods": [
                     {
                         "name": "init",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "getDefaultValue",
@@ -10177,7 +10176,7 @@
                     },
                     {
                         "name": "Current#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "System$Collections$IEnumerator$Current#get",
@@ -10197,7 +10196,7 @@
                     },
                     {
                         "name": "$ctor1",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "ctor",
@@ -10205,11 +10204,11 @@
                     },
                     {
                         "name": "moveNext",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "Dispose",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "System$Collections$IEnumerator$reset",
@@ -10367,11 +10366,11 @@
                     },
                     {
                         "name": "ctor",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "GetEnumerator",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "System$Collections$Generic$IEnumerable$1$GetEnumerator",
@@ -11681,7 +11680,7 @@
                     },
                     {
                         "name": "Peek",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "Contains",
@@ -14687,11 +14686,11 @@
                     },
                     {
                         "name": "LoadScene$2",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "LoadScene$3",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "LoadScene",
@@ -14739,7 +14738,7 @@
                     },
                     {
                         "name": "UnloadSceneInternal",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "UnloadSceneAsync",
@@ -17929,7 +17928,7 @@
                     },
                     {
                         "name": "OnDisable",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "ConfigureForEntity",
@@ -19299,11 +19298,11 @@
                     },
                     {
                         "name": "OnDisable",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "OnDestroy",
-                        "excluded": true
+                        "excluded": false
                     }
                 ]
             },
@@ -20713,7 +20712,7 @@
                     },
                     {
                         "name": "sun#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "sun#set",
@@ -21901,7 +21900,7 @@
                     },
                     {
                         "name": "RemoveRaycasters",
-                        "excluded": true
+                        "excluded": false
                     }
                 ]
             },
@@ -22081,7 +22080,7 @@
                     },
                     {
                         "name": "OnDisable",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "OnCanvasHierarchyChanged",
@@ -25460,280 +25459,6 @@
                 ]
             },
             {
-                "className": "BotController",
-                "staticMethods": [],
-                "instanceMethods": [
-                    {
-                        "name": "init",
-                        "excluded": false
-                    },
-                    {
-                        "name": "Update",
-                        "excluded": false
-                    },
-                    {
-                        "name": "UpdateState",
-                        "excluded": false
-                    },
-                    {
-                        "name": "ChangeState",
-                        "excluded": false
-                    },
-                    {
-                        "name": "TakeDamage",
-                        "excluded": false
-                    },
-                    {
-                        "name": "MoveToPoint",
-                        "excluded": false
-                    },
-                    {
-                        "name": "MoveDone",
-                        "excluded": false
-                    },
-                    {
-                        "name": "TakeDameAction",
-                        "excluded": false
-                    },
-                    {
-                        "name": "DieAction",
-                        "excluded": false
-                    },
-                    {
-                        "name": "MoveAction",
-                        "excluded": false
-                    },
-                    {
-                        "name": "ShootAction",
-                        "excluded": false
-                    },
-                    {
-                        "name": "Awake",
-                        "excluded": false
-                    }
-                ]
-            },
-            {
-                "className": "ObjectPool",
-                "staticMethods": [],
-                "instanceMethods": [
-                    {
-                        "name": "Instance#get",
-                        "excluded": false
-                    },
-                    {
-                        "name": "init",
-                        "excluded": false
-                    },
-                    {
-                        "name": "Awake",
-                        "excluded": false
-                    },
-                    {
-                        "name": "OnDestroy",
-                        "excluded": true
-                    },
-                    {
-                        "name": "OnSceneChanged",
-                        "excluded": false
-                    },
-                    {
-                        "name": "Reset",
-                        "excluded": true
-                    },
-                    {
-                        "name": "AddToPool",
-                        "excluded": true
-                    },
-                    {
-                        "name": "PopFromPool",
-                        "excluded": false
-                    },
-                    {
-                        "name": "FindInContainer",
-                        "excluded": false
-                    },
-                    {
-                        "name": "CreateObject",
-                        "excluded": false
-                    },
-                    {
-                        "name": "PushToPool$1",
-                        "excluded": true
-                    },
-                    {
-                        "name": "PushToPool",
-                        "excluded": false
-                    },
-                    {
-                        "name": "ReleaseItems",
-                        "excluded": true
-                    },
-                    {
-                        "name": "ReleasePool",
-                        "excluded": true
-                    }
-                ]
-            },
-            {
-                "className": "PlayerView",
-                "staticMethods": [],
-                "instanceMethods": [
-                    {
-                        "name": "init",
-                        "excluded": false
-                    },
-                    {
-                        "name": "SetDefaultView",
-                        "excluded": false
-                    },
-                    {
-                        "name": "Update",
-                        "excluded": false
-                    },
-                    {
-                        "name": "Awake",
-                        "excluded": false
-                    }
-                ]
-            },
-            {
-                "className": "SpawnBot",
-                "staticMethods": [],
-                "instanceMethods": [
-                    {
-                        "name": "init",
-                        "excluded": false
-                    },
-                    {
-                        "name": "SpawnBotRoutine",
-                        "excluded": false
-                    },
-                    {
-                        "name": "InitData",
-                        "excluded": false
-                    },
-                    {
-                        "name": "Run",
-                        "excluded": false
-                    }
-                ]
-            },
-            {
-                "className": "UICrosshairItem",
-                "staticMethods": [],
-                "instanceMethods": [
-                    {
-                        "name": "Instance#get",
-                        "excluded": false
-                    },
-                    {
-                        "name": "init",
-                        "excluded": false
-                    },
-                    {
-                        "name": "Awake",
-                        "excluded": false
-                    },
-                    {
-                        "name": "Expand_Crosshair",
-                        "excluded": false
-                    },
-                    {
-                        "name": "Narrow_Crosshair",
-                        "excluded": false
-                    }
-                ]
-            },
-            {
-                "className": "WeaponController",
-                "staticMethods": [],
-                "instanceMethods": [
-                    {
-                        "name": "init",
-                        "excluded": false
-                    },
-                    {
-                        "name": "Update",
-                        "excluded": false
-                    },
-                    {
-                        "name": "Shoot",
-                        "excluded": false
-                    }
-                ]
-            },
-            {
-                "className": "BotController.MoveState",
-                "staticMethods": [],
-                "instanceMethods": [
-                    {
-                        "name": "UpdateState",
-                        "excluded": false
-                    }
-                ]
-            },
-            {
-                "className": "BotController.ShootState",
-                "staticMethods": [],
-                "instanceMethods": [
-                    {
-                        "name": "UpdateState",
-                        "excluded": false
-                    }
-                ]
-            },
-            {
-                "className": "BotController.TakeDameState",
-                "staticMethods": [],
-                "instanceMethods": [
-                    {
-                        "name": "UpdateState",
-                        "excluded": false
-                    }
-                ]
-            },
-            {
-                "className": "BulletTrail",
-                "staticMethods": [],
-                "instanceMethods": [
-                    {
-                        "name": "init",
-                        "excluded": false
-                    },
-                    {
-                        "name": "Awake",
-                        "excluded": false
-                    },
-                    {
-                        "name": "Init",
-                        "excluded": false
-                    },
-                    {
-                        "name": "Init$1",
-                        "excluded": false
-                    },
-                    {
-                        "name": "OnPushToPool",
-                        "excluded": false
-                    },
-                    {
-                        "name": "Update",
-                        "excluded": false
-                    }
-                ]
-            },
-            {
-                "className": "BotController.DieState",
-                "staticMethods": [],
-                "instanceMethods": [
-                    {
-                        "name": "UpdateState",
-                        "excluded": false
-                    }
-                ]
-            },
-            {
                 "className": "System.Collections.Generic.KeyNotFoundException",
                 "staticMethods": [],
                 "instanceMethods": [
@@ -25762,114 +25487,6 @@
                     {
                         "name": "enabled#set",
                         "excluded": true
-                    }
-                ]
-            },
-            {
-                "className": "Effect",
-                "staticMethods": [],
-                "instanceMethods": [
-                    {
-                        "name": "init",
-                        "excluded": false
-                    },
-                    {
-                        "name": "Awake",
-                        "excluded": false
-                    },
-                    {
-                        "name": "Init",
-                        "excluded": false
-                    },
-                    {
-                        "name": "Init$1",
-                        "excluded": false
-                    },
-                    {
-                        "name": "OnPushToPool",
-                        "excluded": false
-                    },
-                    {
-                        "name": "Update",
-                        "excluded": false
-                    }
-                ]
-            },
-            {
-                "className": "ParachuteController",
-                "staticMethods": [],
-                "instanceMethods": [
-                    {
-                        "name": "init",
-                        "excluded": false
-                    },
-                    {
-                        "name": "Start",
-                        "excluded": false
-                    },
-                    {
-                        "name": "Update",
-                        "excluded": false
-                    },
-                    {
-                        "name": "ApplyForces",
-                        "excluded": false
-                    },
-                    {
-                        "name": "CheckGround",
-                        "excluded": false
-                    },
-                    {
-                        "name": "ParachuteAction",
-                        "excluded": false
-                    },
-                    {
-                        "name": "Gravity#get",
-                        "excluded": true
-                    },
-                    {
-                        "name": "Gravity#set",
-                        "excluded": true
-                    }
-                ]
-            },
-            {
-                "className": "BotParachute",
-                "staticMethods": [],
-                "instanceMethods": [
-                    {
-                        "name": "Awake",
-                        "excluded": false
-                    },
-                    {
-                        "name": "ChangeState",
-                        "excluded": false
-                    },
-                    {
-                        "name": "ParachuteAction",
-                        "excluded": false
-                    },
-                    {
-                        "name": "GetPos",
-                        "excluded": false
-                    },
-                    {
-                        "name": "DieAction",
-                        "excluded": false
-                    },
-                    {
-                        "name": "TakeDameAction",
-                        "excluded": false
-                    }
-                ]
-            },
-            {
-                "className": "BotParachute.ParachuteState",
-                "staticMethods": [],
-                "instanceMethods": [
-                    {
-                        "name": "UpdateState",
-                        "excluded": false
                     }
                 ]
             },
@@ -26224,98 +25841,6 @@
                 ]
             },
             {
-                "className": "ConfigManager",
-                "staticMethods": [],
-                "instanceMethods": [
-                    {
-                        "name": "Awake",
-                        "excluded": false
-                    },
-                    {
-                        "name": "GetStepData",
-                        "excluded": false
-                    },
-                    {
-                        "name": "GetStepCount",
-                        "excluded": false
-                    }
-                ]
-            },
-            {
-                "className": "PathManager",
-                "staticMethods": [],
-                "instanceMethods": [
-                    {
-                        "name": "Awake",
-                        "excluded": false
-                    },
-                    {
-                        "name": "ChoseWayPointNormal",
-                        "excluded": false
-                    },
-                    {
-                        "name": "ChooseWayPointParachute",
-                        "excluded": false
-                    },
-                    {
-                        "name": "GetWayPoint",
-                        "excluded": false
-                    },
-                    {
-                        "name": "ResetPath",
-                        "excluded": false
-                    },
-                    {
-                        "name": "Reset",
-                        "excluded": false
-                    }
-                ]
-            },
-            {
-                "className": "StepData",
-                "staticMethods": [],
-                "instanceMethods": [
-                    {
-                        "name": "GetTotalBot",
-                        "excluded": false
-                    }
-                ]
-            },
-            {
-                "className": "StepManager",
-                "staticMethods": [],
-                "instanceMethods": [
-                    {
-                        "name": "init",
-                        "excluded": false
-                    },
-                    {
-                        "name": "Awake",
-                        "excluded": false
-                    },
-                    {
-                        "name": "Update",
-                        "excluded": false
-                    },
-                    {
-                        "name": "CheckStepDone",
-                        "excluded": false
-                    },
-                    {
-                        "name": "SetData",
-                        "excluded": false
-                    },
-                    {
-                        "name": "StepStart",
-                        "excluded": false
-                    },
-                    {
-                        "name": "StepDelay",
-                        "excluded": false
-                    }
-                ]
-            },
-            {
                 "className": "UnityEngine.AnimatorOverrideController",
                 "staticMethods": [],
                 "instanceMethods": [
@@ -26446,32 +25971,6 @@
                     {
                         "name": "SyncWithEffectiveController",
                         "excluded": true
-                    }
-                ]
-            },
-            {
-                "className": "BotManager",
-                "staticMethods": [],
-                "instanceMethods": [
-                    {
-                        "name": "TotalBot#get",
-                        "excluded": false
-                    },
-                    {
-                        "name": "TotalBot#set",
-                        "excluded": false
-                    },
-                    {
-                        "name": "Awake",
-                        "excluded": false
-                    },
-                    {
-                        "name": "OnBotDead",
-                        "excluded": false
-                    },
-                    {
-                        "name": "SpawnBotInstance",
-                        "excluded": false
                     }
                 ]
             },
@@ -29424,50 +28923,6 @@
                 ]
             },
             {
-                "className": "UIManager",
-                "staticMethods": [],
-                "instanceMethods": [
-                    {
-                        "name": "Awake",
-                        "excluded": false
-                    },
-                    {
-                        "name": "UpdateStepText",
-                        "excluded": false
-                    },
-                    {
-                        "name": "SetEnableStepText",
-                        "excluded": false
-                    }
-                ]
-            },
-            {
-                "className": "AudioManager",
-                "staticMethods": [],
-                "instanceMethods": [
-                    {
-                        "name": "Awake",
-                        "excluded": false
-                    },
-                    {
-                        "name": "GetAudioAttackClip",
-                        "excluded": false
-                    },
-                    {
-                        "name": "GetAudioCallTeamClip",
-                        "excluded": false
-                    },
-                    {
-                        "name": "GetAudioHitClip",
-                        "excluded": false
-                    },
-                    {
-                        "name": "GetAudioCallTeamOnFireClip",
-                        "excluded": true
-                    }
-                ]
-            },
-            {
                 "className": "UnityEngine.UI.FontData",
                 "staticMethods": [],
                 "instanceMethods": [
@@ -29570,6 +29025,546 @@
                     {
                         "name": "lineSpacing#set",
                         "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "AudioManager",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "Awake",
+                        "excluded": false
+                    },
+                    {
+                        "name": "GetAudioAttackClip",
+                        "excluded": false
+                    },
+                    {
+                        "name": "GetAudioCallTeamClip",
+                        "excluded": false
+                    },
+                    {
+                        "name": "GetAudioHitClip",
+                        "excluded": false
+                    },
+                    {
+                        "name": "GetAudioCallTeamOnFireClip",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "BotController",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Awake",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Update",
+                        "excluded": false
+                    },
+                    {
+                        "name": "UpdateState",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ChangeState",
+                        "excluded": false
+                    },
+                    {
+                        "name": "TakeDameAction",
+                        "excluded": false
+                    },
+                    {
+                        "name": "TakeDamage",
+                        "excluded": false
+                    },
+                    {
+                        "name": "DieAction",
+                        "excluded": false
+                    },
+                    {
+                        "name": "MoveAction",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ShootAction",
+                        "excluded": false
+                    },
+                    {
+                        "name": "MoveToPoint",
+                        "excluded": false
+                    },
+                    {
+                        "name": "MoveDone",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "BotManager",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "TotalBot#get",
+                        "excluded": false
+                    },
+                    {
+                        "name": "TotalBot#set",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Awake",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnBotDead",
+                        "excluded": false
+                    },
+                    {
+                        "name": "SpawnBotInstance",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "ConfigManager",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "Awake",
+                        "excluded": false
+                    },
+                    {
+                        "name": "GetStepData",
+                        "excluded": false
+                    },
+                    {
+                        "name": "GetStepCount",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "ObjectPool",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "Instance#get",
+                        "excluded": false
+                    },
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Awake",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnDestroy",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnSceneChanged",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Reset",
+                        "excluded": true
+                    },
+                    {
+                        "name": "AddToPool",
+                        "excluded": true
+                    },
+                    {
+                        "name": "PopFromPool",
+                        "excluded": false
+                    },
+                    {
+                        "name": "FindInContainer",
+                        "excluded": false
+                    },
+                    {
+                        "name": "CreateObject",
+                        "excluded": false
+                    },
+                    {
+                        "name": "PushToPool$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "PushToPool",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ReleaseItems",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ReleasePool",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "ParachuteController",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "Gravity#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Gravity#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Start",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Update",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ApplyForces",
+                        "excluded": false
+                    },
+                    {
+                        "name": "CheckGround",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ParachuteAction",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "PathManager",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "Awake",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ChoseWayPointNormal",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ChooseWayPointParachute",
+                        "excluded": false
+                    },
+                    {
+                        "name": "GetWayPoint",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ResetPath",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Reset",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "PlayerView",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Awake",
+                        "excluded": false
+                    },
+                    {
+                        "name": "SetDefaultView",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Update",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "SpawnBot",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "InitData",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Run",
+                        "excluded": false
+                    },
+                    {
+                        "name": "SpawnBotRoutine",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "StepData",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "GetTotalBot",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "StepManager",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "Awake",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Update",
+                        "excluded": false
+                    },
+                    {
+                        "name": "StepDelay",
+                        "excluded": false
+                    },
+                    {
+                        "name": "CheckStepDone",
+                        "excluded": false
+                    },
+                    {
+                        "name": "SetData",
+                        "excluded": false
+                    },
+                    {
+                        "name": "StepStart",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "UICrosshairItem",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "Instance#get",
+                        "excluded": false
+                    },
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Awake",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Expand_Crosshair",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Narrow_Crosshair",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "UIManager",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "Awake",
+                        "excluded": false
+                    },
+                    {
+                        "name": "UpdateStepText",
+                        "excluded": false
+                    },
+                    {
+                        "name": "SetEnableStepText",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "WeaponController",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Update",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Shoot",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "BotParachute",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "Awake",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ChangeState",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ParachuteAction",
+                        "excluded": false
+                    },
+                    {
+                        "name": "GetPos",
+                        "excluded": false
+                    },
+                    {
+                        "name": "TakeDameAction",
+                        "excluded": false
+                    },
+                    {
+                        "name": "DieAction",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "BotController.DieState",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "UpdateState",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "BotController.MoveState",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "UpdateState",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "BotController.ShootState",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "UpdateState",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "BotController.TakeDameState",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "UpdateState",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "BotParachute.ParachuteState",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "UpdateState",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "BulletTrail",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Awake",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Init$1",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnPushToPool",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Update",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "Effect",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Awake",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Init$1",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnPushToPool",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Update",
+                        "excluded": false
                     }
                 ]
             }

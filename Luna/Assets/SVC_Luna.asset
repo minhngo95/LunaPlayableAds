@@ -256,6 +256,43 @@ MonoBehaviour:
     keywords:
     - UNITY_UI_ALPHACLIP
     - UNITY_UI_CLIP_RECT
+  - shader: {fileID: 106, guid: 0000000000000000f000000000000000, type: 0}
+    passType: 0
+    passId: 0
+    subShaderIndex: 0
+    upToDate: 1
+    keywords:
+    - _SUNDISK_NONE
+  - shader: {fileID: 106, guid: 0000000000000000f000000000000000, type: 0}
+    passType: 0
+    passId: 0
+    subShaderIndex: 0
+    upToDate: 1
+    keywords:
+    - _SUNDISK_SIMPLE
+  - shader: {fileID: 106, guid: 0000000000000000f000000000000000, type: 0}
+    passType: 0
+    passId: 0
+    subShaderIndex: 0
+    upToDate: 1
+    keywords:
+    - _SUNDISK_HIGH_QUALITY
+  - shader: {fileID: 106, guid: 0000000000000000f000000000000000, type: 0}
+    passType: 0
+    passId: 0
+    subShaderIndex: 0
+    upToDate: 1
+    keywords:
+    - _SUNDISK_NONE
+    - _SUNDISK_SIMPLE
+  - shader: {fileID: 106, guid: 0000000000000000f000000000000000, type: 0}
+    passType: 0
+    passId: 0
+    subShaderIndex: 0
+    upToDate: 1
+    keywords:
+    - _SUNDISK_HIGH_QUALITY
+    - _SUNDISK_SIMPLE
   - shader: {fileID: 10721, guid: 0000000000000000f000000000000000, type: 0}
     passType: 0
     passId: 0
@@ -281,43 +318,6 @@ MonoBehaviour:
     subShaderIndex: 0
     upToDate: 1
     keywords: []
-  - shader: {fileID: 106, guid: 0000000000000000f000000000000000, type: 0}
-    passType: 0
-    passId: 0
-    subShaderIndex: 0
-    upToDate: 1
-    keywords:
-    - _SUNDISK_NONE
-  - shader: {fileID: 106, guid: 0000000000000000f000000000000000, type: 0}
-    passType: 0
-    passId: 0
-    subShaderIndex: 0
-    upToDate: 1
-    keywords:
-    - _SUNDISK_SIMPLE
-  - shader: {fileID: 106, guid: 0000000000000000f000000000000000, type: 0}
-    passType: 0
-    passId: 0
-    subShaderIndex: 0
-    upToDate: 1
-    keywords:
-    - _SUNDISK_HIGH_QUALITY
-  - shader: {fileID: 106, guid: 0000000000000000f000000000000000, type: 0}
-    passType: 0
-    passId: 0
-    subShaderIndex: 0
-    upToDate: 1
-    keywords:
-    - _SUNDISK_NONE
-    - _SUNDISK_SIMPLE
-  - shader: {fileID: 106, guid: 0000000000000000f000000000000000, type: 0}
-    passType: 0
-    passId: 0
-    subShaderIndex: 0
-    upToDate: 1
-    keywords:
-    - _SUNDISK_HIGH_QUALITY
-    - _SUNDISK_SIMPLE
   - shader: {fileID: 4800000, guid: 394815d984c6a514fabb280694edc645, type: 3}
     passType: 4
     passId: 0
@@ -511,7 +511,7 @@ MonoBehaviour:
     keywords: []
   _includedShaderVariants: []
   _excludedShaderVariants: []
-  version: 2764
+  version: 2935
   _shaderParsedShaders:
   - ParsedSubShaders:
     - Index: 0

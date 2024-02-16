@@ -717,7 +717,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spawnBotNormal: {fileID: 311587055}
   _spawnBotParachute: {fileID: 308608507}
-  test: 0
 --- !u!114 &234686044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -733,10 +732,6 @@ MonoBehaviour:
   _stepDatas:
   - NumberBot: 3
     NumberParachute: 7
-  - NumberBot: 1
-    NumberParachute: 2
-  - NumberBot: 3
-    NumberParachute: 5
 --- !u!23 &259253156
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9094,7 +9089,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spawnBotNormal: {fileID: 311587055}
   _spawnBotParachute: {fileID: 308608507}
-  test: 0
 --- !u!4 &1193731177
 Transform:
   m_ObjectHideFlags: 0
