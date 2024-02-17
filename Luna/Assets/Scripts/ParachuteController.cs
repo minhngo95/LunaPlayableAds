@@ -62,7 +62,7 @@ public class ParachuteController : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(transform.position, Vector3.down, out hit, groundCheckDistance, groundLayer))
         {
-            if (hit.distance < 0.5f)
+            if (hit.distance < 0.7f)
             {
                 IsGrounded = true;
                 velocity = Vector3.zero;
