@@ -27,9 +27,8 @@ public class BotController : MonoBehaviour
     protected int pointCount;
     protected float shootingDelay;
     public Action OnBotDead { get; set; }
-    [SerializeField] protected AudioSource _audioSource;
-    [SerializeField] protected AudioSource _callTeamAudioSource;
-    [SerializeField] protected AudioSource _hitAudioSource;
+    [SerializeField] protected AudioSource _audioSource; 
+    [SerializeField] protected AudioSource _hitSource;
     
 
     protected virtual void Awake()
@@ -44,8 +43,6 @@ public class BotController : MonoBehaviour
         healthBarRenderer.enabled = false;
         healthBarRenderer.GetPropertyBlock(matBlock);
         currentHealth = maxHealth;
-        _audioSource.clip=AudioManager.Instance.GetAudioCallTeamClip();
-        _audioSource.Play();
         
     }
 
@@ -91,10 +88,10 @@ public class BotController : MonoBehaviour
 
     protected virtual void TakeDameAction()
     {
-        if (!_hitAudioSource.isPlaying)
+        if (!_hitSource.isPlaying)
         {
-            _hitAudioSource.clip = AudioManager.Instance.GetAudioHitClip();
-            _hitAudioSource.Play();
+            _hitSource.clip = AudioManager.Instance.GetAudioHitClip();
+            _hitSource.Play();
         }
         _animator.SetBool("isHit", true);
         if (_animator.GetCurrentAnimatorStateInfo(0).IsName("Hit") &&
@@ -126,13 +123,14 @@ public class BotController : MonoBehaviour
 
     protected virtual void DieAction()
     {
+        if( OnBotDead!=null) OnBotDead.Invoke();
+        OnBotDead= null;
         _muzzle.SetActive(false);
         healthBarRenderer.enabled = false;
         _animator.SetBool("isDead", true);
         if (_animator.GetCurrentAnimatorStateInfo(0).IsName("Death") &&
             _animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
         {
-            OnBotDead.Invoke();
             gameObject.SetActive(false);
         }
                 
@@ -146,6 +144,7 @@ public class BotController : MonoBehaviour
     private float time = 0;
     protected void ShootAction()
     {
+        transform.LookAt(target);
          _animator.SetBool("isMoveDone", true);
         if (_animator.GetCurrentAnimatorStateInfo(0).IsName("Shoot") &&
             _animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1.0f)
@@ -154,11 +153,6 @@ public class BotController : MonoBehaviour
             if (time > Random.Range(5,10))
             {
                 time = 0;
-                if (!_callTeamAudioSource.isPlaying)
-                {
-                    _callTeamAudioSource.clip=AudioManager.Instance.GetAudioCallTeamOnFireClip();
-                    _callTeamAudioSource.Play();
-                }
             }
             
             _muzzle.SetActive(false);
@@ -176,7 +170,6 @@ public class BotController : MonoBehaviour
                 Vector3 targetDir = (target - _muzzle.transform.position).normalized;
                 _muzzle.transform.rotation = Quaternion.LookRotation(targetDir);
                 transform.rotation = Quaternion.LookRotation(targetDir);
-
                 GameObject bullet = ObjectPool.Instance.PopFromPool(this.bullet, instantiateIfNone: true);
                 bullet.transform.SetPositionAndRotation(_muzzle.transform.position, _muzzle.transform.rotation);
                 bullet.GetComponent<BulletTrail>().Init(targetDir);

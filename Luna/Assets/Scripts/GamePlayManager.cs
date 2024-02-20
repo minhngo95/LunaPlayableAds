@@ -24,6 +24,7 @@ public class GamePlayManager : MonoBehaviour
         if (CheckTurnDone())
         {
             BotManager.Instance.TotalBot = ConfigManager.Instance.GetStepData(Turn).GetTotalBot();
+            UIManager.Instance.UpdateInitBot(ConfigManager.Instance.GetStepData(Turn).GetTotalBot());
             PathManager.Instance.ResetPath();
             StartCoroutine(TurnDelay());
         }
@@ -35,13 +36,14 @@ public class GamePlayManager : MonoBehaviour
 
     private IEnumerator TurnDelay()
     {
-        UIManager.Instance.UpdateStepText(Turn);
-        UIManager.Instance.SetEnableStepText(true);
-        yield return new WaitForSeconds(2);
-        UIManager.Instance.SetEnableStepText(false);
+        // UIManager.Instance.UpdateStepText(Turn);
+        // UIManager.Instance.SetEnableStepText(true);
+        // UIManager.Instance.SetEnableStepText(false);
         SetData();
         GameStart();
         Turn++;
+        yield return new WaitForSeconds(1);
+
     }
 
     public bool CheckTurnDone()
@@ -59,5 +61,11 @@ public class GamePlayManager : MonoBehaviour
     {
         _spawnBotParachute.Run();
         _spawnBotNormal.Run();
+    }
+
+    public void LunaClick()
+    {
+        Debug.LogError("Luna Clicked");
+        Luna.Unity.Playable.InstallFullGame();
     }
 }

@@ -7,7 +7,7 @@ public class WeaponController : MonoBehaviour
     public int damage = 10;
     private float updateInterval = 0.1f;
 
-    private readonly float shootDelay = 0.2f;
+    private readonly float shootDelay = 0.1f;
     private float timeSinceLastShoot;
     public Transform _muzzleTrans;
     public Animation _animation;
@@ -17,7 +17,7 @@ public class WeaponController : MonoBehaviour
     public AudioSource audioSource;
     public float SphereRadius = 0.01f;
     public GameObject Effect;
-    private void Update()
+    private void FixedUpdate()
     {
         UICrosshairItem.Instance.Narrow_Crosshair();
         if (Input.GetMouseButton(0))

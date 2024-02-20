@@ -17,7 +17,6 @@ public class BotParachute : BotController
         healthBarRenderer.GetPropertyBlock(matBlock);
         currentHealth = maxHealth;
         _animator.Play("ParachuteIdle");
-        _audioSource.clip=AudioManager.Instance.GetAudioCallTeamClip();
         _audioSource.Play();
     }
 
@@ -85,18 +84,11 @@ public class BotParachute : BotController
     protected override void TakeDameAction()
     {
         base.TakeDameAction();
-        if (OnLand)
+        if (_animator.GetCurrentAnimatorStateInfo(0).IsName("ParachuteHit") &&
+            _animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
         {
             _animator.SetBool("isHit", false);
             isTakeDame = false;
-        }
-        else
-        {
-            if (_animator.GetCurrentAnimatorStateInfo(0).IsName("ParachuteHit") &&
-                _animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
-            {
-                OnLand = true;
-            }
         }
     }
 
@@ -109,7 +101,6 @@ public class BotParachute : BotController
             if (_animator.GetCurrentAnimatorStateInfo(0).IsName("ParachuteOnLand"))
                 if (_animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
                 {
-                    OnBotDead.Invoke();
                     gameObject.SetActive(false);
                 }
         }
