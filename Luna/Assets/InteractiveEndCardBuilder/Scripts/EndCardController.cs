@@ -491,40 +491,41 @@ public class EndCardController : MonoBehaviour
     {
         if (!alwaysShowEndcardTESTING)
         {
-            if (IsPortrait())
+            switch (_endCardPortraitAnimationType)
             {
-                switch (_endCardPortraitAnimationType)
-                {
-                    case EndCardPortraitAnimationType.None:
-                        break;
-                    case EndCardPortraitAnimationType.Scale:
-                        _endCardAnimator.SetBool(_endCardAnimationScale, true);
-                        break;
-                    case EndCardPortraitAnimationType.SlideBottomToTop:
-                        _endCardAnimator.SetBool(_endCardAnimationBottomToTop, true);
-                        break;
-                    case EndCardPortraitAnimationType.SlideTopToBottom:
-                        _endCardAnimator.SetBool(_endCardAnimationTopToBottom, true);
-                        break;
-                }
+                case EndCardPortraitAnimationType.None:
+                    break;
+                case EndCardPortraitAnimationType.Scale:
+                    _endCardAnimator.SetBool(_endCardAnimationScale, true);
+                    break;
+                case EndCardPortraitAnimationType.SlideBottomToTop:
+                    _endCardAnimator.SetBool(_endCardAnimationBottomToTop, true);
+                    break;
+                case EndCardPortraitAnimationType.SlideTopToBottom:
+                    _endCardAnimator.SetBool(_endCardAnimationTopToBottom, true);
+                    break;
             }
-            else
-            {
-                switch (_endCardLandscapeAnimationType)
-                {
-                    case EndCardLandscapeAnimationType.None:
-                        break;
-                    case EndCardLandscapeAnimationType.Scale:
-                        _endCardAnimator.SetBool(_endCardAnimationScale, true);
-                        break;
-                    case EndCardLandscapeAnimationType.SlideLeftToRight:
-                        _endCardAnimator.SetBool(_endCardAnimationLeftToRight, true);
-                        break;
-                    case EndCardLandscapeAnimationType.SlideRightToLeft:
-                        _endCardAnimator.SetBool(_endCardAnimationRightToLeft, true);
-                        break;
-                }
-            }
+            // if (IsPortrait())
+            // {
+            //     
+            // }
+            // else
+            // {
+            //     switch (_endCardLandscapeAnimationType)
+            //     {
+            //         case EndCardLandscapeAnimationType.None:
+            //             break;
+            //         case EndCardLandscapeAnimationType.Scale:
+            //             _endCardAnimator.SetBool(_endCardAnimationScale, true);
+            //             break;
+            //         case EndCardLandscapeAnimationType.SlideLeftToRight:
+            //             _endCardAnimator.SetBool(_endCardAnimationLeftToRight, true);
+            //             break;
+            //         case EndCardLandscapeAnimationType.SlideRightToLeft:
+            //             _endCardAnimator.SetBool(_endCardAnimationRightToLeft, true);
+            //             break;
+            //     }
+            // }
         }
     }
 

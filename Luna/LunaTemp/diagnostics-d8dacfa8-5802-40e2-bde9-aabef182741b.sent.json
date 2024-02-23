@@ -1,0 +1,350 @@
+{
+    "BuildID": "d8dacfa8-5802-40e2-bde9-aabef182741b",
+    "Command": "project:upload",
+    "ProjectID": "19d6020580d862e46a5b6b7a32992276",
+    "ProjectStateHash": "f0b2d7d566fb785e18002ab0cf82e19f54e18a32d6fe68acd5f145892af92f3c",
+    "StageCompletedAt": 3,
+    "EarliestFatalError": 0,
+    "StartTime": 1708655587959,
+    "EndTime": 1708655611708,
+    "PlaygroundUserID": 13434,
+    "OperatingSystem": "win32",
+    "UnityPackageID": null,
+    "TargetPlatform": "playground",
+    "UnityVersion": "2021.3.33f1",
+    "LunaVersion": "5.5.0",
+    "LogCount": 13,
+    "Logs": [
+        {
+            "LogID": "29bec540-a11e-414d-b5b4-e6c2b5a22ed3",
+            "Order": 13,
+            "Timestamp": 1708655611900,
+            "Stage": 3,
+            "ErrorType": 3,
+            "ErrorCode": "LP3008",
+            "Description": "You are only using: 1 custom events.",
+            "Details": [
+                "You are only using 1 custom events. It is recommended to use more custom events to have a better understanding of the playable."
+            ],
+            "DescriptionValues": [
+                "1"
+            ],
+            "DetailsValues": [
+                "1"
+            ],
+            "LogCount": 1,
+            "LinePosition": null,
+            "FilePath": "",
+            "ClassName": "",
+            "MemberName": "",
+            "Severity": 0
+        },
+        {
+            "LogID": "e533725e-4486-43a0-8f1e-9af1af8a97fc",
+            "Order": 0,
+            "Timestamp": 1708655589144,
+            "Stage": 1,
+            "ErrorType": 0,
+            "ErrorCode": "LP1012",
+            "Description": "Export Error: An item with the same key has already been added. Key: Legacy Shaders/VertexLit (UnityEngine.Shader)",
+            "Details": [
+                "Standard",
+                ""
+            ],
+            "DescriptionValues": [
+                "An item with the same key has already been added. Key: Legacy Shaders/VertexLit (UnityEngine.Shader)"
+            ],
+            "DetailsValues": [],
+            "LogCount": 1,
+            "LinePosition": 0,
+            "FilePath": "Resources/unity_builtin_extra\\Standard",
+            "ClassName": "",
+            "MemberName": "",
+            "Severity": 0
+        },
+        {
+            "LogID": "ac9b05a6-d8a4-4d89-b1c1-e6515c59c0fa",
+            "Order": 1,
+            "Timestamp": 1708655589707,
+            "Stage": 1,
+            "ErrorType": 0,
+            "ErrorCode": "LP1012",
+            "Description": "Export Error: An item with the same key has already been added. Key: Mobile/VertexLit (UnityEngine.Shader)",
+            "Details": [
+                "Horus/Terrain/4 Details",
+                ""
+            ],
+            "DescriptionValues": [
+                "An item with the same key has already been added. Key: Mobile/VertexLit (UnityEngine.Shader)"
+            ],
+            "DetailsValues": [],
+            "LogCount": 1,
+            "LinePosition": 0,
+            "FilePath": "Assets/Shader/Terrain-4Details.shader",
+            "ClassName": "",
+            "MemberName": "",
+            "Severity": 0
+        },
+        {
+            "LogID": "44ceb78b-092c-4319-9a09-3ee5d9f7cd89",
+            "Order": 2,
+            "Timestamp": 1708655591035,
+            "Stage": 1,
+            "ErrorType": 0,
+            "ErrorCode": "LP1012",
+            "Description": "Export Error: An item with the same key has already been added. Key: Legacy Shaders/VertexLit (UnityEngine.Shader)",
+            "Details": [
+                "Legacy Shaders/Diffuse",
+                ""
+            ],
+            "DescriptionValues": [
+                "An item with the same key has already been added. Key: Legacy Shaders/VertexLit (UnityEngine.Shader)"
+            ],
+            "DetailsValues": [],
+            "LogCount": 1,
+            "LinePosition": 0,
+            "FilePath": "Resources/unity_builtin_extra\\Legacy Shaders/Diffuse",
+            "ClassName": "",
+            "MemberName": "",
+            "Severity": 0
+        },
+        {
+            "LogID": "3de931b3-0fa6-4bd9-b6e8-aff6f2a047ff",
+            "Order": 3,
+            "Timestamp": 1708655592844,
+            "Stage": 1,
+            "ErrorType": 0,
+            "ErrorCode": "LP1009",
+            "Description": "Playground Asset has no default value",
+            "Details": [
+                "[LunaPlaygroundAsset] Attribute added onto '_backgroundTexture' field of 'EndCardController' class must have a default value to appear in Playground."
+            ],
+            "DescriptionValues": [],
+            "DetailsValues": [
+                "_backgroundTexture",
+                "EndCardController"
+            ],
+            "LogCount": 1,
+            "LinePosition": 0,
+            "FilePath": "",
+            "ClassName": "",
+            "MemberName": "",
+            "Severity": 0
+        },
+        {
+            "LogID": "426d6264-55bc-47d2-9b41-372358a0aba7",
+            "Order": 4,
+            "Timestamp": 1708655592844,
+            "Stage": 1,
+            "ErrorType": 0,
+            "ErrorCode": "LP1009",
+            "Description": "Playground Asset has no default value",
+            "Details": [
+                "[LunaPlaygroundAsset] Attribute added onto '_iconTexture' field of 'EndCardController' class must have a default value to appear in Playground."
+            ],
+            "DescriptionValues": [],
+            "DetailsValues": [
+                "_iconTexture",
+                "EndCardController"
+            ],
+            "LogCount": 1,
+            "LinePosition": 0,
+            "FilePath": "",
+            "ClassName": "",
+            "MemberName": "",
+            "Severity": 0
+        },
+        {
+            "LogID": "575cd58d-b2b0-4daf-b1ed-7f7cd3691877",
+            "Order": 5,
+            "Timestamp": 1708655592844,
+            "Stage": 1,
+            "ErrorType": 0,
+            "ErrorCode": "LP1009",
+            "Description": "Playground Asset has no default value",
+            "Details": [
+                "[LunaPlaygroundAsset] Attribute added onto '_buttonTexture' field of 'EndCardController' class must have a default value to appear in Playground."
+            ],
+            "DescriptionValues": [],
+            "DetailsValues": [
+                "_buttonTexture",
+                "EndCardController"
+            ],
+            "LogCount": 1,
+            "LinePosition": 0,
+            "FilePath": "",
+            "ClassName": "",
+            "MemberName": "",
+            "Severity": 0
+        },
+        {
+            "LogID": "abc04ed5-e721-4f2a-84f9-38b955c98385",
+            "Order": 6,
+            "Timestamp": 1708655592844,
+            "Stage": 1,
+            "ErrorType": 0,
+            "ErrorCode": "LP1009",
+            "Description": "Playground Asset has no default value",
+            "Details": [
+                "[LunaPlaygroundAsset] Attribute added onto '_descriptionFont' field of 'EndCardController' class must have a default value to appear in Playground."
+            ],
+            "DescriptionValues": [],
+            "DetailsValues": [
+                "_descriptionFont",
+                "EndCardController"
+            ],
+            "LogCount": 1,
+            "LinePosition": 0,
+            "FilePath": "",
+            "ClassName": "",
+            "MemberName": "",
+            "Severity": 0
+        },
+        {
+            "LogID": "9bd78a1d-cbf4-4e51-8742-df38691392e4",
+            "Order": 7,
+            "Timestamp": 1708655600438,
+            "Stage": 1,
+            "ErrorType": 2,
+            "ErrorCode": "LP1014",
+            "Description": "We recommend running Runtime Analysis to find and remove all unused code",
+            "Details": [
+                "Navigate to the Runtime Analysis → Code tab to enable code stripping. Before uploading the playable, please make sure to have played all scenario’s of the playable in a development build to make Runtime Analysis work properly."
+            ],
+            "DescriptionValues": [],
+            "DetailsValues": [],
+            "LogCount": 1,
+            "LinePosition": 0,
+            "FilePath": "",
+            "ClassName": "",
+            "MemberName": "",
+            "Severity": 0
+        },
+        {
+            "LogID": "cf1a1a70-d415-4135-8fb3-65790fc62013",
+            "Order": 8,
+            "Timestamp": 1708655600438,
+            "Stage": 1,
+            "ErrorType": 2,
+            "ErrorCode": "LP1016",
+            "Description": "Extensive usage of ParticleSystem Component",
+            "Details": [
+                "There is extensive usage of the ParticleSystem component.\nExcessive usage of any component can be detrimental to performance on lower and in some cases higher end devices, consider reducing the amount the component is used.\nRecommended count: 10, current count 26."
+            ],
+            "DescriptionValues": [
+                "ParticleSystem"
+            ],
+            "DetailsValues": [
+                "ParticleSystem",
+                "10",
+                "26"
+            ],
+            "LogCount": 1,
+            "LinePosition": 0,
+            "FilePath": "",
+            "ClassName": "",
+            "MemberName": "",
+            "Severity": 0
+        },
+        {
+            "LogID": "210fe1cd-8b94-4708-ae9f-65cdb647ceed",
+            "Order": 9,
+            "Timestamp": 1708655600440,
+            "Stage": 1,
+            "ErrorType": 0,
+            "ErrorCode": "LP1032",
+            "Description": "Package(s) is not supported in Luna",
+            "Details": [
+                "Currently package(s) com.unity.timeline are not supported in Luna. We recommend you to remove it and workaround it's functionality."
+            ],
+            "DescriptionValues": [
+                "com.unity.timeline (1.6.5)"
+            ],
+            "DetailsValues": [
+                "com.unity.timeline"
+            ],
+            "LogCount": 1,
+            "LinePosition": 0,
+            "FilePath": "C:/Users/Pc/Documents/GitHub/LunaPlayableAds/Luna/Packages\\manifest.json",
+            "ClassName": "",
+            "MemberName": "",
+            "Severity": 0
+        },
+        {
+            "LogID": "750d1595-6902-494e-ae8b-957af930d4ba",
+            "Order": 10,
+            "Timestamp": 1708655600442,
+            "Stage": 1,
+            "ErrorType": 2,
+            "ErrorCode": "LP1010",
+            "Description": "Looks like a collider was scaled, this might affect performance.",
+            "Details": [
+                "Terrain_MP1_L",
+                "Terrain_MP1_L",
+                "Cube",
+                "Terrain_MP1_L (2)",
+                "Terrain_MP1_L (3)",
+                "LeftUpLeg",
+                "LeftLeg",
+                "RightUpLeg",
+                "RightLeg",
+                "Spine1",
+                "LeftArm",
+                "LeftForeArm",
+                "HeadCollider",
+                "RightArm",
+                "RightForeArm",
+                "collider",
+                "LeftUpLeg",
+                "LeftLeg",
+                "RightUpLeg",
+                "RightLeg",
+                "Spine1",
+                "LeftArm",
+                "LeftForeArm",
+                "HeadCollider",
+                "RightArm",
+                "RightForeArm",
+                "Terrain_MP1_L",
+                "Cube",
+                "Terrain_MP1_L (2)",
+                "Terrain_MP1_L (3)",
+                "Terrain_MP1_L (1)",
+                "Terrain_MP1_L"
+            ],
+            "DescriptionValues": [],
+            "DetailsValues": [],
+            "LogCount": 32,
+            "LinePosition": 0,
+            "FilePath": "",
+            "ClassName": "",
+            "MemberName": "",
+            "Severity": 0
+        },
+        {
+            "LogID": "74276c33-1b1a-450c-ab8b-4b613c4c60ac",
+            "Order": 11,
+            "Timestamp": 1708655600442,
+            "Stage": 1,
+            "ErrorType": 3,
+            "ErrorCode": "LP1008",
+            "Description": "There are missing components on Playita.",
+            "Details": [
+                "There are missing components on Playita."
+            ],
+            "DescriptionValues": [
+                "Playita"
+            ],
+            "DetailsValues": [
+                "Playita",
+                "Playita"
+            ],
+            "LogCount": 1,
+            "LinePosition": 0,
+            "FilePath": "",
+            "ClassName": "",
+            "MemberName": "",
+            "Severity": 0
+        }
+    ]
+}

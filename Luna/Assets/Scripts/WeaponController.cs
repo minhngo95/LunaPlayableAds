@@ -17,6 +17,8 @@ public class WeaponController : MonoBehaviour
     public AudioSource audioSource;
     public float SphereRadius = 0.01f;
     public GameObject Effect;
+    private bool isShowCard;
+
     private void FixedUpdate()
     {
         UICrosshairItem.Instance.Narrow_Crosshair();
@@ -30,7 +32,13 @@ public class WeaponController : MonoBehaviour
                 Shoot();
                 timeSinceLastShoot = 0f;
             }
+            if (GamePlayManager.Instance.Turn == ConfigManager.Instance.GetStepCount()&!isShowCard)
+            {
+                isShowCard = true;
+                UIManager.Instance.EndGameUI();
+            }
         }
+        
     }
 
     private void Shoot()

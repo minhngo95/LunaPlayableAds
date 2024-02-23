@@ -71,7 +71,7 @@ public class BotParachute : BotController
         {
             moveIndex++;
             isMove = true;
-            _animator.SetBool("isMove", true);
+            _animator.SetBool("isMove", isMove);
         }
     }
 
@@ -84,6 +84,12 @@ public class BotParachute : BotController
     protected override void TakeDameAction()
     {
         base.TakeDameAction();
+        if (OnLand && !isMove)
+        {
+            isTakeDame = false;
+            _animator.SetBool("isHit", false);
+            return;
+        }
         if (_animator.GetCurrentAnimatorStateInfo(0).IsName("ParachuteHit") &&
             _animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
         {

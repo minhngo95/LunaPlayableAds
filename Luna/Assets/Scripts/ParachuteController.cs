@@ -28,7 +28,7 @@ public class ParachuteController : MonoBehaviour
         var distanceToGround = Vector3.Distance(transform.position, posEnd);
         if ( distanceToGround> 0.5f&&!IsGrounded)
         {
-            transform.position= Vector3.MoveTowards(transform.position, posEnd,Random.Range(3,Speed+1)*Time.deltaTime);
+            transform.position= Vector3.MoveTowards(transform.position, posEnd,Speed*Time.deltaTime);
             ParachuteAction(distanceToGround);
         }
         if (distanceToGround < 0.5f)

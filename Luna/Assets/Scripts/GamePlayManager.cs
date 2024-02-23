@@ -28,10 +28,6 @@ public class GamePlayManager : MonoBehaviour
             PathManager.Instance.ResetPath();
             StartCoroutine(TurnDelay());
         }
-        else if (BotManager.Instance.TotalBot <= 0 && Turn >= ConfigManager.Instance.GetStepCount())
-        {
-            UIManager.Instance.EndGameUI();
-        }
     }
 
     private IEnumerator TurnDelay()
@@ -39,10 +35,11 @@ public class GamePlayManager : MonoBehaviour
         // UIManager.Instance.UpdateStepText(Turn);
         // UIManager.Instance.SetEnableStepText(true);
         // UIManager.Instance.SetEnableStepText(false);
+        yield return new WaitForSeconds(1);
         SetData();
         GameStart();
         Turn++;
-        yield return new WaitForSeconds(1);
+
 
     }
 
