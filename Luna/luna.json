@@ -47,7 +47,9 @@
                 "Stubs/AppsFlyer",
                 "Stubs/IronSource",
                 "Stubs/Vungle",
-                "Stubs/MoreMountains.NiceVibrations"
+                "Stubs/MoreMountains.NiceVibrations",
+                "Assets/Bot/BotTest.cs",
+                "Assets/test.cs"
             ],
             "msbuildMac64": "/Library/Frameworks/Mono.framework/Versions/Current/bin/msbuild",
             "msbuildWin64": "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\MSBuild\\Current\\Bin\\MSBuild.exe",
@@ -142,7 +144,7 @@
             },
             "facebook": {
                 "assetID": "",
-                "packageType": 0,
+                "packageType": 1,
                 "disableCompression": false
             }
         },
@@ -158,10 +160,10 @@
         "enableMecanimWASM": true,
         "minify": true,
         "forceUncompressed": false,
-        "forceBase64": false,
+        "forceBase64": true,
         "genericCheck": true,
         "disableAntiAliasing": true,
-        "preferWebGl2": false,
+        "preferWebGl2": true,
         "forceStableRandomSeed": false,
         "unusedModules": [
             {
@@ -6939,7 +6941,7 @@
             },
             {
                 "name": "ButtonAnimationType",
-                "excluded": true
+                "excluded": false
             },
             {
                 "name": "EndCardClickableOptionsType",
@@ -6951,7 +6953,7 @@
             },
             {
                 "name": "EndCardPortraitAnimationType",
-                "excluded": true
+                "excluded": false
             },
             {
                 "name": "IAmAnEmptyScriptJustToMakeCodelessProjectsCompileProperty",
@@ -7880,6 +7882,30 @@
             {
                 "name": "TMPro.TextMeshProUGUI",
                 "excluded": false
+            },
+            {
+                "name": "JumpState",
+                "excluded": true
+            },
+            {
+                "name": "MoveState",
+                "excluded": true
+            },
+            {
+                "name": "TakeDamageTest",
+                "excluded": true
+            },
+            {
+                "name": "ITakeDamage",
+                "excluded": false
+            },
+            {
+                "name": "ICondition",
+                "excluded": true
+            },
+            {
+                "name": "IState",
+                "excluded": false
             }
         ],
         "unusedMethods": [
@@ -7999,7 +8025,7 @@
                     },
                     {
                         "name": "isWhiteSpace",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "isDigit",
@@ -8301,7 +8327,7 @@
                     },
                     {
                         "name": "getDefaultValue",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "createInstance",
@@ -8309,7 +8335,7 @@
                     },
                     {
                         "name": "toString",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "parse",
@@ -15275,7 +15301,7 @@
                     },
                     {
                         "name": "timeScale#set",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "smoothDeltaTime#get",
@@ -20181,7 +20207,7 @@
                     },
                     {
                         "name": "RectangleContainsScreenPoint$1",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "RectangleContainsScreenPoint",
@@ -21579,7 +21605,7 @@
                     },
                     {
                         "name": "HashToString",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "NoticeNameHash",
@@ -21735,7 +21761,7 @@
                     },
                     {
                         "name": "SetBool",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "GetBool",
@@ -22379,7 +22405,7 @@
                     },
                     {
                         "name": "RemoveRaycasters",
-                        "excluded": true
+                        "excluded": false
                     }
                 ]
             },
@@ -22893,7 +22919,7 @@
                     },
                     {
                         "name": "OnDisable",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "OnCanvasHierarchyChanged",
@@ -23199,7 +23225,7 @@
                     },
                     {
                         "name": "rectTransform#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "showMaskGraphic#get",
@@ -23247,7 +23273,7 @@
                     },
                     {
                         "name": "IsRaycastLocationValid",
-                        "excluded": true
+                        "excluded": false
                     }
                 ]
             },
@@ -23491,7 +23517,7 @@
                     },
                     {
                         "name": "OnDisable",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "CalculateLayoutInputHorizontal",
@@ -23823,7 +23849,7 @@
                     },
                     {
                         "name": "SetClickableOptions",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "CreateInstance",
@@ -23831,7 +23857,7 @@
                     },
                     {
                         "name": "OpenEndCard",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "SetCTAButtonPosition",
@@ -23839,11 +23865,11 @@
                     },
                     {
                         "name": "ClickCTA",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "EndGame",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "Start",
@@ -23883,11 +23909,11 @@
                     },
                     {
                         "name": "SetButtonAnimation",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "SetEndCardAnimationType",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "SetPositionIcon",
@@ -23967,7 +23993,7 @@
                     },
                     {
                         "name": "LunaClick",
-                        "excluded": true
+                        "excluded": false
                     }
                 ]
             },
@@ -27494,6 +27520,310 @@
                     {
                         "name": "$clone",
                         "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "BotManagerTest",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "Instance#get",
+                        "excluded": false
+                    },
+                    {
+                        "name": "BotNetworks#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Awake",
+                        "excluded": false
+                    },
+                    {
+                        "name": "SpawnBot",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "FiniteStateMachine",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "CurrentStateName#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetState",
+                        "excluded": false
+                    },
+                    {
+                        "name": "UpdateState",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ChangeState",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "SpawnBotTest",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "InitData",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Run",
+                        "excluded": false
+                    },
+                    {
+                        "name": "SpawnBotRoutine",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "StateConditionManager",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "RegisterCondition",
+                        "excluded": false
+                    },
+                    {
+                        "name": "GetCondition",
+                        "excluded": false
+                    },
+                    {
+                        "name": "SetCondition",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "StateTransition",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "ctor",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "StateTransitionManager",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "RegisterTransition$1",
+                        "excluded": false
+                    },
+                    {
+                        "name": "RegisterTransition",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetNextState",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "BotNetwork",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "IsDead#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Path#get",
+                        "excluded": false
+                    },
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Awake",
+                        "excluded": false
+                    },
+                    {
+                        "name": "TakeDamage",
+                        "excluded": false
+                    },
+                    {
+                        "name": "CacularHealth",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Die",
+                        "excluded": false
+                    },
+                    {
+                        "name": "SetPath",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "Bot_Playita",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnEnable",
+                        "excluded": false
+                    },
+                    {
+                        "name": "InitState",
+                        "excluded": false
+                    },
+                    {
+                        "name": "RegisterCondition",
+                        "excluded": false
+                    },
+                    {
+                        "name": "RegisterTransition",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Update",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnTakeDamage",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnBotDead",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "PlayitaDieState",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "ctor",
+                        "excluded": false
+                    },
+                    {
+                        "name": "EnterState",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ExecuteState",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ExitState",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "PlayitaMoveState",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "ctor",
+                        "excluded": false
+                    },
+                    {
+                        "name": "EnterState",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ExecuteState",
+                        "excluded": false
+                    },
+                    {
+                        "name": "MoveToPoint",
+                        "excluded": false
+                    },
+                    {
+                        "name": "MoveDone",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ExitState",
+                        "excluded": false
+                    },
+                    {
+                        "name": "CheckIsMoveDone",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "PlayitaShootState",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ctor",
+                        "excluded": false
+                    },
+                    {
+                        "name": "EnterState",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ExecuteState",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ExitState",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "PlayitaTakeDameState",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "ctor",
+                        "excluded": false
+                    },
+                    {
+                        "name": "EnterState",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ExecuteState",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ExitState",
+                        "excluded": false
                     }
                 ]
             }

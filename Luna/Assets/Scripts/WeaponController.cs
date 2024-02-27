@@ -68,10 +68,10 @@ public class WeaponController : MonoBehaviour
         // }
         if (Physics.Raycast(transform.position, ray.direction, out hit, Mathf.Infinity, Mask))
         {
-            BotController botController = hit.transform.root.gameObject.GetComponent<BotController>();
-            if (botController != null)
+            ITakeDamage takeDamageController = hit.transform.root.gameObject.GetComponent<ITakeDamage>();
+            if (takeDamageController != null)
             {
-                botController.TakeDamage(damage);
+                takeDamageController.TakeDamage(damage);
             }
             var effect = ObjectPool.Instance.PopFromPool(this.Effect, instantiateIfNone: true);
             effect.GetComponent<Effect>().Init(hit.point);

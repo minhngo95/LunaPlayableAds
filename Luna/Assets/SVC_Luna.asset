@@ -428,7 +428,7 @@ MonoBehaviour:
     keywords: []
   _includedShaderVariants: []
   _excludedShaderVariants: []
-  version: 133
+  version: 405
   _shaderParsedShaders:
   - ParsedSubShaders:
     - Index: 0
@@ -9145,11 +9145,11 @@ MonoBehaviour:
     fallbackShader: {fileID: 0}
     CompilationErrors: []
   _modifiedShaders: []
-  invalidShaders: 0
+  invalidShaders: 1
   _sceneLightData:
     PointLightCount: 0
     SpotLightCount: 0
-    DirectionalLightCount: 6
+    DirectionalLightCount: 4
     LightmapOn: 0
     DirlightmapCombined: 0
     DirectionalCookieExists: 0
