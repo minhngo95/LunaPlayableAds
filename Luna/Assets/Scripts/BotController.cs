@@ -29,8 +29,6 @@ public class BotController : MonoBehaviour
     public Action OnBotDead { get; set; }
     [SerializeField] protected AudioSource _audioSource; 
     [SerializeField] protected AudioSource _hitSource;
-    
-
     protected virtual void Awake()
     {
         path = PathManager.Instance.ChoseWayPointNormal();

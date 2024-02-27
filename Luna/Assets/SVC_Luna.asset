@@ -256,6 +256,12 @@ MonoBehaviour:
     keywords:
     - UNITY_UI_ALPHACLIP
     - UNITY_UI_CLIP_RECT
+  - shader: {fileID: 10721, guid: 0000000000000000f000000000000000, type: 0}
+    passType: 0
+    passId: 0
+    subShaderIndex: 0
+    upToDate: 1
+    keywords: []
   - shader: {fileID: 7, guid: 0000000000000000f000000000000000, type: 0}
     passType: 4
     passId: 0
@@ -278,12 +284,6 @@ MonoBehaviour:
     upToDate: 1
     keywords:
     - DIRECTIONAL
-  - shader: {fileID: 10721, guid: 0000000000000000f000000000000000, type: 0}
-    passType: 0
-    passId: 0
-    subShaderIndex: 0
-    upToDate: 1
-    keywords: []
   - shader: {fileID: 4800000, guid: b44e2a58adf570b44b8ee745d99b25f7, type: 3}
     passType: 0
     passId: 0
@@ -428,7 +428,7 @@ MonoBehaviour:
     keywords: []
   _includedShaderVariants: []
   _excludedShaderVariants: []
-  version: 405
+  version: 828
   _shaderParsedShaders:
   - ParsedSubShaders:
     - Index: 0
@@ -9145,11 +9145,11 @@ MonoBehaviour:
     fallbackShader: {fileID: 0}
     CompilationErrors: []
   _modifiedShaders: []
-  invalidShaders: 1
+  invalidShaders: 0
   _sceneLightData:
     PointLightCount: 0
     SpotLightCount: 0
-    DirectionalLightCount: 4
+    DirectionalLightCount: 2
     LightmapOn: 0
     DirlightmapCombined: 0
     DirectionalCookieExists: 0

@@ -90,12 +90,7 @@ public class BotParachute : BotController
             _animator.SetBool("isHit", false);
             return;
         }
-        if (_animator.GetCurrentAnimatorStateInfo(0).IsName("ParachuteHit") &&
-            _animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
-        {
-            _animator.SetBool("isHit", false);
-            isTakeDame = false;
-        }
+     
     }
 
     protected override void DieAction()

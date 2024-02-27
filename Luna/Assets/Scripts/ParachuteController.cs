@@ -66,7 +66,6 @@ public class ParachuteController : MonoBehaviour
         }
         if (distanceToGround < _distanceCloseParachute)
         {
-            (_botController as BotParachute).OnLand=true;
             scaleAmount = Mathf.Lerp(scaleAmount, 0, t);
             ParachuteScale.localScale = new Vector3(scaleAmount, scaleAmount, 1);
         }

@@ -7,6 +7,7 @@ public class GamePlayManager : MonoBehaviour
     [SerializeField] private SpawnBot _spawnBotNormal;
     [SerializeField] private SpawnBot _spawnBotParachute;
     [SerializeField] private SpawnBotTest _a;
+    //[SerializeField] private SpawnBotTest _b;
     public static GamePlayManager Instance;
     public int Turn { get; set; }
     private void Awake()
@@ -54,6 +55,7 @@ public class GamePlayManager : MonoBehaviour
         // _spawnBotParachute.InitData(ConfigManager.Instance.GetStepData(Turn).NumberParachute);
         // _spawnBotNormal.InitData(ConfigManager.Instance.GetStepData(Turn).NumberBot);
         _a.InitData(ConfigManager.Instance.GetStepData(Turn).NumberBot);
+        //_b.InitData(ConfigManager.Instance.GetStepData(Turn).NumberParachute);
     }
 
     public void GameStart()
@@ -61,6 +63,7 @@ public class GamePlayManager : MonoBehaviour
         // _spawnBotParachute.Run();
         // _spawnBotNormal.Run();
         _a.Run();
+       // _b.Run();
     }
 
     public void LunaClick()

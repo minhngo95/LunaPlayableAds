@@ -14,6 +14,7 @@ public class BotManagerTest : MonoBehaviour
     public void  SpawnBot(BotNetwork botPrefab,Vector3 spawnPosition, Path path)
     {
         BotNetwork newBot = Instantiate(botPrefab, spawnPosition, Quaternion.identity);
+        newBot.transform.localRotation = Quaternion.Euler(0, 180, 0);
         newBot.SetPath(path);
         newBot.gameObject.SetActive(true);
         _botNetworks.Add(newBot);

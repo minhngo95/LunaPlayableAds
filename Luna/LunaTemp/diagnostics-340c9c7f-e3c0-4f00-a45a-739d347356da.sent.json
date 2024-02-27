@@ -1,24 +1,24 @@
 {
-    "BuildID": "bae9174e-f1e0-4009-9036-f604b07e0d2e",
-    "Command": "project:build",
+    "BuildID": "340c9c7f-e3c0-4f00-a45a-739d347356da",
+    "Command": "project:upload",
     "ProjectID": "19d6020580d862e46a5b6b7a32992276",
-    "ProjectStateHash": "0b7eebd30d6eda4701515b95711de5ae986b281189c47eab35a30fdfab21bde4",
+    "ProjectStateHash": "1c2e21d61b31c2030b60f67c553878c949d7d12e470ea42d35a5ef0fb296bca1",
     "StageCompletedAt": 3,
     "EarliestFatalError": 0,
-    "StartTime": 1709006663467,
-    "EndTime": 1709006691976,
+    "StartTime": 1709027329048,
+    "EndTime": 1709027347042,
     "PlaygroundUserID": 13434,
     "OperatingSystem": "win32",
     "UnityPackageID": null,
-    "TargetPlatform": "develop",
+    "TargetPlatform": "playground",
     "UnityVersion": "2021.3.33f1",
     "LunaVersion": "5.5.0",
     "LogCount": 13,
     "Logs": [
         {
-            "LogID": "9de692a2-c2a3-4909-add0-e17e0b19e526",
+            "LogID": "24a8d9f2-ca57-4104-810a-d0bc2e53f363",
             "Order": 13,
-            "Timestamp": 1709006692186,
+            "Timestamp": 1709027347252,
             "Stage": 3,
             "ErrorType": 3,
             "ErrorCode": "LP3008",
@@ -40,9 +40,9 @@
             "Severity": 0
         },
         {
-            "LogID": "2f5e4650-e2a4-4ee4-8974-dea9c0735607",
+            "LogID": "2118596d-b31c-4495-a32f-083a16d36215",
             "Order": 0,
-            "Timestamp": 1709006664970,
+            "Timestamp": 1709027330242,
             "Stage": 1,
             "ErrorType": 0,
             "ErrorCode": "LP1012",
@@ -63,9 +63,9 @@
             "Severity": 0
         },
         {
-            "LogID": "67d346d5-4961-4e13-94a4-3c84bbe732e0",
+            "LogID": "21a2415b-2962-4440-8a8e-1dfc683ff9a4",
             "Order": 1,
-            "Timestamp": 1709006665515,
+            "Timestamp": 1709027330756,
             "Stage": 1,
             "ErrorType": 0,
             "ErrorCode": "LP1012",
@@ -86,9 +86,9 @@
             "Severity": 0
         },
         {
-            "LogID": "386ff0b2-645a-430e-b559-2f059636aab8",
+            "LogID": "f62179ec-1bc5-45c9-8f20-0454c8ba89c2",
             "Order": 2,
-            "Timestamp": 1709006666841,
+            "Timestamp": 1709027332027,
             "Stage": 1,
             "ErrorType": 0,
             "ErrorCode": "LP1012",
@@ -109,9 +109,9 @@
             "Severity": 0
         },
         {
-            "LogID": "4ef1fd34-60f2-4736-a36c-ea7886774b98",
+            "LogID": "1109eb02-23c5-4afd-8037-fb6872bfba25",
             "Order": 3,
-            "Timestamp": 1709006668569,
+            "Timestamp": 1709027333737,
             "Stage": 1,
             "ErrorType": 0,
             "ErrorCode": "LP1009",
@@ -132,9 +132,9 @@
             "Severity": 0
         },
         {
-            "LogID": "0119adb8-ac49-42ff-b310-835d89b7ec5d",
+            "LogID": "48c2d4ac-920f-4db7-b8f3-501cab0accc0",
             "Order": 4,
-            "Timestamp": 1709006668569,
+            "Timestamp": 1709027333737,
             "Stage": 1,
             "ErrorType": 0,
             "ErrorCode": "LP1009",
@@ -155,9 +155,9 @@
             "Severity": 0
         },
         {
-            "LogID": "db98fe32-5a24-4257-9517-da9b2b25d980",
+            "LogID": "796269a8-f844-4787-ba2d-8815510d0450",
             "Order": 5,
-            "Timestamp": 1709006668569,
+            "Timestamp": 1709027333737,
             "Stage": 1,
             "ErrorType": 0,
             "ErrorCode": "LP1009",
@@ -178,9 +178,9 @@
             "Severity": 0
         },
         {
-            "LogID": "1cc8942f-cfa8-44ff-b51c-9e07d788a646",
+            "LogID": "2c7b26c2-eae0-4b5e-a707-cd94b30fb7ab",
             "Order": 6,
-            "Timestamp": 1709006668569,
+            "Timestamp": 1709027333737,
             "Stage": 1,
             "ErrorType": 0,
             "ErrorCode": "LP1009",
@@ -201,9 +201,9 @@
             "Severity": 0
         },
         {
-            "LogID": "2c5d250c-d5db-420f-82fe-cb69e2c84c78",
+            "LogID": "6aa0cfcd-be69-4769-a974-a552d0e4c412",
             "Order": 7,
-            "Timestamp": 1709006672268,
+            "Timestamp": 1709027335510,
             "Stage": 1,
             "ErrorType": 2,
             "ErrorCode": "LP1014",
@@ -221,15 +221,15 @@
             "Severity": 0
         },
         {
-            "LogID": "f35a3c8f-8ed8-4e44-b49b-df4741e61c72",
+            "LogID": "6f0c62ef-f80d-4bc3-b73d-0992ba5542ed",
             "Order": 8,
-            "Timestamp": 1709006672268,
+            "Timestamp": 1709027335510,
             "Stage": 1,
             "ErrorType": 2,
             "ErrorCode": "LP1016",
             "Description": "Extensive usage of ParticleSystem Component",
             "Details": [
-                "There is extensive usage of the ParticleSystem component.\nExcessive usage of any component can be detrimental to performance on lower and in some cases higher end devices, consider reducing the amount the component is used.\nRecommended count: 10, current count 28."
+                "There is extensive usage of the ParticleSystem component.\nExcessive usage of any component can be detrimental to performance on lower and in some cases higher end devices, consider reducing the amount the component is used.\nRecommended count: 10, current count 30."
             ],
             "DescriptionValues": [
                 "ParticleSystem"
@@ -237,7 +237,7 @@
             "DetailsValues": [
                 "ParticleSystem",
                 "10",
-                "28"
+                "30"
             ],
             "LogCount": 1,
             "LinePosition": 0,
@@ -247,33 +247,32 @@
             "Severity": 0
         },
         {
-            "LogID": "f77c588f-e690-4d3a-9097-ce5377490234",
+            "LogID": "e4d41415-86e3-4d92-a518-474f703fd0ae",
             "Order": 9,
-            "Timestamp": 1709006672276,
+            "Timestamp": 1709027335511,
             "Stage": 1,
-            "ErrorType": 0,
-            "ErrorCode": "LP1032",
-            "Description": "Package(s) is not supported in Luna",
+            "ErrorType": 2,
+            "ErrorCode": "LP1024",
+            "Description": "Huge RAM usage",
             "Details": [
-                "Currently package(s) com.unity.timeline are not supported in Luna. We recommend you to remove it and workaround it's functionality."
+                "Playable have huge RAM usage (325.36 MB). Recommended RAM value is lower than 256.00 MB to support low-end devices"
             ],
-            "DescriptionValues": [
-                "com.unity.timeline (1.6.5)"
-            ],
+            "DescriptionValues": [],
             "DetailsValues": [
-                "com.unity.timeline"
+                "256.00",
+                "325.36"
             ],
             "LogCount": 1,
             "LinePosition": 0,
-            "FilePath": "C:/Users/Pc/Documents/GitHub/LunaPlayableAds/Luna/Packages\\manifest.json",
+            "FilePath": "",
             "ClassName": "",
             "MemberName": "",
             "Severity": 0
         },
         {
-            "LogID": "446d3510-d9b9-41dc-ae55-cf6f179b9b01",
+            "LogID": "773d1ba5-8a7a-4637-b186-cfcf59543d5c",
             "Order": 10,
-            "Timestamp": 1709006672277,
+            "Timestamp": 1709027335513,
             "Stage": 1,
             "ErrorType": 2,
             "ErrorCode": "LP1010",
@@ -284,6 +283,27 @@
                 "Cube",
                 "Terrain_MP1_L (2)",
                 "Terrain_MP1_L (3)",
+                "LeftUpLeg",
+                "LeftLeg",
+                "RightUpLeg",
+                "RightLeg",
+                "Spine1",
+                "LeftArm",
+                "LeftForeArm",
+                "HeadCollider",
+                "RightArm",
+                "RightForeArm",
+                "LeftUpLeg",
+                "LeftLeg",
+                "RightUpLeg",
+                "RightLeg",
+                "Spine1",
+                "LeftArm",
+                "LeftForeArm",
+                "HeadCollider",
+                "RightArm",
+                "RightForeArm",
+                "collider",
                 "LeftUpLeg",
                 "LeftLeg",
                 "RightUpLeg",
@@ -310,21 +330,11 @@
                 "Terrain_MP1_L (2)",
                 "Terrain_MP1_L (3)",
                 "Terrain_MP1_L (1)",
-                "Terrain_MP1_L",
-                "LeftUpLeg",
-                "LeftLeg",
-                "RightUpLeg",
-                "RightLeg",
-                "Spine1",
-                "LeftArm",
-                "LeftForeArm",
-                "HeadCollider",
-                "RightArm",
-                "RightForeArm"
+                "Terrain_MP1_L"
             ],
             "DescriptionValues": [],
             "DetailsValues": [],
-            "LogCount": 42,
+            "LogCount": 53,
             "LinePosition": 0,
             "FilePath": "",
             "ClassName": "",
@@ -332,22 +342,24 @@
             "Severity": 0
         },
         {
-            "LogID": "2632e6c9-b93f-4687-92e7-443dd3c2c4b4",
+            "LogID": "85a9fa1b-8667-412f-a2b4-0c90f212172b",
             "Order": 11,
-            "Timestamp": 1709006672277,
+            "Timestamp": 1709027335513,
             "Stage": 1,
             "ErrorType": 3,
             "ErrorCode": "LP1008",
             "Description": "There are missing components on Playita.",
             "Details": [
-                "Playita",
-                "Playita"
+                "There are missing components on Playita."
             ],
             "DescriptionValues": [
                 "Playita"
             ],
-            "DetailsValues": [],
-            "LogCount": 2,
+            "DetailsValues": [
+                "Playita",
+                "Playita"
+            ],
+            "LogCount": 1,
             "LinePosition": 0,
             "FilePath": "",
             "ClassName": "",

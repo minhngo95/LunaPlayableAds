@@ -6,7 +6,7 @@ using UnityEngine;
 public class BotNetwork : MonoBehaviour,ITakeDamage
 {
     [SerializeField] int _maxHealth = 100;
-    [SerializeField] List<Transform> _legalTargets = new List<Transform>();
+    [SerializeField] List<Transform> _fireAssistCheckPos = new List<Transform>();
     [SerializeField] Path _path;
     [SerializeField] int _currentHealth;
     [SerializeField] private bool isDead;
@@ -14,6 +14,7 @@ public class BotNetwork : MonoBehaviour,ITakeDamage
     public Action<int> OnTakeDamage { get; set; }
     public Action OnBotDead { get; set; }
     public Path Path => _path;
+    public List<Transform> FireAssistCheckPos=> _fireAssistCheckPos;
     private void Awake()
     {
         OnBotDead+= Die;
