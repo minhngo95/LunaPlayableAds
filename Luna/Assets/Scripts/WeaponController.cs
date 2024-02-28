@@ -7,13 +7,13 @@ public class WeaponController : MonoBehaviour
 {
     [SerializeField] private LayerMask _layerMask;
     [SerializeField] private int _damage = 10;
-    private readonly float _shootDelay = 0.15f;
+    private readonly float _shootDelay = 0.1f;
     [SerializeField] private float _timeSinceLastShoot;
     [SerializeField] private Transform _muzzleTrans;
     [SerializeField] private Animation _animation;
     [SerializeField] private GameObject _bullet;
     [SerializeField] private GameObject _muzzleFlash;
-    [SerializeField] private AudioClip _audioClip; // Assign your audio clip in the Unity Editor
+    [SerializeField] private AudioClip _audioClip;
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private GameObject _effect;
     [SerializeField] private bool _isShowCard;
@@ -32,7 +32,7 @@ public class WeaponController : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             _timeSinceLastShoot += Time.deltaTime;
-            if (_timeSinceLastShoot > _shootDelay)
+            if (_timeSinceLastShoot >= _shootDelay)
             {
                 _muzzleFlash.SetActive(false);
                 _bullet.SetActive(false);
@@ -54,14 +54,13 @@ public class WeaponController : MonoBehaviour
 
         var forward = _cameraTransform.forward;
         var targetPoint = FindPointedTransform();
-        if (FindPointedTransform() != null)
+        if (targetPoint != null)
         {
             if (Vector3.SqrMagnitude( targetPoint.position- _cameraTransform.position) > 0)
                 forward = (targetPoint.position - _cameraTransform.position).normalized;
         }
         var shotRotation = Quaternion.Euler(Random.insideUnitCircle * inaccuracy) * forward;
         var ray = new Ray(_cameraTransform.transform.position, shotRotation);
-        RaycastHit hit;
         _animation.Play();
         _audioSource.clip = _audioClip;
         _audioSource.Play();
@@ -71,7 +70,7 @@ public class WeaponController : MonoBehaviour
         bullet.transform.SetPositionAndRotation(_muzzleTrans.transform.position, _muzzleTrans.transform.rotation);
         bullet.GetComponent<BulletTrail>().Init(ray.direction);
         UICrosshairItem.Instance.Expand_Crosshair(15);
-        if (Physics.Raycast(transform.position, ray.direction, out hit, Mathf.Infinity, _layerMask))
+        if (Physics.Raycast(ray, out var hit, Mathf.Infinity,_layerMask))
         {
             var takeDamageController = hit.transform.root.gameObject.GetComponent<ITakeDamage>();
             if (takeDamageController != null) takeDamageController.TakeDamage(_damage);
@@ -113,7 +112,6 @@ public class WeaponController : MonoBehaviour
             distance = float.MaxValue;
             return false;
         }
-
         viewPosition.x -= Screen.width / 2f;
         viewPosition.y -= Screen.height / 2f;
 
