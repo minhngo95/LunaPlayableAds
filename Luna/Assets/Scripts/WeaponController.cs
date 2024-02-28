@@ -1,12 +1,13 @@
+using System;
 using System.Linq;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class WeaponController : MonoBehaviour
 {
-    [SerializeField] private float _nextFireTime;
     [SerializeField] private LayerMask _layerMask;
     [SerializeField] private int _damage = 10;
-    private readonly float _shootDelay = 0.1f;
+    private readonly float _shootDelay = 0.15f;
     [SerializeField] private float _timeSinceLastShoot;
     [SerializeField] private Transform _muzzleTrans;
     [SerializeField] private Animation _animation;
@@ -14,11 +15,18 @@ public class WeaponController : MonoBehaviour
     [SerializeField] private GameObject _muzzleFlash;
     [SerializeField] private AudioClip _audioClip; // Assign your audio clip in the Unity Editor
     [SerializeField] private AudioSource _audioSource;
-    [SerializeField] private float _SphereRadius = 0.01f;
     [SerializeField] private GameObject _effect;
     [SerializeField] private bool _isShowCard;
+    Transform _cameraTransform;
+    Camera _camera;
+    private readonly float inaccuracy = 0.01f;
+    private void Awake()
+    {
+        _camera = Camera.main;
+        _cameraTransform = _camera.transform;
+    }
 
-    private void FixedUpdate()
+    private void Update()
     {
         UICrosshairItem.Instance.Narrow_Crosshair();
         if (Input.GetMouseButton(0))
@@ -39,23 +47,20 @@ public class WeaponController : MonoBehaviour
             }
         }
     }
-
-    private readonly float inaccuracy = 0.02f;
-
+    // ReSharper disable Unity.PerformanceAnalysis
     private void Shoot()
     {
-        if (this == null || Camera.main.transform == null) return;
+        if (this == null || _cameraTransform == null) return;
 
-        var forward = Camera.main.transform.forward;
+        var forward = _cameraTransform.forward;
+        var targetPoint = FindPointedTransform();
         if (FindPointedTransform() != null)
         {
-            if (Vector3.SqrMagnitude( FindPointedTransform().position- Camera.main.transform.position) > 0)
-                forward = (FindPointedTransform().position - Camera.main.transform.position).normalized;
+            if (Vector3.SqrMagnitude( targetPoint.position- _cameraTransform.position) > 0)
+                forward = (targetPoint.position - _cameraTransform.position).normalized;
         }
         var shotRotation = Quaternion.Euler(Random.insideUnitCircle * inaccuracy) * forward;
-        var ray = new Ray(Camera.main.transform.position, shotRotation);
-        // var screenCenter = new Vector3(Screen.width / 2, Screen.height / 2, 0);
-        // var ray = Camera.main.ScreenPointToRay(screenCenter);
+        var ray = new Ray(_cameraTransform.transform.position, shotRotation);
         RaycastHit hit;
         _animation.Play();
         _audioSource.clip = _audioClip;
@@ -80,7 +85,7 @@ public class WeaponController : MonoBehaviour
         var minCrossHairDistance = float.MaxValue;
         Transform pointedTransform = null;
 
-        var bots = BotManagerTest.Instance.BotNetworks;
+        var bots = BotManager.Instance.BotNetworks;
 
         foreach (var bot in bots.Where(bot => bot != null && !bot.IsDead))
         foreach (var checkPoint in bot.FireAssistCheckPos)
@@ -102,7 +107,7 @@ public class WeaponController : MonoBehaviour
 
     private bool SatisfyAutoFireCondition(Vector3 target, out float distance)
     {
-        var viewPosition = Camera.main.WorldToScreenPoint(target);
+        var viewPosition = _camera.WorldToScreenPoint(target);
         if (viewPosition.z < 0)
         {
             distance = float.MaxValue;
@@ -116,7 +121,7 @@ public class WeaponController : MonoBehaviour
 
         distance = Mathf.Sqrt(viewPosition.x * viewPosition.x + viewPosition.y * viewPosition.y);
         return distance < radius
-               && IsClearShot(Camera.main.transform.position, target);
+               && IsClearShot(_cameraTransform.position, target);
     }
 
     private bool IsClearShot(Vector3 origin, Vector3 target)

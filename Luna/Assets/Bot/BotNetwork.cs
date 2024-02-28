@@ -23,7 +23,8 @@ public class BotNetwork : MonoBehaviour,ITakeDamage
     }
 
     public void TakeDamage(int damage)
-    {
+    {   
+        if(isDead) return;
         OnTakeDamage.Invoke(damage);
     }
     public void CacularHealth(int damage)

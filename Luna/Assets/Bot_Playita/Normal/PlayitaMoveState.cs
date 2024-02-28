@@ -16,7 +16,7 @@
             this.transform = transform;
             this.path = path;
             this.moveSpeed = moveSpeed;
-            moveIndex = 0;
+            moveIndex = 1;
             pointCount = path.WayPoints.Count;
         }
 

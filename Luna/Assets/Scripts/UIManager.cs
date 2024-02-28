@@ -10,7 +10,7 @@ public class UIManager : MonoBehaviour
     public GameObject InGame;
 
     public Text TotalBotText;
-    public int initBot;
+    [FormerlySerializedAs("initBot")] public int TotalBotinConfig;
     public Image process;
     public GameObject gameProcess;
     public GameObject tapToPlay;
@@ -26,17 +26,6 @@ public class UIManager : MonoBehaviour
     {
         tapToPlay.gameObject.SetActive(false);
     }
-
-    public void GoToLink()
-    {
-        // var operatingSystem = SystemInfo.operatingSystem;
-        //
-        // if (operatingSystem.ToLower().Contains("android"))
-        //     Application.OpenURL("https://play.google.com/store/apps/details?id=com.horus.sky.defense");
-        // if (operatingSystem.ToLower().Contains("iphone") || operatingSystem.ToLower().Contains("ipad"))
-        //     Application.OpenURL("https://apps.apple.com/us/app/skydefense/id6469495100");
-    }
-
     IEnumerator ShowEndCard()
     {
         yield return new WaitForSeconds(1);
@@ -55,11 +44,11 @@ public class UIManager : MonoBehaviour
         {
             tapToPlay.SetActive(false);
         }
-        TotalBotText.text = $"{BotManager.Instance.TotalBot.ToString()} / {initBot}";
-        process.fillAmount = ((float)BotManager.Instance.TotalBot / initBot);
+        TotalBotText.text = $"{BotManager.Instance.TotalBotOnMap} / {TotalBotinConfig}";
+        process.fillAmount = ((float)BotManager.Instance.TotalBotOnMap / TotalBotinConfig);
     }
     public void UpdateInitBot(int value)
     {
-        initBot = value;
+        TotalBotinConfig = value;
     }
 }

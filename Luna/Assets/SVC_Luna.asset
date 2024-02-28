@@ -140,94 +140,6 @@ MonoBehaviour:
     upToDate: 1
     keywords:
     - DIRECTIONAL
-  - shader: {fileID: 10703, guid: 0000000000000000f000000000000000, type: 0}
-    passType: 4
-    passId: 0
-    subShaderIndex: 0
-    upToDate: 1
-    keywords:
-    - DIRECTIONAL
-  - shader: {fileID: 10703, guid: 0000000000000000f000000000000000, type: 0}
-    passType: 4
-    passId: 0
-    subShaderIndex: 0
-    upToDate: 1
-    keywords:
-    - DIRECTIONAL
-    - LIGHTPROBE_SH
-  - shader: {fileID: 10701, guid: 0000000000000000f000000000000000, type: 0}
-    passType: 1
-    passId: 0
-    subShaderIndex: 0
-    upToDate: 1
-    keywords: []
-  - shader: {fileID: 10701, guid: 0000000000000000f000000000000000, type: 0}
-    passType: 2
-    passId: 1
-    subShaderIndex: 0
-    upToDate: 1
-    keywords: []
-  - shader: {fileID: 4800000, guid: 149cedf4d9d3a3944a2b4d7e25ae8ef1, type: 3}
-    passType: 4
-    passId: 0
-    subShaderIndex: 0
-    upToDate: 1
-    keywords:
-    - DIRECTIONAL
-  - shader: {fileID: 4800000, guid: 149cedf4d9d3a3944a2b4d7e25ae8ef1, type: 3}
-    passType: 4
-    passId: 0
-    subShaderIndex: 0
-    upToDate: 1
-    keywords:
-    - DIRECTIONAL
-    - LIGHTPROBE_SH
-  - shader: {fileID: 4800000, guid: 149cedf4d9d3a3944a2b4d7e25ae8ef1, type: 3}
-    passType: 5
-    passId: 1
-    subShaderIndex: 0
-    upToDate: 1
-    keywords:
-    - DIRECTIONAL
-  - shader: {fileID: 50, guid: 0000000000000000f000000000000000, type: 0}
-    passType: 1
-    passId: 0
-    subShaderIndex: 0
-    upToDate: 1
-    keywords: []
-  - shader: {fileID: 50, guid: 0000000000000000f000000000000000, type: 0}
-    passType: 2
-    passId: 1
-    subShaderIndex: 0
-    upToDate: 1
-    keywords: []
-  - shader: {fileID: 4800000, guid: 71fe4e9c23c8dd94a9fee8e5bbcba240, type: 3}
-    passType: 0
-    passId: 0
-    subShaderIndex: 0
-    upToDate: 1
-    keywords: []
-  - shader: {fileID: 4800000, guid: 81044172d054b034da77ad506abebcca, type: 3}
-    passType: 4
-    passId: 0
-    subShaderIndex: 0
-    upToDate: 1
-    keywords:
-    - DIRECTIONAL
-  - shader: {fileID: 4800000, guid: 81044172d054b034da77ad506abebcca, type: 3}
-    passType: 4
-    passId: 0
-    subShaderIndex: 0
-    upToDate: 1
-    keywords:
-    - DIRECTIONAL
-    - LIGHTPROBE_SH
-  - shader: {fileID: 4800000, guid: cb8d097e7d4981240997096de0b0e79d, type: 3}
-    passType: 0
-    passId: 0
-    subShaderIndex: 0
-    upToDate: 1
-    keywords: []
   - shader: {fileID: 10770, guid: 0000000000000000f000000000000000, type: 0}
     passType: 0
     passId: 0
@@ -262,6 +174,40 @@ MonoBehaviour:
     subShaderIndex: 0
     upToDate: 1
     keywords: []
+  - shader: {fileID: 4800000, guid: 149cedf4d9d3a3944a2b4d7e25ae8ef1, type: 3}
+    passType: 4
+    passId: 0
+    subShaderIndex: 0
+    upToDate: 1
+    keywords:
+    - DIRECTIONAL
+  - shader: {fileID: 4800000, guid: 149cedf4d9d3a3944a2b4d7e25ae8ef1, type: 3}
+    passType: 4
+    passId: 0
+    subShaderIndex: 0
+    upToDate: 1
+    keywords:
+    - DIRECTIONAL
+    - LIGHTPROBE_SH
+  - shader: {fileID: 4800000, guid: 149cedf4d9d3a3944a2b4d7e25ae8ef1, type: 3}
+    passType: 5
+    passId: 1
+    subShaderIndex: 0
+    upToDate: 1
+    keywords:
+    - DIRECTIONAL
+  - shader: {fileID: 50, guid: 0000000000000000f000000000000000, type: 0}
+    passType: 1
+    passId: 0
+    subShaderIndex: 0
+    upToDate: 1
+    keywords: []
+  - shader: {fileID: 50, guid: 0000000000000000f000000000000000, type: 0}
+    passType: 2
+    passId: 1
+    subShaderIndex: 0
+    upToDate: 1
+    keywords: []
   - shader: {fileID: 7, guid: 0000000000000000f000000000000000, type: 0}
     passType: 4
     passId: 0
@@ -284,6 +230,60 @@ MonoBehaviour:
     upToDate: 1
     keywords:
     - DIRECTIONAL
+  - shader: {fileID: 4800000, guid: 71fe4e9c23c8dd94a9fee8e5bbcba240, type: 3}
+    passType: 0
+    passId: 0
+    subShaderIndex: 0
+    upToDate: 1
+    keywords: []
+  - shader: {fileID: 4800000, guid: cb8d097e7d4981240997096de0b0e79d, type: 3}
+    passType: 0
+    passId: 0
+    subShaderIndex: 0
+    upToDate: 1
+    keywords: []
+  - shader: {fileID: 10703, guid: 0000000000000000f000000000000000, type: 0}
+    passType: 4
+    passId: 0
+    subShaderIndex: 0
+    upToDate: 1
+    keywords:
+    - DIRECTIONAL
+  - shader: {fileID: 10703, guid: 0000000000000000f000000000000000, type: 0}
+    passType: 4
+    passId: 0
+    subShaderIndex: 0
+    upToDate: 1
+    keywords:
+    - DIRECTIONAL
+    - LIGHTPROBE_SH
+  - shader: {fileID: 10701, guid: 0000000000000000f000000000000000, type: 0}
+    passType: 1
+    passId: 0
+    subShaderIndex: 0
+    upToDate: 1
+    keywords: []
+  - shader: {fileID: 10701, guid: 0000000000000000f000000000000000, type: 0}
+    passType: 2
+    passId: 1
+    subShaderIndex: 0
+    upToDate: 1
+    keywords: []
+  - shader: {fileID: 4800000, guid: 81044172d054b034da77ad506abebcca, type: 3}
+    passType: 4
+    passId: 0
+    subShaderIndex: 0
+    upToDate: 1
+    keywords:
+    - DIRECTIONAL
+  - shader: {fileID: 4800000, guid: 81044172d054b034da77ad506abebcca, type: 3}
+    passType: 4
+    passId: 0
+    subShaderIndex: 0
+    upToDate: 1
+    keywords:
+    - DIRECTIONAL
+    - LIGHTPROBE_SH
   - shader: {fileID: 4800000, guid: b44e2a58adf570b44b8ee745d99b25f7, type: 3}
     passType: 0
     passId: 0
@@ -428,7 +428,7 @@ MonoBehaviour:
     keywords: []
   _includedShaderVariants: []
   _excludedShaderVariants: []
-  version: 828
+  version: 965
   _shaderParsedShaders:
   - ParsedSubShaders:
     - Index: 0
@@ -9149,7 +9149,7 @@ MonoBehaviour:
   _sceneLightData:
     PointLightCount: 0
     SpotLightCount: 0
-    DirectionalLightCount: 2
+    DirectionalLightCount: 0
     LightmapOn: 0
     DirlightmapCombined: 0
     DirectionalCookieExists: 0

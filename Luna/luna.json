@@ -6418,10 +6418,6 @@
                 "excluded": true
             },
             {
-                "name": "BotState",
-                "excluded": false
-            },
-            {
                 "name": "IPoolObject",
                 "excluded": false
             },
@@ -7366,18 +7362,6 @@
                 "excluded": false
             },
             {
-                "name": "JumpState",
-                "excluded": true
-            },
-            {
-                "name": "MoveState",
-                "excluded": true
-            },
-            {
-                "name": "TakeDamageTest",
-                "excluded": true
-            },
-            {
                 "name": "ITakeDamage",
                 "excluded": false
             },
@@ -7387,6 +7371,10 @@
             },
             {
                 "name": "IState",
+                "excluded": false
+            },
+            {
+                "name": "Spawn.Type",
                 "excluded": false
             }
         ],
@@ -11263,7 +11251,7 @@
                     },
                     {
                         "name": "ctor",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "Dispose",
@@ -11291,7 +11279,7 @@
                     },
                     {
                         "name": "$clone",
-                        "excluded": true
+                        "excluded": false
                     }
                 ]
             },
@@ -16419,7 +16407,7 @@
                     },
                     {
                         "name": "WorldToScreenPoint",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "ScreenToWorldPoint",
@@ -19025,7 +19013,7 @@
                     },
                     {
                         "name": "Raycast$1",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "RaycastAll",
@@ -22932,71 +22920,9 @@
                 ]
             },
             {
-                "className": "BotController",
-                "staticMethods": [],
-                "instanceMethods": [
-                    {
-                        "name": "init",
-                        "excluded": false
-                    },
-                    {
-                        "name": "Awake",
-                        "excluded": false
-                    },
-                    {
-                        "name": "Update",
-                        "excluded": false
-                    },
-                    {
-                        "name": "UpdateState",
-                        "excluded": false
-                    },
-                    {
-                        "name": "ChangeState",
-                        "excluded": false
-                    },
-                    {
-                        "name": "TakeDameAction",
-                        "excluded": false
-                    },
-                    {
-                        "name": "TakeDamage",
-                        "excluded": false
-                    },
-                    {
-                        "name": "DieAction",
-                        "excluded": false
-                    },
-                    {
-                        "name": "MoveAction",
-                        "excluded": false
-                    },
-                    {
-                        "name": "ShootAction",
-                        "excluded": false
-                    },
-                    {
-                        "name": "MoveToPoint",
-                        "excluded": false
-                    },
-                    {
-                        "name": "MoveDone",
-                        "excluded": false
-                    }
-                ]
-            },
-            {
                 "className": "BotManager",
                 "staticMethods": [],
                 "instanceMethods": [
-                    {
-                        "name": "TotalBot#get",
-                        "excluded": false
-                    },
-                    {
-                        "name": "TotalBot#set",
-                        "excluded": false
-                    },
                     {
                         "name": "Awake",
                         "excluded": false
@@ -23006,7 +22932,27 @@
                         "excluded": false
                     },
                     {
-                        "name": "SpawnBotInstance",
+                        "name": "Instance#get",
+                        "excluded": false
+                    },
+                    {
+                        "name": "TotalBotOnMap#get",
+                        "excluded": false
+                    },
+                    {
+                        "name": "TotalBotOnMap#set",
+                        "excluded": false
+                    },
+                    {
+                        "name": "BotNetworks#get",
+                        "excluded": false
+                    },
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "SpawnBot",
                         "excluded": false
                     }
                 ]
@@ -23258,32 +23204,6 @@
                 ]
             },
             {
-                "className": "ParachuteController",
-                "staticMethods": [],
-                "instanceMethods": [
-                    {
-                        "name": "init",
-                        "excluded": false
-                    },
-                    {
-                        "name": "Start",
-                        "excluded": false
-                    },
-                    {
-                        "name": "Update",
-                        "excluded": false
-                    },
-                    {
-                        "name": "CheckGround",
-                        "excluded": false
-                    },
-                    {
-                        "name": "ParachuteAction",
-                        "excluded": false
-                    }
-                ]
-            },
-            {
                 "className": "PathManager",
                 "staticMethods": [],
                 "instanceMethods": [
@@ -23336,28 +23256,6 @@
                 ]
             },
             {
-                "className": "SpawnBot",
-                "staticMethods": [],
-                "instanceMethods": [
-                    {
-                        "name": "init",
-                        "excluded": false
-                    },
-                    {
-                        "name": "InitData",
-                        "excluded": false
-                    },
-                    {
-                        "name": "Run",
-                        "excluded": false
-                    },
-                    {
-                        "name": "SpawnBotRoutine",
-                        "excluded": false
-                    }
-                ]
-            },
-            {
                 "className": "StepData",
                 "staticMethods": [],
                 "instanceMethods": [
@@ -23402,10 +23300,6 @@
                         "excluded": false
                     },
                     {
-                        "name": "GoToLink",
-                        "excluded": true
-                    },
-                    {
                         "name": "ShowEndCard",
                         "excluded": false
                     },
@@ -23442,35 +23336,17 @@
                     {
                         "name": "Shoot",
                         "excluded": false
-                    }
-                ]
-            },
-            {
-                "className": "BotParachute",
-                "staticMethods": [],
-                "instanceMethods": [
+                    },
                     {
-                        "name": "Awake",
+                        "name": "FindPointedTransform",
                         "excluded": false
                     },
                     {
-                        "name": "ChangeState",
+                        "name": "SatisfyAutoFireCondition",
                         "excluded": false
                     },
                     {
-                        "name": "ParachuteAction",
-                        "excluded": false
-                    },
-                    {
-                        "name": "GetPos",
-                        "excluded": false
-                    },
-                    {
-                        "name": "TakeDameAction",
-                        "excluded": false
-                    },
-                    {
-                        "name": "DieAction",
+                        "name": "IsClearShot",
                         "excluded": false
                     }
                 ]
@@ -23511,7 +23387,7 @@
                     },
                     {
                         "name": "insideUnitCircle#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "rotation#get",
@@ -24806,56 +24682,6 @@
                 ]
             },
             {
-                "className": "BotController.DieState",
-                "staticMethods": [],
-                "instanceMethods": [
-                    {
-                        "name": "UpdateState",
-                        "excluded": false
-                    }
-                ]
-            },
-            {
-                "className": "BotController.MoveState",
-                "staticMethods": [],
-                "instanceMethods": [
-                    {
-                        "name": "UpdateState",
-                        "excluded": false
-                    }
-                ]
-            },
-            {
-                "className": "BotController.ShootState",
-                "staticMethods": [],
-                "instanceMethods": [
-                    {
-                        "name": "UpdateState",
-                        "excluded": false
-                    }
-                ]
-            },
-            {
-                "className": "BotController.TakeDameState",
-                "staticMethods": [],
-                "instanceMethods": [
-                    {
-                        "name": "UpdateState",
-                        "excluded": false
-                    }
-                ]
-            },
-            {
-                "className": "BotParachute.ParachuteState",
-                "staticMethods": [],
-                "instanceMethods": [
-                    {
-                        "name": "UpdateState",
-                        "excluded": false
-                    }
-                ]
-            },
-            {
                 "className": "BulletTrail",
                 "staticMethods": [],
                 "instanceMethods": [
@@ -25178,32 +25004,6 @@
                 ]
             },
             {
-                "className": "BotManagerTest",
-                "staticMethods": [],
-                "instanceMethods": [
-                    {
-                        "name": "Instance#get",
-                        "excluded": false
-                    },
-                    {
-                        "name": "BotNetworks#get",
-                        "excluded": true
-                    },
-                    {
-                        "name": "init",
-                        "excluded": false
-                    },
-                    {
-                        "name": "Awake",
-                        "excluded": false
-                    },
-                    {
-                        "name": "SpawnBot",
-                        "excluded": false
-                    }
-                ]
-            },
-            {
                 "className": "FiniteStateMachine",
                 "staticMethods": [],
                 "instanceMethods": [
@@ -25221,28 +25021,6 @@
                     },
                     {
                         "name": "ChangeState",
-                        "excluded": false
-                    }
-                ]
-            },
-            {
-                "className": "SpawnBotTest",
-                "staticMethods": [],
-                "instanceMethods": [
-                    {
-                        "name": "init",
-                        "excluded": false
-                    },
-                    {
-                        "name": "InitData",
-                        "excluded": false
-                    },
-                    {
-                        "name": "Run",
-                        "excluded": false
-                    },
-                    {
-                        "name": "SpawnBotRoutine",
                         "excluded": false
                     }
                 ]
@@ -25307,7 +25085,7 @@
                 "instanceMethods": [
                     {
                         "name": "IsDead#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "Path#get",
@@ -25335,6 +25113,10 @@
                     },
                     {
                         "name": "SetPath",
+                        "excluded": false
+                    },
+                    {
+                        "name": "FireAssistCheckPos#get",
                         "excluded": false
                     }
                 ]
@@ -25735,6 +25517,32 @@
                     },
                     {
                         "name": "ExitState",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "Spawn",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "InitData",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Run",
+                        "excluded": false
+                    },
+                    {
+                        "name": "SpawnBotRoutine",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ChosePath",
                         "excluded": false
                     }
                 ]
