@@ -54134,7 +54134,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c4076a62c7443b41aa2073544559c2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _nextFireTime: 0
   _layerMask:
     serializedVersion: 2
     m_Bits: 64
@@ -54146,7 +54145,6 @@ MonoBehaviour:
   _muzzleFlash: {fileID: 5893799063606151393}
   _audioClip: {fileID: 8300000, guid: b2cf29f91e4700240892787807a9f98f, type: 3}
   _audioSource: {fileID: 82669989248425987}
-  _SphereRadius: 0.01
   _effect: {fileID: 1214385991556846, guid: 5101b0b18563cd64fba69182fb988727, type: 3}
   _isShowCard: 0
   radius: 33

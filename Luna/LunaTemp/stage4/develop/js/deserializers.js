@@ -1425,20 +1425,18 @@ Deserializers["Luna.Unity.DTO.UnityEngine.Components.Animation"] = function (req
 Deserializers["WeaponController"] = function (request, data, root) {
   var i862 = root || request.c( 'WeaponController' )
   var i863 = data
-  i862._nextFireTime = i863[0]
-  i862._layerMask = UnityEngine.LayerMask.FromIntegerValue( i863[1] )
-  i862._damage = i863[2]
-  i862._timeSinceLastShoot = i863[3]
-  request.r(i863[4], i863[5], 0, i862, '_muzzleTrans')
-  request.r(i863[6], i863[7], 0, i862, '_animation')
-  request.r(i863[8], i863[9], 0, i862, '_bullet')
-  request.r(i863[10], i863[11], 0, i862, '_muzzleFlash')
-  request.r(i863[12], i863[13], 0, i862, '_audioClip')
-  request.r(i863[14], i863[15], 0, i862, '_audioSource')
-  i862._SphereRadius = i863[16]
-  request.r(i863[17], i863[18], 0, i862, '_effect')
-  i862._isShowCard = !!i863[19]
-  i862.radius = i863[20]
+  i862._layerMask = UnityEngine.LayerMask.FromIntegerValue( i863[0] )
+  i862._damage = i863[1]
+  i862._timeSinceLastShoot = i863[2]
+  request.r(i863[3], i863[4], 0, i862, '_muzzleTrans')
+  request.r(i863[5], i863[6], 0, i862, '_animation')
+  request.r(i863[7], i863[8], 0, i862, '_bullet')
+  request.r(i863[9], i863[10], 0, i862, '_muzzleFlash')
+  request.r(i863[11], i863[12], 0, i862, '_audioClip')
+  request.r(i863[13], i863[14], 0, i862, '_audioSource')
+  request.r(i863[15], i863[16], 0, i862, '_effect')
+  i862._isShowCard = !!i863[17]
+  i862.radius = i863[18]
   return i862
 }
 
@@ -2369,7 +2367,7 @@ Deserializers.productName = "Luna";
 
 Deserializers.lunaInitializationTime = "01/29/2024 09:48:25";
 
-Deserializers.lunaDaysRunning = "29.7";
+Deserializers.lunaDaysRunning = "34.8";
 
 Deserializers.lunaVersion = "5.5.0";
 
@@ -2423,7 +2421,7 @@ Deserializers.disableAntiAliasing = true;
 
 Deserializers.preferWebGl2 = true;
 
-Deserializers.buildID = "d299b2e9-9ec6-4c47-b522-1a8a138e3e71";
+Deserializers.buildID = "11255874-03a5-49ea-a9cc-26270e223ede";
 
 Deserializers.typeNameToIdMap = function(){ var i = 0; return Deserializers.types.reduce( function( res, item ) { res[ item ] = i++; return res; }, {} ) }()
 
