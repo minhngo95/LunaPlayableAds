@@ -1238,7 +1238,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1915264274}
-  m_RootOrder: 134
+  m_RootOrder: 133
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &48022347
 MeshRenderer:
@@ -20579,7 +20579,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 677110473}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: -0.32889998, z: -7.5555}
+  m_LocalPosition: {x: -1.1685408, y: 1.4756019, z: 5.2467804}
   m_LocalScale: {x: 0.49999997, y: 0.49999997, z: 0.49999997}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -20588,8 +20588,8 @@ Transform:
   - {fileID: 22904106}
   - {fileID: 702491963}
   - {fileID: 45341606}
-  m_Father: {fileID: 1915264274}
-  m_RootOrder: 132
+  m_Father: {fileID: 985414171}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &680230947
 GameObject:
@@ -20988,7 +20988,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1915264274}
-  m_RootOrder: 133
+  m_RootOrder: 132
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &699736108
 MeshRenderer:
@@ -27069,6 +27069,7 @@ Transform:
   - {fileID: 188094158}
   - {fileID: 1915264274}
   - {fileID: 1110772090}
+  - {fileID: 677110474}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -27187,7 +27188,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1915264274}
-  m_RootOrder: 136
+  m_RootOrder: 135
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &1001522156
 MeshCollider:
@@ -64140,7 +64141,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1915264274}
-  m_RootOrder: 135
+  m_RootOrder: 134
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &1757962730
 MeshCollider:
@@ -67462,7 +67463,6 @@ Transform:
   - {fileID: 2082653506}
   - {fileID: 914469046}
   - {fileID: 837104131}
-  - {fileID: 677110474}
   - {fileID: 699736107}
   - {fileID: 48022346}
   - {fileID: 1757962729}
@@ -68801,7 +68801,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1915264274}
-  m_RootOrder: 137
+  m_RootOrder: 136
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &2013952267
 MeshCollider:
