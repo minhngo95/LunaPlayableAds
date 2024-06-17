@@ -25,13 +25,13 @@ public class Spawn : MonoBehaviour
     {
         for (var i = 0; i < _upper; i++)
         {
-            Path path=ChosePath();
+            WayPoint path =ChosePath();
             var spawnPosition = path.WayPoints[0].position;
             BotManager.Instance.SpawnBot(_botPrefab,spawnPosition,path);
             yield return new WaitForSeconds(_spawnInterval);
         }
     }
-    Path ChosePath()
+    WayPoint ChosePath()
     {
         if (type == Type.Normal)
         {

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1018226456398232785}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Weapon502
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8269841530068238555}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: PosWeapon115
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 472810030195855605}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: SungCoi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,7 +105,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 816305662133746501}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: ThanhChienDau
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -136,7 +136,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7512425298814442722}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Bone004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -172,7 +172,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3610709647559436456}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Bone005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -287,7 +287,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1287067322659867867}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Acc_Special
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -318,7 +318,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3219429133369825744}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Acc_Muzzles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -349,7 +349,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5062418660844767360}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Acc_Flash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -382,7 +382,7 @@ GameObject:
   - component: {fileID: 7172386472184065888}
   - component: {fileID: 1654750796828509071}
   - component: {fileID: 4731174261410138317}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Usurper_FP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -564,7 +564,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4257104576054533187}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Acc_Charm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -595,7 +595,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7221805104061987366}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Point003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
