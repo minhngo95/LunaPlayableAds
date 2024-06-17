@@ -7,13 +7,13 @@ public class BotNetwork : MonoBehaviour,ITakeDamage
 {
     [SerializeField] int _maxHealth = 100;
     [SerializeField] List<Transform> _fireAssistCheckPos = new List<Transform>();
-    [SerializeField] Path _path;
+    [SerializeField] PathMng _path;
     [SerializeField] int _currentHealth;
     [SerializeField] private bool isDead;
     public bool IsDead => isDead;
     public Action<int> OnTakeDamage { get; set; }
     public Action OnBotDead { get; set; }
-    public Path Path => _path;
+    public PathMng Path => _path;
     public List<Transform> FireAssistCheckPos=> _fireAssistCheckPos;
     private void Awake()
     {
@@ -40,7 +40,7 @@ public class BotNetwork : MonoBehaviour,ITakeDamage
     {
         isDead = true;
     }
-    public void SetPath(Path path)
+    public void SetPath(PathMng path)
     {
         _path = path;
     }

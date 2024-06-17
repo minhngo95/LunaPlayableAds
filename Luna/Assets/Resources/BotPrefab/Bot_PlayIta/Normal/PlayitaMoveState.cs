@@ -3,14 +3,14 @@
  public class PlayitaMoveState : IState
     {
         private readonly Transform transform;
-        private readonly Path path;
+        private readonly PathMng path;
         private int moveIndex;
         private bool isMoveDone;
         private readonly int pointCount;
         private readonly float moveSpeed;
         private readonly StateConditionManager _stateConditionManager;
 
-        public PlayitaMoveState(StateConditionManager stateConditionManager, Transform transform, Path path, float moveSpeed)
+        public PlayitaMoveState(StateConditionManager stateConditionManager, Transform transform, PathMng path, float moveSpeed)
         {
             _stateConditionManager = stateConditionManager;
             this.transform = transform;

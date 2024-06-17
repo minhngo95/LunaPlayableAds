@@ -5,23 +5,23 @@ using UnityEngine;
 
 public class PathManager : MonoBehaviour
 {
-    [SerializeField] private List<Path> _paths;
-    [SerializeField] private List<Path> _pathsParachute;
+    [SerializeField] private List<PathMng> _paths;
+    [SerializeField] private List<PathMng> _pathsParachute;
     public static PathManager Instance;
 
     private void Awake()
     {
         Instance = this;
     }
-    public Path ChoseWayPointNormal()
+    public PathMng ChoseWayPointNormal()
     {
         return GetWayPoint(_paths);
     }
-    public Path ChooseWayPointParachute()
+    public PathMng ChooseWayPointParachute()
     {
         return GetWayPoint(_pathsParachute);
     }
-    public Path GetWayPoint( List<Path> paths)
+    public PathMng GetWayPoint( List<PathMng> paths)
     {
         var path = paths.FindAll(x=>x.IsUse==false);
         int randomIndex = UnityEngine.Random.Range(0, path.Count);
@@ -33,7 +33,7 @@ public class PathManager : MonoBehaviour
         Reset(_paths);
         Reset(_pathsParachute);
     }
-    public void Reset(List<Path> paths)
+    public void Reset(List<PathMng> paths)
     {
         foreach (var path in paths)
         {
@@ -42,7 +42,7 @@ public class PathManager : MonoBehaviour
     }
 }
 [Serializable]
-public class Path
+public class PathMng
 {
     public bool IsUse;
     public List<Transform> WayPoints;

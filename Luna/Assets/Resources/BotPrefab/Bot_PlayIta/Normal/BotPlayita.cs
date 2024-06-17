@@ -14,7 +14,7 @@ public class BotPlayita : MonoBehaviour
     [SerializeField] protected MeshRenderer _healthBarRenderer;
     protected readonly float _moveSpeed = 5;
     protected MaterialPropertyBlock _matBlock;
-    protected Path _path;
+    protected PathMng _path;
     protected float _shootingDelay;
     [SerializeField] protected AudioSource _takeSource;
     [SerializeField] protected AudioSource _hitSource;

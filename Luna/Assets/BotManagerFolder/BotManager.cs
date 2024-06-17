@@ -19,7 +19,7 @@ public class BotManager : MonoBehaviour
     {
         _instance = this;
     }
-    public void  SpawnBot(BotNetwork botPrefab,Vector3 spawnPosition, Path path)
+    public void  SpawnBot(BotNetwork botPrefab,Vector3 spawnPosition, PathMng path)
     {
         BotNetwork newBot = Instantiate(botPrefab, spawnPosition, Quaternion.identity);
         newBot.SetPath(path);
