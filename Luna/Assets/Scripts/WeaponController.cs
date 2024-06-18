@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Linq;
+using System.Threading;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -9,18 +10,22 @@ public class WeaponController : MonoBehaviour
     [SerializeField] private WeaponInfo weaponInfo;
     [SerializeField] private LayerMask _layerMask;
     [SerializeField] private Transform _muzzleTrans;
+    [SerializeField] public Transform[] Gunbarrel;// nòng súng xoay(chỉ dùng cho súng 6 nòng);
     [SerializeField] private Animation _animation;
     [SerializeField] private GameObject _bullet;
     [SerializeField] private GameObject _muzzleFlash;
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private GameObject _effect;
     [SerializeField] private bool _isShowCard;
+   
     private Transform _cameraTransform;
     private Camera _camera;
     private float _timeSinceLastShoot = 0f; // Thời gian từ lần bắn cuối cùng
     private int _currentBulletCount; // Số lượng đạn hiện tại trong băng
     private bool _isReloading = false; // Trạng thái đang nạp đạn
-
+    private float LocalTimeScale; // Trạng thái đang nạp đạn
+    private bool IsGatlingGUn; // Trạng thái đang nạp đạn
+    [SerializeField] private float rotationSpeedX;
     private void Awake()
     {
         _camera = Camera.main;
@@ -32,13 +37,18 @@ public class WeaponController : MonoBehaviour
 
     private void Update()
     {
+        OnShooting();
+    }
+
+    private void OnShooting()
+    {
         // Nếu đang nạp đạn, không thực hiện bắn
         if (_isReloading)
             return;
 
         // Cập nhật thời gian từ lần bắn cuối cùng
         _timeSinceLastShoot += Time.deltaTime;
-
+        RotateGunbarrels();
         // Gọi phương thức để thu hẹp tâm ngắm
         UICrosshairItem.Instance.Narrow_Crosshair();
 
@@ -72,6 +82,23 @@ public class WeaponController : MonoBehaviour
         {
             _isShowCard = true;
             UIManager.Instance.EndGameUI();
+        }
+    }
+    private void RotateGunbarrels()
+    {
+        foreach (var barrel in Gunbarrel)
+        {
+            // Lấy góc quay hiện tại của barrel
+            var currentRotation = barrel.localRotation.eulerAngles;
+
+            // Cập nhật góc quay theo trục X với tốc độ rotationSpeedX và thời gian thực
+            var newRotationX = currentRotation.x + rotationSpeedX * Time.deltaTime;
+
+            // Tạo ra Quaternion mới từ góc quay mới
+            var newRotation = Quaternion.Euler(currentRotation.x, currentRotation.y, newRotationX);
+
+            // Gán lại góc quay cho barrel
+            barrel.localRotation = newRotation;
         }
     }
 
@@ -115,12 +142,13 @@ public class WeaponController : MonoBehaviour
         }
     }
 
+
     private IEnumerator Reload()
     {
         _isReloading = true;
         Debug.Log("Reloading...");
 
-        // Thêm logic chờ trong thời gian nạp đạn
+
         yield return new WaitForSeconds(weaponInfo.reloadTime);
 
         _currentBulletCount = weaponInfo.bulletCount; // Đặt lại số lượng đạn

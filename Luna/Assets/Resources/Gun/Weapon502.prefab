@@ -43,9 +43,13 @@ Animation:
   m_GameObject: {fileID: 1018226456398061873}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: -83464317656338206, guid: 7b8a8dca4c20a484486a969b1d8ea184, type: 3}
+  m_Animation: {fileID: 7400000, guid: 114457aa467f6a4499432a69203cf723, type: 2}
   m_Animations:
-  - {fileID: -83464317656338206, guid: 7b8a8dca4c20a484486a969b1d8ea184, type: 3}
+  - {fileID: 7400000, guid: 114457aa467f6a4499432a69203cf723, type: 2}
+  - {fileID: 7400000, guid: 9e1fa24e91d246f458648cbc593a3be4, type: 2}
+  - {fileID: 7400000, guid: 00d78a9a3a74d9b46b5deb4a90b6f0e1, type: 2}
+  - {fileID: 7400000, guid: f8cd385ae08759e4792755507f6ee86e, type: 2}
+  - {fileID: 7400000, guid: 5ec19daf75eed4340923da4912c53a51, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
@@ -62,16 +66,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c4076a62c7443b41aa2073544559c2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponInfo: {fileID: 11400000, guid: 7a92c17f9c680c54c8586bf01646ccbc, type: 2}
   _layerMask:
     serializedVersion: 2
     m_Bits: 64
-  _damage: 10
-  _timeSinceLastShoot: 0
   _muzzleTrans: {fileID: 3219429133369825744}
   _animation: {fileID: 4579870900032792633}
   _bullet: {fileID: 6458371479552465772, guid: bcf0258b66a8e05498ace10193710acc, type: 3}
   _muzzleFlash: {fileID: 2575515871579481149}
-  _audioClip: {fileID: 8300000, guid: 24bf6bcee0415464986e7f45360fa80c, type: 3}
   _audioSource: {fileID: 0}
   _effect: {fileID: 1214385991556846, guid: 5101b0b18563cd64fba69182fb988727, type: 3}
   _isShowCard: 0
@@ -5587,4 +5589,4 @@ Transform:
   - {fileID: 7172386472184065888}
   m_Father: {fileID: 1018226456398232785}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -1.7432704, y: 0.90723145, z: 1.6859436}
+  m_LocalEulerAnglesHint: {x: -0.22435904, y: -0.1117966, z: -0.1117966}
