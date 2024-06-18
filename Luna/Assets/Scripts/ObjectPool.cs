@@ -24,7 +24,6 @@ public class ObjectPool : MonoBehaviour
                 UtilsHr.SpawnGameSingleton();
             }
 #endif
-
             return instance;
         }
     }
@@ -36,7 +35,7 @@ public class ObjectPool : MonoBehaviour
 
     private void OnDestroy()
     {
-        SceneManager.sceneLoaded += OnSceneChanged;
+        SceneManager.sceneLoaded -= OnSceneChanged;
     }
 
     private void OnSceneChanged(Scene scene, LoadSceneMode loadSceneMode)
@@ -89,7 +88,7 @@ public class ObjectPool : MonoBehaviour
         //Debug.Log("PopFromPool " + prefab);
         GameObject obj = null;
 
-        if (forceInstantiate == true)
+        if (forceInstantiate)
         {
             obj = CreateObject(prefab, null);
         }
@@ -122,20 +121,21 @@ public class ObjectPool : MonoBehaviour
         return obj;
     }
 
-    private Queue<GameObject>? FindInContainer(GameObject prefab)
+    private Queue<GameObject> FindInContainer(GameObject prefab)
     {
-        if (prefab is null)
+        if (prefab == null)
         {
             return null;
         }
 
-        if (!container.TryGetValue(prefab, out Queue<GameObject>? prefabQueue))
+        if (!container.TryGetValue(prefab, out Queue<GameObject> prefabQueue))
         {
             container[prefab] = prefabQueue = new Queue<GameObject>();
         }
 
         return prefabQueue;
     }
+
     private GameObject CreateObject(GameObject prefab, Transform parent)
     {
         IPoolObject poolObjectPrefab = prefab.GetComponent<IPoolObject>();
@@ -155,7 +155,7 @@ public class ObjectPool : MonoBehaviour
     }
 
     /// <summary>
-    /// Pushs back the item to the pool.
+    /// Pushes back the item to the pool.
     /// </summary>
     /// <param name="obj">A reference to the item to be pushed back.</param>
     /// <param name="retainObject">If set to <c>true</c> retain object.</param>
@@ -167,7 +167,7 @@ public class ObjectPool : MonoBehaviour
             return;
         }
 
-        if (retainObject == false)
+        if (!retainObject)
         {
             Object.Destroy(obj);
             obj = null;
@@ -229,7 +229,7 @@ public class ObjectPool : MonoBehaviour
         while (queue.Count > 0)
         {
             GameObject obj = queue.Dequeue();
-            if (destroyObject == true)
+            if (destroyObject)
             {
                 Object.Destroy(obj);
             }

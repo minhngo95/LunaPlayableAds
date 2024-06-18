@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
@@ -15,6 +15,8 @@ public class UIManager : MonoBehaviour
     public GameObject gameProcess;
     public GameObject tapToPlay;
 
+    public Text bulletCountText; // Text UI để hiển thị số lượng đạn
+
     private void Awake()
     {
         Instance = this;
@@ -22,10 +24,21 @@ public class UIManager : MonoBehaviour
         gameProcess.SetActive(true);
     }
 
+    private void OnEnable()
+    {
+        EventManager.AddListener<int>("UpdateBulletCount", UpdateBulletCount);
+    }
+
+    private void OnDisable()
+    {
+        EventManager.RemoveListener<int>("UpdateBulletCount", UpdateBulletCount);
+    }
+
     private void OnTapToPlay()
     {
         tapToPlay.gameObject.SetActive(false);
     }
+
     IEnumerator ShowEndCard()
     {
         yield return new WaitForSeconds(1);
@@ -34,10 +47,12 @@ public class UIManager : MonoBehaviour
         InGame.SetActive(false);
         gameProcess.SetActive(false);
     }
+
     public void EndGameUI()
     {
         StartCoroutine(ShowEndCard());
     }
+
     void Update()
     {
         if (Input.GetMouseButton(0))
@@ -47,8 +62,14 @@ public class UIManager : MonoBehaviour
         TotalBotText.text = $"{BotManager.Instance.TotalBotOnMap} / {TotalBotinConfig}";
         process.fillAmount = ((float)BotManager.Instance.TotalBotOnMap / TotalBotinConfig);
     }
+
     public void UpdateInitBot(int value)
     {
         TotalBotinConfig = value;
+    }
+
+    public void UpdateBulletCount(int bulletCount)
+    {
+        bulletCountText.text = "Bullet Count: " + bulletCount;
     }
 }
