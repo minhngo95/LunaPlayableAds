@@ -7,6 +7,7 @@ public class GamePlayManager : MonoBehaviour
     
     [SerializeField] private Spawn _normalSpawn;
     [SerializeField] private Spawn _parachuteSpawn;
+    [SerializeField] private Spawn _AirCraft;
     public static GamePlayManager Instance;
     public int Turn { get; set; }
     private void Awake()
@@ -42,12 +43,14 @@ public class GamePlayManager : MonoBehaviour
     {
 ;
         _normalSpawn.InitData(ConfigManager.Instance.GetStepData(Turn).NumberBot);
+        _AirCraft.InitData(ConfigManager.Instance.GetStepData(Turn).NumberBot);
         _parachuteSpawn.InitData(ConfigManager.Instance.GetStepData(Turn).NumberParachute);
     }
 
     public void GameStart()
     {
         _normalSpawn.Run();
+        _AirCraft.Run();
         _parachuteSpawn.Run();
     }
 

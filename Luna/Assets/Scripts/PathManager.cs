@@ -7,6 +7,7 @@ public class PathManager : MonoBehaviour
 {
     [SerializeField] private List<WayPoint> _paths;
     [SerializeField] private List<WayPoint> _pathsParachute;
+    [SerializeField] private List<WayPoint> _pathsAircraft;
     public static PathManager Instance;
 
     private void Awake()
@@ -21,6 +22,10 @@ public class PathManager : MonoBehaviour
     {
         return GetWayPoint(_pathsParachute);
     }
+    public WayPoint ChooseWayAirCraft()
+    {
+        return GetWayPoint(_pathsAircraft);
+    }    
     public WayPoint GetWayPoint( List<WayPoint> paths)
     {
         var path = paths.FindAll(x=>x.IsUse==false);

@@ -249,18 +249,21 @@ public class WeaponController : MonoBehaviour
         Transform pointedTransform = null;
 
         var bots = BotManager.Instance.BotNetworks;
-
         foreach (var bot in bots.Where(bot => bot != null && !bot.IsDead))
-            foreach (var checkPoint in bot.FireAssistCheckPos)
+            if (bot.FireAssistCheckPos.Count >0)
             {
-                var checkPosition = checkPoint.position;
+                foreach (var checkPoint in bot.FireAssistCheckPos)
+                {
+                    var checkPosition = checkPoint.position;
 
-                if (!SatisfyAutoFireCondition(checkPosition, out var crossHairDistance) ||
-                    crossHairDistance > minCrossHairDistance) continue;
+                    if (!SatisfyAutoFireCondition(checkPosition, out var crossHairDistance) ||
+                        crossHairDistance > minCrossHairDistance) continue;
 
-                minCrossHairDistance = crossHairDistance;
-                pointedTransform = checkPoint;
+                    minCrossHairDistance = crossHairDistance;
+                    pointedTransform = checkPoint;
+                }
             }
+
 
         return pointedTransform;
     }

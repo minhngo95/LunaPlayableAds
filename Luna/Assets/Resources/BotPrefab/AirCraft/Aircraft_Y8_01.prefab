@@ -573,6 +573,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2798846211531249185}
+  - component: {fileID: 9085897590105212233}
   m_Layer: 9
   m_Name: Aircraft_Y8_01
   m_TagString: Untagged
@@ -589,13 +590,32 @@ Transform:
   m_GameObject: {fileID: 3885047237660147209}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 418, y: 200, z: 761.4}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: -1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1834392481443369459}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9085897590105212233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3885047237660147209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d09d32badc0eedb42b2c770aca292d41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 100
+  _fireAssistCheckPos: []
+  _path:
+    IsUse: 0
+    WayPoints: []
+  _currentHealth: 0
+  isDead: 0
 --- !u!1 &4077370913408296877
 GameObject:
   m_ObjectHideFlags: 0
