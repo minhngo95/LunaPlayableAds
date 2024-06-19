@@ -11,7 +11,8 @@ public class Spawn : MonoBehaviour
     public enum Type
     {
         Normal,
-        Parachute
+        Parachute,
+        AirCraft,
     }
     public void InitData(int value)
     {
@@ -37,9 +38,13 @@ public class Spawn : MonoBehaviour
         {
             return PathManager.Instance.ChoseWayPointNormal();
         }
-        else
+        if (type == Type.Parachute)
         {
             return PathManager.Instance.ChooseWayPointParachute();
+        }
+        else
+        {
+            return PathManager.Instance.ChooseWayAirCraft();
         }
     }
    
