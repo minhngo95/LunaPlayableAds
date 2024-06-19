@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Linq;
-using System.Threading;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -10,22 +8,24 @@ public class WeaponController : MonoBehaviour
     [SerializeField] private WeaponInfo weaponInfo;
     [SerializeField] private LayerMask _layerMask;
     [SerializeField] private Transform _muzzleTrans;
-    [SerializeField] public Transform[] Gunbarrel;// nòng súng xoay(chỉ dùng cho súng 6 nòng);
+    [SerializeField] public Transform[] Gunbarrel; // Nòng súng xoay (dùng cho súng 6 nòng)
     [SerializeField] private Animation _animation;
     [SerializeField] private GameObject _bullet;
     [SerializeField] private GameObject _muzzleFlash;
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private GameObject _effect;
     [SerializeField] private bool _isShowCard;
-   
+
     private Transform _cameraTransform;
     private Camera _camera;
     private float _timeSinceLastShoot = 0f; // Thời gian từ lần bắn cuối cùng
     private int _currentBulletCount; // Số lượng đạn hiện tại trong băng
     private bool _isReloading = false; // Trạng thái đang nạp đạn
-    private float LocalTimeScale; // Trạng thái đang nạp đạn
-    private bool IsGatlingGUn; // Trạng thái đang nạp đạn
-    [SerializeField] private float rotationSpeedX;
+    private float currentRotationSpeed = 0f; // Tốc độ quay hiện tại của nòng súng
+    private bool isShooting = false; // Trạng thái đang bắn
+    private bool canShoot = false; // Trạng thái có thể bắn
+    private Coroutine shootingCoroutine;
+
     private void Awake()
     {
         _camera = Camera.main;
@@ -33,71 +33,140 @@ public class WeaponController : MonoBehaviour
         _currentBulletCount = weaponInfo.bulletCount; // Khởi tạo số lượng đạn
         Debug.Log("Initial bullet count: " + _currentBulletCount);
         EventManager.Invoke("UpdateBulletCount", _currentBulletCount); // Gửi thông báo về số lượng đạn ban đầu
+        AssignAnimationClips();
     }
 
     private void Update()
     {
+        HandleGatlingGunRotation();
         OnShooting();
+    }
+
+    private void AssignAnimationClips()
+    {
+        if (_animation != null && weaponInfo != null)
+        {
+            _animation.AddClip(weaponInfo.Fire, "Fire");
+            _animation.AddClip(weaponInfo.Idle, "Idle");
+            _animation.AddClip(weaponInfo._reloadAnimIn, "ReloadIn");
+            _animation.AddClip(weaponInfo._reloadAnimOn, "ReloadOn");
+            _animation.AddClip(weaponInfo._reloadAnimOut, "ReloadOut");
+        }
     }
 
     private void OnShooting()
     {
-        // Nếu đang nạp đạn, không thực hiện bắn
         if (_isReloading)
             return;
 
-        // Cập nhật thời gian từ lần bắn cuối cùng
         _timeSinceLastShoot += Time.deltaTime;
-        RotateGunbarrels();
-        // Gọi phương thức để thu hẹp tâm ngắm
         UICrosshairItem.Instance.Narrow_Crosshair();
 
-        // Kiểm tra nếu người chơi nhấn chuột trái và đã đủ thời gian để bắn tiếp
-        if (Input.GetMouseButton(0) && _timeSinceLastShoot >= weaponInfo.shootDelay)
+        if (Input.GetMouseButton(0))
         {
-            // Nếu không có đạn và không ở chế độ đạn vô hạn, thực hiện nạp đạn
-            if (_currentBulletCount <= 0 && !weaponInfo.infiniteBullet)
+            isShooting = true;
+
+            if (weaponInfo.isGatlingGun)
             {
-                StartCoroutine(Reload());
+                if (!canShoot && shootingCoroutine == null)
+                {
+                    shootingCoroutine = StartCoroutine(StartShootingAfterDelay());
+                }
+
+                if (canShoot && _timeSinceLastShoot >= weaponInfo.shootDelay)
+                {
+                    if (_currentBulletCount <= 0 && !weaponInfo.infiniteBullet)
+                    {
+                        StartCoroutine(Reload());
+                    }
+                    else
+                    {
+                        Shoot();
+                        _timeSinceLastShoot = 0f;
+
+                        if (!weaponInfo.infiniteBullet)
+                        {
+                            _currentBulletCount--;
+                            Debug.Log("Bullet fired. Remaining bullets: " + _currentBulletCount);
+                            EventManager.Invoke("UpdateBulletCount", _currentBulletCount);
+                        }
+                    }
+                }
             }
             else
             {
-                _muzzleFlash.SetActive(false);
-                _bullet.SetActive(false);
-                Shoot();
-                _timeSinceLastShoot = 0f; // Đặt lại thời gian từ lần bắn cuối cùng
-
-                // Giảm số lượng đạn nếu không ở chế độ đạn vô hạn
-                if (!weaponInfo.infiniteBullet)
+                if (_timeSinceLastShoot >= weaponInfo.shootDelay)
                 {
-                    _currentBulletCount--;
-                    Debug.Log("Bullet fired. Remaining bullets: " + _currentBulletCount);
-                    EventManager.Invoke("UpdateBulletCount", _currentBulletCount); // Gửi thông báo về số lượng đạn thay đổi
+                    if (_currentBulletCount <= 0 && !weaponInfo.infiniteBullet)
+                    {
+                        StartCoroutine(Reload());
+                    }
+                    else
+                    {
+                        Shoot();
+                        _timeSinceLastShoot = 0f;
+
+                        if (!weaponInfo.infiniteBullet)
+                        {
+                            _currentBulletCount--;
+                            Debug.Log("Bullet fired. Remaining bullets: " + _currentBulletCount);
+                            EventManager.Invoke("UpdateBulletCount", _currentBulletCount);
+                        }
+                    }
                 }
             }
         }
+        else
+        {
+            isShooting = false;
+        }
 
-        // Kiểm tra điều kiện để hiển thị giao diện kết thúc game
         if ((GamePlayManager.Instance.Turn == ConfigManager.Instance.GetStepCount()) && !_isShowCard)
         {
             _isShowCard = true;
             UIManager.Instance.EndGameUI();
         }
     }
+
+    private void HandleGatlingGunRotation()
+    {
+        if (weaponInfo.isGatlingGun)
+        {
+            if (isShooting)
+            {
+                currentRotationSpeed += (weaponInfo.MaxSpeedRotaBarrel / weaponInfo.WaitToShoot) * Time.deltaTime;
+                if (currentRotationSpeed >= weaponInfo.MaxSpeedRotaBarrel)
+                {
+                    currentRotationSpeed = weaponInfo.MaxSpeedRotaBarrel;
+                }
+            }
+            else if (currentRotationSpeed > weaponInfo.MinSpeedRotaBarrel)
+            {
+                currentRotationSpeed -= (weaponInfo.MaxSpeedRotaBarrel / weaponInfo.TimeMinSpeed) * Time.deltaTime;
+                if (currentRotationSpeed <= weaponInfo.MinSpeedRotaBarrel)
+                {
+                    currentRotationSpeed = weaponInfo.MinSpeedRotaBarrel;
+                }
+            }
+
+            RotateGunbarrels();
+        }
+    }
+
+    private IEnumerator StartShootingAfterDelay()
+    {
+        yield return new WaitForSeconds(weaponInfo.WaitToShoot);
+        canShoot = true;
+        shootingCoroutine = null;
+    }
+
     private void RotateGunbarrels()
     {
         foreach (var barrel in Gunbarrel)
         {
-            // Lấy góc quay hiện tại của barrel
             var currentRotation = barrel.localRotation.eulerAngles;
-
-            // Cập nhật góc quay theo trục X với tốc độ rotationSpeedX và thời gian thực
-            var newRotationX = currentRotation.x + rotationSpeedX * Time.deltaTime;
-
-            // Tạo ra Quaternion mới từ góc quay mới
-            var newRotation = Quaternion.Euler(currentRotation.x, currentRotation.y, newRotationX);
-
-            // Gán lại góc quay cho barrel
+            var newRotationZ = currentRotation.z + currentRotationSpeed * Time.deltaTime;
+            var newRotation = Quaternion.Euler(currentRotation.x, currentRotation.y, newRotationZ);
             barrel.localRotation = newRotation;
         }
     }
@@ -114,17 +183,15 @@ public class WeaponController : MonoBehaviour
                 forward = (targetPoint.position - _cameraTransform.position).normalized;
         }
 
-        // Thêm độ giật vào hướng bắn
         forward += new Vector3(
             Random.Range(-weaponInfo.recoilAmount, weaponInfo.recoilAmount),
             Random.Range(-weaponInfo.recoilAmount, weaponInfo.recoilAmount),
             Random.Range(-weaponInfo.recoilAmount, weaponInfo.recoilAmount)
         );
 
-        // Thêm độ lệch vào hướng bắn
         var shotRotation = Quaternion.Euler(Random.insideUnitCircle * weaponInfo.inaccuracy) * forward;
         var ray = new Ray(_cameraTransform.transform.position, shotRotation);
-        _animation.Play();
+        _animation.Play("Fire");
         _audioSource.clip = weaponInfo.audioClip;
         _audioSource.Play();
         _muzzleFlash.SetActive(true);
@@ -142,19 +209,37 @@ public class WeaponController : MonoBehaviour
         }
     }
 
-
     private IEnumerator Reload()
     {
         _isReloading = true;
         Debug.Log("Reloading...");
 
+        _animation.Play("ReloadIn");
+        yield return new WaitForSeconds(weaponInfo.reloadTime / 3);
 
-        yield return new WaitForSeconds(weaponInfo.reloadTime);
+        _animation.Play("ReloadOn");
+        yield return new WaitForSeconds(weaponInfo.reloadTime / 3);
 
-        _currentBulletCount = weaponInfo.bulletCount; // Đặt lại số lượng đạn
+        _animation.Play("ReloadOut");
+        yield return new WaitForSeconds(weaponInfo.reloadTime / 3);
+
+        _currentBulletCount = weaponInfo.bulletCount;
         _isReloading = false;
         Debug.Log("Reloaded. Current bullet count: " + _currentBulletCount);
-        EventManager.Invoke("UpdateBulletCount", _currentBulletCount); // Gửi thông báo về số lượng đạn sau khi nạp
+        EventManager.Invoke("UpdateBulletCount", _currentBulletCount);
+    }
+
+    private IEnumerator DecreaseRotationSpeed()
+    {
+        while (currentRotationSpeed > weaponInfo.MinSpeedRotaBarrel)
+        {
+            currentRotationSpeed -= (weaponInfo.MaxSpeedRotaBarrel / weaponInfo.TimeMinSpeed) * Time.deltaTime;
+            if (currentRotationSpeed < weaponInfo.MinSpeedRotaBarrel)
+            {
+                currentRotationSpeed = weaponInfo.MinSpeedRotaBarrel;
+            }
+            yield return null;
+        }
     }
 
     private Transform FindPointedTransform()
@@ -196,8 +281,7 @@ public class WeaponController : MonoBehaviour
         viewPosition *= ReferenceWidth / Screen.width;
 
         distance = Mathf.Sqrt(viewPosition.x * viewPosition.x + viewPosition.y * viewPosition.y);
-        return distance < radius
-               && IsClearShot(_cameraTransform.position, target);
+        return distance < radius && IsClearShot(_cameraTransform.position, target);
     }
 
     private bool IsClearShot(Vector3 origin, Vector3 target)
@@ -205,5 +289,12 @@ public class WeaponController : MonoBehaviour
         var distance = Vector3.Distance(origin, target);
         var ray = new Ray(origin, target - origin);
         return !Physics.Raycast(ray, out _, distance, _layerMask);
+    }
+
+    // Thêm phương thức nhận AnimationEvent
+    public void AnimationAudioEvent()
+    {
+        // Thực hiện hành động khi sự kiện AnimationAudioEvent được gọi
+        Debug.Log("AnimationAudioEvent called");
     }
 }

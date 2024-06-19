@@ -71,12 +71,15 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   _muzzleTrans: {fileID: 3219429133369825744}
+  Gunbarrel:
+  - {fileID: 3610709647559436456}
   _animation: {fileID: 4579870900032792633}
   _bullet: {fileID: 6458371479552465772, guid: bcf0258b66a8e05498ace10193710acc, type: 3}
   _muzzleFlash: {fileID: 2575515871579481149}
-  _audioSource: {fileID: 0}
+  _audioSource: {fileID: 4731174261410138317}
   _effect: {fileID: 1214385991556846, guid: 5101b0b18563cd64fba69182fb988727, type: 3}
   _isShowCard: 0
+  rotationSpeedX: 5.96
   radius: 33
 --- !u!1 &2575515871579481149
 GameObject:
@@ -264,7 +267,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5932897530833775000}
-  m_LocalRotation: {x: -0, y: -1.0339758e-25, z: -0.48797053, w: 0.87286013}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -7.873911e-10, y: 0, z: 0.07472837}
   m_LocalScale: {x: 0.2120801, y: 0.2120801, z: 0.2120801}
   m_ConstrainProportionsScale: 0
@@ -272,7 +275,7 @@ Transform:
   - {fileID: 3219429133369825744}
   m_Father: {fileID: 7221805104061987366}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -58.415}
+  m_LocalEulerAnglesHint: {x: -0.25018865, y: 0.015539479, z: 0}
 --- !u!1 &6577722061124715973
 GameObject:
   m_ObjectHideFlags: 0
@@ -5589,4 +5592,4 @@ Transform:
   - {fileID: 7172386472184065888}
   m_Father: {fileID: 1018226456398232785}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -0.22435904, y: -0.1117966, z: -0.1117966}
+  m_LocalEulerAnglesHint: {x: -4.445, y: 3.954, z: 5.12}
