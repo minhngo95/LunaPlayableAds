@@ -192,6 +192,7 @@ public class WeaponController : MonoBehaviour
         var shotRotation = Quaternion.Euler(Random.insideUnitCircle * weaponInfo.inaccuracy) * forward;
         var ray = new Ray(_cameraTransform.transform.position, shotRotation);
         _animation.Play("Fire");
+        _animation["Fire"].speed = 2.0f; // Tăng tốc độ phát clip "Fire" gấp đôi
         _audioSource.clip = weaponInfo.audioClip;
         _audioSource.Play();
         _muzzleFlash.SetActive(true);
