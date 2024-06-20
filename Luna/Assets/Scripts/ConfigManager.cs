@@ -22,10 +22,10 @@ public class ConfigManager : MonoBehaviour
 [System.Serializable]
 public class StepData
 {
-    public int NumberBot;
-    public int NumberParachute;
+    public int botQuantity;
+    public BotType Botype;
     public int GetTotalBot()
     {
-        return NumberBot+NumberParachute;
+        return 0;
     }
 }

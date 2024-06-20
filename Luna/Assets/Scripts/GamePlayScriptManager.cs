@@ -4,7 +4,5 @@ using UnityEngine;
 
 public class GamePlayScriptManager : MonoBehaviour
 {
-    public ConfigBotInGame configBotInGame;
-    public WayPointBotManager wayPointBotManager;
+
 }
- 

@@ -1,8 +1,14 @@
 ﻿using System;
 using UnityEngine;
+using UnityEditor;
 
 [CreateAssetMenu(fileName = "ConfigBotInGame", menuName = "ScriptableObjects/ConfigBotInGame", order = 1)]
 public class ConfigBotInGame : ScriptableObject
+{
+    public FightRound[] fightRound;
+}
+[Serializable]
+public class FightRound
 {
     public BotConfig[] botConfigs;
 }
@@ -12,23 +18,20 @@ public class BotConfig
 {
     [Header("Thông tin Bot")]
     [Tooltip("Kéo Prefab của Bot vào đây")]
-    public GameObject botPrefab;
+    public BotNetwork botPrefab;
 
     [Tooltip("Chọn loại Bot")]
     public BotType botType;
 
     [Tooltip("Có sử dụng bot này trong kịch bản không?")]
-    public bool isUse = true;
+    public bool isNotUse;
 
     [Tooltip("Số lượng bot sinh ra")]
     public int botQuantity;
 
-    [Space(20)]
-    [Tooltip("Bot này có sinh ra thêm bot khác không?")]
-    public bool botParent;
+    [Tooltip("Thời gian Delay giữa các lần thả bot")]
+    public float botDelaySpawn;
 
-    [Tooltip("Danh sách các bot con")]
-    public BotConfig[] childBots;
 }
 
 public enum BotType
@@ -38,3 +41,4 @@ public enum BotType
     Parachutist,
     AirForce,
 }
+

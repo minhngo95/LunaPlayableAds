@@ -1,25 +1,25 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GamePlayManager : MonoBehaviour
 {
-    
-    [SerializeField] private Spawn _normalSpawn;
-    [SerializeField] private Spawn _parachuteSpawn;
-    [SerializeField] private Spawn _AirCraft;
+    [SerializeField] public ConfigBotInGame configBotInGame;
+    [SerializeField] private List<Spawn> spawns;
     public static GamePlayManager Instance;
     public int Turn { get; set; }
+
     private void Awake()
     {
         Instance = this;
     }
+
     private void Update()
     {
         if (CheckTurnDone())
         {
-            BotManager.Instance.TotalBotOnMap=ConfigManager.Instance.GetStepData(Turn).GetTotalBot();
-            UIManager.Instance.UpdateInitBot(ConfigManager.Instance.GetStepData(Turn).GetTotalBot());
+            BotManager.Instance.TotalBotOnMap = OnCheckTotalBotOnMap();
+            UIManager.Instance.UpdateInitBot(BotManager.Instance.TotalBotOnMap);
             PathManager.Instance.ResetPath();
             StartCoroutine(TurnDelay());
         }
@@ -31,27 +31,37 @@ public class GamePlayManager : MonoBehaviour
         SetData();
         GameStart();
         Turn++;
-
-
     }
+
     public bool CheckTurnDone()
     {
-        return BotManager.Instance.TotalBotOnMap<=0&& Turn < ConfigManager.Instance.GetStepCount();
+        return BotManager.Instance.TotalBotOnMap <= 0 && Turn < configBotInGame.fightRound.Length;
     }
 
     public void SetData()
     {
-;
-        _normalSpawn.InitData(ConfigManager.Instance.GetStepData(Turn).NumberBot);
-        _AirCraft.InitData(ConfigManager.Instance.GetStepData(Turn).NumberBot);
-        _parachuteSpawn.InitData(ConfigManager.Instance.GetStepData(Turn).NumberParachute);
+        foreach (var spawn in spawns)
+        {
+            spawn.InitData(configBotInGame.fightRound[Turn].botConfigs);
+        }
     }
 
     public void GameStart()
     {
-        _normalSpawn.Run();
-        _AirCraft.Run();
-        _parachuteSpawn.Run();
+        foreach (var spawn in spawns)
+        {
+            spawn.Run();
+        }
+    }
+
+    private int OnCheckTotalBotOnMap()
+    {
+        int botCount = 0;
+        for (int i = 0; i < configBotInGame.fightRound[Turn].botConfigs.Length; i++)
+        {
+            botCount += configBotInGame.fightRound[Turn].botConfigs[i].botQuantity;
+        }
+        return botCount;
     }
 
     public void LunaClick()

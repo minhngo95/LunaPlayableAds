@@ -5,13 +5,14 @@ using UnityEngine;
 
 public class WayPointBotManager : MonoBehaviour
 {
-    [SerializeField] private List<WayPointBot> WayPointBot;
+    [SerializeField] public List<WayPointBot> WayPointBot;
+    public static WaitForEndOfFrame Instance;
 }
 [Serializable]
 public class WayPointBot
 {
     public bool IsUse;
-    [SerializeField] private BotType botType;
+    [SerializeField] public BotType botType;
     public List<Transform> StartPoint;
     public List<Transform> MovePoint;
 

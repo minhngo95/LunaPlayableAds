@@ -1,51 +1,54 @@
-using System;
+﻿using System;
 using System.Collections;
 using UnityEngine;
 
 public class Spawn : MonoBehaviour
 {
-    [SerializeField] private BotNetwork _botPrefab;
-    [SerializeField] private float _spawnInterval = 1f;
-    [SerializeField] private int _upper = 10;
-    [SerializeField] private Type type;
-    public enum Type
+    private BotConfig _botConfig;
+    [SerializeField] private BotType botType;  // Thêm biến botType
+    public void InitData(BotConfig[] botConfigs)
     {
-        Normal,
-        Parachute,
-        AirCraft,
+        foreach (var config in botConfigs)
+        {
+            if (config.botType == botType && !config.isNotUse)
+            {
+                _botConfig = config;
+                break;
+            }
+        }
     }
-    public void InitData(int value)
-    {
-        _upper = value;
-    }
+
     public void Run()
     {
-        StartCoroutine(SpawnBotRoutine());
+        if (_botConfig != null)
+        {
+            StartCoroutine(SpawnBotRoutine());
+        }
     }
+
     private IEnumerator SpawnBotRoutine()
     {
-        for (var i = 0; i < _upper; i++)
+        for (var i = 0; i < _botConfig.botQuantity; i++)
         {
-            WayPoint path =ChosePath();
+            WayPoint path = ChosePath();
             var spawnPosition = path.WayPoints[0].position;
-            BotManager.Instance.SpawnBot(_botPrefab,spawnPosition,path);
-            yield return new WaitForSeconds(_spawnInterval);
+            BotManager.Instance.SpawnBot(_botConfig.botPrefab, spawnPosition, path);
+            yield return new WaitForSeconds(_botConfig.botDelaySpawn);
         }
     }
-    WayPoint ChosePath()
+
+    private WayPoint ChosePath()
     {
-        if (type == Type.Normal)
+        switch (_botConfig.botType)
         {
-            return PathManager.Instance.ChoseWayPointNormal();
-        }
-        if (type == Type.Parachute)
-        {
-            return PathManager.Instance.ChooseWayPointParachute();
-        }
-        else
-        {
-            return PathManager.Instance.ChooseWayAirCraft();
+            case BotType.Infantry:
+                return PathManager.Instance.ChoseWayPointNormal();
+            case BotType.Parachutist:
+                return PathManager.Instance.ChooseWayPointParachute();
+            case BotType.AirForce:
+                return PathManager.Instance.ChooseWayAirCraft();
+            default:
+                throw new ArgumentOutOfRangeException();
         }
     }
-   
 }
