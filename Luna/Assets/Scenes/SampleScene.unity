@@ -52500,25 +52500,6 @@ Transform:
   m_Father: {fileID: 8684877319198969782}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8684877318704282688
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8684877318704282699}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10842d1545a57fc459c77a0bb8aa35ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _stepDatas:
-  - botQuantity: 0
-    Botype: 1
-  - botQuantity: 0
-    Botype: 2
-  - botQuantity: 0
-    Botype: 0
 --- !u!114 &8684877318704282689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52793,7 +52774,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8684877318704282692}
   - component: {fileID: 8684877318704282693}
-  - component: {fileID: 8684877318704282688}
   - component: {fileID: 8684877318704282695}
   - component: {fileID: 8684877318704282694}
   - component: {fileID: 8684877318704282689}
