@@ -1,44 +1,43 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PathManager : MonoBehaviour
 {
-    [SerializeField] private List<WayPoint> _paths;
-    [SerializeField] private List<WayPoint> _pathsParachute;
-    [SerializeField] private List<WayPoint> _pathsAircraft;
+    [SerializeField] private List<WayPointlist> Listwaypoint;
     public static PathManager Instance;
 
     private void Awake()
     {
         Instance = this;
     }
-    public WayPoint ChoseWayPointNormal()
+
+    public WayPoint GetWayPoint(BotType botType)
     {
-        return GetWayPoint(_paths);
+        var wayPointList = Listwaypoint.Find(list => list.botType == botType);
+        if (wayPointList != null)
+        {
+            var paths = wayPointList._wayPointlist;
+            var availablePaths = paths.FindAll(x => x.IsUse == false);
+            if (availablePaths.Count == 0)
+                throw new Exception("No available paths for bot type: " + botType);
+
+            int randomIndex = UnityEngine.Random.Range(0, availablePaths.Count);
+            availablePaths[randomIndex].IsUse = true;
+            return availablePaths[randomIndex];
+        }
+        throw new Exception("No paths found for bot type: " + botType);
     }
-    public WayPoint ChooseWayPointParachute()
-    {
-        return GetWayPoint(_pathsParachute);
-    }
-    public WayPoint ChooseWayAirCraft()
-    {
-        return GetWayPoint(_pathsAircraft);
-    }    
-    public WayPoint GetWayPoint( List<WayPoint> paths)
-    {
-        var path = paths.FindAll(x=>x.IsUse==false);
-        int randomIndex = UnityEngine.Random.Range(0, path.Count);
-        path[randomIndex].IsUse = true;
-        return path[randomIndex];
-    }
+
     public void ResetPath()
     {
-        Reset(_paths);
-        Reset(_pathsParachute);
+        foreach (var wayPointList in Listwaypoint)
+        {
+            Reset(wayPointList._wayPointlist);
+        }
     }
-    public void Reset(List<WayPoint> paths)
+
+    private void Reset(List<WayPoint> paths)
     {
         foreach (var path in paths)
         {
@@ -46,10 +45,17 @@ public class PathManager : MonoBehaviour
         }
     }
 }
+
+[Serializable]
+public class WayPointlist
+{
+    public List<WayPoint> _wayPointlist;
+    public BotType botType;
+}
+
 [Serializable]
 public class WayPoint
 {
     public bool IsUse;
     public List<Transform> WayPoints;
-    
 }

@@ -5,7 +5,8 @@ using UnityEngine;
 public class Spawn : MonoBehaviour
 {
     private BotConfig _botConfig;
-    [SerializeField] private BotType botType;  // Thêm biến botType
+    [SerializeField] private BotType botType;
+
     public void InitData(BotConfig[] botConfigs)
     {
         foreach (var config in botConfigs)
@@ -30,25 +31,10 @@ public class Spawn : MonoBehaviour
     {
         for (var i = 0; i < _botConfig.botQuantity; i++)
         {
-            WayPoint path = ChosePath();
+            WayPoint path = PathManager.Instance.GetWayPoint(botType);
             var spawnPosition = path.WayPoints[0].position;
             BotManager.Instance.SpawnBot(_botConfig.botPrefab, spawnPosition, path);
             yield return new WaitForSeconds(_botConfig.botDelaySpawn);
-        }
-    }
-
-    private WayPoint ChosePath()
-    {
-        switch (_botConfig.botType)
-        {
-            case BotType.Infantry:
-                return PathManager.Instance.ChoseWayPointNormal();
-            case BotType.Parachutist:
-                return PathManager.Instance.ChooseWayPointParachute();
-            case BotType.AirForce:
-                return PathManager.Instance.ChooseWayAirCraft();
-            default:
-                throw new ArgumentOutOfRangeException();
         }
     }
 }
