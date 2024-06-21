@@ -50846,6 +50846,7 @@ GameObject:
   - component: {fileID: 8684877318704282694}
   - component: {fileID: 8684877318704282689}
   - component: {fileID: 8684877318704282690}
+  - component: {fileID: 8684877318704282700}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -50853,6 +50854,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &8684877318704282700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8684877318704282699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd47f6b3f897dda42862b4a910f217b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsBotActive: 0
 --- !u!23 &8684877318712224420
 MeshRenderer:
   m_ObjectHideFlags: 0
