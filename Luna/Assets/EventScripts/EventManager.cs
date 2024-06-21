@@ -1,11 +1,11 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class EventManager : MonoBehaviour
 {
-    private static readonly Dictionary<string, List<Delegate>> Channels = new();
+    private static readonly Dictionary<EventName, List<Delegate>> Channels = new();
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
     private static void ManualReloadDomain()
@@ -13,7 +13,7 @@ public class EventManager : MonoBehaviour
         Channels.Clear();
     }
 
-    public static void AddListener<M>(string key, UnityAction<M> response)
+    public static void AddListener<M>(EventName key, UnityAction<M> response)
     {
         if (Channels.TryGetValue(key, out var list))
         {
@@ -25,7 +25,7 @@ public class EventManager : MonoBehaviour
         }
     }
 
-    public static void RemoveListener<M>(string key, UnityAction<M> response)
+    public static void RemoveListener<M>(EventName key, UnityAction<M> response)
     {
         if (Channels.TryGetValue(key, out var list))
         {
@@ -40,7 +40,7 @@ public class EventManager : MonoBehaviour
         }
     }
 
-    public static void Invoke<M>(string key, M data)
+    public static void Invoke<M>(EventName key, M data)
     {
         if (Channels.TryGetValue(key, out var list))
         {
@@ -80,7 +80,7 @@ public class EventManager : MonoBehaviour
         }
     }
 
-    public static void Log(string key)
+    public static void Log(EventName key)
     {
         if (Channels.TryGetValue(key, out var list))
         {
@@ -94,4 +94,10 @@ public class EventManager : MonoBehaviour
         }
     }
 #endif
+}
+
+public enum EventName
+{
+    UpdateBulletCount,
+    // Thêm các sự kiện khác ở đây
 }

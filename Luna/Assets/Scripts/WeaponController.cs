@@ -32,7 +32,7 @@ public class WeaponController : MonoBehaviour
         _cameraTransform = _camera.transform;
         _currentBulletCount = weaponInfo.bulletCount; // Khởi tạo số lượng đạn
         Debug.Log("Initial bullet count: " + _currentBulletCount);
-        EventManager.Invoke("UpdateBulletCount", _currentBulletCount); // Gửi thông báo về số lượng đạn ban đầu
+        EventManager.Invoke(EventName.UpdateBulletCount, _currentBulletCount); // Gửi thông báo về số lượng đạn ban đầu
         AssignAnimationClips();
     }
 
@@ -88,7 +88,7 @@ public class WeaponController : MonoBehaviour
                         {
                             _currentBulletCount--;
                             Debug.Log("Bullet fired. Remaining bullets: " + _currentBulletCount);
-                            EventManager.Invoke("UpdateBulletCount", _currentBulletCount);
+                            EventManager.Invoke(EventName.UpdateBulletCount, _currentBulletCount);
                         }
                     }
                 }
@@ -110,7 +110,7 @@ public class WeaponController : MonoBehaviour
                         {
                             _currentBulletCount--;
                             Debug.Log("Bullet fired. Remaining bullets: " + _currentBulletCount);
-                            EventManager.Invoke("UpdateBulletCount", _currentBulletCount);
+                            EventManager.Invoke(EventName.UpdateBulletCount, _currentBulletCount);
                         }
                     }
                 }
@@ -227,7 +227,7 @@ public class WeaponController : MonoBehaviour
         _currentBulletCount = weaponInfo.bulletCount;
         _isReloading = false;
         Debug.Log("Reloaded. Current bullet count: " + _currentBulletCount);
-        EventManager.Invoke("UpdateBulletCount", _currentBulletCount);
+        EventManager.Invoke(EventName.UpdateBulletCount, _currentBulletCount);
     }
 
     private IEnumerator DecreaseRotationSpeed()

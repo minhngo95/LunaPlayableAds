@@ -26,12 +26,12 @@ public class UIManager : MonoBehaviour
 
     private void OnEnable()
     {
-        EventManager.AddListener<int>("UpdateBulletCount", UpdateBulletCount);
+        EventManager.AddListener<int>(EventName.UpdateBulletCount, UpdateBulletCount);
     }
 
     private void OnDisable()
     {
-        EventManager.RemoveListener<int>("UpdateBulletCount", UpdateBulletCount);
+        EventManager.RemoveListener<int>(EventName.UpdateBulletCount, UpdateBulletCount);
     }
 
     private void OnTapToPlay()
