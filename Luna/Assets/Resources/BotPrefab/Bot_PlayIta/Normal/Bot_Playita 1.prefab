@@ -98,7 +98,7 @@ ParticleSystem:
   emitterVelocityMode: 0
   looping: 1
   prewarm: 0
-  playOnAwake: 0
+  playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 0
   startDelay:
@@ -5612,7 +5612,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d09d32badc0eedb42b2c770aca292d41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 1
+  _maxHealth: 1000
   _fireAssistCheckPos:
   - {fileID: 1312138446514944581}
   - {fileID: 1312138447957572840}
@@ -6288,7 +6288,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1312138447534021066
 Transform:
   m_ObjectHideFlags: 0
@@ -6321,7 +6321,7 @@ ParticleSystem:
   emitterVelocityMode: 0
   looping: 1
   prewarm: 0
-  playOnAwake: 0
+  playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:

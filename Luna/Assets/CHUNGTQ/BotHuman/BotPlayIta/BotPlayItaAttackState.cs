@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static BotPlayItaStateMachine;
@@ -9,9 +9,7 @@ public class BotPlayItaAttackState : BaseState<PlayItaState>
     [SerializeField] protected Animator ator;
     [SerializeField] protected HumanMoveBase humanMoveBase;
     [SerializeField] protected GameObject muzzle;
-    private int _attackTotal;
     private float timeAttack;
-    private float countDown;
     private bool canAttack;
     private bool isTakeDame;
     public override void EnterState()
@@ -21,13 +19,17 @@ public class BotPlayItaAttackState : BaseState<PlayItaState>
         canAttack = true;
         StartCoroutine(AttackRoutine());
         botNetwork.OnTakeDamage += OnTakeDame;
+       // GameObject[] lookAt = GameObject.FindGameObjectsWithTag("PlayerPosition"); // chưa có hàm tìm vị trí player
+      //  muzzle.transform.LookAt(lookAt);
     }
     private void OnTakeDame(int damage)
     {
         isTakeDame = true;
         ator.SetBool("isHit", true);
         muzzle.SetActive(false);
+
     }
+
     private IEnumerator AttackRoutine()
     {
         while (true)
