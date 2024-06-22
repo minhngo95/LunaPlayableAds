@@ -13,14 +13,13 @@ public class BotPlayItaMoveState : BaseState<PlayItaState>
 
     public override void EnterState()
     {
-        Debug.Log(StateKey.ToString());
-        Init();
+        Invoke(nameof(Init), 0.1f);
 
     }
  
     protected void Init()
     {
-        path = PathManager.Instance.GetWayPoint(BotType.Infantry);
+        path = botNet.Path;
         isMoveDone = false;
         if (humanMoveBase.isHaveParent)
         {
@@ -33,19 +32,23 @@ public class BotPlayItaMoveState : BaseState<PlayItaState>
     }
     public override void UpdateState()
     {
-        if(!humanMoveBase.isHaveParent && moveIndex < path.WayPoints.Count)
+        if (path != null)
         {
-            humanMoveBase.SetBotMove(path.WayPoints[moveIndex]);
-            float distance = Vector3.Distance(humanMoveBase.myTrans.position, path.WayPoints[moveIndex].position);
-            if(distance < 0.1)
+            if (!humanMoveBase.isHaveParent && moveIndex < path.WayPoints.Count)
             {
-                moveIndex++;
+                humanMoveBase.SetBotMove(path.WayPoints[moveIndex]);
+                float distance = Vector3.Distance(humanMoveBase.myTrans.position, path.WayPoints[moveIndex].position);
+                if (distance < 0.1)
+                {
+                    moveIndex++;
+                }
+            }
+            if (moveIndex == path.WayPoints.Count)
+            {
+                isMoveDone = true;
             }
         }
-        if(moveIndex == path.WayPoints.Count)
-        {
-            isMoveDone = true;
-        }
+        
        
     }
     public override void ExitState()
