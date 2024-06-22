@@ -30,11 +30,15 @@ public class AircraftY801SpwanState : BaseState<AirForceState>
     }
     IEnumerator SpwanBot()
     {
-        for (int i = 0; i < botCarry[0].Quantity; i++)
+        if (botCarry.Length >0)
         {
-            Instantiate(botCarry[0].botConfig.Model, spwanPos.position, Quaternion.identity);
-            yield return null;
-        }
+            for (int i = 0; i < botCarry[0].Quantity; i++)
+            {
+                Instantiate(botCarry[0].botConfig.Model, spwanPos.position, Quaternion.identity);
+                yield return null;
+            }
+        }    
+
     }
     public override void UpdateState()
     {

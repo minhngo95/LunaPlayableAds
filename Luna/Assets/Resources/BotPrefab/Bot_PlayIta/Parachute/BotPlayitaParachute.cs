@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Luna.Unity.FacebookInstantGames;
 using UnityEngine;
 
@@ -13,6 +13,8 @@ public class BotPlayitaParachute : BotPlayita
     private float t;
     public float Speed;
     private Vector3 posEnd;
+    private bool _hasLanded;
+    private int _landCount;
     private IState _inParachuteState;
     private IState _parachuteOnLandState;
     private IState _deathInParachuteState;
@@ -21,9 +23,11 @@ public class BotPlayitaParachute : BotPlayita
 
     protected override void OnEnable()
     {
-        posEnd = CheckGround();
-        Debug.DrawRay(posEnd,Vector3.up,Color.red,Mathf.Infinity);
         base.OnEnable();
+        posEnd = CheckGround();
+        Debug.DrawRay(posEnd, Vector3.up, Color.red, Mathf.Infinity);
+        _hasLanded = false; // Reset landing status
+        // _landCount = 0; // Reset land count if needed
         _finiteStateMachine.SetState(_inParachuteState);
     }
 
@@ -34,7 +38,7 @@ public class BotPlayitaParachute : BotPlayita
         _parachuteOnLandState = new PlayitaParachuteOnLandState(stateConditionManager, _animator);
         _deathInParachuteState = new PlayitaDeathInParachuteState(stateConditionManager, _animator);
         _takeDameInParachuteState = new PlayitaTakeDameInParachuteState(stateConditionManager, _animator);
-        _deathInParachuteOnLandState = new PlayitaDeathParachuteOnLandState(stateConditionManager, _animator,this.gameObject);
+        _deathInParachuteOnLandState = new PlayitaDeathParachuteOnLandState(stateConditionManager, _animator, this.gameObject);
     }
 
     protected override void Update()
@@ -48,15 +52,30 @@ public class BotPlayitaParachute : BotPlayita
                 transform.position = Vector3.MoveTowards(transform.position, posEnd, Speed * Time.deltaTime);
                 ParachuteAction(distanceToGround);
             }
-            if (distanceToGround < 0.5f)
+            else
             {
-                _stateConditionManager.SetCondition("ParachuteDone", true);
-                transform.position = posEnd;
-                _parachuteScale.gameObject.SetActive(false);
+                if (!_hasLanded) // Check if the bot has just landed
+                {
+                    _hasLanded = true;
+                    OnLand(); // Call OnLand method when bot lands
+                }
             }
 
-            if (!_stateConditionManager.GetCondition("ParachuteDone")&&_stateConditionManager.GetCondition("Death")) Speed = 20;
+            if (!_stateConditionManager.GetCondition("ParachuteDone") && _stateConditionManager.GetCondition("Death"))
+            {
+                Speed = 20;
+            }
         }
+    }
+
+    private void OnLand()
+    {
+        _stateConditionManager.SetCondition("ParachuteDone", true);
+        transform.position = posEnd;
+        _parachuteScale.gameObject.SetActive(false);
+        _landCount++; // Increment land count
+        Debug.Log("Land count: " + _landCount); // Optional: Display land count
+        // Thực hiện các hành động cần thiết khi bot chạm đất
     }
 
     protected override void RegisterCondition()
@@ -82,13 +101,13 @@ public class BotPlayitaParachute : BotPlayita
             _parachuteOnLandState, _moveState);
         _stateTransitionManager.RegisterTransition(() => _stateConditionManager.GetCondition("TakeDame"),
             _parachuteOnLandState, _takeDameState);
-        _stateTransitionManager.RegisterTransition(() => !_stateConditionManager.GetCondition("TakeDame")&&!_stateConditionManager.GetCondition("ParachuteOnLand"),
-            _takeDameState,_parachuteOnLandState);
+        _stateTransitionManager.RegisterTransition(() => !_stateConditionManager.GetCondition("TakeDame") && !_stateConditionManager.GetCondition("ParachuteOnLand"),
+            _takeDameState, _parachuteOnLandState);
         _stateTransitionManager.RegisterTransition(() => _stateConditionManager.GetCondition("Death"),
             _parachuteOnLandState, _deathState);
         _stateTransitionManager.RegisterTransition(() => _stateConditionManager.GetCondition("DeathInParachuteOnLand"),
             _deathInParachuteState, _deathInParachuteOnLandState);
-        _stateTransitionManager.RegisterTransition(()=>_stateConditionManager.GetCondition("DeathInParachuteOnLand")&&_stateConditionManager.GetCondition("Death"),
+        _stateTransitionManager.RegisterTransition(() => _stateConditionManager.GetCondition("DeathInParachuteOnLand") && _stateConditionManager.GetCondition("Death"),
             _takeDameInParachuteState, _deathInParachuteOnLandState);
     }
 
@@ -118,6 +137,3 @@ public class BotPlayitaParachute : BotPlayita
         }
     }
 }
-
-
-

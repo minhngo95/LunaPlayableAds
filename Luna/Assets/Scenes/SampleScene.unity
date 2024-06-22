@@ -51023,8 +51023,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bd73037172c72a4f99c7953ea47991a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  configBotInGame: {fileID: 11400000, guid: 38378315daafc3c40bffca5391532e66, type: 2}
-  gameResultData: {fileID: 0}
+  configBotInGame: {fileID: 11400000, guid: 43fdd0a03b5dacb4a9e4b66c3e9b4772, type: 2}
+  gameResultData: {fileID: 11400000, guid: ea2970ea7477c1c4190cd1a34551fc42, type: 2}
   spawns:
   - {fileID: 8684877318101686105}
   - {fileID: 8684877319456211493}
@@ -51045,6 +51045,7 @@ GameObject:
   - component: {fileID: 8684877318704282690}
   - component: {fileID: 8684877318704282700}
   - component: {fileID: 8684877318704282701}
+  - component: {fileID: 8684877318704282702}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -51079,6 +51080,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameResultData: {fileID: 11400000, guid: ea2970ea7477c1c4190cd1a34551fc42, type: 2}
   _isShowCard: 0
+--- !u!114 &8684877318704282702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8684877318704282699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b6a74272a73aa449b906e6f2158e78e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!23 &8684877318712224420
 MeshRenderer:
   m_ObjectHideFlags: 0

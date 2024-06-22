@@ -26,6 +26,7 @@ public class GamePlayManager : MonoBehaviour
             StartCoroutine(TurnDelay());
         }
     }
+
     private void OnDisable()
     {
         OnResetResultData();
@@ -34,7 +35,7 @@ public class GamePlayManager : MonoBehaviour
     void OnResetResultData()
     {
         gameResultData.TurnCount = 0;
-    }    
+    }
 
     private IEnumerator TurnDelay()
     {
@@ -48,14 +49,16 @@ public class GamePlayManager : MonoBehaviour
 
     public bool CheckTurnDone()
     {
-        return BotManager.Instance.TotalBotOnMap <= 0 && gameResultData.TurnCount < configBotInGame.fightRound.Length;
+        int currentTurn = gameResultData.IsCountTurn ? gameResultData.TurnCount : Turn;
+        return BotManager.Instance.TotalBotOnMap <= 0 && currentTurn < configBotInGame.fightRound.Length;
     }
 
     public void SetData()
     {
+        int currentTurn = gameResultData.IsCountTurn ? gameResultData.TurnCount : Turn;
         foreach (var spawn in spawns)
         {
-            spawn.InitData(configBotInGame.fightRound[gameResultData.TurnCount].botConfigs);
+            spawn.InitData(configBotInGame.fightRound[currentTurn].botConfigs);
         }
     }
 
@@ -69,8 +72,9 @@ public class GamePlayManager : MonoBehaviour
 
     private int OnCheckTotalBotOnMap()
     {
+        int currentTurn = gameResultData.IsCountTurn ? gameResultData.TurnCount : Turn;
         int botCount = 0;
-        foreach (var botConfig in configBotInGame.fightRound[gameResultData.TurnCount].botConfigs)
+        foreach (var botConfig in configBotInGame.fightRound[currentTurn].botConfigs)
         {
             if (!botConfig.isNotUse && !botConfig.isNotCount)
             {

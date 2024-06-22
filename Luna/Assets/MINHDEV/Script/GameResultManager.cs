@@ -4,15 +4,25 @@ using UnityEngine;
 
 public class GameResultManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] public GameResultData gameResultData;
+    [SerializeField] public bool _isShowCard;
+
+    private void OnEnable()
     {
-        
+        EventManager.AddListener<int>(EventName.OnShowEndCard, OnCheckShowEndCard);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDisable()
     {
-        
+        EventManager.RemoveListener<int>(EventName.OnShowEndCard, OnCheckShowEndCard);
+    }
+
+    private void OnCheckShowEndCard(int TurnToShowEndCard)
+    {
+        if (TurnToShowEndCard == gameResultData.TurnEnd && !_isShowCard)
+        {
+            _isShowCard = true;
+            LunaShowEndCard.Instance.EndGameUI();
+        }
     }
 }

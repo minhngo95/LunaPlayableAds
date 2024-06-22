@@ -1,28 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Linq;
 using UnityEngine;
 
 public class LunaShowEndCard : MonoBehaviour
 {
-    [SerializeField] public GameResultData gameResultData;
-    [SerializeField] public bool _isShowCard;
+    public static LunaShowEndCard Instance;
 
-    private void OnEnable()
+    private void Awake()
     {
-        EventManager.AddListener<int>(EventName.OnShowEndCard, OnCheckShowEndCard);
+        Instance = this;
+    }
+    IEnumerator ShowEndCard()
+    {
+        yield return new WaitForSeconds(1);
+        EndCardController.Instance.OpenEndCard();
+        Time.timeScale = 0;
     }
 
-    private void OnDisable()
+    public void EndGameUI()
     {
-        EventManager.RemoveListener<int>(EventName.OnShowEndCard, OnCheckShowEndCard);
-    }
-
-    private void OnCheckShowEndCard(int TurnToShowEndCard)
-    {
-        if (TurnToShowEndCard == gameResultData.TurnEnd && !_isShowCard)
-        {
-            _isShowCard = true;
-            UIManager.Instance.EndGameUI();
-        }
+        StartCoroutine(ShowEndCard());
     }
 }

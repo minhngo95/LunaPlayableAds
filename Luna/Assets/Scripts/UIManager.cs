@@ -42,7 +42,6 @@ public class UIManager : MonoBehaviour
     IEnumerator ShowEndCard()
     {
         yield return new WaitForSeconds(1);
-        EndCardController.Instance.OpenEndCard();
         Time.timeScale = 0;
         InGame.SetActive(false);
         gameProcess.SetActive(false);
