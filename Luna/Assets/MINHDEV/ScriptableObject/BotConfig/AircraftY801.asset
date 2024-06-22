@@ -21,7 +21,4 @@ MonoBehaviour:
   botType: 3
   Model: {fileID: 0}
   moveSpeed: 40
-  carryAttributes:
-  - botConfig: {fileID: 11400000, guid: 61cfb92f22d35f54697914b619666d26, type: 2}
-    Quantity: 5
-    TimeSpwan: 0
+  carryAttributes: []
