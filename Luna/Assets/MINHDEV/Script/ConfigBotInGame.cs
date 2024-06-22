@@ -26,6 +26,9 @@ public class BotConfig
     [Tooltip("Có sử dụng bot này trong kịch bản không?")]
     public bool isNotUse;
 
+    [Tooltip("Bot có sử dụng nhưng ko tính vào BotCount")]
+    public bool isNotCount;
+
     [Tooltip("Số lượng bot sinh ra")]
     public int botQuantity;
 

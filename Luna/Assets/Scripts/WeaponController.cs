@@ -121,11 +121,6 @@ public class WeaponController : MonoBehaviour
             isShooting = false;
         }
 
-        //if ((GamePlayManager.Instance.Turn == ConfigManager.Instance.GetStepCount()) && !_isShowCard)
-        //{
-        //    _isShowCard = true;
-        //    UIManager.Instance.EndGameUI();
-        //}
     }
 
     private void HandleGatlingGunRotation()

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,7 @@ using UnityEngine;
 public class GamePlayManager : MonoBehaviour
 {
     [SerializeField] public ConfigBotInGame configBotInGame;
+    [SerializeField] public GameResultData gameResultData;
     [SerializeField] private List<Spawn> spawns;
     public static GamePlayManager Instance;
     public int Turn { get; set; }
@@ -24,25 +26,36 @@ public class GamePlayManager : MonoBehaviour
             StartCoroutine(TurnDelay());
         }
     }
+    private void OnDisable()
+    {
+        OnResetResultData();
+    }
+
+    void OnResetResultData()
+    {
+        gameResultData.TurnCount = 0;
+    }    
 
     private IEnumerator TurnDelay()
     {
         yield return new WaitForSeconds(1);
         SetData();
         GameStart();
+        gameResultData.TurnCount++;
+        EventManager.Invoke(EventName.OnShowEndCard, gameResultData.TurnCount);
         Turn++;
     }
 
     public bool CheckTurnDone()
     {
-        return BotManager.Instance.TotalBotOnMap <= 0 && Turn < configBotInGame.fightRound.Length;
+        return BotManager.Instance.TotalBotOnMap <= 0 && gameResultData.TurnCount < configBotInGame.fightRound.Length;
     }
 
     public void SetData()
     {
         foreach (var spawn in spawns)
         {
-            spawn.InitData(configBotInGame.fightRound[Turn].botConfigs);
+            spawn.InitData(configBotInGame.fightRound[gameResultData.TurnCount].botConfigs);
         }
     }
 
@@ -57,9 +70,12 @@ public class GamePlayManager : MonoBehaviour
     private int OnCheckTotalBotOnMap()
     {
         int botCount = 0;
-        for (int i = 0; i < configBotInGame.fightRound[Turn].botConfigs.Length; i++)
+        foreach (var botConfig in configBotInGame.fightRound[gameResultData.TurnCount].botConfigs)
         {
-            botCount += configBotInGame.fightRound[Turn].botConfigs[i].botQuantity;
+            if (!botConfig.isNotUse && !botConfig.isNotCount)
+            {
+                botCount += botConfig.botQuantity;
+            }
         }
         return botCount;
     }

@@ -15,7 +15,7 @@ public class BotConfigSO : ScriptableObject
     public BotType botType;
     public GameObject Model;
     public float moveSpeed;
-    [SerializeField] CarryAttributes[] carryAttributes;
+    [SerializeField]public CarryAttributes[] carryAttributes;
 
 }
 
