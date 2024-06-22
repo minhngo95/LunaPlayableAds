@@ -169,6 +169,37 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &1233999796937180546
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2493608979092046621}
+  m_Layer: 9
+  m_Name: Explosion
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2493608979092046621
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1233999796937180546}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2798846211531249185}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1578381382514140305
 GameObject:
   m_ObjectHideFlags: 0
@@ -576,6 +607,9 @@ GameObject:
   - component: {fileID: 9085897590105212233}
   - component: {fileID: 8309600683070650893}
   - component: {fileID: -3182311238603575809}
+  - component: {fileID: 8591318428065467428}
+  - component: {fileID: 3166166988112879879}
+  - component: {fileID: 4347038568617709316}
   m_Layer: 9
   m_Name: Aircraft_Y8_01
   m_TagString: Untagged
@@ -596,6 +630,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1834392481443369459}
+  - {fileID: 2493608979092046621}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -652,7 +687,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1290672709ce5d346b929f4a5ff33f55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BotNetwork: {fileID: 9085897590105212233}
+  _currentState: {fileID: 0}
+--- !u!114 &8591318428065467428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3885047237660147209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1deafd863b12714a91198da7bb5bfb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AircraftConfig: {fileID: 11400000, guid: 602b850fd91ce574d984db3a6199b5d0, type: 2}
+  botNetwork: {fileID: 9085897590105212233}
+  Min_Pos: 145
+  Max_Pos: 160
+--- !u!114 &3166166988112879879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3885047237660147209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2887a0c2a6f605c4599e2ff4c0efe872, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AircraftConfig: {fileID: 11400000, guid: 602b850fd91ce574d984db3a6199b5d0, type: 2}
+  botNetwork: {fileID: 9085897590105212233}
+  spwanPos: {fileID: 8799217366494689183}
+--- !u!114 &4347038568617709316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3885047237660147209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e3f2a91b5e2b46489549079ebc8cdb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AircraftConfig: {fileID: 11400000, guid: 602b850fd91ce574d984db3a6199b5d0, type: 2}
+  botNetwork: {fileID: 9085897590105212233}
 --- !u!1 &4077370913408296877
 GameObject:
   m_ObjectHideFlags: 0
@@ -1361,6 +1441,37 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.828741, y: 2.828741, z: 0.039401785}
   m_Center: {x: -0.000000059604645, y: -0.00000017881393, z: -0.017166723}
+--- !u!1 &8261942719884434515
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8799217366494689183}
+  m_Layer: 9
+  m_Name: SpwanPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8799217366494689183
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8261942719884434515}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1834392481443369459}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8507000369512198251
 GameObject:
   m_ObjectHideFlags: 0
@@ -1593,6 +1704,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6505700154988919850}
+  - {fileID: 8799217366494689183}
   m_Father: {fileID: 2798846211531249185}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
