@@ -1,9 +1,4 @@
-﻿using Luna.Unity.FacebookInstantGames;
-using System.Collections;
-using System.Collections.Generic;
-using System.IO;
-using UnityEngine;
-using UnityEngine.XR;
+﻿using UnityEngine;
 
 public class HumanMoveBase : MonoBehaviour
 {
@@ -25,6 +20,12 @@ public class HumanMoveBase : MonoBehaviour
         botNet.OnBotDead += OnBotDead;
 
     }
+
+    protected void Update()
+    {
+        CheckParent();
+    }
+
     private void OnTakeDame(int dame)
     {
         isTakeDame = true;
@@ -33,7 +34,6 @@ public class HumanMoveBase : MonoBehaviour
     }
     private void OnBotDead()
     {
-        Debug.Log("dead");
     }
     private void ResetTakeDame()
     {
@@ -42,13 +42,13 @@ public class HumanMoveBase : MonoBehaviour
     }
     protected virtual void CheckParent()
     {
-        if (myTrans != null)
+        if (myTrans.parent != null)
         {
-            isHaveParent = false;
+            isHaveParent = true;
         }
         else
         {
-            isHaveParent = true;
+            isHaveParent = false;
         }
           
     }
