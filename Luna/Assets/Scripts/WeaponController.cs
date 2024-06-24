@@ -118,9 +118,12 @@ public class WeaponController : MonoBehaviour
         }
         else
         {
-            isShooting = false;
+            if (isShooting)
+            {
+                StopShootingSound();
+                isShooting = false;
+            }
         }
-
     }
 
     private void HandleGatlingGunRotation()
@@ -207,6 +210,7 @@ public class WeaponController : MonoBehaviour
 
     private IEnumerator Reload()
     {
+        StopShootingSound();
         _isReloading = true;
         Debug.Log("Reloading...");
 
@@ -245,7 +249,7 @@ public class WeaponController : MonoBehaviour
 
         var bots = BotManager.Instance.BotNetworks;
         foreach (var bot in bots.Where(bot => bot != null && !bot.IsDead))
-            if (bot.FireAssistCheckPos.Count >0)
+            if (bot.FireAssistCheckPos.Count > 0)
             {
                 foreach (var checkPoint in bot.FireAssistCheckPos)
                 {
@@ -288,6 +292,15 @@ public class WeaponController : MonoBehaviour
         var distance = Vector3.Distance(origin, target);
         var ray = new Ray(origin, target - origin);
         return !Physics.Raycast(ray, out _, distance, _layerMask);
+    }
+
+    // Thêm phương thức dừng âm thanh bắn
+    private void StopShootingSound()
+    {
+        if (_audioSource.isPlaying)
+        {
+            _audioSource.Stop();
+        }
     }
 
     // Thêm phương thức nhận AnimationEvent
