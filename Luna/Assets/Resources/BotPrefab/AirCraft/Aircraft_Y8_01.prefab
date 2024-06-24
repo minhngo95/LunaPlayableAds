@@ -720,6 +720,9 @@ MonoBehaviour:
   AircraftConfig: {fileID: 11400000, guid: 602b850fd91ce574d984db3a6199b5d0, type: 2}
   botNetwork: {fileID: 9085897590105212233}
   spwanPos: {fileID: 8799217366494689183}
+  modeSpawn: 1
+  botsPerRow: 1
+  space: 3
 --- !u!114 &4347038568617709316
 MonoBehaviour:
   m_ObjectHideFlags: 0
