@@ -7,6 +7,8 @@ public class WeaponInfo : ScriptableObject
     public float shootDelay = 0.1f;
 
     public AudioClip audioClip;
+    public AudioClip AudioStartBarrel;
+    public AudioClip AudioEndBarrel;
     public float inaccuracy = 0.01f;
     public float recoilAmount = 0.1f;
     public int bulletCount = 30; // Số lượng đạn trong băng
@@ -21,7 +23,7 @@ public class WeaponInfo : ScriptableObject
     // Các biến cho súng 6 nòng
     public float WaitToShoot = 0; // Đợi 1 khoảng thời gian xoay nòng rồi mới bắn
     public float MaxSpeedRotaBarrel = 0; // Tốc độ quay tối đa
-    public float TimeMinSpeed = 0; //Thời gian giảm tốc độ xoay nòng xuống 0
-    public float MinSpeedRotaBarrel = 0; //Tốc độ khi không quay nữa
+    public float TimeMinSpeed = 0; // Thời gian giảm tốc độ xoay nòng xuống 0
+    public float MinSpeedRotaBarrel = 0; // Tốc độ khi không quay nữa
     public bool isGatlingGun = false; // Trạng thái súng 6 nòng
 }

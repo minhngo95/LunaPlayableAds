@@ -64,54 +64,31 @@ public class WeaponController : MonoBehaviour
 
         if (Input.GetMouseButton(0))
         {
-            isShooting = true;
-
-            if (weaponInfo.isGatlingGun)
+            if (!isShooting)
             {
-                if (!canShoot && shootingCoroutine == null)
+                isShooting = true;
+                if (shootingCoroutine == null)
                 {
                     shootingCoroutine = StartCoroutine(StartShootingAfterDelay());
                 }
-
-                if (canShoot && _timeSinceLastShoot >= weaponInfo.shootDelay)
-                {
-                    if (_currentBulletCount <= 0 && !weaponInfo.infiniteBullet)
-                    {
-                        StartCoroutine(Reload());
-                    }
-                    else
-                    {
-                        Shoot();
-                        _timeSinceLastShoot = 0f;
-
-                        if (!weaponInfo.infiniteBullet)
-                        {
-                            _currentBulletCount--;
-                            Debug.Log("Bullet fired. Remaining bullets: " + _currentBulletCount);
-                            EventManager.Invoke(EventName.UpdateBulletCount, _currentBulletCount);
-                        }
-                    }
-                }
             }
-            else
-            {
-                if (_timeSinceLastShoot >= weaponInfo.shootDelay)
-                {
-                    if (_currentBulletCount <= 0 && !weaponInfo.infiniteBullet)
-                    {
-                        StartCoroutine(Reload());
-                    }
-                    else
-                    {
-                        Shoot();
-                        _timeSinceLastShoot = 0f;
 
-                        if (!weaponInfo.infiniteBullet)
-                        {
-                            _currentBulletCount--;
-                            Debug.Log("Bullet fired. Remaining bullets: " + _currentBulletCount);
-                            EventManager.Invoke(EventName.UpdateBulletCount, _currentBulletCount);
-                        }
+            if (canShoot && _timeSinceLastShoot >= weaponInfo.shootDelay)
+            {
+                if (_currentBulletCount <= 0 && !weaponInfo.infiniteBullet)
+                {
+                    StartCoroutine(Reload());
+                }
+                else
+                {
+                    Shoot();
+                    _timeSinceLastShoot = 0f;
+
+                    if (!weaponInfo.infiniteBullet)
+                    {
+                        _currentBulletCount--;
+                        Debug.Log("Bullet fired. Remaining bullets: " + _currentBulletCount);
+                        EventManager.Invoke(EventName.UpdateBulletCount, _currentBulletCount);
                     }
                 }
             }
@@ -122,6 +99,12 @@ public class WeaponController : MonoBehaviour
             {
                 StopShootingSound();
                 isShooting = false;
+                canShoot = false; // Reset canShoot when stopping shooting
+                if (shootingCoroutine != null)
+                {
+                    StopCoroutine(shootingCoroutine);
+                    shootingCoroutine = null;
+                }
             }
         }
     }
