@@ -30,12 +30,9 @@ public class AircraftY801SpwanState : BaseState<AirForceState>
 
     IEnumerator SpwanAction()
     {
-        yield return new WaitForSeconds(0.1f);
-
         yield return StartCoroutine(SpwanBot());
-        isSpwanDone = true;
 
-
+        yield return new WaitUntil(() => isSpwanDone == true);
     }
     IEnumerator SpwanBot()
     {
@@ -46,7 +43,8 @@ public class AircraftY801SpwanState : BaseState<AirForceState>
                 Instantiate(botCarry[0].botConfig.Model, spwanPos.position, Quaternion.identity);
                 yield return null;
             }
-        }    
+           isSpwanDone = true;
+        }
 
     }
     public override void UpdateState()
@@ -72,10 +70,7 @@ public class AircraftY801SpwanState : BaseState<AirForceState>
             {
                 return AirForceState.MoveBehindPos;
             }
-            else
-            {
-                return StateKey;
-            }
+            return StateKey;
 
         }
        

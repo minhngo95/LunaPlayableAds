@@ -18,6 +18,7 @@ public class AircraftY801FlyState : BaseState<AirForceState>
 
     public override void EnterState()
     {
+        isFlyDone = false;
         Invoke(nameof(Init), 0.1f); // delay 0.1f readData_Path 
     }
     private void Init()
@@ -25,7 +26,7 @@ public class AircraftY801FlyState : BaseState<AirForceState>
         _path = botNetwork.Path;
         _speed = AircraftConfig.moveSpeed;
         distanceSpwan = Random.Range(Min_Pos, Max_Pos);
-        isFlyDone = false;
+
     }
 
     public override void UpdateState()
