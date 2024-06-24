@@ -24,6 +24,7 @@ public class WeaponController : MonoBehaviour
     private float currentRotationSpeed = 0f; // Tốc độ quay hiện tại của nòng súng
     private bool isShooting = false; // Trạng thái đang bắn
     private bool canShoot = false; // Trạng thái có thể bắn
+    private bool isBarrelSpinning = false; // Trạng thái nòng súng đang quay
     private Coroutine shootingCoroutine;
 
     private void Awake()
@@ -71,6 +72,12 @@ public class WeaponController : MonoBehaviour
                 {
                     shootingCoroutine = StartCoroutine(StartShootingAfterDelay());
                 }
+                if (!isBarrelSpinning)
+                {
+                    _audioSource.clip = weaponInfo.AudioStartBarrel;
+                    _audioSource.Play();
+                    isBarrelSpinning = true;
+                }
             }
 
             if (canShoot && _timeSinceLastShoot >= weaponInfo.shootDelay)
@@ -104,6 +111,12 @@ public class WeaponController : MonoBehaviour
                 {
                     StopCoroutine(shootingCoroutine);
                     shootingCoroutine = null;
+                }
+                if (isBarrelSpinning)
+                {
+                    _audioSource.clip = weaponInfo.AudioEndBarrel;
+                    _audioSource.Play();
+                    isBarrelSpinning = false;
                 }
             }
         }
@@ -210,6 +223,14 @@ public class WeaponController : MonoBehaviour
         _isReloading = false;
         Debug.Log("Reloaded. Current bullet count: " + _currentBulletCount);
         EventManager.Invoke(EventName.UpdateBulletCount, _currentBulletCount);
+
+        // Phát âm thanh khi súng ngừng xoay nếu đang nạp đạn
+        if (isBarrelSpinning)
+        {
+            _audioSource.clip = weaponInfo.AudioEndBarrel;
+            _audioSource.Play();
+            isBarrelSpinning = false;
+        }
     }
 
     private IEnumerator DecreaseRotationSpeed()
@@ -280,7 +301,7 @@ public class WeaponController : MonoBehaviour
     // Thêm phương thức dừng âm thanh bắn
     private void StopShootingSound()
     {
-        if (_audioSource.isPlaying)
+        if (_audioSource.isPlaying && _audioSource.clip == weaponInfo.audioClip)
         {
             _audioSource.Stop();
         }
