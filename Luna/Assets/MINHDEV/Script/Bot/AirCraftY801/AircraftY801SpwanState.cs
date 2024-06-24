@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using static AircraftY801StateMachine;
 
@@ -7,6 +8,9 @@ public class AircraftY801SpwanState : BaseState<AirForceState>
     [SerializeField] private BotConfigSO AircraftConfig;
     [SerializeField] private BotNetwork botNetwork;
     [SerializeField] private Transform spwanPos;
+    [SerializeField] private ModeSpawn modeSpawn;
+    [SerializeField] private int botsPerRow;
+    [SerializeField] private float space;
     private WayPoint _path;
     private float _speed;
     private CarryAttributes[] botCarry;
@@ -36,34 +40,56 @@ public class AircraftY801SpwanState : BaseState<AirForceState>
 
     IEnumerator SpwanAction()
     {
-        yield return StartCoroutine(SpwanBot());
+        yield return StartCoroutine(SpwanBot(modeSpawn));
         yield return new WaitUntil(() => isSpwanDone == true);
     }
 
-    IEnumerator SpwanBot()
+    IEnumerator SpwanBot(ModeSpawn modeSpawn)
     {
         if (botCarry.Length > 0)
         {
-            for (int i = 0; i < botCarry[0].Quantity; i++)
+            switch (modeSpawn)
             {
-                Instantiate(botCarry[0].botConfig.Model, spwanPos.position, Quaternion.identity);
-                yield return null;
+                case ModeSpawn.SpawnFullBot:
+                    for (int i = 0; i < botCarry[0].Quantity; i++)
+                    {
+                        int row = i / botsPerRow;
+                        int col = i % botsPerRow;
+                        Vector3 positionOffset = new Vector3(col * space, 0, row * -space);
+                        //Instantiate(botCarry[0].botConfig.Model, spwanPos.position, Quaternion.identity);
+                        SpwanCarry(botCarry[0].botConfig.Model, spwanPos.position - positionOffset);
+                        yield return null;
+                    }
+                    isSpwanDone = true;
+                    break;
+                case ModeSpawn.SpawnOneByOne:
+                    for (int i = 0; i < botCarry[0].Quantity; i++)
+                    {
+                        //Instantiate(botCarry[0].botConfig.Model, spwanPos.position, Quaternion.identity);
+                        SpwanCarry(botCarry[0].botConfig.Model, spwanPos.position);
+                        yield return new WaitForSeconds(.3f);
+                    }
+                    isSpwanDone = true;
+                    break;
             }
-            isSpwanDone = true;
         }
     }
 
     public override void UpdateState()
     {
-        if (!isSpwanDone && _path != null)
+        if (!isSpwanDone)
         {
-            transform.position = Vector3.MoveTowards(transform.position, _path.WayPoints[1].position, _speed * Time.deltaTime);
+            transform.Translate(Vector3.forward * _speed * Time.deltaTime);
         }
     }
 
     public override void ExitState()
     {
         isSpwanDone = false; // Reset lại isSpwanDone khi rời khỏi trạng thái
+    }
+    void SpwanCarry(GameObject model,Vector3 offset)
+    {
+        Instantiate(model, offset, Quaternion.identity);
     }
 
     public override AirForceState GetNextState()
@@ -81,4 +107,10 @@ public class AircraftY801SpwanState : BaseState<AirForceState>
             return StateKey;
         }
     }
+}
+public enum ModeSpawn
+{
+    SpawnFullBot,
+    SpawnOneByOne
+
 }
