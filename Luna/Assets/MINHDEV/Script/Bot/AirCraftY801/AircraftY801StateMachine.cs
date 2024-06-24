@@ -5,7 +5,7 @@ using static BotPlayItaStateMachine;
 
 public class AircraftY801StateMachine : MonoBehaviour
 {
-
+    [SerializeField] private BotNetwork botNetwork;
     private Dictionary<AirForceState, BaseState<AirForceState>> StateController = new Dictionary<AirForceState, BaseState<AirForceState>>();
     public BaseState<AirForceState> _currentState;
     private bool _isTransition;
@@ -41,6 +41,11 @@ public class AircraftY801StateMachine : MonoBehaviour
     {
         _currentState = StateController[AirForceState.Fly];
         _currentState.EnterState();
+        botNetwork.OnTakeDamage += OnTakeDame;
+    }
+    private void OnTakeDame(int dame)
+    {
+        Debug.Log(dame);
     }
     void Update()
     {
