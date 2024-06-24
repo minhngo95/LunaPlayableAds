@@ -1,27 +1,33 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using static AircraftY801StateMachine;
-using static BotPlayItaStateMachine;
-using static UnityEngine.UI.CanvasScaler;
 
 public class AircraftY801SpwanState : BaseState<AirForceState>
 {
-    [SerializeField] private BotConfigSO AircraftConfig;//nên sửa một cái gì đấy để đọc config rồi lấy dữ liệu, ko muốn lôi cái config gán vào như này :<, rảnh thì làm sau
+    [SerializeField] private BotConfigSO AircraftConfig;
     [SerializeField] private BotNetwork botNetwork;
     [SerializeField] private Transform spwanPos;
     private WayPoint _path;
     private float _speed;
-    private CarryAttributes[] botCarry; //listbot đc spwan ra
+    private CarryAttributes[] botCarry;
     private bool isSpwanDone;
+
     public override void EnterState()
     {
-        Init(); // delay 0.1f readData_Path 
+        Init();
         isSpwanDone = false;
-        botCarry = AircraftConfig.carryAttributes;
+        botCarry = new CarryAttributes[AircraftConfig.carryAttributes.Length];
+        for (int i = 0; i < AircraftConfig.carryAttributes.Length; i++)
+        {
+            botCarry[i] = new CarryAttributes
+            {
+                botConfig = AircraftConfig.carryAttributes[i].botConfig,
+                Quantity = AircraftConfig.carryAttributes[i].Quantity
+            };
+        }
         StartCoroutine(SpwanAction());
-
     }
+
     private void Init()
     {
         _path = botNetwork.Path;
@@ -31,36 +37,38 @@ public class AircraftY801SpwanState : BaseState<AirForceState>
     IEnumerator SpwanAction()
     {
         yield return StartCoroutine(SpwanBot());
-
         yield return new WaitUntil(() => isSpwanDone == true);
     }
+
     IEnumerator SpwanBot()
     {
-        if (botCarry.Length >0)
+        if (botCarry.Length > 0)
         {
             for (int i = 0; i < botCarry[0].Quantity; i++)
             {
                 Instantiate(botCarry[0].botConfig.Model, spwanPos.position, Quaternion.identity);
                 yield return null;
             }
-           isSpwanDone = true;
+            isSpwanDone = true;
         }
-
     }
+
     public override void UpdateState()
     {
-        if(!isSpwanDone && _path!=null)
+        if (!isSpwanDone && _path != null)
         {
             transform.position = Vector3.MoveTowards(transform.position, _path.WayPoints[1].position, _speed * Time.deltaTime);
         }
     }
+
     public override void ExitState()
     {
-
+        isSpwanDone = false; // Reset lại isSpwanDone khi rời khỏi trạng thái
     }
+
     public override AirForceState GetNextState()
     {
-        if(botNetwork.IsDead)
+        if (botNetwork.IsDead)
         {
             return AirForceState.Dead;
         }
@@ -71,9 +79,6 @@ public class AircraftY801SpwanState : BaseState<AirForceState>
                 return AirForceState.MoveBehindPos;
             }
             return StateKey;
-
         }
-       
-
     }
 }

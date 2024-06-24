@@ -1,12 +1,10 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using static AircraftY801StateMachine;
-using static BotPlayItaStateMachine;
 
 public class AircraftY801FlyState : BaseState<AirForceState>
 {
-    [SerializeField] private BotConfigSO AircraftConfig;//nên sửa một cái gì đấy để đọc config rồi lấy dữ liệu, ko muốn lôi cái config gán vào như này :<, rảnh thì làm sau
+    [SerializeField] private BotConfigSO AircraftConfig;
     [SerializeField] private BotNetwork botNetwork;
     [Tooltip("Khoảng cách random điểm thả lính, tính từ điểm HidePos")]
     [SerializeField] private float Min_Pos;
@@ -19,20 +17,21 @@ public class AircraftY801FlyState : BaseState<AirForceState>
     public override void EnterState()
     {
         isFlyDone = false;
-        Invoke(nameof(Init), 0.1f); // delay 0.1f readData_Path 
+        Invoke(nameof(Init), 0.1f);
     }
+
     private void Init()
     {
         _path = botNetwork.Path;
         _speed = AircraftConfig.moveSpeed;
         distanceSpwan = Random.Range(Min_Pos, Max_Pos);
-
     }
 
     public override void UpdateState()
     {
         Fly();
     }
+
     private void Fly()
     {
         if (_path != null)
@@ -42,15 +41,16 @@ public class AircraftY801FlyState : BaseState<AirForceState>
 
             if (distance < distanceSpwan)
             {
-                isFlyDone = true;   
+                isFlyDone = true;
             }
         }
-       
     }
+
     public override void ExitState()
     {
-      
+        isFlyDone = false; // Reset lại isFlyDone khi rời khỏi trạng thái
     }
+
     public override AirForceState GetNextState()
     {
         if (botNetwork.IsDead)
@@ -59,16 +59,14 @@ public class AircraftY801FlyState : BaseState<AirForceState>
         }
         else
         {
-            if(isFlyDone)
+            if (isFlyDone)
             {
                 return AirForceState.SpawnBot;
             }
-            else {
+            else
+            {
                 return StateKey;
             }
-           
         }
-        
-
     }
 }

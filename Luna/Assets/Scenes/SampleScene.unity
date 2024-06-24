@@ -7441,7 +7441,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3541676164307338459}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalPosition: {x: 0, y: 10.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -47989,7 +47989,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8549967866133223277}
   - component: {fileID: 5118369262204814213}
-  - component: {fileID: 8858705928223725544}
+  - component: {fileID: 8549967866133711502}
   m_Layer: 0
   m_Name: Weapon502
   m_TagString: Untagged
@@ -47997,6 +47997,32 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &8549967866133711502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8549967866133711501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c4076a62c7443b41aa2073544559c2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponInfo: {fileID: 11400000, guid: 7a92c17f9c680c54c8586bf01646ccbc, type: 2}
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  _muzzleTrans: {fileID: 6065034047592608364}
+  Gunbarrel:
+  - {fileID: 5376507007035392788}
+  _animation: {fileID: 5118369262204814213}
+  _bullet: {fileID: 6458371479552465772, guid: bcf0258b66a8e05498ace10193710acc, type: 3}
+  _muzzleFlash: {fileID: 6573271809637306241}
+  _audioSource: {fileID: 4120336282653549425}
+  _effect: {fileID: 1214385991556846, guid: 5101b0b18563cd64fba69182fb988727, type: 3}
+  _isShowCard: 0
+  radius: 33
 --- !u!224 &8647217452656254275
 RectTransform:
   m_ObjectHideFlags: 0
@@ -57256,32 +57282,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &8858705928223725544
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8549967866133711501}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c4076a62c7443b41aa2073544559c2b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponInfo: {fileID: 11400000, guid: 7a92c17f9c680c54c8586bf01646ccbc, type: 2}
-  _layerMask:
-    serializedVersion: 2
-    m_Bits: 64
-  _muzzleTrans: {fileID: 6065034047592608364}
-  Gunbarrel:
-  - {fileID: 5376507007035392788}
-  _animation: {fileID: 5118369262204814213}
-  _bullet: {fileID: 6458371479552465772, guid: bcf0258b66a8e05498ace10193710acc, type: 3}
-  _muzzleFlash: {fileID: 6573271809637306241}
-  _audioSource: {fileID: 4120336282653549425}
-  _effect: {fileID: 1214385991556846, guid: 5101b0b18563cd64fba69182fb988727, type: 3}
-  _isShowCard: 0
-  radius: 33
 --- !u!1 &8900870918197850507
 GameObject:
   m_ObjectHideFlags: 0

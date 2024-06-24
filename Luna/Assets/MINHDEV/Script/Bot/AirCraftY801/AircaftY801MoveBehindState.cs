@@ -1,31 +1,32 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using static AircraftY801StateMachine;
-using static BotPlayItaStateMachine;
-using static UnityEngine.UI.CanvasScaler;
 
 public class AircaftY801MoveBehindState : BaseState<AirForceState>
 {
-    [SerializeField] private BotConfigSO AircraftConfig;//nên sửa một cái gì đấy để đọc config rồi lấy dữ liệu, ko muốn lôi cái config gán vào như này :<, rảnh thì làm sau
+    [SerializeField] private BotConfigSO AircraftConfig;
     [SerializeField] private BotNetwork botNetwork;
     private WayPoint _path;
     private float _speed;
     private bool isFlyDone;
+
     public override void EnterState()
     {
-        Invoke(nameof(Init), 0.1f); // delay 0.1f readData_Path 
+        Invoke(nameof(Init), 0.1f);
     }
+
     private void Init()
     {
         _path = botNetwork.Path;
         _speed = AircraftConfig.moveSpeed;
         isFlyDone = false;
     }
+
     public override void UpdateState()
     {
         Fly();
     }
+
     private void Fly()
     {
         if (_path != null)
@@ -38,12 +39,13 @@ public class AircaftY801MoveBehindState : BaseState<AirForceState>
                 isFlyDone = true;
             }
         }
-
     }
+
     public override void ExitState()
     {
-
+        isFlyDone = false; // Reset lại isFlyDone khi rời khỏi trạng thái
     }
+
     public override AirForceState GetNextState()
     {
         if (botNetwork.IsDead)
@@ -60,7 +62,6 @@ public class AircaftY801MoveBehindState : BaseState<AirForceState>
             {
                 return StateKey;
             }
-           
         }
     }
 }
