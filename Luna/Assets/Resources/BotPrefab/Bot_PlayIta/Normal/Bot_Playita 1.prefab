@@ -5896,6 +5896,7 @@ MonoBehaviour:
   ator: {fileID: 1312138448328766699}
   humanMoveBase: {fileID: 2530033056310816196}
   muzzle: {fileID: 1312138446311196461}
+  weaponRoot: {fileID: 1312138448198663300}
 --- !u!1 &1312138446776946386
 GameObject:
   m_ObjectHideFlags: 0

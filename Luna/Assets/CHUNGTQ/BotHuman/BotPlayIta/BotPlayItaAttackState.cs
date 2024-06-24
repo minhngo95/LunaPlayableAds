@@ -9,6 +9,7 @@ public class BotPlayItaAttackState : BaseState<PlayItaState>
     [SerializeField] protected Animator ator;
     [SerializeField] protected HumanMoveBase humanMoveBase;
     [SerializeField] protected GameObject muzzle;
+    [SerializeField] protected GameObject weaponRoot;
     private float timeAttack;
     private bool canAttack;
     private bool isTakeDame;
@@ -19,8 +20,7 @@ public class BotPlayItaAttackState : BaseState<PlayItaState>
         canAttack = true;
         StartCoroutine(AttackRoutine());
         botNetwork.OnTakeDamage += OnTakeDame;
-       // GameObject[] lookAt = GameObject.FindGameObjectsWithTag("PlayerPosition"); // chưa có hàm tìm vị trí player
-      //  muzzle.transform.LookAt(lookAt);
+       
     }
     private void OnTakeDame(int damage)
     {
@@ -47,9 +47,18 @@ public class BotPlayItaAttackState : BaseState<PlayItaState>
             yield return null;  // Wait until the next frame
         }
     }
+    private void RotaToTarget()
+    {
+        GameObject playerPosition = GameObject.FindGameObjectWithTag("PlayerPosition"); // chưa có hàm tìm vị trí player
+        Vector3 direction = playerPosition.transform.position - weaponRoot.transform.position;
+        Quaternion rotation = Quaternion.LookRotation(direction);
+        weaponRoot.transform.rotation = rotation;
+
+
+    }
     public override void UpdateState()
     {
-
+        RotaToTarget();
     }
     public override void ExitState()
     {
