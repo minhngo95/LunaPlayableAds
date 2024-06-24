@@ -14,7 +14,6 @@ public class BotPlayitaParachute : BotPlayita
     public float Speed;
     private Vector3 posEnd;
     private bool _hasLanded;
-    private int _landCount;
     private IState _inParachuteState;
     private IState _parachuteOnLandState;
     private IState _deathInParachuteState;
@@ -73,9 +72,7 @@ public class BotPlayitaParachute : BotPlayita
         _stateConditionManager.SetCondition("ParachuteDone", true);
         transform.position = posEnd;
         _parachuteScale.gameObject.SetActive(false);
-        _landCount++; // Increment land count
-        Debug.Log("Land count: " + _landCount); // Optional: Display land count
-        // Thực hiện các hành động cần thiết khi bot chạm đất
+        BotLandingManager.Instance.IncrementLandCount();
     }
 
     protected override void RegisterCondition()

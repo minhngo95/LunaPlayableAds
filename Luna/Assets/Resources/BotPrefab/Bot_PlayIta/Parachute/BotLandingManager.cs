@@ -21,6 +21,7 @@ public class BotLandingManager : MonoBehaviour
     public void IncrementLandCount()
     {
         TotalLandCount++;
+        EventManager.Invoke(EventName.OnCountBotLanding, TotalLandCount);
         Debug.Log("Total land count: " + TotalLandCount);
     }
 }

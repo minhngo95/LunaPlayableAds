@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Xml.Linq;
 using UnityEngine;
 
 public class LunaShowEndCard : MonoBehaviour
@@ -11,15 +10,20 @@ public class LunaShowEndCard : MonoBehaviour
     {
         Instance = this;
     }
+
     IEnumerator ShowEndCard()
     {
-        yield return new WaitForSeconds(1);
-        EndCardController.Instance.OpenEndCard();
+        yield return new WaitForSeconds(0.5f);
+
+        if (EndCardController.Instance != null)
+        {
+            EndCardController.Instance.OpenEndCard();
+        }
         Time.timeScale = 0;
     }
 
     public void EndGameUI()
     {
-        StartCoroutine(ShowEndCard());
+       StartCoroutine(ShowEndCard());
     }
 }

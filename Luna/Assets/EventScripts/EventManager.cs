@@ -98,7 +98,9 @@ public class EventManager : MonoBehaviour
 
 public enum EventName
 {
-    UpdateBulletCount,// đếm số lượng đạn và in ra ở UI
     OnShowEndCard, // sự kiện show EndCard
+    UpdateBulletCount,// đếm số lượng đạn và in ra ở UI
+    OnCountBotLanding,//đếm số lượng bot landing
+
     // Thêm các sự kiện khác ở đây
 }

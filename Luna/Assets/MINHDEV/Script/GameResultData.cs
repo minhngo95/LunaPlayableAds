@@ -16,6 +16,6 @@ public class GameResultData : ScriptableObject
     [Tooltip("Đếm số lần Bot nhảy dù chạm đất")]
     public int BotLandingCount;
     [Tooltip("Số lần Bot đáp đất để ShowEndCard")]
-    public int BotLandingTurn;
+    public int BotLandingCountConfig;
     public bool IsCountLandingBot;
 }
