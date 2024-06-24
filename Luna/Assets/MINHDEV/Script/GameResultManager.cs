@@ -15,6 +15,7 @@ public class GameResultManager : MonoBehaviour
 
     private void OnDisable()
     {
+        OnResetValue();
         EventManager.RemoveListener<int>(EventName.OnShowEndCard, OnCheckShowEndCard);
         EventManager.RemoveListener<int>(EventName.OnCountBotLanding, OnCheckBotLanding);
     }
@@ -40,5 +41,9 @@ public class GameResultManager : MonoBehaviour
         {
             OnShowEndCard();
         }
+    }
+    void OnResetValue()
+    {
+        gameResultData.BotLandingCount = 0;
     }
 }

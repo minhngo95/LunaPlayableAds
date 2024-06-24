@@ -20,7 +20,7 @@ MonoBehaviour:
   damageOnBot: 0
   botType: 3
   Model: {fileID: 3885047237660147209, guid: 5083e973dabd9114ab7e91ee6fbcdb8a, type: 3}
-  moveSpeed: 40
+  moveSpeed: 80
   carryAttributes:
   - botConfig: {fileID: 11400000, guid: 911535684df7b6840aa3e6bb2eb2578a, type: 2}
-    Quantity: 5
+    Quantity: 3

@@ -11,6 +11,7 @@ public class AircraftY801SpwanState : BaseState<AirForceState>
     [SerializeField] private ModeSpawn modeSpawn;
     [SerializeField] private int botsPerRow;
     [SerializeField] private float space;
+    [SerializeField] private float delayspawn;// thời gian delay spawn giữa các bot, dùng cho SpawnOneByOne
     private WayPoint _path;
     private float _speed;
     private CarryAttributes[] botCarry;
@@ -65,9 +66,8 @@ public class AircraftY801SpwanState : BaseState<AirForceState>
                 case ModeSpawn.SpawnOneByOne:
                     for (int i = 0; i < botCarry[0].Quantity; i++)
                     {
-                        //Instantiate(botCarry[0].botConfig.Model, spwanPos.position, Quaternion.identity);
                         SpwanCarry(botCarry[0].botConfig.Model, spwanPos.position);
-                        yield return new WaitForSeconds(.3f);
+                        yield return new WaitForSeconds(delayspawn);
                     }
                     isSpwanDone = true;
                     break;
@@ -87,7 +87,8 @@ public class AircraftY801SpwanState : BaseState<AirForceState>
     {
         isSpwanDone = false; // Reset lại isSpwanDone khi rời khỏi trạng thái
     }
-    void SpwanCarry(GameObject model,Vector3 offset)
+
+    void SpwanCarry(GameObject model, Vector3 offset)
     {
         Instantiate(model, offset, Quaternion.identity);
     }
@@ -108,9 +109,9 @@ public class AircraftY801SpwanState : BaseState<AirForceState>
         }
     }
 }
+
 public enum ModeSpawn
 {
     SpawnFullBot,
     SpawnOneByOne
-
 }

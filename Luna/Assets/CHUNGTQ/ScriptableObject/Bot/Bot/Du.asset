@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Du
   m_EditorClassIdentifier: 
   id: 1
-  health: 100
+  health: 20
   attackDuration: 0
   damageMinPercent: 0
   damageMaxPercent: 0
   damageOnBot: 10
-  botType: 0
+  botType: 1
   Model: {fileID: 1050183315083799676, guid: 9ba7b4dcb20149f428ca8f9a3db28cda, type: 3}
   moveSpeed: 0
   carryAttributes:

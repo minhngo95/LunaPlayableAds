@@ -16,6 +16,9 @@ public class Parachute : MonoBehaviour
     [Header("Tốc độ rơi khi chưa bung dù,hoặc dù hỏng")]
     [SerializeField]
     protected float dropSpeed = 7;
+    [Header("Tốc độ rơi sau khi bung dù")]
+    [SerializeField]
+    protected float openParachuteDropSpeed = 2;
 
     [Header("Độ đung đưa của dù theo trục X")]
     [SerializeField]
@@ -52,8 +55,7 @@ public class Parachute : MonoBehaviour
         InitParachute();
         InitCarry();
         botNetwork.OnBotDead += OnDead;
-        C_MoveFirstDistance =StartCoroutine(MoveFirstDistance());
-       
+        C_MoveFirstDistance = StartCoroutine(MoveFirstDistance());
     }
 
     protected void InitParachute()
@@ -62,14 +64,15 @@ public class Parachute : MonoBehaviour
         body.SetActive(false);
         botCarry = _botDuConfig.carryAttributes[0].botConfig.Model;
     }
+
     protected void InitCarry()
     {
         botCarryInit = Instantiate(botCarry, spwanPos);
         atorBotCarry = botCarryInit.GetComponentInChildren<Animator>().runtimeAnimatorController;
         botCarryInit.GetComponentInChildren<Animator>().runtimeAnimatorController = atorOverride;
         botCarryInit.GetComponent<BotNetwork>().SetPath(PathManager.Instance.GetWayPoint(_botDuConfig.carryAttributes[0].botConfig.botType));
-
     }
+
     private void Update()
     {
         if (isOpenParachute)
@@ -77,12 +80,13 @@ public class Parachute : MonoBehaviour
             _countSwingTime += Time.deltaTime;
             if (myTrans.position.y - landPos.y > DistanceStopSwing)
             {
-                //Lắc dù
+                // Lắc dù
                 transform.localRotation = Quaternion.Euler(parachuteRotaX.Evaluate(_countSwingTime),
                   transform.localEulerAngles.y, parachuteRotaZ.Evaluate(_countSwingTime));
             }
         }
     }
+
     public Vector2 FirstDistanceFallMinMax = new Vector2(10, 10);
     public Vector2 HitchForceMinMax = new Vector2(1.25f, 1.7f);
 
@@ -104,7 +108,7 @@ public class Parachute : MonoBehaviour
             yield return null;
         }
         isOpenParachute = true;
-        dropSpeed = 2f;
+        dropSpeed = openParachuteDropSpeed;
         while (myTrans.position.y - landPos.y > DistanceStopSwing)
         {
             myTrans.Translate(dropSpeed * Time.deltaTime * Vector3.down);
@@ -114,10 +118,11 @@ public class Parachute : MonoBehaviour
 
         botCarryInit.GetComponentInChildren<Animator>().runtimeAnimatorController = atorBotCarry;
         botCarryInit.transform.SetParent(null);
+        BotLandingManager.Instance.IncrementLandCount();
     }
+
     void OnDead()
     {
-        
         StopCoroutine(C_MoveFirstDistance);
         StartCoroutine(HandleBotDie());
         float distanceToLand = myTrans.position.y - landPos.y;
@@ -126,15 +131,14 @@ public class Parachute : MonoBehaviour
         if (distanceToLand > 10)
         {
             botCarryInit.GetComponent<BotNetwork>().TakeDamage(99);
-            //BOtDie
+            // Bot Die
         }
         else
         {
-            //Bot Sống
-
+            // Bot Sống
         }
-       
     }
+
     IEnumerator HandleBotDie()
     {
         while (myTrans.position.y - landPos.y > DistanceStopSwing)
@@ -146,6 +150,15 @@ public class Parachute : MonoBehaviour
         {
             botCarryInit.GetComponentInChildren<Animator>().runtimeAnimatorController = atorBotCarry;
             botCarryInit.transform.SetParent(null);
+        }
+    }
+
+    public void SetOpenParachuteDropSpeed(float newSpeed)
+    {
+        openParachuteDropSpeed = newSpeed;
+        if (isOpenParachute)
+        {
+            dropSpeed = openParachuteDropSpeed;
         }
     }
 }

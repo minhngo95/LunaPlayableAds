@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d09d32badc0eedb42b2c770aca292d41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 100
+  _maxHealth: 20
   _fireAssistCheckPos:
   - {fileID: 3882771082574360588}
   - {fileID: 1817389634503147693}
@@ -179,7 +179,8 @@ MonoBehaviour:
   body: {fileID: 2626539842041046237}
   atorOverride: {fileID: 22100000, guid: 12af73fff67a6a6478ff6669bf97ff16, type: 2}
   ator: {fileID: 5280056209185575736}
-  dropSpeed: 4
+  dropSpeed: 10
+  openParachuteDropSpeed: 5
   parachuteRotaX:
     serializedVersion: 2
     m_Curve:
