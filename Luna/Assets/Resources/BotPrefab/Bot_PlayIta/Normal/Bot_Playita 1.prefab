@@ -5612,7 +5612,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d09d32badc0eedb42b2c770aca292d41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 1000
+  _maxHealth: 20
   _fireAssistCheckPos:
   - {fileID: 1312138446514944581}
   - {fileID: 1312138447957572840}
@@ -5878,6 +5878,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b7c9b9873710ce419927b0d3d64310a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  botNetwork: {fileID: 1312138446727467939}
   ator: {fileID: 1312138448328766699}
 --- !u!114 &3372194945317671985
 MonoBehaviour:
