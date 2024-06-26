@@ -51,7 +51,6 @@ public class aircraft_Y8_AirDefense : MonoBehaviour
             //_playerVibration.StartShaking(0, 10);
             float targetAngle = Random.Range(50f, 60f);
             StartCoroutine(StartOnDead(targetAngle));
-          //  StartCoroutine(MoveOnDead());
         }
     }
 
@@ -71,11 +70,10 @@ public class aircraft_Y8_AirDefense : MonoBehaviour
         }
 
         transform.rotation = startRotation * Quaternion.Euler(targetAngle, 0f, 0f);
-        Vector3 directDive = new Vector3(0, 80, 100).normalized;
         RaycastHit dropPosHit;
-        if (Physics.Raycast(headAirPlane.position, transform.forward, out dropPosHit, 5000, groundMask))
+        if (Physics.Raycast(headAirPlane.position, headAirPlane.forward, out dropPosHit, 5000, groundMask))
         {
-            landPos = dropPosHit.transform.position;
+            landPos = dropPosHit.point;
 
 
         }
@@ -84,30 +82,13 @@ public class aircraft_Y8_AirDefense : MonoBehaviour
             landPos = transform.position + new Vector3(0, 80, 100);
         }
         Debug.DrawLine(transform.position, landPos, Color.red, 15f);
-    }
-    IEnumerator MoveOnDead()
-    {
-        yield return new WaitForSeconds(0.2f);
-        RaycastHit dropPosHit;
-        Vector3 directDive = new Vector3(0, 80, 100).normalized;
-        if (Physics.Raycast(transform.position, directDive, out dropPosHit, Mathf.Infinity, groundMask))
-        {
-            landPos = dropPosHit.transform.position;
-
-            landPos = new Vector3(landPos.x, 0, landPos.z);
-           
-        }
-        else
-        {
-            landPos= transform.position + new Vector3(0, 80, 100);
-        }
-        Debug.DrawLine(transform.position, landPos, Color.red, 15f);
         while (transform.position.y - landPos.y > 1)
         {
             transform.position = Vector3.MoveTowards(transform.position, landPos, dropSpeed * Time.deltaTime);
             yield return null;
         }
     }
+
     IEnumerator startShake()
     {
         _playerVibration.StartShaking(0, 2);
