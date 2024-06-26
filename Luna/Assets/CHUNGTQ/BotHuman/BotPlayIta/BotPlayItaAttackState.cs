@@ -10,6 +10,7 @@ public class BotPlayItaAttackState : BaseState<PlayItaState>
     [SerializeField] protected HumanMoveBase humanMoveBase;
     [SerializeField] protected GameObject muzzle;
     [SerializeField] protected GameObject weaponRoot;
+    [SerializeField] protected Transform Mytrans;
     private float timeAttack;
     private bool canAttack;
     private bool isTakeDame;
@@ -49,11 +50,10 @@ public class BotPlayItaAttackState : BaseState<PlayItaState>
     }
     private void RotaToTarget()
     {
-        GameObject playerPosition = GameObject.FindGameObjectWithTag("PlayerPosition"); // chưa có hàm tìm vị trí player
-        Vector3 direction = playerPosition.transform.position - weaponRoot.transform.position;
+        Vector3 direction =LocalPlayer.Instance.GetLocalPlayer() - weaponRoot.transform.position;
         Quaternion rotation = Quaternion.LookRotation(direction);
+        Mytrans.transform.rotation = rotation;
         weaponRoot.transform.rotation = rotation;
-
 
     }
     public override void UpdateState()

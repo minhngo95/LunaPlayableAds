@@ -1,10 +1,10 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PathManager : MonoBehaviour
 {
-    [SerializeField] private List<WayPointlist> Listwaypoint;
+    [SerializeField] public List<WayPointlist> Listwaypoint;
     public static PathManager Instance;
 
     private void Awake()
@@ -51,11 +51,12 @@ public class WayPointlist
 {
     public List<WayPoint> _wayPointlist;
     public BotType botType;
+    public GameObject SamplePrefab; // Thêm biến này cho Prefab mẫu
 }
 
 [Serializable]
 public class WayPoint
 {
     public bool IsUse;
-    public List<Transform> WayPoints;
+    public List<Transform> WayPoints = new List<Transform>(); // Đảm bảo danh sách này được khởi tạo
 }

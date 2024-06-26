@@ -17,4 +17,4 @@ MonoBehaviour:
   IsCountTurn: 0
   BotLandingCount: 0
   BotLandingCountConfig: 10
-  IsCountLandingBot: 1
+  IsCountLandingBot: 0
