@@ -52,7 +52,20 @@ public class WayPointlist
     public List<WayPoint> _wayPointlist;
     public BotType botType;
     public GameObject SamplePrefab;
-    public int WayPointTotal; // Thêm biến này cho số lượng điểm
+    public int WayPointTotal;
+    public List<listLimitWayPoint> listLimitWayPoint;
+}
+
+[Serializable]
+public class listLimitWayPoint
+{
+    public List<LimitWayPoint> LimitWayPoint;
+}
+
+[Serializable]
+public class LimitWayPoint
+{
+    public List<Transform> Limited;
 }
 
 [Serializable]

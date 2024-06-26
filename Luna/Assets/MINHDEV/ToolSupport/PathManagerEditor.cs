@@ -1,5 +1,6 @@
 using UnityEditor;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class PathManagerTool : EditorWindow
 {
@@ -50,6 +51,11 @@ public class PathManagerTool : EditorWindow
             CreateWaypoints();
         }
 
+        if (GUILayout.Button("Randomize Waypoints"))
+        {
+            RandomizeWaypoints();
+        }
+
         serializedPathManager.ApplyModifiedProperties();
     }
 
@@ -75,6 +81,82 @@ public class PathManagerTool : EditorWindow
             int pointsPerWay = wayPointlistProperty.FindPropertyRelative("WayPointTotal").intValue;
             CreateBotTypeWaypoints(wayPointlistProperty, (GameObject)samplePrefabProperty.objectReferenceValue, pointsPerWay);
         }
+    }
+
+    private void RandomizeWaypoints()
+    {
+        for (int i = 0; i < listWaypointProperty.arraySize; i++)
+        {
+            SerializedProperty wayPointlistProperty = listWaypointProperty.GetArrayElementAtIndex(i);
+            SerializedProperty listLimitWayPointProperty = wayPointlistProperty.FindPropertyRelative("listLimitWayPoint");
+
+            SerializedProperty wayPointList = wayPointlistProperty.FindPropertyRelative("_wayPointlist");
+            if (wayPointList.arraySize > 1)
+            {
+                for (int j = 1; j < wayPointList.arraySize; j++)
+                {
+                    SerializedProperty wayPointProperty = wayPointList.GetArrayElementAtIndex(j);
+                    SerializedProperty wayPointsProperty = wayPointProperty.FindPropertyRelative("WayPoints");
+
+                    for (int k = 0; k < wayPointsProperty.arraySize; k++)
+                    {
+                        if (k < listLimitWayPointProperty.arraySize)
+                        {
+                            SerializedProperty limitWayPointElement = listLimitWayPointProperty.GetArrayElementAtIndex(k).FindPropertyRelative("LimitWayPoint");
+                            List<Vector3> limitedPositions = new List<Vector3>();
+
+                            for (int l = 0; l < limitWayPointElement.arraySize; l++)
+                            {
+                                var element = limitWayPointElement.GetArrayElementAtIndex(l).FindPropertyRelative("Limited");
+                                for (int m = 0; m < element.arraySize; m++)
+                                {
+                                    Transform limitedTransform = element.GetArrayElementAtIndex(m).objectReferenceValue as Transform;
+                                    if (limitedTransform != null)
+                                    {
+                                        limitedPositions.Add(limitedTransform.position);
+                                    }
+                                }
+                            }
+
+                            if (limitedPositions.Count > 0)
+                            {
+                                Vector3 randomPosition = GetRandomPositionWithinBounds(limitedPositions);
+
+                                if (wayPointsProperty.GetArrayElementAtIndex(k).objectReferenceValue != null)
+                                {
+                                    ((Transform)wayPointsProperty.GetArrayElementAtIndex(k).objectReferenceValue).position = randomPosition;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    private Vector3 GetRandomPositionWithinBounds(List<Vector3> points)
+    {
+        if (points.Count < 3) return Vector3.zero;
+
+        float minX = float.MaxValue, maxX = float.MinValue;
+        float minY = float.MaxValue, maxY = float.MinValue;
+        float minZ = float.MaxValue, maxZ = float.MinValue;
+
+        foreach (var point in points)
+        {
+            if (point.x < minX) minX = point.x;
+            if (point.x > maxX) maxX = point.x;
+            if (point.y < minY) minY = point.y;
+            if (point.y > maxY) maxY = point.y;
+            if (point.z < minZ) minZ = point.z;
+            if (point.z > maxZ) maxZ = point.z;
+        }
+
+        float randomX = UnityEngine.Random.Range(minX, maxX);
+        float randomY = UnityEngine.Random.Range(minY, maxY);
+        float randomZ = UnityEngine.Random.Range(minZ, maxZ);
+
+        return new Vector3(randomX, randomY, randomZ);
     }
 
     private void CreateBotTypeWaypoints(SerializedProperty wayPointlistProperty, GameObject prefab, int pointsPerWay)
