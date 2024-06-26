@@ -51,12 +51,13 @@ public class WayPointlist
 {
     public List<WayPoint> _wayPointlist;
     public BotType botType;
-    public GameObject SamplePrefab; // Thêm biến này cho Prefab mẫu
+    public GameObject SamplePrefab;
+    public int WayPointTotal; // Thêm biến này cho số lượng điểm
 }
 
 [Serializable]
 public class WayPoint
 {
     public bool IsUse;
-    public List<Transform> WayPoints = new List<Transform>(); // Đảm bảo danh sách này được khởi tạo
+    public List<Transform> WayPoints = new List<Transform>();
 }

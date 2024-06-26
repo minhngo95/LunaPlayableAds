@@ -72,23 +72,8 @@ public class PathManagerTool : EditorWindow
                 continue;
             }
 
-            int pointsPerWay = GetPointsPerWay((BotType)wayPointlistProperty.FindPropertyRelative("botType").enumValueIndex);
+            int pointsPerWay = wayPointlistProperty.FindPropertyRelative("WayPointTotal").intValue;
             CreateBotTypeWaypoints(wayPointlistProperty, (GameObject)samplePrefabProperty.objectReferenceValue, pointsPerWay);
-        }
-    }
-
-    private int GetPointsPerWay(BotType botType)
-    {
-        switch (botType)
-        {
-            case BotType.Infantry:
-                return 3;
-            case BotType.Parachutist:
-                return 4;
-            case BotType.AirForce:
-                return 5;
-            default:
-                return 3;
         }
     }
 
