@@ -100,9 +100,9 @@ public class PathManagerTool : EditorWindow
 
                     for (int k = 0; k < wayPointsProperty.arraySize; k++)
                     {
-                        if (j < listLimitWayPointProperty.arraySize)
+                        if (k < listLimitWayPointProperty.arraySize)
                         {
-                            SerializedProperty limitWayPointElement = listLimitWayPointProperty.GetArrayElementAtIndex(j).FindPropertyRelative("LimitWayPoint");
+                            SerializedProperty limitWayPointElement = listLimitWayPointProperty.GetArrayElementAtIndex(k).FindPropertyRelative("LimitWayPoint");
                             List<Vector3> limitedPositions = new List<Vector3>();
 
                             for (int l = 0; l < limitWayPointElement.arraySize; l++)
