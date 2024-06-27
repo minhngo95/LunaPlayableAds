@@ -6,6 +6,7 @@ using Random = UnityEngine.Random;
 public class WeaponController : MonoBehaviour
 {
     [SerializeField] private WeaponInfo weaponInfo;
+
     [SerializeField] private LayerMask _layerMask;
     [SerializeField] private Transform _muzzleTrans;
     [SerializeField] public Transform[] Gunbarrel; // Nòng súng xoay (dùng cho súng 6 nòng)
@@ -216,6 +217,7 @@ public class WeaponController : MonoBehaviour
 
         if (Physics.Raycast(ray, out var hit, Mathf.Infinity, _layerMask))
         {
+            Debug.DrawRay(_muzzleTrans.position, Vector3.up, Color.red, Mathf.Infinity);
             var takeDamageController = hit.transform.root.gameObject.GetComponent<ITakeDamage>();
             if (takeDamageController != null) takeDamageController.TakeDamage(weaponInfo.damage);
             var effect = ObjectPool.Instance.PopFromPool(_effect, instantiateIfNone: true);
