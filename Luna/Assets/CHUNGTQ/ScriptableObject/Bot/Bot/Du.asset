@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Du
   m_EditorClassIdentifier: 
   id: 1
-  health: 20
+  health: 1
   attackDuration: 0
   damageMinPercent: 0
   damageMaxPercent: 0

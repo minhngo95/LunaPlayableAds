@@ -126,7 +126,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 1
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2283098361922057058}
   - {fileID: 9179969360532283414}
@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d09d32badc0eedb42b2c770aca292d41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 20
+  _maxHealth: 1
   _fireAssistCheckPos:
   - {fileID: 3882771082574360588}
   - {fileID: 1817389634503147693}
@@ -180,7 +180,7 @@ MonoBehaviour:
   atorOverride: {fileID: 22100000, guid: 12af73fff67a6a6478ff6669bf97ff16, type: 2}
   ator: {fileID: 5280056209185575736}
   dropSpeed: 10
-  openParachuteDropSpeed: 5
+  openParachuteDropSpeed: 2
   parachuteRotaX:
     serializedVersion: 2
     m_Curve:
