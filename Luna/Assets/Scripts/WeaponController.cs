@@ -15,6 +15,7 @@ public class WeaponController : MonoBehaviour
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private GameObject _effect;
     [SerializeField] private bool _isShowCard;
+    [SerializeField] private bool shootBasedOnGunDirection = false; // Chế độ bắn: true = bắn theo hướng súng, false = bắn theo hướng camera
 
     private Transform _cameraTransform;
     private Camera _camera;
@@ -41,6 +42,13 @@ public class WeaponController : MonoBehaviour
     {
         HandleGatlingGunRotation();
         OnShooting();
+
+        // Thêm phím tắt để chuyển đổi chế độ bắn
+        if (Input.GetKeyDown(KeyCode.T)) // Ví dụ: nhấn phím T để chuyển đổi
+        {
+            shootBasedOnGunDirection = !shootBasedOnGunDirection;
+            Debug.Log("Shoot based on gun direction: " + shootBasedOnGunDirection);
+        }
     }
 
     private void AssignAnimationClips()
@@ -169,12 +177,20 @@ public class WeaponController : MonoBehaviour
     {
         if (this == null || _cameraTransform == null) return;
 
-        var forward = _cameraTransform.forward;
-        var targetPoint = FindPointedTransform();
-        if (targetPoint != null)
+        Vector3 forward;
+        if (shootBasedOnGunDirection)
         {
-            if (Vector3.SqrMagnitude(targetPoint.position - _cameraTransform.position) > 0)
-                forward = (targetPoint.position - _cameraTransform.position).normalized;
+            forward = _muzzleTrans.forward; // Hướng bắn theo hướng súng
+        }
+        else
+        {
+            forward = _cameraTransform.forward; // Hướng bắn theo hướng camera
+            var targetPoint = FindPointedTransform();
+            if (targetPoint != null)
+            {
+                if (Vector3.SqrMagnitude(targetPoint.position - _cameraTransform.position) > 0)
+                    forward = (targetPoint.position - _cameraTransform.position).normalized;
+            }
         }
 
         forward += new Vector3(
@@ -184,17 +200,20 @@ public class WeaponController : MonoBehaviour
         );
 
         var shotRotation = Quaternion.Euler(Random.insideUnitCircle * weaponInfo.inaccuracy) * forward;
-        var ray = new Ray(_cameraTransform.transform.position, shotRotation);
+        var ray = new Ray(_muzzleTrans.position, shotRotation); // Bắt đầu từ nòng súng
+
         _animation.Play("Fire");
-        _animation["Fire"].speed = 2.0f; // Tăng tốc độ phát clip "Fire" gấp đôi
+        _animation["Fire"].speed = 2.0f; // Tăng tốc độ phát clip "Fire"
         _audioSource.clip = weaponInfo.audioClip;
         _audioSource.Play();
         _muzzleFlash.SetActive(true);
         _bullet.SetActive(true);
+
         var bullet = ObjectPool.Instance.PopFromPool(_bullet, instantiateIfNone: true);
-        bullet.transform.SetPositionAndRotation(_muzzleTrans.transform.position, _muzzleTrans.transform.rotation);
+        bullet.transform.SetPositionAndRotation(_muzzleTrans.position, _muzzleTrans.rotation);
         bullet.GetComponent<BulletTrail>().Init(ray.direction);
         UICrosshairItem.Instance.Expand_Crosshair(15);
+
         if (Physics.Raycast(ray, out var hit, Mathf.Infinity, _layerMask))
         {
             var takeDamageController = hit.transform.root.gameObject.GetComponent<ITakeDamage>();

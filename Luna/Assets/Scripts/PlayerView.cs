@@ -1,11 +1,10 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class PlayerView : MonoBehaviour
 {
-    [Header("Basic control")] [SerializeField]
-    private Transform _mainRoot;
-
+    [Header("Basic control")]
+    [SerializeField] private Transform _mainRoot;
     [SerializeField] private Transform _head;
     [SerializeField] private float _sensitivity = 15f;
     [SerializeField] private float _slerpFactor = 12.5f;
@@ -13,7 +12,11 @@ public class PlayerView : MonoBehaviour
     [SerializeField] private Vector2 _viewVerticalThreshold = new Vector2(-89f, 89f);
     [SerializeField] private Vector2 _initRotate;
     [SerializeField] private Vector2 _totalRotate;
+    [SerializeField] private bool WeaponView = false; // Biến Bool để chọn logic
+    [SerializeField] private Transform WeaponTrans; // Biến Transform cho vũ khí
+
     private Vector2 _previousRotate;
+
     private void Awake()
     {
         SetDefaultView();
@@ -27,29 +30,38 @@ public class PlayerView : MonoBehaviour
         _head.localRotation = Quaternion.Euler(-_previousRotate.y, 0, 0);
     }
 
-    private Vector2 startPos;
-
     public void Update()
     {
         if (Input.GetMouseButton(0))
         {
-           var input = new Vector2 { x = Input.GetAxis("Mouse X"), y = Input.GetAxis("Mouse Y") };
+            var input = new Vector2 { x = Input.GetAxis("Mouse X"), y = Input.GetAxis("Mouse Y") };
             if (Mathf.Abs(input.x) > 1000)
                 input.x = 0;
             if (Mathf.Abs(input.y) > 1000)
                 input.y = 0;
+
             var totalRotate = _totalRotate;
             var rotate = input * (_sensitivity * Time.timeScale);
             var slerpParam = _slerpFactor * Time.deltaTime;
             totalRotate += rotate;
             totalRotate.x = Mathf.Clamp(totalRotate.x, _viewHorizontalThreshold.x, _viewHorizontalThreshold.y);
             totalRotate.y = Mathf.Clamp(totalRotate.y, _viewVerticalThreshold.x, _viewVerticalThreshold.y);
-            
-            _mainRoot.localRotation = Quaternion.Slerp(_mainRoot.localRotation,
-                Quaternion.Euler(0, totalRotate.x, 0), slerpParam);
-            _head.localRotation =
-                Quaternion.Slerp(_head.localRotation, Quaternion.Euler(-totalRotate.y, 0, 0), slerpParam);
-            
+
+            if (WeaponView && WeaponTrans != null)
+            {
+                // Logic mới: Xoay WeaponTrans theo di chuyển của chuột
+                WeaponTrans.localRotation = Quaternion.Slerp(WeaponTrans.localRotation,
+                    Quaternion.Euler(-totalRotate.y, totalRotate.x, 0), slerpParam);
+            }
+            else
+            {
+                // Logic cũ: Xoay _mainRoot và _head
+                _mainRoot.localRotation = Quaternion.Slerp(_mainRoot.localRotation,
+                    Quaternion.Euler(0, totalRotate.x, 0), slerpParam);
+                _head.localRotation = Quaternion.Slerp(_head.localRotation,
+                    Quaternion.Euler(-totalRotate.y, 0, 0), slerpParam);
+            }
+
             _totalRotate = totalRotate;
             _previousRotate = totalRotate;
         }
