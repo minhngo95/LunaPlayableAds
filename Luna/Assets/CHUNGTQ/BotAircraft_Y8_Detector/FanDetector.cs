@@ -8,20 +8,18 @@ public class FanDetector : MonoBehaviour
     [SerializeField] private GameObject model_fan;
     [SerializeField] private GameObject exlosion;
     [SerializeField] private GameObject fan_detector;
+    [SerializeField] private AudioSource _sourceAudio;
     void OnEnable()
     {
-        botNetwork.OnTakeDamage += OnTakeDame;
         botNetwork.OnBotDead += OnDead;
     }
 
-    void OnTakeDame(int damage)
-    {
-        Debug.Log(damage);
-    }
     void OnDead()
     {
+        _sourceAudio.Play();
         model_fan.SetActive(false);
-        fan_detector.SetActive(false);
         exlosion.SetActive(true);
+        fan_detector.SetActive(false);
+
     }
 }

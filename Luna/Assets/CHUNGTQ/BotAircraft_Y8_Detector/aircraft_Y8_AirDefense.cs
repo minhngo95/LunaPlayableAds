@@ -10,6 +10,7 @@ public class aircraft_Y8_AirDefense : MonoBehaviour
     [SerializeField] private FanDetector fanL2;
     [SerializeField] private FanDetector fanR1;
     [SerializeField] private FanDetector fanR2;
+    [SerializeField] private GameObject Exlosion;
     private int countFan;
     private bool isDead;
     [Header("Setup point ")]
@@ -17,17 +18,13 @@ public class aircraft_Y8_AirDefense : MonoBehaviour
     [SerializeField] private float rotateSpeed;
     [SerializeField] private LayerMask groundMask;
     [SerializeField] private Transform headAirPlane;
-    Vector3 tailAirPlane = new Vector3(0, -1.25f, -3f);
+
     private float currentAngle;
     private Vector3 landPos;
     private Vibration _playerVibration;
+    [Header("Sound ")]
+    [SerializeField] private AudioSource sound;
 
-    [Tooltip("Hướng bổ nhào xuống khi chết")]
-    private readonly Vector3 _diveDirOnDead = new Vector3(0, -0.2f, 1);
-    private void Awake()
-    {
-
-    }
     void OnEnable()
     {
         currentAngle = 0;
@@ -37,7 +34,8 @@ public class aircraft_Y8_AirDefense : MonoBehaviour
         fanL2.botNetwork.OnBotDead += OnFanDetectorDead;
         fanR1.botNetwork.OnBotDead += OnFanDetectorDead;
         fanR2.botNetwork.OnBotDead += OnFanDetectorDead;
-       // _playerVibration = LocalPlayer.Instance.GetComponentInChildren<Vibration>();
+        _playerVibration = LocalPlayer.Instance.GetComponent<Vibration>();
+
     }
     void OnFanDetectorDead()
     {
@@ -56,8 +54,10 @@ public class aircraft_Y8_AirDefense : MonoBehaviour
 
     IEnumerator StartOnDead(float targetAngle)
     {
-      
-        Quaternion startRotation = transform.rotation; // Lưu lại vị trí ban đầu
+        startSpawnExplosion();
+        _playerVibration.StartShaking(0, 0.4f);
+
+        Quaternion startRotation = transform.rotation;
 
         while (currentAngle < targetAngle)
         {
@@ -70,12 +70,13 @@ public class aircraft_Y8_AirDefense : MonoBehaviour
         }
 
         transform.rotation = startRotation * Quaternion.Euler(targetAngle, 0f, 0f);
+
         RaycastHit dropPosHit;
         if (Physics.Raycast(headAirPlane.position, headAirPlane.forward, out dropPosHit, 5000, groundMask))
         {
             landPos = dropPosHit.point;
-
-
+            Vector3 dirNormal = (landPos - headAirPlane.position).normalized;
+            landPos += dirNormal * 500; // đâm xuyên núi luôn
         }
         else
         {
@@ -87,11 +88,13 @@ public class aircraft_Y8_AirDefense : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, landPos, dropSpeed * Time.deltaTime);
             yield return null;
         }
+        sound.Stop();
+        gameObject.SetActive(false);
     }
 
-    IEnumerator startShake()
+    void startSpawnExplosion()
     {
-        _playerVibration.StartShaking(0, 2);
-        yield return null;
+       Instantiate(Exlosion, transform.position,Quaternion.identity);
+
     }
 }

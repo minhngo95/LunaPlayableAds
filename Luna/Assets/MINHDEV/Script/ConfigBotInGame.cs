@@ -43,5 +43,6 @@ public enum BotType
     Infantry,
     Parachutist,
     AirForce,
+    AirForceDetector,
 }
 

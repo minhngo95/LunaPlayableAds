@@ -11,7 +11,7 @@
 
 using UnityEngine;
 using System.Collections;
-using Time = PlayerTime;
+
 
 public class Vibration : MonoBehaviour
 {
@@ -137,8 +137,8 @@ public class Vibration : MonoBehaviour
 		// Shake the number of times specified in actualNumberOfShakes
 		while (shake > 0 || shakeContinuous)
 		{
-			float timer = (Time.time - hitTime) * actualShakeSpeed;
-			float x = originalPosition.x + Mathf.Sin(timer) * shakeDistanceX;
+            float timer = (Time.time - hitTime) * actualShakeSpeed;
+            float x = originalPosition.x + Mathf.Sin(timer) * shakeDistanceX;
 			float y = originalPosition.y + Mathf.Sin(timer) * shakeDistanceY;
 			float z = originalPosition.z + Mathf.Sin(timer) * shakeDistanceZ;
 
