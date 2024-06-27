@@ -6,7 +6,6 @@ using Random = UnityEngine.Random;
 public class WeaponController : MonoBehaviour
 {
     [SerializeField] private WeaponInfo weaponInfo;
-
     [SerializeField] private LayerMask _layerMask;
     [SerializeField] private Transform _muzzleTrans;
     [SerializeField] public Transform[] Gunbarrel; // Nòng súng xoay (dùng cho súng 6 nòng)
@@ -17,6 +16,9 @@ public class WeaponController : MonoBehaviour
     [SerializeField] private GameObject _effect;
     [SerializeField] private bool _isShowCard;
     [SerializeField] private bool shootBasedOnGunDirection = false; // Chế độ bắn: true = bắn theo hướng súng, false = bắn theo hướng camera
+    [SerializeField] private Transform shakeCam; // Biến để tham chiếu đến MainCamera
+    [SerializeField] private float shakeCamMin; 
+    [SerializeField] private float shakeCamMax; 
 
     private Transform _cameraTransform;
     private Camera _camera;
@@ -182,6 +184,8 @@ public class WeaponController : MonoBehaviour
         if (shootBasedOnGunDirection)
         {
             forward = _muzzleTrans.forward; // Hướng bắn theo hướng súng
+            // Gọi hàm rung lắc camera khi bắn
+            StartCoroutine(ShakeCamera(0.1f, 0.1f));
         }
         else
         {
@@ -333,5 +337,26 @@ public class WeaponController : MonoBehaviour
     {
         // Thực hiện hành động khi sự kiện AnimationAudioEvent được gọi
         Debug.Log("AnimationAudioEvent called");
+    }
+
+    // Thêm hàm rung lắc camera
+    private IEnumerator ShakeCamera(float duration, float magnitude)
+    {
+        Quaternion originalRot = shakeCam.localRotation;
+        float elapsed = 0.0f;
+
+        while (elapsed < duration)
+        {
+            float x = Random.Range(shakeCamMin, shakeCamMax) * magnitude;
+            float y = Random.Range(shakeCamMin, shakeCamMax) * magnitude;
+
+            shakeCam.localRotation = originalRot * Quaternion.Euler(x, y, 0);
+
+            elapsed += Time.deltaTime;
+
+            yield return null;
+        }
+
+        shakeCam.localRotation = originalRot;
     }
 }

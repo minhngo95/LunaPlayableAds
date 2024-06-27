@@ -64913,6 +64913,9 @@ MonoBehaviour:
   _effect: {fileID: 1214385991556846, guid: 5101b0b18563cd64fba69182fb988727, type: 3}
   _isShowCard: 0
   shootBasedOnGunDirection: 1
+  shakeCam: {fileID: 5232663073889989872}
+  shakeCamMin: -0.5
+  shakeCamMax: 0.5
   radius: 33
 --- !u!4 &6621452729258416720
 Transform:
