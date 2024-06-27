@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.iOS;
 using UnityEngine;
 using static BotPlayItaStateMachine;
 
@@ -11,11 +12,28 @@ public class BotPlayItaAttackState : BaseState<PlayItaState>
     [SerializeField] protected GameObject muzzle;
     [SerializeField] protected GameObject weaponRoot;
     [SerializeField] protected Transform Mytrans;
+    [SerializeField] private AudioSource _source;
+    [SerializeField] private AudioClip[] listSoundAttack;
+    [SerializeField] private AudioClip[] BotVoice;
     private float timeAttack;
     private bool canAttack;
     private bool isTakeDame;
     public override void EnterState()
     {
+        int randomSay = Random.RandomRange(0, 100);
+        if(randomSay % 2 == 0)
+        {
+            int indexSound = Random.RandomRange(0, listSoundAttack.Length);
+            AudioClip clipPlay = listSoundAttack[indexSound];
+            _source.clip = clipPlay;
+        }
+        else
+        {
+            int indexSound = Random.RandomRange(0, BotVoice.Length);
+            AudioClip clipPlay = BotVoice[indexSound];
+            _source.clip = clipPlay;
+        }
+       
         timeAttack = 3f;  // Set the attack interval to 3 seconds
         ator.SetBool("isMoveDone", true);
         canAttack = true;
@@ -39,6 +57,7 @@ public class BotPlayItaAttackState : BaseState<PlayItaState>
             {
                 muzzle.SetActive(true);
                 muzzle.GetComponent<ParticleSystem>().Play();
+                _source.Play();
                 canAttack = false;
                 yield return new WaitForSeconds(timeAttack); // Wait for the specified time before the next attack
                 muzzle.SetActive(false);
@@ -62,7 +81,7 @@ public class BotPlayItaAttackState : BaseState<PlayItaState>
     }
     public override void ExitState()
     {
-
+        _source.Stop();
     }
     public override PlayItaState GetNextState()
     {

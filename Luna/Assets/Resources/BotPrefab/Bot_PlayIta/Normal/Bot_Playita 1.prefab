@@ -5570,7 +5570,6 @@ GameObject:
   - component: {fileID: 1312138446727467938}
   - component: {fileID: 1312138446727467939}
   - component: {fileID: 1312138446727467936}
-  - component: {fileID: 1312138446727467937}
   - component: {fileID: 2942567009836741900}
   - component: {fileID: 2530033056310816196}
   - component: {fileID: 7042613385900477245}
@@ -5725,102 +5724,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!82 &1312138446727467937
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1312138446727467944}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!114 &2942567009836741900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5880,6 +5783,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   botNetwork: {fileID: 1312138446727467939}
   ator: {fileID: 1312138448328766699}
+  _source: {fileID: 1312138446727467936}
+  listSounDead:
+  - {fileID: 8300000, guid: e1a19eebd4c5ab140b1cbb160ad331bf, type: 3}
+  - {fileID: 8300000, guid: 1ef7fda26c77b094da52cf7f38c06f9c, type: 3}
+  - {fileID: 8300000, guid: eafbb1328e5ae5542b73b3c849aafbc5, type: 3}
+  - {fileID: 8300000, guid: 54dfcc063fd5b1d409de79959269061e, type: 3}
+  - {fileID: 8300000, guid: 3589671634661054f8df4bf2ea8b1d3a, type: 3}
 --- !u!114 &3372194945317671985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5898,6 +5808,17 @@ MonoBehaviour:
   muzzle: {fileID: 1312138446311196461}
   weaponRoot: {fileID: 1312138448198663300}
   Mytrans: {fileID: 1312138446727467938}
+  _source: {fileID: 1312138446727467936}
+  listSoundAttack:
+  - {fileID: 8300000, guid: c7763022601b42e4296aa62afbe0dbb5, type: 3}
+  - {fileID: 8300000, guid: 732acf820ebba7540aed76dabd7f19fa, type: 3}
+  - {fileID: 8300000, guid: 35dc586ac1725b947b97f66b24cfc0fb, type: 3}
+  - {fileID: 8300000, guid: f605a4e80734e2c45ad90cf20bcf4f90, type: 3}
+  BotVoice:
+  - {fileID: 8300000, guid: 993807079a123f543b254867c9b5b59b, type: 3}
+  - {fileID: 8300000, guid: 881b967dac40201478c86e0e43b65d2d, type: 3}
+  - {fileID: 8300000, guid: 04af821ee4b47e94d899682ffa450ae1, type: 3}
+  - {fileID: 8300000, guid: ab6c14c87e9abf34dbaa8377ae227fd6, type: 3}
 --- !u!1 &1312138446776946386
 GameObject:
   m_ObjectHideFlags: 0
