@@ -19,16 +19,16 @@ public class BotPlayItaAttackState : BaseState<PlayItaState>
     private bool isTakeDame;
     public override void EnterState()
     {
-        int randomSay = Random.RandomRange(0, 100);
+        int randomSay = Random.Range(0, 100);
         if(randomSay % 2 == 0)
         {
-            int indexSound = Random.RandomRange(0, listSoundAttack.Length);
+            int indexSound = Random.Range(0, listSoundAttack.Length);
             AudioClip clipPlay = listSoundAttack[indexSound];
             _source.clip = clipPlay;
         }
         else
         {
-            int indexSound = Random.RandomRange(0, BotVoice.Length);
+            int indexSound = Random.Range(0, BotVoice.Length);
             AudioClip clipPlay = BotVoice[indexSound];
             _source.clip = clipPlay;
         }

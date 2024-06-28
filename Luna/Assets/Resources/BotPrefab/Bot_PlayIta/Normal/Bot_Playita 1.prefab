@@ -5791,6 +5791,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: eafbb1328e5ae5542b73b3c849aafbc5, type: 3}
   - {fileID: 8300000, guid: 54dfcc063fd5b1d409de79959269061e, type: 3}
   - {fileID: 8300000, guid: 3589671634661054f8df4bf2ea8b1d3a, type: 3}
+  muzzle: {fileID: 1312138446311196461}
 --- !u!114 &3372194945317671985
 MonoBehaviour:
   m_ObjectHideFlags: 0
