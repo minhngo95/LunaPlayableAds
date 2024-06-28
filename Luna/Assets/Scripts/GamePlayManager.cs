@@ -49,8 +49,17 @@ public class GamePlayManager : MonoBehaviour
 
     public bool CheckTurnDone()
     {
-        int currentTurn = gameResultData.IsCountTurn ? gameResultData.TurnCount : Turn;
-        return BotManager.Instance.TotalBotOnMap <= 0 && currentTurn < configBotInGame.fightRound.Length;
+        if (gameResultData.IsCountTurn)
+        {
+            int currentTurn = gameResultData.IsCountTurn ? gameResultData.TurnCount : Turn;
+            return BotManager.Instance.TotalBotOnMap <= 0 && currentTurn < configBotInGame.fightRound.Length;
+        }
+        if (gameResultData.IsCountBotKill)
+        {
+            return BotManager.Instance.TotalBotOnMap == gameResultData.BotKillCount;
+        }
+        else return false;
+
     }
 
     public void SetData()

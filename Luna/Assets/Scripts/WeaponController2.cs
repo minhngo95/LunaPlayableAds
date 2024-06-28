@@ -207,7 +207,7 @@ public class WeaponController2 : MonoBehaviour
         }
     }
 
-    private IEnumerator Reload()
+    private IEnumerator Reload() 
     {
         StopShootingSound();
         _isReloading = true;

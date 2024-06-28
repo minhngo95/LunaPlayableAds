@@ -19,5 +19,8 @@ public class GameResultData : ScriptableObject
     public int BotLandingCountConfig;
     public bool IsCountLandingBot;
 
-
+    [Header("Đếm số BotKill")]
+    [Tooltip("Đếm số lần BotKill")]
+    public int BotKillCount;
+    public bool IsCountBotKill;
 }

@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TurnEnd: 3
   TurnCount: 0
-  IsCountTurn: 1
+  IsCountTurn: 0
   BotLandingCount: 0
   BotLandingCountConfig: 10
   IsCountLandingBot: 0
+  BotKillCount: 0
+  IsCountBotKill: 1
