@@ -54,7 +54,7 @@ public class HumanMoveBase : MonoBehaviour
     }
     public void SetBotMove(Transform point)
     {
-        if (!isTakeDame)
+        if (!isTakeDame && !botNet.IsDead)
         {
             var targetRotation = Quaternion.LookRotation(point.position - myTrans.position);
             myTrans.rotation = Quaternion.Slerp(myTrans.rotation, targetRotation, 10 * Time.deltaTime);
