@@ -1,6 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.iOS;
 using UnityEngine;
 using static BotPlayItaStateMachine;
 
@@ -16,6 +14,7 @@ public class BotPlayItaAttackState : BaseState<PlayItaState>
     [SerializeField] private AudioClip[] listSoundAttack;
     [SerializeField] private AudioClip[] BotVoice;
     private float timeAttack;
+    private float timeReload;
     private bool canAttack;
     private bool isTakeDame;
     public override void EnterState()
@@ -35,6 +34,7 @@ public class BotPlayItaAttackState : BaseState<PlayItaState>
         }
        
         timeAttack = 3f;  // Set the attack interval to 3 seconds
+        timeReload = 3f;
         ator.SetBool("isMoveDone", true);
         canAttack = true;
         StartCoroutine(AttackRoutine());
@@ -61,7 +61,9 @@ public class BotPlayItaAttackState : BaseState<PlayItaState>
                 canAttack = false;
                 yield return new WaitForSeconds(timeAttack); // Wait for the specified time before the next attack
                 muzzle.SetActive(false);
-                yield return new WaitForSeconds(1f);
+                ator.SetBool("isReload", true);
+                yield return new WaitForSeconds(timeReload);
+                ator.SetBool("isReload", false);
                 canAttack = true;
             }
             yield return null;  // Wait until the next frame
