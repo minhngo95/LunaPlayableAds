@@ -221,16 +221,8 @@ public class WeaponController : MonoBehaviour
 
         if (Physics.Raycast(ray, out var hit, Mathf.Infinity, _layerMask))
         {
-            //Debug.DrawRay(_muzzleTrans.position, Vector3.up, Color.red, Mathf.Infinity);
-            //var takeDamageController = hit.transform.root.gameObject.GetComponent<ITakeDamage>();
-            //if (takeDamageController != null) takeDamageController.TakeDamage(weaponInfo.damage);
-            //var effect = ObjectPool.Instance.PopFromPool(_effect, instantiateIfNone: true);
-            //effect.GetComponent<Effect>().Init(hit.point);
-            var takeDamageController = hit.transform.gameObject.GetComponent<ITakeDamage>();
-            if (takeDamageController == null)
-            {
-                takeDamageController = hit.transform.root.gameObject.GetComponent<ITakeDamage>();
-            }
+            Debug.DrawRay(_muzzleTrans.position, Vector3.up, Color.red, Mathf.Infinity);
+            var takeDamageController = hit.transform.root.gameObject.GetComponent<ITakeDamage>();
             if (takeDamageController != null) takeDamageController.TakeDamage(weaponInfo.damage);
             var effect = ObjectPool.Instance.PopFromPool(_effect, instantiateIfNone: true);
             effect.GetComponent<Effect>().Init(hit.point);
