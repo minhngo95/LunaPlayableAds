@@ -18,7 +18,7 @@ MonoBehaviour:
   damageMinPercent: 0
   damageMaxPercent: 0
   damageOnBot: 10
-  botType: 1
+  botType: 2
   Model: {fileID: 1050183315083799676, guid: 9ba7b4dcb20149f428ca8f9a3db28cda, type: 3}
   moveSpeed: 0
   carryAttributes:

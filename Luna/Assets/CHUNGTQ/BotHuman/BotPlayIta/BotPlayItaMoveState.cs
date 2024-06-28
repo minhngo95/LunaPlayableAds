@@ -9,6 +9,7 @@ public class BotPlayItaMoveState : BaseState<PlayItaState>
     [SerializeField] private BotNetwork botNet;
     protected WayPoint path;
     protected int moveIndex;
+    public int[] moveIndexList;
     private bool isMoveDone;
 
     public override void EnterState()
@@ -23,10 +24,10 @@ public class BotPlayItaMoveState : BaseState<PlayItaState>
         isMoveDone = false;
         if (humanMoveBase.isHaveParent)
         {
-            moveIndex = 2; // tức là chỉ điểm đến cuối 
+            moveIndex = moveIndexList[0]; // tức là chỉ điểm đến cuối 
         }else
         {
-            moveIndex = 1; // chạy tiếp tới điểm 
+            moveIndex = moveIndexList[1]; // chạy tiếp tới điểm 
         }
 
     }

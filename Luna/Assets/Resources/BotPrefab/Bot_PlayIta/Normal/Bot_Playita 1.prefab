@@ -5769,6 +5769,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   humanMoveBase: {fileID: 2530033056310816196}
   botNet: {fileID: 1312138446727467939}
+  moveIndexList: 0100000002000000
 --- !u!114 &303188529857094814
 MonoBehaviour:
   m_ObjectHideFlags: 0

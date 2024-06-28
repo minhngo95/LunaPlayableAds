@@ -16,6 +16,8 @@ public class Parachute : MonoBehaviour
     [Header("Tốc độ rơi khi chưa bung dù,hoặc dù hỏng")]
     [SerializeField]
     protected float dropSpeed = 7;
+    [SerializeField]
+    protected float dropDistanceDeath = 7;
     [Header("Tốc độ rơi sau khi bung dù")]
     [SerializeField]
     protected float openParachuteDropSpeed = 2;
@@ -128,7 +130,7 @@ public class Parachute : MonoBehaviour
         float distanceToLand = myTrans.position.y - landPos.y;
         dropSpeed = 14;
         ator.Play("DongDu");
-        if (distanceToLand > 10)
+        if (distanceToLand > dropDistanceDeath)
         {
             botCarryInit.GetComponent<BotNetwork>().TakeDamage(99);
             // Bot Die
