@@ -10694,7 +10694,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1202998896216510223}
-  m_Layer: 9
+  m_Layer: 6
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17822,7 +17822,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d09d32badc0eedb42b2c770aca292d41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 100
+  _maxHealth: 1000
   _fireAssistCheckPos: []
   _path:
     IsUse: 0
@@ -28453,7 +28453,7 @@ GameObject:
   - component: {fileID: 2377300730187038512}
   - component: {fileID: 5266173409114201495}
   - component: {fileID: 2421978381915834685}
-  m_Layer: 9
+  m_Layer: 6
   m_Name: Collider_Mesh
   m_TagString: Body
   m_Icon: {fileID: 0}
