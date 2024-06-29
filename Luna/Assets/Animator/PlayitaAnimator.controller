@@ -90,7 +90,6 @@ AnimatorStateTransition:
     m_ConditionEvent: isDead
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
-  m_DstState: {fileID: 3060337130428971399}
   m_Solo: 0
   m_Mute: 0
   m_IsExit: 0

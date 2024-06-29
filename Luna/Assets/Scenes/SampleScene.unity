@@ -59934,7 +59934,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bd73037172c72a4f99c7953ea47991a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  configBotInGame: {fileID: 11400000, guid: 5e5983be1d4ccf545ad6f2a5d940f13e, type: 2}
+  configBotInGame: {fileID: 11400000, guid: 43fdd0a03b5dacb4a9e4b66c3e9b4772, type: 2}
   gameResultData: {fileID: 11400000, guid: ea2970ea7477c1c4190cd1a34551fc42, type: 2}
   spawns:
   - {fileID: 6180442535493720676}
