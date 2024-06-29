@@ -10387,7 +10387,7 @@ GameObject:
   - component: {fileID: 5250607771376735342}
   - component: {fileID: 1083281678844099970}
   - component: {fileID: 7472542307592759754}
-  m_Layer: 10
+  m_Layer: 25
   m_Name: Brake_001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10951,7 +10951,7 @@ GameObject:
   - component: {fileID: 975905085755963247}
   - component: {fileID: 1222751390109421175}
   - component: {fileID: 6719675282324230551}
-  m_Layer: 10
+  m_Layer: 25
   m_Name: Brake_003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11210,7 +11210,7 @@ GameObject:
   - component: {fileID: 7616124057908526348}
   - component: {fileID: 3142262782390156102}
   - component: {fileID: 8257323059832105651}
-  m_Layer: 10
+  m_Layer: 25
   m_Name: Brake_000
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11813,7 +11813,7 @@ GameObject:
   - component: {fileID: 3091753935133261071}
   - component: {fileID: 5849462828234899159}
   - component: {fileID: 7289705989164133858}
-  m_Layer: 10
+  m_Layer: 25
   m_Name: Brake_002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12071,6 +12071,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4216460567607302742}
+  - component: {fileID: 6444636125680899851}
   m_Layer: 0
   m_Name: BH_Vehicle_China_J15
   m_TagString: Untagged
@@ -12093,9 +12094,76 @@ Transform:
   - {fileID: 4693087422769934722}
   - {fileID: 8069294255850060932}
   - {fileID: 4870503061472282813}
+  - {fileID: 2208716663088569872}
   m_Father: {fileID: 6043365369804898731}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6444636125680899851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3587170049395032300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44683198f859889468c5d4c4594c72b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 25
+  power: 1000
+  gravityforce: -20
+  physicTime: 6
+  disableObjAffterStopPhysic: 1
+  isAirplane: 1
+  isCollisionsDetecting: 1
+  timedisableBoxesAirplane: 0.2
+  centerOfExplosion: {fileID: 2208716663088569872}
+  key:
+  - {fileID: 1983497018050684726}
+  - {fileID: 572243127905115976}
+  - {fileID: 7134242574630118373}
+  - {fileID: 6719675282324230551}
+  - {fileID: 7289705989164133858}
+  - {fileID: 7472542307592759754}
+  - {fileID: 8257323059832105651}
+  - {fileID: 7686909312556230174}
+  physic:
+  - {fileID: 8576354943361483699}
+  - {fileID: 1622057872179301362}
+  - {fileID: 2405547012221187974}
+  - {fileID: 1222751390109421175}
+  - {fileID: 5849462828234899159}
+  - {fileID: 1083281678844099970}
+  - {fileID: 3142262782390156102}
+  - {fileID: 331232733302086708}
+  physicstrans:
+  - {fileID: 9047355061291468038}
+  - {fileID: 6074151905963051707}
+  - {fileID: 4242680754586824203}
+  - {fileID: 7270297584236661691}
+  - {fileID: 2066272173030847922}
+  - {fileID: 5632703742354611321}
+  - {fileID: 2989422145487746700}
+  - {fileID: 9015139338990086125}
+  previousLocation:
+  - {x: 0.070677824, y: -0.64966714, z: -0.0585843}
+  - {x: 0.013263551, y: -9.543806, z: 0.37904215}
+  - {x: 3.8857799, y: -0.3399314, z: 0.024680687}
+  - {x: -3.8830724, y: -0.32232463, z: 0.020021755}
+  - {x: -2.0426614, y: 1.8321146, z: 0.8892194}
+  - {x: 1.8097981, y: 2.968357, z: 0.88036954}
+  - {x: -0.29205534, y: -3.9549663, z: 0.17723693}
+  - {x: -0.002107944, y: -7.161806, z: 0.584838}
+  previousRotation:
+  - {x: 0.0057709897, y: -0.0055662394, z: 0.0073745563, w: 0.9999407}
+  - {x: 0.009633573, y: 0.005727932, z: -0.0025758375, w: 0.9999339}
+  - {x: -0.0049626413, y: 0.023708591, z: 0.00379942, w: 0.99969935}
+  - {x: -0.008577187, y: -0.020811193, z: 0.0040247226, w: 0.9997386}
+  - {x: -0.0044416143, y: -0.008853464, z: 0.005282422, w: 0.999937}
+  - {x: -0.0134652015, y: 0.0072469157, z: -0.006205327, w: 0.99986386}
+  - {x: 0, y: -0, z: -0, w: 1}
+  - {x: 0.012628777, y: 0.0025468552, z: 0.010064254, w: 0.99986637}
 --- !u!1 &3677127166142929402
 GameObject:
   m_ObjectHideFlags: 0
@@ -12109,7 +12177,7 @@ GameObject:
   - component: {fileID: 6949465706146443773}
   - component: {fileID: 331232733302086708}
   - component: {fileID: 7686909312556230174}
-  m_Layer: 10
+  m_Layer: 25
   m_Name: Brake_007
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17238,7 +17306,7 @@ GameObject:
   - component: {fileID: 6796146983119672226}
   - component: {fileID: 1622057872179301362}
   - component: {fileID: 572243127905115976}
-  m_Layer: 10
+  m_Layer: 25
   m_Name: Brake_005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17864,7 +17932,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   botNetwork: {fileID: 3593287816044124444}
   body: {fileID: 4147573506357256420}
-  step1: {fileID: 3336696458053687544}
+  step1: {fileID: 809937714752908760}
+  expolosionSource: {fileID: 8734087929489661161, guid: e0fdc1d1612531c4782fb622812db8ae, type: 3}
 --- !u!1 &4563461620624048397
 GameObject:
   m_ObjectHideFlags: 0
@@ -27726,7 +27795,7 @@ GameObject:
   - component: {fileID: 8586743183911832030}
   - component: {fileID: 8576354943361483699}
   - component: {fileID: 1983497018050684726}
-  m_Layer: 10
+  m_Layer: 25
   m_Name: Brake_006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28063,6 +28132,37 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.118528746, y: 0.34180713, z: 3.319608}
   m_Center: {x: 0, y: 0, z: -0.0000076293945}
+--- !u!1 &5990653075526202522
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2208716663088569872}
+  m_Layer: 0
+  m_Name: CenterOfExplosion
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2208716663088569872
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5990653075526202522}
+  m_LocalRotation: {x: 8.7659685e-15, y: 0.00000009362675, z: 0.00000009362675, w: 1}
+  m_LocalPosition: {x: -0.45325312, y: -4.8561916, z: 0.42339468}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4216460567607302742}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6048428278738137956
 GameObject:
   m_ObjectHideFlags: 0
@@ -33802,7 +33902,7 @@ GameObject:
   - component: {fileID: 5401813146023132820}
   - component: {fileID: 2405547012221187974}
   - component: {fileID: 7134242574630118373}
-  m_Layer: 10
+  m_Layer: 25
   m_Name: Brake_004
   m_TagString: Untagged
   m_Icon: {fileID: 0}

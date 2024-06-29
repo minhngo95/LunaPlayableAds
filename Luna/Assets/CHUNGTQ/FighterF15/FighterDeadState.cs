@@ -8,8 +8,10 @@ public class FighterDeadState : BaseState<FighterState>
     [SerializeField] BotNetwork botNetwork;
     [SerializeField] GameObject body;
     [SerializeField] GameObject step1;
+    [SerializeField] GameObject expolosionSource;
     public override void EnterState()
     {
+        Instantiate(expolosionSource,transform.position,Quaternion.identity);
         body.SetActive(false);
         step1.SetActive(true);
     }
