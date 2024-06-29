@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,8 +20,9 @@ public class GamePlayManager : MonoBehaviour
     {
         if (CheckTurnDone())
         {
-            BotManager.Instance.TotalBotOnMap = OnCheckTotalBotOnMap();
-            UIManager.Instance.UpdateInitBot(BotManager.Instance.TotalBotOnMap);
+            gameResultData.BotKillCount = 0;
+            BotManager.Instance.TotalBotOnTurn = OnCheckTotalBotOnMap();
+            UIManager.Instance.UpdateInitBot(BotManager.Instance.TotalBotOnTurn);
             PathManager.Instance.ResetPath();
             StartCoroutine(TurnDelay());
         }
@@ -47,27 +48,17 @@ public class GamePlayManager : MonoBehaviour
         Turn++;
     }
 
-    public bool CheckTurnDone()
+    public bool CheckTurnDone()// Hàm này dùng để check xem Bot của Turn đó đã hết chưa
     {
-        if (gameResultData.IsCountTurn)
-        {
-            int currentTurn = gameResultData.IsCountTurn ? gameResultData.TurnCount : Turn;
-            return BotManager.Instance.TotalBotOnMap <= 0 && currentTurn < configBotInGame.fightRound.Length;
-        }
-        if (gameResultData.IsCountBotKill)
-        {
-            return BotManager.Instance.TotalBotOnMap == gameResultData.BotKillCount;
-        }
-        else return false;
-
+        
+        return BotManager.Instance.TotalBotOnTurn == gameResultData.BotKillCount;
     }
 
-    public void SetData()
+    public void SetData()// Hàm này để Set Data Bot Spawn của Turn
     {
-        int currentTurn = gameResultData.IsCountTurn ? gameResultData.TurnCount : Turn;
         foreach (var spawn in spawns)
         {
-            spawn.InitData(configBotInGame.fightRound[currentTurn].botConfigs);
+            spawn.InitData(configBotInGame.fightRound[Turn].botConfigs);
         }
     }
 
@@ -79,16 +70,12 @@ public class GamePlayManager : MonoBehaviour
         }
     }
 
-    private int OnCheckTotalBotOnMap()
+    private int OnCheckTotalBotOnMap()// Hàm này để check tổng số lượng Bot của Turn đấy
     {
-        int currentTurn = gameResultData.IsCountTurn ? gameResultData.TurnCount : Turn;
         int botCount = 0;
-        foreach (var botConfig in configBotInGame.fightRound[currentTurn].botConfigs)
+        for (int i = 0; i < configBotInGame.fightRound[Turn].botConfigs.Length; i++)
         {
-            if (!botConfig.isNotUse && !botConfig.isNotCount)
-            {
-                botCount += botConfig.botQuantity;
-            }
+            botCount += configBotInGame.fightRound[Turn].botConfigs[i].botQuantity;
         }
         return botCount;
     }

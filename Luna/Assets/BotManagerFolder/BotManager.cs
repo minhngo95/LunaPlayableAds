@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -6,12 +6,19 @@ public class BotManager : MonoBehaviour
 {
     private static BotManager _instance;
     [SerializeField] private List<BotNetwork> _botNetworks = new List<BotNetwork>();
-    [FormerlySerializedAs("totalBotConfig")] [SerializeField] private int totalBotOnMap;
+    [FormerlySerializedAs("totalBotConfig")] [SerializeField] private int totalBotOnMap;//Tổng số Bot con lại trong Map
+    [FormerlySerializedAs("totalBotConfig")] [SerializeField] private int totalBotOnTurn;// Tổng số Bot của Turn đấy
     public int TotalBotOnMap
     {
         get { return totalBotOnMap; }
         set { totalBotOnMap = value; }
+
     }
+    public int TotalBotOnTurn
+    {
+        get { return totalBotOnTurn; }
+        set { totalBotOnTurn = value; }
+    }    
 
     public static BotManager Instance => _instance;
     public List<BotNetwork> BotNetworks => _botNetworks;

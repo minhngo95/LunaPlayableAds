@@ -243,7 +243,7 @@ public class EndCardController : MonoBehaviour
     [SerializeField] private Animator _CTAButtonAnimator;
     [SerializeField] private Animator _endCardAnimator;
     [SerializeField] private RawImage _iconImage;
-    [SerializeField] private RawImage _CTAButtonImage;
+    [SerializeField] private Image _CTAButtonImage;
 
     private int _CTAButtonAnimationScale;
     private int _CTAButtonAnimationWobble;
@@ -356,9 +356,9 @@ public class EndCardController : MonoBehaviour
             buttonPositionY = !IsPortrait() && !_centerButtonYLandscape ? _buttonPositionYLandscape : 0.5f;
         }
 
-        _buttonRect.anchorMin = new Vector2(buttonPositionX, buttonPositionY);
-        _buttonRect.anchorMax = new Vector2(buttonPositionX, buttonPositionY);
-        _buttonRect.pivot = new Vector2(buttonPositionX, buttonPositionY);
+        //_buttonRect.anchorMin = new Vector2(buttonPositionX, buttonPositionY);
+        //_buttonRect.anchorMax = new Vector2(buttonPositionX, buttonPositionY);
+        //_buttonRect.pivot = new Vector2(buttonPositionX, buttonPositionY);
     }
 
     public void ClickCTA()
@@ -461,7 +461,7 @@ public class EndCardController : MonoBehaviour
 
     void SetCTAButtonImage()
     {
-        _CTAButtonImage.texture = _buttonTexture;
+        //_CTAButtonImage.texture = _buttonTexture;
     }
 
     void SetCTAButtonColor()
@@ -568,9 +568,9 @@ public class EndCardController : MonoBehaviour
             descriptionX = Mathf.Abs(descriptionX + -1); //Fix to go left to right
         }
 
-        _descriptionRect.anchorMin = new Vector2(descriptionX, descriptionY);
-        _descriptionRect.anchorMax = new Vector2(descriptionX, descriptionY);
-        _descriptionRect.pivot = new Vector2(descriptionX, descriptionY);
+        //_descriptionRect.anchorMin = new Vector2(descriptionX, descriptionY);
+        //_descriptionRect.anchorMax = new Vector2(descriptionX, descriptionY);
+        //_descriptionRect.pivot = new Vector2(descriptionX, descriptionY);
     }
 
     void SetIconSize()

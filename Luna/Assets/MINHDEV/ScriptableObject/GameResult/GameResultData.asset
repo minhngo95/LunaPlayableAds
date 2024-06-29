@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4048b3ae1c7d7b458e3928b041e2b3a, type: 3}
   m_Name: GameResultData
   m_EditorClassIdentifier: 
-  TurnEnd: 3
+  TurnEnd: 4
   TurnCount: 0
-  IsCountTurn: 0
+  IsCountTurn: 1
   BotLandingCount: 0
   BotLandingCountConfig: 10
   IsCountLandingBot: 0

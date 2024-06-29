@@ -58,9 +58,11 @@ public class UIManager : MonoBehaviour
         {
             tapToPlay.SetActive(false);
         }
-        TotalBotText.text = $"{BotDeath.Instance.BotDeathCount} / {TotalBotinConfig}";
-        process.fillAmount = ((float)(BotDeath.Instance.BotDeathCount) / TotalBotinConfig);
+        TotalBotText.text = $"{GameResultInstance.Instance.GetGameResultData().BotKillCount} / {TotalBotinConfig}";
+        process.fillAmount = ((float)(GameResultInstance.Instance.GetGameResultData().BotKillCount) / TotalBotinConfig);
     }
+
+
 
     public void UpdateInitBot(int value)
     {
