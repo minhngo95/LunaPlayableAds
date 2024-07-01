@@ -35,7 +35,7 @@ public class GamePlayManager : MonoBehaviour
             BotManager.Instance.TotalBotOnTurn = OnCheckTotalBotOnMap();
             UIManager.Instance.UpdateInitBot(BotManager.Instance.TotalBotOnTurn);
             PathManager.Instance.ResetPath();
-            ClearPreviousBots();  // Thêm dòng này để loại bỏ các bot của lượt trước
+            StartCoroutine(ClearPreviousBots());  // Thêm dòng này để loại bỏ các bot của lượt trước
             StartCoroutine(TurnDelay());
         }
     }
@@ -104,8 +104,9 @@ public class GamePlayManager : MonoBehaviour
         return botCount;
     }
 
-    private void ClearPreviousBots()
+    private IEnumerator ClearPreviousBots()
     {
+        yield return new WaitForSeconds(0.5f);
         BotManager.Instance.ClearAllBots();
     }
 
