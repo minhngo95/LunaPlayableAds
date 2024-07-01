@@ -18,7 +18,7 @@ MonoBehaviour:
       botType: 2
       isNotUse: 0
       isNotCount: 0
-      botQuantity: 10
+      botQuantity: 12
       botDelaySpawn: 0
   - botConfigs:
     - botPrefab: {fileID: 1312138446727467939, guid: 9d229833d6b648a43aebc874bc95e966, type: 3}

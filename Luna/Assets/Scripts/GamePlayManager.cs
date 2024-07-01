@@ -14,7 +14,6 @@ public class GamePlayManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-        
     }
 
     private void Start()
@@ -36,6 +35,7 @@ public class GamePlayManager : MonoBehaviour
             BotManager.Instance.TotalBotOnTurn = OnCheckTotalBotOnMap();
             UIManager.Instance.UpdateInitBot(BotManager.Instance.TotalBotOnTurn);
             PathManager.Instance.ResetPath();
+            ClearPreviousBots();  // Thêm dòng này để loại bỏ các bot của lượt trước
             StartCoroutine(TurnDelay());
         }
     }
@@ -57,7 +57,7 @@ public class GamePlayManager : MonoBehaviour
         GameStart();
     }
 
-    public bool CheckTurnDone()// Hàm này dùng để check xem Bot của Turn đó đã hết chưa
+    public bool CheckTurnDone()
     {
         return BotManager.Instance.TotalBotOnTurn == gameResultData.BotKillCount;
     }
@@ -70,15 +70,28 @@ public class GamePlayManager : MonoBehaviour
         }
     }
 
-
     public void GameStart()
     {
         foreach (var spawn in spawns)
         {
-            spawn.Run();
+            if (ShouldSpawnBot(spawn))
+            {
+                spawn.Run();
+            }
         }
     }
 
+    private bool ShouldSpawnBot(Spawn spawn)
+    {
+        foreach (var config in configBotInGame.fightRound[Turn].botConfigs)
+        {
+            if (spawn.IsBotType(config.botType) && !config.isNotUse)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 
     private int OnCheckTotalBotOnMap()
     {
@@ -89,6 +102,11 @@ public class GamePlayManager : MonoBehaviour
         }
         Debug.Log($"Total bots on Turn {Turn}: {botCount}");
         return botCount;
+    }
+
+    private void ClearPreviousBots()
+    {
+        BotManager.Instance.ClearAllBots();
     }
 
     public void LunaClick()

@@ -36,4 +36,9 @@ public class Spawn : MonoBehaviour
             yield return new WaitForSeconds(_botConfig.botDelaySpawn);
         }
     }
+
+    public bool IsBotType(BotType type)
+    {
+        return botType == type;
+    }
 }
