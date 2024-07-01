@@ -9,14 +9,14 @@ public class GameResultManager : MonoBehaviour
 
     private void OnEnable()
     {
-        EventManager.AddListener<int>(EventName.OnShowEndCard, OnCheckShowEndCard);
+        EventManager.AddListener<int>(EventName.OnCheckTurnPlay, OnCheckShowEndCard);
         EventManager.AddListener<int>(EventName.OnCountBotLanding, OnCheckBotLanding);
     }
 
     private void OnDisable()
     {
         OnResetValue();
-        EventManager.RemoveListener<int>(EventName.OnShowEndCard, OnCheckShowEndCard);
+        EventManager.RemoveListener<int>(EventName.OnCheckTurnPlay, OnCheckShowEndCard);
         EventManager.RemoveListener<int>(EventName.OnCountBotLanding, OnCheckBotLanding);
     }
 
@@ -28,7 +28,7 @@ public class GameResultManager : MonoBehaviour
 
     private void OnCheckShowEndCard(int TurnToShowEndCard)
     {
-        if (TurnToShowEndCard == gameResultData.TurnEnd && !_isShowCard && gameResultData.IsCountTurn)
+        if (TurnToShowEndCard == gameResultData.TurnEnd && !_isShowCard && gameResultData.IsCountTurn && BotManager.Instance.TotalBotOnTurn == gameResultData.BotKillCount)
         {
             OnShowEndCard();
         }

@@ -10,20 +10,14 @@ public class ButtonAnimSimulator : MonoBehaviour
     public float scaleMin = 1; // hệ số phóng to, 1.2 tức là tăng 20%
 
 
-    private void Start()
-    {
-
-    }
-
     private void Update()
     {
         OnPlayButtonAnim();
     }
-
-    private void OnPlayButtonAnim()
+    public void OnPlayButtonAnim()
     {
-        // Tạo hiệu ứng phóng to và thu nhỏ liên tục
         float scale = Mathf.PingPong(Time.time * animationSpeed, scaleMax - scaleMin) + 1;
         ButtonTrans.localScale = new Vector3(scale, scale, scale);
+
     }
 }

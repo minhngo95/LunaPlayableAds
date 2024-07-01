@@ -114,7 +114,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3202536278927378221, guid: e51ba3dd4e1fb00478b49f62317d7004, type: 3}
       propertyPath: m_Pivot.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3202536278927378221, guid: e51ba3dd4e1fb00478b49f62317d7004, type: 3}
       propertyPath: m_AnchorMax.y
@@ -138,7 +138,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3202536278927378221, guid: e51ba3dd4e1fb00478b49f62317d7004, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 68
+      value: 113
       objectReference: {fileID: 0}
     - target: {fileID: 3202536278927378258, guid: e51ba3dd4e1fb00478b49f62317d7004, type: 3}
       propertyPath: m_TargetGraphic
@@ -340,6 +340,10 @@ PrefabInstance:
       propertyPath: _descriptionRect
       value: 
       objectReference: {fileID: 6370623050955838247}
+    - target: {fileID: 3202536279116666618, guid: e51ba3dd4e1fb00478b49f62317d7004, type: 3}
+      propertyPath: _CTAButtonAnimator
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3202536279116666618, guid: e51ba3dd4e1fb00478b49f62317d7004, type: 3}
       propertyPath: _backgroundColor.b
       value: 1
@@ -598,6 +602,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3202536278927378259, guid: e51ba3dd4e1fb00478b49f62317d7004, type: 3}
+    - {fileID: 3202536278927378263, guid: e51ba3dd4e1fb00478b49f62317d7004, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e51ba3dd4e1fb00478b49f62317d7004, type: 3}
 --- !u!224 &6370623050955838247 stripped
 RectTransform:
@@ -635,11 +640,32 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5882353}
   m_EffectDistance: {x: -2.5, y: -2.5}
   m_UseGraphicAlpha: 1
+--- !u!224 &6409182846355686454 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3202536278927378221, guid: e51ba3dd4e1fb00478b49f62317d7004, type: 3}
+  m_PrefabInstance: {fileID: 8394793338301727515}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &6409182846355686455 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3202536278927378220, guid: e51ba3dd4e1fb00478b49f62317d7004, type: 3}
   m_PrefabInstance: {fileID: 8394793338301727515}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &798067842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6409182846355686455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c852cb08bb1e4834aae315aaf1fadf52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ButtonTrans: {fileID: 6409182846355686454}
+  animationSpeed: 1
+  scaleMax: 1.2
+  scaleMin: 1
 --- !u!114 &1991895310
 MonoBehaviour:
   m_ObjectHideFlags: 0

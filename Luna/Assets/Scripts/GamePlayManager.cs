@@ -30,7 +30,7 @@ public class GamePlayManager : MonoBehaviour
         {
             Turn++;
             gameResultData.TurnCount++;
-            EventManager.Invoke(EventName.OnShowEndCard, gameResultData.TurnCount);
+            EventManager.Invoke(EventName.OnCheckTurnPlay, gameResultData.TurnCount);
             gameResultData.BotKillCount = 0;
             BotManager.Instance.TotalBotOnTurn = OnCheckTotalBotOnMap();
             UIManager.Instance.UpdateInitBot(BotManager.Instance.TotalBotOnTurn);

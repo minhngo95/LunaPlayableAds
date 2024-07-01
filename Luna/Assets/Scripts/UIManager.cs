@@ -6,33 +6,50 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
-    public string url;
     public GameObject InGame;
 
     public Text TotalBotText;
     [FormerlySerializedAs("initBot")] public int TotalBotinConfig;
+    public UIAnimSimulator uIAnimSimulator;
     public Image process;
     public GameObject gameProcess;
     public GameObject tapToPlay;
 
     public Text bulletCountText; // Text UI để hiển thị số lượng đạn
+    public Text RoundTxt; // Text UI để hiển thị số lượng đạn
 
     private void Awake()
     {
         Instance = this;
         InGame.SetActive(true);
         gameProcess.SetActive(true);
+        RoundTxt.text = "ROUND " + 1;
+        uIAnimSimulator.StartAnimateTextAppear();
+        
+    }
+    private void Start()
+    {
+
     }
 
     private void OnEnable()
     {
         EventManager.AddListener<int>(EventName.UpdateBulletCount, UpdateBulletCount);
+        EventManager.AddListener<int>(EventName.OnCheckTurnPlay, OnCheckTurnPlay);
     }
 
     private void OnDisable()
     {
         EventManager.RemoveListener<int>(EventName.UpdateBulletCount, UpdateBulletCount);
+        EventManager.RemoveListener<int>(EventName.OnCheckTurnPlay, OnCheckTurnPlay);
     }
+
+    private void OnCheckTurnPlay(int Turn)
+    {
+        int Round = Turn + 1;
+        RoundTxt.text = "ROUND " + Round;
+        uIAnimSimulator.StartAnimateTextAppear();
+    }    
 
     private void OnTapToPlay()
     {

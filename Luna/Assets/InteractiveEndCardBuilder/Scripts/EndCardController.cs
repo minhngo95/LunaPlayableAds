@@ -333,8 +333,7 @@ public class EndCardController : MonoBehaviour
     {
         SetClickableOptions();
         EndCardOpenedEvent.Invoke();
-
-        SetButtonAnimation();
+        //SetButtonAnimation();
         SetEndCardAnimationType();
         Luna.Unity.Analytics.LogEvent("Triggered open endcard", 1);
         EndGame();
