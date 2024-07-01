@@ -7,7 +7,7 @@ public class GamePlayManager : MonoBehaviour
 {
     [SerializeField] public ConfigBotInGame configBotInGame;
     [SerializeField] public GameResultData gameResultData;
-    [SerializeField] private List<Spawn> spawns;
+    [SerializeField] public List<Spawn> spawns;
     public static GamePlayManager Instance;
     public int Turn;
 
@@ -29,6 +29,9 @@ public class GamePlayManager : MonoBehaviour
     {
         if (CheckTurnDone())
         {
+            Turn++;
+            gameResultData.TurnCount++;
+            EventManager.Invoke(EventName.OnShowEndCard, gameResultData.TurnCount);
             gameResultData.BotKillCount = 0;
             BotManager.Instance.TotalBotOnTurn = OnCheckTotalBotOnMap();
             UIManager.Instance.UpdateInitBot(BotManager.Instance.TotalBotOnTurn);
@@ -50,12 +53,8 @@ public class GamePlayManager : MonoBehaviour
     private IEnumerator TurnDelay()
     {
         yield return new WaitForSeconds(1);
-        Turn++;
         SetData();
         GameStart();
-        gameResultData.TurnCount++;
-        EventManager.Invoke(EventName.OnShowEndCard, gameResultData.TurnCount);
-
     }
 
     public bool CheckTurnDone()// Hàm này dùng để check xem Bot của Turn đó đã hết chưa
@@ -63,13 +62,14 @@ public class GamePlayManager : MonoBehaviour
         return BotManager.Instance.TotalBotOnTurn == gameResultData.BotKillCount;
     }
 
-    public void SetData()// Hàm này để Set Data Bot Spawn của Turn
+    public void SetData()
     {
         foreach (var spawn in spawns)
         {
             spawn.InitData(configBotInGame.fightRound[Turn].botConfigs);
         }
     }
+
 
     public void GameStart()
     {
@@ -79,13 +79,15 @@ public class GamePlayManager : MonoBehaviour
         }
     }
 
-    private int OnCheckTotalBotOnMap()// Hàm này để check tổng số lượng Bot của Turn đấy
+
+    private int OnCheckTotalBotOnMap()
     {
         int botCount = 0;
         for (int i = 0; i < configBotInGame.fightRound[Turn].botConfigs.Length; i++)
         {
             botCount += configBotInGame.fightRound[Turn].botConfigs[i].botQuantity;
         }
+        Debug.Log($"Total bots on Turn {Turn}: {botCount}");
         return botCount;
     }
 

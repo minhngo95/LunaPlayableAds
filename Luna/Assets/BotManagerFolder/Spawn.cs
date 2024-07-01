@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 
 public class Spawn : MonoBehaviour
 {
     private BotConfig _botConfig;
-    [SerializeField] private BotType botType;
+    [SerializeField] public BotType botType;
 
     public void InitData(BotConfig[] botConfigs)
     {
