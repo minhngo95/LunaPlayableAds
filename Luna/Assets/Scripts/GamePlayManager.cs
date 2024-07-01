@@ -9,11 +9,20 @@ public class GamePlayManager : MonoBehaviour
     [SerializeField] public GameResultData gameResultData;
     [SerializeField] private List<Spawn> spawns;
     public static GamePlayManager Instance;
-    public int Turn { get; set; }
+    public int Turn;
 
     private void Awake()
     {
         Instance = this;
+        
+    }
+
+    private void Start()
+    {
+        BotManager.Instance.TotalBotOnTurn = OnCheckTotalBotOnMap();
+        UIManager.Instance.UpdateInitBot(BotManager.Instance.TotalBotOnTurn);
+        SetData();
+        GameStart();
     }
 
     private void Update()
@@ -41,16 +50,16 @@ public class GamePlayManager : MonoBehaviour
     private IEnumerator TurnDelay()
     {
         yield return new WaitForSeconds(1);
+        Turn++;
         SetData();
         GameStart();
         gameResultData.TurnCount++;
         EventManager.Invoke(EventName.OnShowEndCard, gameResultData.TurnCount);
-        Turn++;
+
     }
 
     public bool CheckTurnDone()// Hàm này dùng để check xem Bot của Turn đó đã hết chưa
     {
-        
         return BotManager.Instance.TotalBotOnTurn == gameResultData.BotKillCount;
     }
 

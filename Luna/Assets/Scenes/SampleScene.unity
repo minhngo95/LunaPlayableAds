@@ -4001,6 +4001,14 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6409182846355686454, guid: 1d4809db3f75aa1459137edff6b705e5, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6409182846355686454, guid: 1d4809db3f75aa1459137edff6b705e5, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 113
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d4809db3f75aa1459137edff6b705e5, type: 3}
 --- !u!1 &330017479
@@ -8402,6 +8410,32 @@ Transform:
   m_Father: {fileID: 1292452950}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &798067834 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6409182846355686455, guid: 1d4809db3f75aa1459137edff6b705e5, type: 3}
+  m_PrefabInstance: {fileID: 326887744}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &798067835 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6409182846355686454, guid: 1d4809db3f75aa1459137edff6b705e5, type: 3}
+  m_PrefabInstance: {fileID: 326887744}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &798067842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 798067834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c852cb08bb1e4834aae315aaf1fadf52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ButtonTrans: {fileID: 798067835}
+  animationSpeed: 1
+  scaleMax: 1.2
+  scaleMin: 1
 --- !u!1 &800717397
 GameObject:
   m_ObjectHideFlags: 0
@@ -16725,6 +16759,7 @@ GameObject:
   - component: {fileID: 1618051200}
   - component: {fileID: 1618051202}
   - component: {fileID: 1618051203}
+  - component: {fileID: 1618051204}
   m_Layer: 5
   m_Name: DownloadBtn
   m_TagString: Untagged
@@ -16748,11 +16783,11 @@ RectTransform:
   m_Father: {fileID: 1396463068}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -297.85132, y: 68}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 662.1487, y: -330}
   m_SizeDelta: {x: 350, y: 90}
-  m_Pivot: {x: 0.5, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1618051200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16849,6 +16884,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   url: https://play.google.com/store/apps/details?id=com.horus.sky.defense
   DownloadBtn: {fileID: 1618051202}
+--- !u!114 &1618051204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1618051198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c852cb08bb1e4834aae315aaf1fadf52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ButtonTrans: {fileID: 1618051199}
+  animationSpeed: 0.5
+  scaleMax: 1.2
+  scaleMin: 1
 --- !u!1 &1627068720
 GameObject:
   m_ObjectHideFlags: 0
