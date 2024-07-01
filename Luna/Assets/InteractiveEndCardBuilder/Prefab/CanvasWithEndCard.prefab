@@ -660,7 +660,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 4584472960894635969, guid: a7ab020e93638934193164ad2cf74a74, type: 3}
+  m_Sprite: {fileID: 6763539737577970233, guid: a7ab020e93638934193164ad2cf74a74, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -670,6 +670,31 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2297802520170869538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6409182846355686455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6622700fc9700374f8881accac142a3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  url: https://play.google.com/store/apps/details?id=com.horus.sky.defense
+  DownloadBtn: {fileID: 6409182846355686473}
+--- !u!114 &6409182846355686473 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3202536278927378258, guid: e51ba3dd4e1fb00478b49f62317d7004, type: 3}
+  m_PrefabInstance: {fileID: 8394793338301727515}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6409182846355686455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &6409182846686500334 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3202536279116666613, guid: e51ba3dd4e1fb00478b49f62317d7004, type: 3}

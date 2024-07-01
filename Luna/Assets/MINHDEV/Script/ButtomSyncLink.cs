@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class OpenLinkButtonScript : MonoBehaviour
+public class ButtomSyncLink : MonoBehaviour
 {
     // Đường dẫn URL mà bạn muốn mở
     public string url = "https://play.google.com/store/apps/details?id=com.horus.sky.defense";
