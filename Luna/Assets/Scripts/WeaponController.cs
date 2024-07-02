@@ -19,6 +19,7 @@ public class WeaponController : MonoBehaviour
     [SerializeField] private Transform shakeCam; // Biến để tham chiếu đến MainCamera
     [SerializeField] private float shakeCamMin; 
     [SerializeField] private float shakeCamMax; 
+    [SerializeField] private bool IsShowLunaEndGame; 
 
     private Transform _cameraTransform;
     private Camera _camera;
@@ -40,6 +41,23 @@ public class WeaponController : MonoBehaviour
         EventManager.Invoke(EventName.UpdateBulletCount, _currentBulletCount); // Gửi thông báo về số lượng đạn ban đầu
         AssignAnimationClips();
     }
+
+    private void OnEnable()
+    {
+        EventManager.AddListener<bool>(EventName.OnShowLunaEndGame, OnShowLunaEndGame);
+    }
+    private void OnDisable()
+    {
+        EventManager.AddListener<bool>(EventName.OnShowLunaEndGame, OnShowLunaEndGame);
+    }
+
+
+    private void OnShowLunaEndGame(bool IsShow)
+    {
+        IsShowLunaEndGame = IsShow;
+    }    
+
+
 
     private void Update()
     {
@@ -167,6 +185,7 @@ public class WeaponController : MonoBehaviour
 
     private void RotateGunbarrels()
     {
+        if (IsShowLunaEndGame) return;
         foreach (var barrel in Gunbarrel)
         {
             var currentRotation = barrel.localRotation.eulerAngles;

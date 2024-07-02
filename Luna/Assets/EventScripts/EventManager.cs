@@ -98,6 +98,7 @@ public class EventManager : MonoBehaviour
 
 public enum EventName
 {
+    OnShowLunaEndGame,
     OnCheckTurnPlay, // sự kiện show EndCard
     UpdateBulletCount,// đếm số lượng đạn và in ra ở UI
     OnCountBotLanding,//đếm số lượng bot landing

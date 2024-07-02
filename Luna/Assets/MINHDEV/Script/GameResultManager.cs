@@ -23,6 +23,7 @@ public class GameResultManager : MonoBehaviour
     private void OnShowEndCard()
     {
         _isShowCard = true;
+        EventManager.Invoke(EventName.OnShowLunaEndGame, _isShowCard);
         LunaShowEndCard.Instance.EndGameUI();
     }    
 

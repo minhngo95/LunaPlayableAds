@@ -10,6 +10,7 @@ public class GamePlayManager : MonoBehaviour
     [SerializeField] public List<Spawn> spawns;
     public static GamePlayManager Instance;
     public int Turn;
+    public bool IsShowLunaEndGame;
 
     private void Awake()
     {
@@ -39,10 +40,19 @@ public class GamePlayManager : MonoBehaviour
             StartCoroutine(TurnDelay());
         }
     }
-
+    private void OnEnable()
+    {
+        EventManager.AddListener<bool>(EventName.OnShowLunaEndGame, OnShowLunaEndGame);
+    }
     private void OnDisable()
     {
+        EventManager.AddListener<bool>(EventName.OnShowLunaEndGame, OnShowLunaEndGame);
         OnResetResultData();
+    }
+
+    private void OnShowLunaEndGame(bool IsShow)
+    {
+        IsShowLunaEndGame = IsShow;
     }
 
     void OnResetResultData()
@@ -95,13 +105,22 @@ public class GamePlayManager : MonoBehaviour
 
     private int OnCheckTotalBotOnMap()
     {
-        int botCount = 0;
-        for (int i = 0; i < configBotInGame.fightRound[Turn].botConfigs.Length; i++)
+        if (!IsShowLunaEndGame)
         {
-            botCount += configBotInGame.fightRound[Turn].botConfigs[i].botQuantity;
+            int botCount = 0;
+            for (int i = 0; i < configBotInGame.fightRound[Turn].botConfigs.Length; i++)
+            {
+                botCount += configBotInGame.fightRound[Turn].botConfigs[i].botQuantity;
+            }
+            Debug.Log($"Total bots on Turn {Turn}: {botCount}");
+            return botCount;
         }
-        Debug.Log($"Total bots on Turn {Turn}: {botCount}");
-        return botCount;
+        else
+        {
+            return 0;
+        } 
+            
+
     }
 
     private IEnumerator ClearPreviousBots()
