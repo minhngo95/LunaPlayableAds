@@ -22,7 +22,7 @@ public class BotPlayItaDeadState : BaseState<PlayItaState>
         _source.clip = clipPlay;
         _source.Play();
         botNetwork.Path.IsUse = false;
-        //BotDeath.Instance.GetBotDeath();
+        BotDeath.Instance.GetBotDeath();
         ator.SetBool("isDead", true);
         int randomDeadStyle = Random.Range(0, 100);
         if (randomDeadStyle % 2 == 0)
