@@ -3943,6 +3943,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6409182845140436558, guid: 1d4809db3f75aa1459137edff6b705e5, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6409182845140436558, guid: 1d4809db3f75aa1459137edff6b705e5, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
@@ -15982,6 +15986,38 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1542590206}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1545288263
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1545288264}
+  m_Layer: 0
+  m_Name: MuzzleEffect
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1545288264
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1545288263}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.0022, y: -0.0019, z: 0.2664}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4781758489138415762}
+  m_Father: {fileID: 3601849216337435815}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1545761285
 GameObject:
   m_ObjectHideFlags: 0
@@ -38709,6 +38745,7 @@ Transform:
   - {fileID: 4432712722828130915}
   - {fileID: 7484568024324984361}
   - {fileID: 3912564586458466785}
+  - {fileID: 1545288264}
   m_Father: {fileID: 6621452729258416720}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -4.445, y: 3.954, z: 5.12}
@@ -44022,13 +44059,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8537494174182163132}
-  m_LocalRotation: {x: -3.3800172e-16, y: -0, z: 2.1820344e-21, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0.000000007450581, y: 4.656613e-10, z: 0.06409692, w: 0.99794376}
+  m_LocalPosition: {x: 0.0021999993, y: 0.0019, z: -0.0058894455}
+  m_LocalScale: {x: 0.21208012, y: 0.21208012, z: 0.21208012}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5614838381612017886}
-  m_Father: {fileID: 8748490768092839761}
+  m_Father: {fileID: 1545288264}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &4842368680861525262
@@ -48816,14 +48853,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1899007526401176989}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.51, z: -1.25}
+  m_LocalRotation: {x: 0.021814892, y: 0, z: 0, w: 0.999762}
+  m_LocalPosition: {x: 0, y: 0.6, z: -0.94}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3134504018184557113}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 2.5, y: 0, z: 0}
 --- !u!1 &5421800128157559657
 GameObject:
   m_ObjectHideFlags: 0
@@ -61424,7 +61461,7 @@ MonoBehaviour:
   - {fileID: 7484568024324984361}
   _animation: {fileID: 7659409020953956024}
   _bullet: {fileID: 6458371479552465772, guid: bcf0258b66a8e05498ace10193710acc, type: 3}
-  _muzzleFlash: {fileID: 8537494174182163132}
+  _muzzleFlash: {fileID: 8450150575784560425}
   _audioSource: {fileID: 1472068298197364300}
   _effect: {fileID: 1214385991556846, guid: 5101b0b18563cd64fba69182fb988727, type: 3}
   _isShowCard: 0
@@ -66458,7 +66495,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 58
   m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 0
@@ -66473,7 +66510,7 @@ ParticleSystemRenderer:
   m_RenderAlignment: 0
   m_Pivot: {x: 0, y: 0, z: 0}
   m_Flip: {x: 0, y: 0, z: 0}
-  m_UseCustomVertexStreams: 0
+  m_UseCustomVertexStreams: 1
   m_EnableGPUInstancing: 1
   m_ApplyActiveColorSpace: 1
   m_AllowRoll: 1
@@ -66859,8 +66896,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.5
-      minScalar: 0.4
+      scalar: 0.7
+      minScalar: 0.6
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -71525,8 +71562,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0.876}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 4781758489138415762}
+  m_Children: []
   m_Father: {fileID: 7484568024324984361}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

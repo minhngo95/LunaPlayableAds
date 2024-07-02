@@ -11,15 +11,15 @@ public class WeaponController : MonoBehaviour
     [SerializeField] public Transform[] Gunbarrel; // Nòng súng xoay (dùng cho súng 6 nòng)
     [SerializeField] private Animation _animation;
     [SerializeField] private GameObject _bullet;
-    [SerializeField] private GameObject _muzzleFlash;
+    [SerializeField] private ParticleSystem _muzzleFlash;
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private GameObject _effect;
     [SerializeField] private bool _isShowCard;
     [SerializeField] private bool shootBasedOnGunDirection = false; // Chế độ bắn: true = bắn theo hướng súng, false = bắn theo hướng camera
     [SerializeField] private Transform shakeCam; // Biến để tham chiếu đến MainCamera
-    [SerializeField] private float shakeCamMin; 
-    [SerializeField] private float shakeCamMax; 
-    [SerializeField] private bool IsShowLunaEndGame; 
+    [SerializeField] private float shakeCamMin;
+    [SerializeField] private float shakeCamMax;
+    [SerializeField] private bool IsShowLunaEndGame;
 
     private Transform _cameraTransform;
     private Camera _camera;
@@ -48,16 +48,13 @@ public class WeaponController : MonoBehaviour
     }
     private void OnDisable()
     {
-        EventManager.AddListener<bool>(EventName.OnShowLunaEndGame, OnShowLunaEndGame);
+        EventManager.RemoveListener<bool>(EventName.OnShowLunaEndGame, OnShowLunaEndGame);
     }
-
 
     private void OnShowLunaEndGame(bool IsShow)
     {
         IsShowLunaEndGame = IsShow;
-    }    
-
-
+    }
 
     private void Update()
     {
@@ -114,6 +111,7 @@ public class WeaponController : MonoBehaviour
                 if (_currentBulletCount <= 0 && !weaponInfo.infiniteBullet)
                 {
                     StartCoroutine(Reload());
+                    StopMuzzleFlash();
                 }
                 else
                 {
@@ -126,6 +124,7 @@ public class WeaponController : MonoBehaviour
                         Debug.Log("Bullet fired. Remaining bullets: " + _currentBulletCount);
                         EventManager.Invoke(EventName.UpdateBulletCount, _currentBulletCount);
                     }
+                    PlayMuzzleFlash(); // Kích hoạt hiệu ứng nổ súng
                 }
             }
         }
@@ -147,6 +146,7 @@ public class WeaponController : MonoBehaviour
                     _audioSource.Play();
                     isBarrelSpinning = false;
                 }
+                StopMuzzleFlash(); // Dừng hiệu ứng nổ súng
             }
         }
     }
@@ -230,7 +230,7 @@ public class WeaponController : MonoBehaviour
         _animation["Fire"].speed = 2.0f; // Tăng tốc độ phát clip "Fire"
         _audioSource.clip = weaponInfo.audioClip;
         _audioSource.Play();
-        _muzzleFlash.SetActive(true);
+
         _bullet.SetActive(true);
 
         var bullet = ObjectPool.Instance.PopFromPool(_bullet, instantiateIfNone: true);
@@ -240,11 +240,6 @@ public class WeaponController : MonoBehaviour
 
         if (Physics.Raycast(ray, out var hit, Mathf.Infinity, _layerMask))
         {
-            //Debug.DrawRay(_muzzleTrans.position, Vector3.up, Color.red, Mathf.Infinity);
-            //var takeDamageController = hit.transform.root.gameObject.GetComponent<ITakeDamage>();
-            //if (takeDamageController != null) takeDamageController.TakeDamage(weaponInfo.damage);
-            //var effect = ObjectPool.Instance.PopFromPool(_effect, instantiateIfNone: true);
-            //effect.GetComponent<Effect>().Init(hit.point);
             var takeDamageController = hit.transform.gameObject.GetComponent<ITakeDamage>();
             if (takeDamageController == null)
             {
@@ -254,6 +249,7 @@ public class WeaponController : MonoBehaviour
             var effect = ObjectPool.Instance.PopFromPool(_effect, instantiateIfNone: true);
             effect.GetComponent<Effect>().Init(hit.point);
         }
+        PlayMuzzleFlash(); // Kích hoạt hiệu ứng nổ súng
     }
 
     private IEnumerator Reload()
@@ -318,7 +314,6 @@ public class WeaponController : MonoBehaviour
                     pointedTransform = checkPoint;
                 }
             }
-
 
         return pointedTransform;
     }
@@ -385,5 +380,21 @@ public class WeaponController : MonoBehaviour
         }
 
         shakeCam.localRotation = originalRot;
+    }
+
+    private void PlayMuzzleFlash()
+    {
+        if (!_muzzleFlash.isPlaying)
+        {
+            _muzzleFlash.Play();
+        }
+    }
+
+    private void StopMuzzleFlash()
+    {
+        if (_muzzleFlash.isPlaying)
+        {
+            _muzzleFlash.Stop();
+        }
     }
 }
