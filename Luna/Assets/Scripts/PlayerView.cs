@@ -57,35 +57,40 @@ public class PlayerView : MonoBehaviour
                 totalRotate.x = Mathf.Clamp(totalRotate.x, -_weaponMovementLimit.x, _weaponMovementLimit.x);
                 totalRotate.y = Mathf.Clamp(totalRotate.y, -_weaponMovementLimit.y, _weaponMovementLimit.y);
 
-                // Logic mới: Xoay WeaponTrans theo di chuyển của chuột
+                // Xoay WeaponTrans theo di chuyển của chuột
                 WeaponTrans.localRotation = Quaternion.Slerp(WeaponTrans.localRotation,
                     Quaternion.Euler(-totalRotate.y, totalRotate.x, 0), slerpParam);
-
-                // Di chuyển CrossHair theo hướng xoay của súng
-                if (CrossHair != null)
-                {
-                    // Tính toán vị trí mới của CrossHair dựa trên góc quay của súng
-                    Vector2 screenPos = new Vector2(totalRotate.x / _viewHorizontalThreshold.y, totalRotate.y / _viewVerticalThreshold.y);
-                    screenPos *= screenPosValue; // 50f là hệ số điều chỉnh, có thể thay đổi theo nhu cầu
-
-                    // Giới hạn phạm vi di chuyển của CrossHair
-                    screenPos.x = Mathf.Clamp(screenPos.x, -_crossHairMovementLimit.x, _crossHairMovementLimit.x);
-                    screenPos.y = Mathf.Clamp(screenPos.y, -_crossHairMovementLimit.y, _crossHairMovementLimit.y);
-
-                    CrossHair.anchoredPosition = Vector2.Lerp(CrossHair.anchoredPosition, screenPos, slerpParam);
-                }
             }
             else
             {
-                // Logic cũ: Xoay _mainRoot và _head
+                // Xoay _mainRoot và _head
                 _mainRoot.localRotation = Quaternion.Slerp(_mainRoot.localRotation,
                     Quaternion.Euler(0, totalRotate.x, 0), slerpParam);
                 _head.localRotation = Quaternion.Slerp(_head.localRotation,
                     Quaternion.Euler(-totalRotate.y, 0, 0), slerpParam);
             }
 
+            // Cập nhật vị trí của CrossHair đồng bộ với tốc độ xoay của súng
+            UpdateCrossHair(totalRotate, slerpParam);
+
             _totalRotate = totalRotate;
             _previousRotate = totalRotate;
+        }
+    }
+
+    private void UpdateCrossHair(Vector2 totalRotate, float slerpParam)
+    {
+        if (CrossHair != null)
+        {
+            // Tính toán vị trí mới của CrossHair dựa trên góc quay của súng
+            Vector2 screenPos = new Vector2(totalRotate.x / _viewHorizontalThreshold.y, totalRotate.y / _viewVerticalThreshold.y);
+            screenPos *= screenPosValue; // 50f là hệ số điều chỉnh, có thể thay đổi theo nhu cầu
+
+            // Giới hạn phạm vi di chuyển của CrossHair
+            screenPos.x = Mathf.Clamp(screenPos.x, -_crossHairMovementLimit.x, _crossHairMovementLimit.x);
+            screenPos.y = Mathf.Clamp(screenPos.y, -_crossHairMovementLimit.y, _crossHairMovementLimit.y);
+
+            CrossHair.anchoredPosition = Vector2.Lerp(CrossHair.anchoredPosition, screenPos, slerpParam);
         }
     }
 }

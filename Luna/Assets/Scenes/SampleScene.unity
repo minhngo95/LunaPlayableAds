@@ -3931,6 +3931,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 6409182844798503775, guid: 1d4809db3f75aa1459137edff6b705e5, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 137.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6409182844798503775, guid: 1d4809db3f75aa1459137edff6b705e5, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
@@ -4037,6 +4041,10 @@ PrefabInstance:
     - target: {fileID: 6409182845559140332, guid: 1d4809db3f75aa1459137edff6b705e5, type: 3}
       propertyPath: m_Name
       value: CanvasWithEndCard
+      objectReference: {fileID: 0}
+    - target: {fileID: 6409182846253341900, guid: 1d4809db3f75aa1459137edff6b705e5, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 137.5
       objectReference: {fileID: 0}
     - target: {fileID: 6409182846253341900, guid: 1d4809db3f75aa1459137edff6b705e5, type: 3}
       propertyPath: m_SizeDelta.y
@@ -38460,9 +38468,9 @@ MonoBehaviour:
   WeaponView: 1
   WeaponTrans: {fileID: 6621452729258416720}
   CrossHair: {fileID: 1223537696}
-  _crossHairMovementLimit: {x: 900, y: 400}
-  _weaponMovementLimit: {x: 26, y: 7}
-  screenPosValue: 900
+  _crossHairMovementLimit: {x: 900, y: 500}
+  _weaponMovementLimit: {x: 26, y: 8}
+  screenPosValue: 800
 --- !u!33 &3129969039676734852
 MeshFilter:
   m_ObjectHideFlags: 0
