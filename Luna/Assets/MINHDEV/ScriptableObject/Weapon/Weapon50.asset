@@ -18,7 +18,7 @@ MonoBehaviour:
   AudioStartBarrel: {fileID: 8300000, guid: 06e4ee0bf6c5209438079f6ba4846d4c, type: 3}
   AudioEndBarrel: {fileID: 8300000, guid: 140e686bf7edcd54a81f40b874aa7734, type: 3}
   inaccuracy: 0.01
-  recoilAmount: 0
+  recoilAmount: 0.008
   bulletCount: 60
   reloadTime: 2
   infiniteBullet: 1

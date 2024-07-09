@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class PlayerView : MonoBehaviour
 {
@@ -17,7 +16,8 @@ public class PlayerView : MonoBehaviour
     [SerializeField] private RectTransform CrossHair; // Biến RectTransform cho CrossHair
     [SerializeField] private Vector2 _crossHairMovementLimit = new Vector2(100f, 100f); // Giới hạn phạm vi di chuyển của CrossHair
     [SerializeField] private Vector2 _weaponMovementLimit = new Vector2(30f, 30f); // Giới hạn phạm vi di chuyển của súng
-    [SerializeField] private float screenPosValue;
+    [SerializeField] private Vector2 screenPosValue; // Thay đổi từ float thành Vector2
+    [SerializeField] private Transform CameraTrans; // Thêm biến Transform cho Camera
 
     private Vector2 _previousRotate;
 
@@ -80,17 +80,33 @@ public class PlayerView : MonoBehaviour
 
     private void UpdateCrossHair(Vector2 totalRotate, float slerpParam)
     {
-        if (CrossHair != null)
+        if (CrossHair != null && CameraTrans != null)
         {
             // Tính toán vị trí mới của CrossHair dựa trên góc quay của súng
-            Vector2 screenPos = new Vector2(totalRotate.x / _viewHorizontalThreshold.y, totalRotate.y / _viewVerticalThreshold.y);
-            screenPos *= screenPosValue; // 50f là hệ số điều chỉnh, có thể thay đổi theo nhu cầu
+            Vector2 screenPos = new Vector2(
+                totalRotate.x / _viewHorizontalThreshold.y,
+                totalRotate.y / _viewVerticalThreshold.y
+            );
+
+            // Chia screenPosValue theo từng trục
+            Vector2 adjustedScreenPos = new Vector2(
+                screenPos.x * screenPosValue.x,
+                screenPos.y * screenPosValue.y
+            );
 
             // Giới hạn phạm vi di chuyển của CrossHair
-            screenPos.x = Mathf.Clamp(screenPos.x, -_crossHairMovementLimit.x, _crossHairMovementLimit.x);
-            screenPos.y = Mathf.Clamp(screenPos.y, -_crossHairMovementLimit.y, _crossHairMovementLimit.y);
+            adjustedScreenPos.x = Mathf.Clamp(adjustedScreenPos.x, -_crossHairMovementLimit.x, _crossHairMovementLimit.x);
+            adjustedScreenPos.y = Mathf.Clamp(adjustedScreenPos.y, -_crossHairMovementLimit.y, _crossHairMovementLimit.y);
 
-            CrossHair.anchoredPosition = Vector2.Lerp(CrossHair.anchoredPosition, screenPos, slerpParam);
+            // Điều chỉnh theo góc nghiêng của Camera
+            Vector3 cameraRotation = CameraTrans.eulerAngles;
+            float cameraTiltX = Mathf.Sin(cameraRotation.x * Mathf.Deg2Rad);
+            float cameraTiltY = Mathf.Sin(cameraRotation.y * Mathf.Deg2Rad);
+
+            adjustedScreenPos.x += cameraTiltY * screenPosValue.x;
+            adjustedScreenPos.y += cameraTiltX * screenPosValue.y;
+
+            CrossHair.anchoredPosition = Vector2.Lerp(CrossHair.anchoredPosition, adjustedScreenPos, slerpParam);
         }
     }
 }

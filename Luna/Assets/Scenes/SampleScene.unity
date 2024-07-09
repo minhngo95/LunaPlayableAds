@@ -38460,17 +38460,18 @@ MonoBehaviour:
   _mainRoot: {fileID: 3125577797049941079}
   _head: {fileID: 3125728519575215651}
   _sensitivity: 2
-  _slerpFactor: 12.5
+  _slerpFactor: 20
   _viewHorizontalThreshold: {x: -30, y: 30}
   _viewVerticalThreshold: {x: -30, y: 30}
   _initRotate: {x: 0, y: 0}
-  _totalRotate: {x: 0, y: 0}
+  _totalRotate: {x: -17.099995, y: -6.799996}
   WeaponView: 1
   WeaponTrans: {fileID: 6621452729258416720}
   CrossHair: {fileID: 1223537696}
-  _crossHairMovementLimit: {x: 900, y: 500}
-  _weaponMovementLimit: {x: 26, y: 8}
-  screenPosValue: 800
+  _crossHairMovementLimit: {x: 1100, y: 800}
+  _weaponMovementLimit: {x: 25, y: 8}
+  screenPosValue: {x: 950, y: 1000}
+  CameraTrans: {fileID: 5232663073889989872}
 --- !u!33 &3129969039676734852
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -38631,7 +38632,7 @@ Camera:
     height: 1
   near clip plane: 0.28
   far clip plane: 2000
-  field of view: 30
+  field of view: 27
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -48862,7 +48863,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1899007526401176989}
   m_LocalRotation: {x: 0.021814892, y: 0, z: 0, w: 0.999762}
-  m_LocalPosition: {x: 0, y: 0.6, z: -0.94}
+  m_LocalPosition: {x: 0, y: 0.5, z: -0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
