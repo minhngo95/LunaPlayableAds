@@ -1,9 +1,10 @@
 ﻿using System;
 using UnityEngine;
 using UnityEditor;
+using static GameConstants;
 
-[CreateAssetMenu(fileName = "ConfigBotInGame", menuName = "ScriptableObjects/ConfigBotInGame", order = 1)]
-public class ConfigBotInGame : ScriptableObject
+[CreateAssetMenu(fileName = "ConfigGame", menuName = "ScriptableObjects/ConfigGame", order = 1)]
+public class ConfigGame : ScriptableObject
 {
     public FightRound[] fightRound;
 }
@@ -11,6 +12,7 @@ public class ConfigBotInGame : ScriptableObject
 public class FightRound
 {
     public BotConfig[] botConfigs;
+    public RewardConfig[] rewardConfig;
 }
 
 [Serializable]
@@ -37,13 +39,16 @@ public class BotConfig
 
 }
 
-public enum BotType
+[Serializable]
+public class RewardConfig
 {
-    None,
-    Infantry,
-    Parachutist,
-    AirForce,
-    AirForceDetector,
-    FighterF15,
+    public RewardNetwork rewardPrefab;
+
+    public RewardType rewardType;
+
+    public bool isNotUse;
+
+    public int rewardQuantity;
 }
+
 

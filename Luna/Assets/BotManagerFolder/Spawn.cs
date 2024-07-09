@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using static GameConstants;
 
 public class Spawn : MonoBehaviour
 {

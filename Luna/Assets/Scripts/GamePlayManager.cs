@@ -2,10 +2,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static GameConstants;
 
 public class GamePlayManager : MonoBehaviour
 {
-    [SerializeField] public ConfigBotInGame configBotInGame;
+    [SerializeField] public ConfigGame configBotInGame;
     [SerializeField] public GameResultData gameResultData;
     [SerializeField] public List<Spawn> spawns;
     public static GamePlayManager Instance;
