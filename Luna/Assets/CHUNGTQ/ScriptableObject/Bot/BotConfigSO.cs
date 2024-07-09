@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static GameConstants;
 
 [CreateAssetMenu(fileName = "BotConfigSO", menuName = "ScriptableObjects/BotConfig")]
 public class BotConfigSO : ScriptableObject

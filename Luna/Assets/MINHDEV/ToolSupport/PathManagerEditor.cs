@@ -2,6 +2,7 @@
 using UnityEditor;
 using UnityEngine;
 using System.Collections.Generic;
+using static GameConstants;
 
 public class PathManagerTool : EditorWindow
 {
