@@ -49,6 +49,8 @@ public class RewardConfig
     public bool isNotUse;
 
     public int rewardQuantity;
+
+    public float RewardDelaySpawn;
 }
 
 

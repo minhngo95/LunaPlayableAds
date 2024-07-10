@@ -29,12 +29,12 @@ public class RewardManager : MonoBehaviour
         _instance = this;
     }
 
-    public void SpawnReward(RewardNetwork rewardPrefab, Vector3 spawnPosition, WayPoint path)
+    public void SpawnReward(RewardNetwork rewardPrefab, Vector3 spawnPosition, SpawnRewardPoint path)
     {
         RewardNetwork newReward = Instantiate(rewardPrefab, spawnPosition, Quaternion.identity);
         newReward.SetPath(path);
         newReward.OnRewardCollected += OnRewardCollected;
-        newReward.transform.localRotation = Quaternion.Euler(0, 180, 0);
+
         newReward.gameObject.SetActive(true);
         _rewardNetworks.Add(newReward);
     }

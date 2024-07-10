@@ -79,7 +79,7 @@ public class WeaponController2 : MonoBehaviour
                 }
             }
 
-            if (canShoot && _timeSinceLastShoot >= weaponInfo.shootDelay)
+            if (canShoot && _timeSinceLastShoot >= weaponInfo.FireRate)
             {
                 if (_currentBulletCount <= 0 && !weaponInfo.infiniteBullet)
                 {

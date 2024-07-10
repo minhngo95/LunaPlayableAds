@@ -4,7 +4,7 @@
 public class WeaponInfo : ScriptableObject
 {
     public int damage = 10;
-    public float shootDelay = 0.1f;
+    public float FireRate = 0.1f;
 
     public AudioClip audioClip;
     public AudioClip AudioStartBarrel;

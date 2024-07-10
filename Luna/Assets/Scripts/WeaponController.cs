@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -106,7 +107,7 @@ public class WeaponController : MonoBehaviour
                 }
             }
 
-            if (canShoot && _timeSinceLastShoot >= weaponInfo.shootDelay)
+            if (canShoot && _timeSinceLastShoot >= weaponInfo.FireRate)
             {
                 if (_currentBulletCount <= 0 && !weaponInfo.infiniteBullet)
                 {
@@ -204,7 +205,7 @@ public class WeaponController : MonoBehaviour
         {
             forward = _muzzleTrans.forward; // Hướng bắn theo hướng súng
             // Gọi hàm rung lắc camera khi bắn
-            StartCoroutine(ShakeCamera(0.1f, 0.1f));
+            StartCoroutine(ShakeCamera(0.1f,0.1f));
         }
         else
         {
@@ -238,7 +239,8 @@ public class WeaponController : MonoBehaviour
         bullet.GetComponent<BulletTrail>().Init(ray.direction);
         UICrosshairItem.Instance.Expand_Crosshair(15);
 
-        if (Physics.Raycast(ray, out var hit, Mathf.Infinity, _layerMask))
+        bool CheckRayCast = Physics.Raycast(ray, out var hit, Mathf.Infinity, _layerMask);
+        if (CheckRayCast)
         {
             var takeDamageController = hit.transform.gameObject.GetComponent<ITakeDamage>();
             if (takeDamageController == null)
@@ -248,7 +250,9 @@ public class WeaponController : MonoBehaviour
             if (takeDamageController != null) takeDamageController.TakeDamage(weaponInfo.damage);
             var effect = ObjectPool.Instance.PopFromPool(_effect, instantiateIfNone: true);
             effect.GetComponent<Effect>().Init(hit.point);
+
         }
+        EventManager.Invoke(EventName.OnCheckBotTakeDamage, CheckRayCast);
         PlayMuzzleFlash(); // Kích hoạt hiệu ứng nổ súng
     }
 
@@ -301,21 +305,31 @@ public class WeaponController : MonoBehaviour
 
         var bots = BotManager.Instance.BotNetworks;
         foreach (var bot in bots.Where(bot => bot != null && !bot.IsDead))
-            if (bot.FireAssistCheckPos.Count > 0)
-            {
-                foreach (var checkPoint in bot.FireAssistCheckPos)
-                {
-                    var checkPosition = checkPoint.position;
+        {
+            CheckFireAssistCheckPos(bot.FireAssistCheckPos, ref minCrossHairDistance, ref pointedTransform);
+        }
 
-                    if (!SatisfyAutoFireCondition(checkPosition, out var crossHairDistance) ||
-                        crossHairDistance > minCrossHairDistance) continue;
-
-                    minCrossHairDistance = crossHairDistance;
-                    pointedTransform = checkPoint;
-                }
-            }
+        var rewards = RewardManager.Instance.RewardNetworks;
+        foreach (var reward in rewards.Where(reward => reward != null && !reward.IsCollected))
+        {
+            CheckFireAssistCheckPos(reward.FireAssistCheckPos, ref minCrossHairDistance, ref pointedTransform);
+        }
 
         return pointedTransform;
+    }
+
+    private void CheckFireAssistCheckPos(List<Transform> fireAssistCheckPos, ref float minCrossHairDistance, ref Transform pointedTransform)
+    {
+        foreach (var checkPoint in fireAssistCheckPos)
+        {
+            var checkPosition = checkPoint.position;
+
+            if (!SatisfyAutoFireCondition(checkPosition, out var crossHairDistance) ||
+                crossHairDistance > minCrossHairDistance) continue;
+
+            minCrossHairDistance = crossHairDistance;
+            pointedTransform = checkPoint;
+        }
     }
 
     [SerializeField] private float radius = 33f;
@@ -380,7 +394,9 @@ public class WeaponController : MonoBehaviour
         }
 
         shakeCam.localRotation = originalRot;
+        EventManager.Invoke(EventName.OnCheckShakeCam, shakeCam.localEulerAngles);
     }
+
 
     private void PlayMuzzleFlash()
     {

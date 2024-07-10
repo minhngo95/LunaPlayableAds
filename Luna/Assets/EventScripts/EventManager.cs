@@ -103,6 +103,8 @@ public enum EventName
     UpdateBulletCount,// đếm số lượng đạn và in ra ở UI
     OnCountBotLanding,//đếm số lượng bot landing
     OnBotKillCount,//đếm số lượng bot Chết
+    OnCheckBotTakeDamage,//CheckBot có dính Damage hay không 
+    OnCheckShakeCam,
 
 
     // Thêm các sự kiện khác ở đây

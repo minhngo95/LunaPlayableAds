@@ -20,6 +20,12 @@ MonoBehaviour:
       isNotCount: 0
       botQuantity: 15
       botDelaySpawn: 0
+    rewardConfig:
+    - rewardPrefab: {fileID: 4194398379998482520, guid: 4dd06d8c554c75843940b4dfdcbe9082, type: 3}
+      rewardType: 1
+      isNotUse: 0
+      rewardQuantity: 1
+      RewardDelaySpawn: 0
   - botConfigs:
     - botPrefab: {fileID: 1312138446727467939, guid: 9d229833d6b648a43aebc874bc95e966, type: 3}
       botType: 1
@@ -27,6 +33,7 @@ MonoBehaviour:
       isNotCount: 0
       botQuantity: 20
       botDelaySpawn: 0.5
+    rewardConfig: []
   - botConfigs:
     - botPrefab: {fileID: 1312138446727467939, guid: 9d229833d6b648a43aebc874bc95e966, type: 3}
       botType: 1
@@ -34,3 +41,4 @@ MonoBehaviour:
       isNotCount: 0
       botQuantity: 22
       botDelaySpawn: 0.5
+    rewardConfig: []

@@ -6,15 +6,15 @@ using UnityEngine;
 public class RewardNetwork : MonoBehaviour, ITakeDamage
 {
     [SerializeField] int _maxHealth = 100;
-    [SerializeField] List<Transform> _rewardPositions = new List<Transform>();
-    [SerializeField] WayPoint _path;
+    [SerializeField] List<Transform> _fireAssistCheckPos = new List<Transform>();
+    [SerializeField] SpawnRewardPoint _path;
     [SerializeField] int _currentHealth;
     [SerializeField] private bool isCollected;
     public bool IsCollected => isCollected;
     public Action<int> OnTakeDamage { get; set; }
     public Action OnRewardCollected { get; set; }
-    public WayPoint Path => _path;
-    public List<Transform> RewardPositions => _rewardPositions;
+    public SpawnRewardPoint Path => _path;
+    public List<Transform> FireAssistCheckPos => _fireAssistCheckPos;
 
     private void Awake()
     {
@@ -44,7 +44,7 @@ public class RewardNetwork : MonoBehaviour, ITakeDamage
         isCollected = true;
     }
 
-    public void SetPath(WayPoint path)
+    public void SetPath(SpawnRewardPoint path)
     {
         _path = path;
     }

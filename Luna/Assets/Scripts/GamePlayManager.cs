@@ -41,10 +41,12 @@ public class GamePlayManager : MonoBehaviour
             StartCoroutine(TurnDelay());
         }
     }
+
     private void OnEnable()
     {
         EventManager.AddListener<bool>(EventName.OnShowLunaEndGame, OnShowLunaEndGame);
     }
+
     private void OnDisable()
     {
         EventManager.AddListener<bool>(EventName.OnShowLunaEndGame, OnShowLunaEndGame);
@@ -77,7 +79,8 @@ public class GamePlayManager : MonoBehaviour
     {
         foreach (var spawn in spawns)
         {
-            spawn.InitData(configBotInGame.fightRound[Turn].botConfigs);
+            spawn.InitDataBot(configBotInGame.fightRound[Turn].botConfigs);
+            spawn.InitDataReward(configBotInGame.fightRound[Turn].rewardConfig); // Thêm dòng này để khởi tạo dữ liệu phần thưởng
         }
     }
 
@@ -87,7 +90,11 @@ public class GamePlayManager : MonoBehaviour
         {
             if (ShouldSpawnBot(spawn))
             {
-                spawn.Run();
+                spawn.SpawnBot();
+            }
+            if (ShouldSpawnReward(spawn))
+            {
+                spawn.SpawnReward();
             }
         }
     }
@@ -97,6 +104,18 @@ public class GamePlayManager : MonoBehaviour
         foreach (var config in configBotInGame.fightRound[Turn].botConfigs)
         {
             if (spawn.IsBotType(config.botType) && !config.isNotUse)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private bool ShouldSpawnReward(Spawn spawn)
+    {
+        foreach (var config in configBotInGame.fightRound[Turn].rewardConfig)
+        {
+            if (spawn.IsRewardType(config.rewardType) && !config.isNotUse)
             {
                 return true;
             }
@@ -119,9 +138,7 @@ public class GamePlayManager : MonoBehaviour
         else
         {
             return 0;
-        } 
-            
-
+        }
     }
 
     private IEnumerator ClearPreviousBots()

@@ -18,12 +18,14 @@ public class PlayerView : MonoBehaviour
     [SerializeField] private Vector2 _weaponMovementLimit = new Vector2(30f, 30f); // Giới hạn phạm vi di chuyển của súng
     [SerializeField] private Vector2 screenPosValue; // Thay đổi từ float thành Vector2
     [SerializeField] private Transform CameraTrans; // Thêm biến Transform cho Camera
-
+    private Quaternion originalCameraRotation;
+    private Vector3 vectorCam;
     private Vector2 _previousRotate;
 
     private void Awake()
     {
         SetDefaultView();
+        originalCameraRotation = CameraTrans.localRotation;
     }
 
     public void SetDefaultView()
@@ -32,6 +34,28 @@ public class PlayerView : MonoBehaviour
         _previousRotate = _totalRotate;
         _mainRoot.localRotation = Quaternion.Euler(0, _previousRotate.x, 0);
         _head.localRotation = Quaternion.Euler(-_previousRotate.y, 0, 0);
+    }
+
+    private void Start()
+    {
+        CrossHair.anchoredPosition = new Vector2(5.66243e-05f, 43.61921f);
+    }
+
+
+    private void OnCheckCamShake(Vector3 vector3)
+    {
+        vectorCam = vector3;
+        Debug.Log(vector3);
+    }
+
+    private void OnEnable()
+    {
+        EventManager.AddListener<Vector3>(EventName.OnCheckShakeCam, OnCheckCamShake);
+    }
+
+    private void OnDisable()
+    {
+        EventManager.RemoveListener<Vector3>(EventName.OnCheckShakeCam, OnCheckCamShake);
     }
 
     public void Update()
@@ -78,6 +102,7 @@ public class PlayerView : MonoBehaviour
         }
     }
 
+
     private void UpdateCrossHair(Vector2 totalRotate, float slerpParam)
     {
         if (CrossHair != null && CameraTrans != null)
@@ -99,7 +124,8 @@ public class PlayerView : MonoBehaviour
             adjustedScreenPos.y = Mathf.Clamp(adjustedScreenPos.y, -_crossHairMovementLimit.y, _crossHairMovementLimit.y);
 
             // Điều chỉnh theo góc nghiêng của Camera
-            Vector3 cameraRotation = CameraTrans.eulerAngles;
+            Vector3 cameraRotation = originalCameraRotation.eulerAngles;
+            //Vector3 cameraRotation = vectorCam;
             float cameraTiltX = Mathf.Sin(cameraRotation.x * Mathf.Deg2Rad);
             float cameraTiltY = Mathf.Sin(cameraRotation.y * Mathf.Deg2Rad);
 
