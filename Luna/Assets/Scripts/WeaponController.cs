@@ -12,6 +12,7 @@ public class WeaponController : MonoBehaviour
     [SerializeField] public Transform[] Gunbarrel; // Nòng súng xoay (dùng cho súng 6 nòng)
     [SerializeField] private Animation _animation;
     [SerializeField] private GameObject _bullet;
+    [SerializeField] private GameObject[] _bulletPrefab;
     [SerializeField] private ParticleSystem _muzzleFlash;
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private GameObject _effect;
@@ -35,6 +36,7 @@ public class WeaponController : MonoBehaviour
 
     private void Awake()
     {
+        _bullet = _bulletPrefab[0];
         _camera = Camera.main;
         _cameraTransform = _camera.transform;
         _currentBulletCount = weaponInfo.bulletCount; // Khởi tạo số lượng đạn
@@ -46,10 +48,13 @@ public class WeaponController : MonoBehaviour
     private void OnEnable()
     {
         EventManager.AddListener<bool>(EventName.OnShowLunaEndGame, OnShowLunaEndGame);
+        EventManager.AddListener<bool>(EventName.OnChangeFireRate, OnChangeFireRate);
     }
     private void OnDisable()
     {
+        _bullet = _bulletPrefab[0];
         EventManager.RemoveListener<bool>(EventName.OnShowLunaEndGame, OnShowLunaEndGame);
+        EventManager.RemoveListener<bool>(EventName.OnChangeFireRate, OnChangeFireRate);
     }
 
     private void OnShowLunaEndGame(bool IsShow)
@@ -205,7 +210,7 @@ public class WeaponController : MonoBehaviour
         {
             forward = _muzzleTrans.forward; // Hướng bắn theo hướng súng
             // Gọi hàm rung lắc camera khi bắn
-            StartCoroutine(ShakeCamera(0.1f,0.1f));
+            StartCoroutine(ShakeCamera(0.1f, 0.1f));
         }
         else
         {
@@ -255,6 +260,19 @@ public class WeaponController : MonoBehaviour
         EventManager.Invoke(EventName.OnCheckBotTakeDamage, CheckRayCast);
         PlayMuzzleFlash(); // Kích hoạt hiệu ứng nổ súng
     }
+
+    private void OnChangeFireRate(bool IsChange)
+    {
+        if (IsChange)
+        {
+            _bullet = _bulletPrefab[1];
+        }
+        else
+        {
+            _bullet = _bulletPrefab[0];
+        }
+    }
+
 
     private IEnumerator Reload()
     {

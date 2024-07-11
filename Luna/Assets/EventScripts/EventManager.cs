@@ -105,6 +105,9 @@ public enum EventName
     OnBotKillCount,//đếm số lượng bot Chết
     OnCheckBotTakeDamage,//CheckBot có dính Damage hay không 
     OnCheckShakeCam,
+    OnClearReward,
+    OnUpgradeFireRate,
+    OnChangeFireRate,
 
 
     // Thêm các sự kiện khác ở đây

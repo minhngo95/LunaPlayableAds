@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7e7dbfc8afd981b4da94ef84ccc60bdb, type: 2}
+  - {fileID: 2100000, guid: 54677444ffcf1824ab7192deb6a9f5f6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -144,7 +144,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7e7dbfc8afd981b4da94ef84ccc60bdb, type: 2}
+  - {fileID: 2100000, guid: 54677444ffcf1824ab7192deb6a9f5f6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 6458371479552296780}
   - component: {fileID: 6458371479552296781}
   m_Layer: 0
-  m_Name: Projectile_Bullet_Norman
+  m_Name: Projectile_Bullet_FireRate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

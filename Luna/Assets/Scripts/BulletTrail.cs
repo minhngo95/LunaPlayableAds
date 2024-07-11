@@ -1,8 +1,11 @@
-﻿using UnityEngine;
+﻿using UnityEditor.Presets;
+using UnityEngine;
 
 public class BulletTrail : MonoBehaviour, IPoolObject
 {
     [SerializeField] protected Transform _trail;
+    [SerializeField] protected MeshRenderer[] meshRenderers;
+    [SerializeField] protected Material[] materials;
     [SerializeField] protected Vector3 _trailStartScale;
     [SerializeField] protected Vector3 _trailMaxScale;
     [SerializeField] protected float _trailLengthAtMaxScale;
@@ -25,6 +28,7 @@ public class BulletTrail : MonoBehaviour, IPoolObject
     public void Init()
     {
     }
+ 
 
     public void OnPushToPool()
     {

@@ -16,12 +16,12 @@ MonoBehaviour:
   - botConfigs:
     - botPrefab: {fileID: 5129223786313370449, guid: 9ba7b4dcb20149f428ca8f9a3db28cda, type: 3}
       botType: 2
-      isNotUse: 0
+      isNotUse: 1
       isNotCount: 0
-      botQuantity: 15
+      botQuantity: 30
       botDelaySpawn: 0
     rewardConfig:
-    - rewardPrefab: {fileID: 4194398379998482520, guid: 4dd06d8c554c75843940b4dfdcbe9082, type: 3}
+    - rewardPrefab: {fileID: 4836216111489335372, guid: 4dd06d8c554c75843940b4dfdcbe9082, type: 3}
       rewardType: 1
       isNotUse: 0
       rewardQuantity: 1
