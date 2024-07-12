@@ -271,28 +271,30 @@ public class WeaponController : MonoBehaviour
         bullet.transform.SetPositionAndRotation(muzzle.position, muzzle.rotation);
         bullet.GetComponent<BulletTrail>().Init(ray.direction);
 
-        bool CheckRayCast = Physics.Raycast(ray, out var hit, Mathf.Infinity, botLayerMask | rewardLayerMask);
+        bool CheckRayCast = Physics.Raycast(ray, out var hit, Mathf.Infinity, botLayerMask| rewardLayerMask);
         if (CheckRayCast)
         {
             if (IsInBotLayer(hit.collider.gameObject))
             {
                 Debug.Log("Bắn trúng bot nè");
-                var botDamageController = hit.transform.GetComponent<ITakeDamage>();
-                if (botDamageController != null)
+                var takeDamageController = hit.transform.gameObject.GetComponent<ITakeDamage>();
+                if (takeDamageController == null)
                 {
-                    botDamageController.TakeDamage(weaponInfo.damage);
-                    _effect = bulletAndEffect.EffectBullet[0];
+                    takeDamageController = hit.transform.root.gameObject.GetComponent<ITakeDamage>();
                 }
+                if (takeDamageController != null) takeDamageController.TakeDamage(weaponInfo.damage);
+                _effect = bulletAndEffect.EffectBullet[0];
             }
             else if (IsInRewardLayer(hit.collider.gameObject))
             {
                 Debug.Log("Bắn trúng Reward nè");
-                var rewardController = hit.transform.GetComponent<IReward>();
-                if (rewardController != null)
+                var rewardController = hit.transform.gameObject.GetComponent<IReward>();
+                if (rewardController == null)
                 {
-                    rewardController.TakeCollect(weaponInfo.damage);
-                    _effect = bulletAndEffect.EffectBullet[1];
+                    rewardController = hit.transform.root.gameObject.GetComponent<IReward>();
                 }
+                if (rewardController != null) rewardController.TakeCollect(weaponInfo.damage);
+                _effect = bulletAndEffect.EffectBullet[1];
             }
 
             // Tạo hiệu ứng va chạm

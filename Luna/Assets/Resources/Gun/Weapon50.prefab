@@ -62,22 +62,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponInfo: {fileID: 11400000, guid: 7a92c17f9c680c54c8586bf01646ccbc, type: 2}
-  _layerMask:
+  bulletAndEffect: {fileID: 11400000, guid: 3a9d6d991a3e15343b94109ef7ec8e66, type: 2}
+  botLayerMask:
     serializedVersion: 2
-    m_Bits: 192
+    m_Bits: 64
+  rewardLayerMask:
+    serializedVersion: 2
+    m_Bits: 128
   _muzzleTrans: {fileID: 4228694516492251038}
+  _muzzleTrans2: {fileID: 0}
   Gunbarrel:
   - {fileID: 2601167108188397286}
   _animation: {fileID: 2993797190221995639}
   _bullet: {fileID: 0}
-  _bulletPrefab:
-  - {fileID: 6458371479552465772, guid: bcf0258b66a8e05498ace10193710acc, type: 3}
-  - {fileID: 6458371479552465772, guid: 02550e081ed956e49a748e22d881b56f, type: 3}
   _muzzleFlash: {fileID: 3928056344907552742}
   _audioSource: {fileID: 6316970363833450115}
   _effect: {fileID: 1214385991556846, guid: 5101b0b18563cd64fba69182fb988727, type: 3}
   _isShowCard: 0
   shootBasedOnGunDirection: 1
+  isDoubleMuzzle: 0
   shakeCam: {fileID: 0}
   shakeCamMin: -0.5
   shakeCamMax: 0.5

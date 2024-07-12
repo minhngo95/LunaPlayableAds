@@ -45,7 +45,6 @@ public class PlayerView : MonoBehaviour
     private void OnCheckCamShake(Vector3 vector3)
     {
         vectorCam = vector3;
-        Debug.Log(vector3);
     }
 
     private void OnEnable()
