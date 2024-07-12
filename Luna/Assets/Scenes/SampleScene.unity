@@ -61556,7 +61556,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ad965114086eeb429b9cba4df4cb793, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponInfo: {fileID: 0}
+  weaponInfo: {fileID: 11400000, guid: 7a92c17f9c680c54c8586bf01646ccbc, type: 2}
 --- !u!108 &6180442535969489442
 Light:
   m_ObjectHideFlags: 0
@@ -61747,7 +61747,7 @@ GameObject:
   - component: {fileID: 7659409020953956024}
   - component: {fileID: 6621452729258248115}
   m_Layer: 0
-  m_Name: Weapon502
+  m_Name: Weapon50
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -61773,7 +61773,10 @@ MonoBehaviour:
   Gunbarrel:
   - {fileID: 7484568024324984361}
   _animation: {fileID: 7659409020953956024}
-  _bullet: {fileID: 6458371479552465772, guid: bcf0258b66a8e05498ace10193710acc, type: 3}
+  _bullet: {fileID: 0}
+  _bulletPrefab:
+  - {fileID: 6458371479552465772, guid: bcf0258b66a8e05498ace10193710acc, type: 3}
+  - {fileID: 6458371479552465772, guid: 02550e081ed956e49a748e22d881b56f, type: 3}
   _muzzleFlash: {fileID: 8450150575784560425}
   _audioSource: {fileID: 1472068298197364300}
   _effect: {fileID: 1214385991556846, guid: 5101b0b18563cd64fba69182fb988727, type: 3}
