@@ -6,3 +6,7 @@ public interface ITakeDamage
 {
     void TakeDamage(int damage);
 }
+public interface IReward
+{
+    void TakeCollect(int damage);
+}

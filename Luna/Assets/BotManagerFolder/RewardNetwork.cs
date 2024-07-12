@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RewardNetwork : MonoBehaviour, ITakeDamage
+public class RewardNetwork : MonoBehaviour, IReward
 {
     [SerializeField] int _maxHealth = 100;
     [SerializeField] List<Transform> _fireAssistCheckPos = new List<Transform>();
@@ -23,7 +23,7 @@ public class RewardNetwork : MonoBehaviour, ITakeDamage
         _currentHealth = _maxHealth;
     }
 
-    public void TakeDamage(int damage)
+    public void TakeCollect(int damage)
     {
         if (isCollected) return;
         OnTakeDamage.Invoke(damage);

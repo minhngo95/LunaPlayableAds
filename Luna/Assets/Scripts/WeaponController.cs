@@ -7,17 +7,20 @@ using Random = UnityEngine.Random;
 public class WeaponController : MonoBehaviour
 {
     [SerializeField] private WeaponInfo weaponInfo;
-    [SerializeField] private LayerMask _layerMask;
+    [SerializeField] private BulletAndEffect bulletAndEffect;
+    [SerializeField] private LayerMask botLayerMask;
+    [SerializeField] private LayerMask rewardLayerMask;
     [SerializeField] private Transform _muzzleTrans;
+    [SerializeField] private Transform _muzzleTrans2;
     [SerializeField] public Transform[] Gunbarrel; // Nòng súng xoay (dùng cho súng 6 nòng)
     [SerializeField] private Animation _animation;
     [SerializeField] private GameObject _bullet;
-    [SerializeField] private GameObject[] _bulletPrefab;
     [SerializeField] private ParticleSystem _muzzleFlash;
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private GameObject _effect;
     [SerializeField] private bool _isShowCard;
     [SerializeField] private bool shootBasedOnGunDirection = false; // Chế độ bắn: true = bắn theo hướng súng, false = bắn theo hướng camera
+    [SerializeField] private bool isDoubleMuzzle = false; // Chế độ bắn: true = bắn theo hướng súng, false = bắn theo hướng camera
     [SerializeField] private Transform shakeCam; // Biến để tham chiếu đến MainCamera
     [SerializeField] private float shakeCamMin;
     [SerializeField] private float shakeCamMax;
@@ -36,7 +39,7 @@ public class WeaponController : MonoBehaviour
 
     private void Awake()
     {
-        _bullet = _bulletPrefab[0];
+        _bullet = bulletAndEffect._bulletPrefab[0];
         _camera = Camera.main;
         _cameraTransform = _camera.transform;
         _currentBulletCount = weaponInfo.bulletCount; // Khởi tạo số lượng đạn
@@ -52,7 +55,7 @@ public class WeaponController : MonoBehaviour
     }
     private void OnDisable()
     {
-        _bullet = _bulletPrefab[0];
+        _bullet = bulletAndEffect._bulletPrefab[0];
         EventManager.RemoveListener<bool>(EventName.OnShowLunaEndGame, OnShowLunaEndGame);
         EventManager.RemoveListener<bool>(EventName.OnChangeFireRate, OnChangeFireRate);
     }
@@ -208,13 +211,12 @@ public class WeaponController : MonoBehaviour
         Vector3 forward;
         if (shootBasedOnGunDirection)
         {
-            forward = _muzzleTrans.forward; // Hướng bắn theo hướng súng
-            // Gọi hàm rung lắc camera khi bắn
+            forward = _muzzleTrans.forward;
             StartCoroutine(ShakeCamera(0.1f, 0.1f));
         }
         else
         {
-            forward = _cameraTransform.forward; // Hướng bắn theo hướng camera
+            forward = _cameraTransform.forward;
             var targetPoint = FindPointedTransform();
             if (targetPoint != null)
             {
@@ -229,47 +231,86 @@ public class WeaponController : MonoBehaviour
             Random.Range(-weaponInfo.recoilAmount, weaponInfo.recoilAmount)
         );
 
-        var shotRotation = Quaternion.Euler(Random.insideUnitCircle * weaponInfo.inaccuracy) * forward;
-        var ray = new Ray(_muzzleTrans.position, shotRotation); // Bắt đầu từ nòng súng
+        // Bắn từ nòng đầu tiên
+        FireFromMuzzle(_muzzleTrans, forward);
+
+        // Nếu isDoubleMuzzle là true, bắn thêm từ nòng thứ hai
+        if (isDoubleMuzzle)
+        {
+            FireFromMuzzle(_muzzleTrans2, forward);
+        }
 
         _animation.Play("Fire");
-        _animation["Fire"].speed = 2.0f; // Tăng tốc độ phát clip "Fire"
+        _animation["Fire"].speed = 2.0f;
         _audioSource.clip = weaponInfo.audioClip;
         _audioSource.Play();
+
+        UICrosshairItem.Instance.Expand_Crosshair(15);
+
+        PlayMuzzleFlash();
+    }
+
+    private bool IsInBotLayer(GameObject obj)
+    {
+        return ((1 << obj.layer) & botLayerMask) != 0;
+    }
+
+    private bool IsInRewardLayer(GameObject obj)
+    {
+        return ((1 << obj.layer) & rewardLayerMask) != 0;
+    }
+
+    private void FireFromMuzzle(Transform muzzle, Vector3 forward)
+    {
+        var shotRotation = Quaternion.Euler(Random.insideUnitCircle * weaponInfo.inaccuracy) * forward;
+        var ray = new Ray(muzzle.position, shotRotation);
 
         _bullet.SetActive(true);
 
         var bullet = ObjectPool.Instance.PopFromPool(_bullet, instantiateIfNone: true);
-        bullet.transform.SetPositionAndRotation(_muzzleTrans.position, _muzzleTrans.rotation);
+        bullet.transform.SetPositionAndRotation(muzzle.position, muzzle.rotation);
         bullet.GetComponent<BulletTrail>().Init(ray.direction);
-        UICrosshairItem.Instance.Expand_Crosshair(15);
 
-        bool CheckRayCast = Physics.Raycast(ray, out var hit, Mathf.Infinity, _layerMask);
+        bool CheckRayCast = Physics.Raycast(ray, out var hit, Mathf.Infinity, botLayerMask | rewardLayerMask);
         if (CheckRayCast)
         {
-            var takeDamageController = hit.transform.gameObject.GetComponent<ITakeDamage>();
-            if (takeDamageController == null)
+            if (IsInBotLayer(hit.collider.gameObject))
             {
-                takeDamageController = hit.transform.root.gameObject.GetComponent<ITakeDamage>();
+                Debug.Log("Bắn trúng bot nè");
+                var botDamageController = hit.transform.GetComponent<ITakeDamage>();
+                if (botDamageController != null)
+                {
+                    botDamageController.TakeDamage(weaponInfo.damage);
+                    _effect = bulletAndEffect.EffectBullet[0];
+                }
             }
-            if (takeDamageController != null) takeDamageController.TakeDamage(weaponInfo.damage);
+            else if (IsInRewardLayer(hit.collider.gameObject))
+            {
+                Debug.Log("Bắn trúng Reward nè");
+                var rewardController = hit.transform.GetComponent<IReward>();
+                if (rewardController != null)
+                {
+                    rewardController.TakeCollect(weaponInfo.damage);
+                    _effect = bulletAndEffect.EffectBullet[1];
+                }
+            }
+
+            // Tạo hiệu ứng va chạm
             var effect = ObjectPool.Instance.PopFromPool(_effect, instantiateIfNone: true);
             effect.GetComponent<Effect>().Init(hit.point);
-
         }
         EventManager.Invoke(EventName.OnCheckBotTakeDamage, CheckRayCast);
-        PlayMuzzleFlash(); // Kích hoạt hiệu ứng nổ súng
     }
 
     private void OnChangeFireRate(bool IsChange)
     {
         if (IsChange)
         {
-            _bullet = _bulletPrefab[1];
+            _bullet = bulletAndEffect._bulletPrefab[1];
         }
         else
         {
-            _bullet = _bulletPrefab[0];
+            _bullet = bulletAndEffect._bulletPrefab[0];
         }
     }
 
@@ -374,7 +415,7 @@ public class WeaponController : MonoBehaviour
     {
         var distance = Vector3.Distance(origin, target);
         var ray = new Ray(origin, target - origin);
-        return !Physics.Raycast(ray, out _, distance, _layerMask);
+        return !Physics.Raycast(ray, out _, distance, botLayerMask | rewardLayerMask);
     }
 
     // Thêm phương thức dừng âm thanh bắn
