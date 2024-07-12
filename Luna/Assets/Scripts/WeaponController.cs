@@ -276,7 +276,6 @@ public class WeaponController : MonoBehaviour
         {
             if (IsInBotLayer(hit.collider.gameObject))
             {
-                Debug.Log("Bắn trúng bot nè");
                 var takeDamageController = hit.transform.gameObject.GetComponent<ITakeDamage>();
                 if (takeDamageController == null)
                 {
@@ -287,7 +286,6 @@ public class WeaponController : MonoBehaviour
             }
             else if (IsInRewardLayer(hit.collider.gameObject))
             {
-                Debug.Log("Bắn trúng Reward nè");
                 var rewardController = hit.transform.gameObject.GetComponent<IReward>();
                 if (rewardController == null)
                 {

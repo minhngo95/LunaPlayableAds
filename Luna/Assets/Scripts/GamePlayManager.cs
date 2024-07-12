@@ -145,6 +145,7 @@ public class GamePlayManager : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         BotManager.Instance.ClearAllBots();
+        RewardManager.Instance.ClearAllRewards();
     }
 
     public void LunaClick()

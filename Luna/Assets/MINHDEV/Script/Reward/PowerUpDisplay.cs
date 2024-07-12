@@ -1,14 +1,17 @@
 ﻿using System.Collections;
 using UnityEngine;
+using static GameConstants;
 
 public class PowerUpDisplay : MonoBehaviour
 {
     public RewardNetwork rewardNetwork;
+    public RewardType rewardType;
     public ParticleSystem[] CollectedEffect;
     public Transform mytrans;
     public GameObject myBody;
     public RectTransform ContentObj;
     public CanvasGroup ContentCanvasGroup;
+    public float rewardValue;
     public float rotationSpeed = 50f; // Rotation speed in degrees/second
     public float initialYPosition = 0.5f; // Initial Y position
     public float moveDuration = 1f; // Duration for moving ContentObj from a to b
@@ -55,10 +58,23 @@ public class PowerUpDisplay : MonoBehaviour
     {
         CollectedEffect[0].Play();
         yield return new WaitForSeconds(0.2f);
+        OnSetEventPerRewardType();
         CollectedEffect[1].Play();
         yield return new WaitForSeconds(0.2f);
         myBody.SetActive(false);
     }
+
+    private void OnSetEventPerRewardType()
+    {
+        if (rewardType == RewardType.RapidFire)
+        {
+            EventManager.Invoke(EventName.OnUpgradeFireRate, rewardValue);
+        }
+        if (rewardType == RewardType.ChangeMachineGun)
+        {
+            Debug.Log("thêm loigc đổi súng đi ");
+        }
+    }    
 
     private IEnumerator ShowFireRateContent()
     {
@@ -94,7 +110,7 @@ public class PowerUpDisplay : MonoBehaviour
 
         // Ensure alpha is set to 0 after fade out
         ContentCanvasGroup.alpha = 0;
-        EventManager.Invoke(EventName.OnClearReward, true);
+        this.gameObject.SetActive(false);
     }
 
     private void Update()
