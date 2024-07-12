@@ -108,6 +108,7 @@ public enum EventName
     OnClearReward,
     OnUpgradeFireRate,
     OnChangeFireRate,
+    OnChangeMachineGun,
 
 
     // Thêm các sự kiện khác ở đây

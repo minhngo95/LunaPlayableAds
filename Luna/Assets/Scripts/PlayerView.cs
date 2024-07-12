@@ -13,6 +13,7 @@ public class PlayerView : MonoBehaviour
     [SerializeField] private Vector2 _totalRotate;
     [SerializeField] private bool WeaponView = false; // Biến Bool để chọn logic
     [SerializeField] private Transform WeaponTrans; // Biến Transform cho vũ khí
+    [SerializeField] private Transform[] ListWeaponTrans; // Biến Transform cho vũ khí
     [SerializeField] private RectTransform CrossHair; // Biến RectTransform cho CrossHair
     [SerializeField] private Vector2 _crossHairMovementLimit = new Vector2(100f, 100f); // Giới hạn phạm vi di chuyển của CrossHair
     [SerializeField] private Vector2 _weaponMovementLimit = new Vector2(30f, 30f); // Giới hạn phạm vi di chuyển của súng
@@ -50,11 +51,13 @@ public class PlayerView : MonoBehaviour
     private void OnEnable()
     {
         EventManager.AddListener<Vector3>(EventName.OnCheckShakeCam, OnCheckCamShake);
+        EventManager.AddListener<bool>(EventName.OnChangeMachineGun, OnChangeMachineGun);
     }
 
     private void OnDisable()
     {
         EventManager.RemoveListener<Vector3>(EventName.OnCheckShakeCam, OnCheckCamShake);
+        EventManager.RemoveListener<bool>(EventName.OnChangeMachineGun, OnChangeMachineGun);
     }
 
     public void Update()
@@ -101,6 +104,18 @@ public class PlayerView : MonoBehaviour
         }
     }
 
+    private void OnChangeMachineGun(bool IsChange)
+    {
+        if (IsChange)
+        {
+            WeaponTrans = ListWeaponTrans[1];
+        }
+        else
+        {
+            WeaponTrans = ListWeaponTrans[0];
+        }
+            
+    }    
 
     private void UpdateCrossHair(Vector2 totalRotate, float slerpParam)
     {

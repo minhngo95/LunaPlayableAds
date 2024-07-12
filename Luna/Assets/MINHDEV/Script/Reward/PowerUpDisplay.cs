@@ -72,7 +72,7 @@ public class PowerUpDisplay : MonoBehaviour
         }
         if (rewardType == RewardType.ChangeMachineGun)
         {
-            Debug.Log("thêm loigc đổi súng đi ");
+            EventManager.Invoke(EventName.OnChangeMachineGun, true);
         }
     }    
 
