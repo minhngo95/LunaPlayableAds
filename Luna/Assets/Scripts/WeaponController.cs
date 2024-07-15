@@ -15,7 +15,7 @@ public class WeaponController : MonoBehaviour
     [SerializeField] public Transform[] Gunbarrel; // Nòng súng xoay (dùng cho súng 6 nòng)
     [SerializeField] private Animation _animation;
     [SerializeField] private GameObject _bullet;
-    [SerializeField] private ParticleSystem _muzzleFlash;
+    [SerializeField] private ParticleSystem[] _fireEffect;
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private GameObject _effect;
     [SerializeField] private bool _isShowCard;
@@ -120,7 +120,7 @@ public class WeaponController : MonoBehaviour
                 if (_currentBulletCount <= 0 && !weaponInfo.infiniteBullet)
                 {
                     StartCoroutine(Reload());
-                    StopMuzzleFlash();
+                    StopGunEffect();
                 }
                 else
                 {
@@ -133,7 +133,7 @@ public class WeaponController : MonoBehaviour
                         Debug.Log("Bullet fired. Remaining bullets: " + _currentBulletCount);
                         EventManager.Invoke(EventName.UpdateBulletCount, _currentBulletCount);
                     }
-                    PlayMuzzleFlash(); // Kích hoạt hiệu ứng nổ súng
+                    PlayGunEffect(); // Kích hoạt hiệu ứng nổ súng
                 }
             }
         }
@@ -155,7 +155,7 @@ public class WeaponController : MonoBehaviour
                     _audioSource.Play();
                     isBarrelSpinning = false;
                 }
-                StopMuzzleFlash(); // Dừng hiệu ứng nổ súng
+                StopGunEffect(); // Dừng hiệu ứng nổ súng
             }
         }
     }
@@ -247,7 +247,7 @@ public class WeaponController : MonoBehaviour
 
         UICrosshairItem.Instance.Expand_Crosshair(15);
 
-        PlayMuzzleFlash();
+        PlayGunEffect();
     }
 
     private bool IsInBotLayer(GameObject obj)
@@ -457,19 +457,25 @@ public class WeaponController : MonoBehaviour
     }
 
 
-    private void PlayMuzzleFlash()
+    private void PlayGunEffect()
     {
-        if (!_muzzleFlash.isPlaying)
+        foreach (ParticleSystem fireEffect in _fireEffect)
         {
-            _muzzleFlash.Play();
+            if (fireEffect != null && !fireEffect.isPlaying)
+            {
+                fireEffect.Play();
+            }    
         }
     }
 
-    private void StopMuzzleFlash()
+    private void StopGunEffect()
     {
-        if (_muzzleFlash.isPlaying)
+        foreach (ParticleSystem fireEffect in _fireEffect)
         {
-            _muzzleFlash.Stop();
+            if (fireEffect != null && fireEffect.isPlaying)
+            {
+                fireEffect.Stop();
+            }
         }
     }
 }
