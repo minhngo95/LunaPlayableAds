@@ -51,6 +51,8 @@ public class RewardConfig
     public int rewardQuantity;
 
     public float RewardDelaySpawn;
+
+    public float WaitToSpawn;
 }
 
 

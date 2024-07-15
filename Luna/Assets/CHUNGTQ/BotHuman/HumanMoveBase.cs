@@ -29,7 +29,16 @@ public class HumanMoveBase : MonoBehaviour
     private void OnTakeDame(int dame)
     {
         isTakeDame = true;
-        ator.SetBool("isHit", true);
+        int randomDeadStyle = Random.Range(0, 100);
+        if (randomDeadStyle % 2 == 0)
+        {
+            ator.SetFloat("DeadStyle", 1);
+        }
+        else
+        {
+            ator.SetFloat("DeadStyle", 0);
+        }
+        //ator.SetBool("isHit", true);
         Invoke(nameof(ResetTakeDame), 0.17f);
     }
     private void OnBotDead()

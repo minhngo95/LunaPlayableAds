@@ -9,7 +9,7 @@ public class WeaponEvent : MonoBehaviour
     public  Transform WeaponDefault;
     public Transform WeaponChange;
     public float[] DefaultFireRate;
-    private bool IsChangeBullet;
+    public bool IsChangeBullet;
 
     public float PosWeaponDefaultEnd;
     public float PosWeaponChangeEnd;
@@ -51,10 +51,7 @@ public class WeaponEvent : MonoBehaviour
         if (IsChange)
         {
             StartCoroutine(OnChangeWeapon());
-            if (IsChangeBullet)
-            {
-                EventManager.Invoke(EventName.OnChangeFireRate, true);
-            }
+
 
         }
         else
@@ -96,7 +93,10 @@ public class WeaponEvent : MonoBehaviour
 
         // Hiển thị WeaponChange
         WeaponChange.gameObject.SetActive(true);
-
+        if (IsChangeBullet)
+        {
+            EventManager.Invoke(EventName.OnChangeFireRate, true);
+        }
         // Di chuyển WeaponChange từ vị trí M đến N theo trục Y
         float elapsedTime2 = 0f;
         Vector3 startPosition2 = WeaponChange.localPosition;
@@ -109,5 +109,6 @@ public class WeaponEvent : MonoBehaviour
             yield return null;
         }
         WeaponChange.localPosition = endPosition2;
+
     }
 }

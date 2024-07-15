@@ -78,6 +78,7 @@ public class Spawn : MonoBehaviour
     {
         for (var i = 0; i < _rewardConfig.rewardQuantity; i++)
         {
+            yield return new WaitForSeconds(_rewardConfig.WaitToSpawn);
             SpawnRewardPoint point = SpawnRewardManager.Instance.GetSpawnPoint(rewardType);
             var spawnPosition = point.SpawnPoint[0].position;
             RewardManager.Instance.SpawnReward(_rewardConfig.rewardPrefab, spawnPosition, point);

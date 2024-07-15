@@ -26,12 +26,12 @@ public class BotPlayItaAttackState : BaseState<PlayItaState>
             AudioClip clipPlay = listSoundAttack[indexSound];
             _source.clip = clipPlay;
         }
-        else
-        {
-            int indexSound = Random.Range(0, BotVoice.Length);
-            AudioClip clipPlay = BotVoice[indexSound];
-            _source.clip = clipPlay;
-        }
+        //else
+        //{
+        //    int indexSound = Random.Range(0, BotVoice.Length);
+        //    AudioClip clipPlay = BotVoice[indexSound];
+        //    _source.clip = clipPlay;
+        //}
        
         timeAttack = 3f;  // Set the attack interval to 3 seconds
         timeReload = 3f;
@@ -41,10 +41,25 @@ public class BotPlayItaAttackState : BaseState<PlayItaState>
         botNetwork.OnTakeDamage += OnTakeDame;
        
     }
+
+    private IEnumerator OnPlaySoundAttack()
+    {
+        yield return new WaitForSeconds(0.5f);
+    }
     private void OnTakeDame(int damage)
     {
         isTakeDame = true;
-        ator.SetBool("isHit", true);
+
+        int randomDeadStyle = Random.Range(0, 100);
+        if (randomDeadStyle % 2 == 0)
+        {
+            ator.SetFloat("DeadStyle", 1);
+        }
+        else
+        {
+            ator.SetFloat("DeadStyle", 0);
+        }
+        //ator.SetBool("isHit", true);
         muzzle.SetActive(false);
 
     }

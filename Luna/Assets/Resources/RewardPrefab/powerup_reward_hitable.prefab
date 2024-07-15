@@ -15328,7 +15328,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: c0b566023f2db854290f403bb35ffe97, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 5e4b2f7361b7813429d02d8f6f6a71b7, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -15550,7 +15550,7 @@ MonoBehaviour:
   myBody: {fileID: 471463158120516447}
   ContentObj: {fileID: 4472485281027984474}
   ContentCanvasGroup: {fileID: 8106744127104376211}
-  rewardValue: 0.1
+  rewardValue: 0.05
   rotationSpeed: 200
   initialYPosition: 0.5
   moveDuration: 1

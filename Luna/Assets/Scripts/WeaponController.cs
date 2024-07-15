@@ -307,10 +307,14 @@ public class WeaponController : MonoBehaviour
         if (IsChange)
         {
             _bullet = bulletAndEffect._bulletPrefab[1];
+            shakeCamMin = -0.75f;
+            shakeCamMax = 0.75f;
         }
         else
         {
             _bullet = bulletAndEffect._bulletPrefab[0];
+            shakeCamMin = -0.5f;
+            shakeCamMax = 0.5f;
         }
     }
 
