@@ -46,6 +46,7 @@ public class BotPlayItaAttackState : BaseState<PlayItaState>
     {
         yield return new WaitForSeconds(0.5f);
     }
+
     private void OnTakeDame(int damage)
     {
         isTakeDame = true;

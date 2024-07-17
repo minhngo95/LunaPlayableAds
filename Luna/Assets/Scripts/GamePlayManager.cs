@@ -77,10 +77,14 @@ public class GamePlayManager : MonoBehaviour
 
     public void SetData()
     {
-        foreach (var spawn in spawns)
+        if (!IsShowLunaEndGame)
         {
-            spawn.InitDataBot(configBotInGame.fightRound[Turn].botConfigs);
-            spawn.InitDataReward(configBotInGame.fightRound[Turn].rewardConfig); // Thêm dòng này để khởi tạo dữ liệu phần thưởng
+            foreach (var spawn in spawns)
+            {
+                spawn.InitDataBot(configBotInGame.fightRound[Turn].botConfigs);
+                spawn.InitDataReward(configBotInGame.fightRound[Turn].rewardConfig); // Thêm dòng này để khởi tạo dữ liệu phần thưởng
+            }
+
         }
     }
 
@@ -101,26 +105,39 @@ public class GamePlayManager : MonoBehaviour
 
     private bool ShouldSpawnBot(Spawn spawn)
     {
-        foreach (var config in configBotInGame.fightRound[Turn].botConfigs)
+        if (!IsShowLunaEndGame)
         {
-            if (spawn.IsBotType(config.botType) && !config.isNotUse)
+            foreach (var config in configBotInGame.fightRound[Turn].botConfigs)
             {
-                return true;
+                if (spawn.IsBotType(config.botType) && !config.isNotUse)
+                {
+                    return true;
+                }
             }
+            return false;
         }
-        return false;
+        else
+        {
+            return false;
+        }
+
     }
 
     private bool ShouldSpawnReward(Spawn spawn)
     {
-        foreach (var config in configBotInGame.fightRound[Turn].rewardConfig)
+        if (!IsShowLunaEndGame)
         {
-            if (spawn.IsRewardType(config.rewardType) && !config.isNotUse)
+            foreach (var config in configBotInGame.fightRound[Turn].rewardConfig)
             {
-                return true;
+                if (spawn.IsRewardType(config.rewardType) && !config.isNotUse)
+                {
+                    return true;
+                }
             }
+            return false;
         }
-        return false;
+        else { return false; }
+
     }
 
     private int OnCheckTotalBotOnMap()

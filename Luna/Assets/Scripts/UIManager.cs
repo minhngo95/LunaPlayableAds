@@ -46,9 +46,12 @@ public class UIManager : MonoBehaviour
 
     private void OnCheckTurnPlay(int Turn)
     {
-        int Round = Turn + 1;
-        RoundTxt.text = "ROUND " + Round;
-        uIAnimSimulator.StartAnimateTextAppear();
+        if (!UIEndGame.Instance.IsShowEndGame)
+        {
+            int Round = Turn + 1;
+            RoundTxt.text = "ROUND " + Round;
+            uIAnimSimulator.StartAnimateTextAppear();
+        }
     }    
 
     private void OnTapToPlay()
