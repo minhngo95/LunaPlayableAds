@@ -18,7 +18,7 @@ public class ButtomSyncLink : MonoBehaviour
     }
 
     // Phương thức để mở URL
-    void OpenLink()
+    public void OpenLink()
     {
         Application.OpenURL(url);
     }
