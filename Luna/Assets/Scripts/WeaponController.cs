@@ -68,7 +68,11 @@ public class WeaponController : MonoBehaviour
     private void Update()
     {
         HandleGatlingGunRotation();
-        OnShooting();
+        if (!UIEndGame.Instance.IsShowEndGame)
+        {
+            OnShooting();
+        }
+
 
         // Thêm phím tắt để chuyển đổi chế độ bắn
         if (Input.GetKeyDown(KeyCode.T)) // Ví dụ: nhấn phím T để chuyển đổi

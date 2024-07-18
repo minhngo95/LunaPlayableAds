@@ -17,6 +17,9 @@ public class PowerUpDisplay : MonoBehaviour
     public float moveDuration = 1f; // Duration for moving ContentObj from a to b
     public float displayDuration = 2f; // Duration for keeping ContentObj fully visible
     public Vector2 moveStartEndPositions = new Vector2(0f, 100f); // Start (a) and end (b) positions on the y-axis
+    public AudioSource audioSource;
+    public AudioClip[] audioClips;
+    int CountTakeDamage;
 
     private void Start()
     {
@@ -25,7 +28,8 @@ public class PowerUpDisplay : MonoBehaviour
         {
             mytrans = transform;
         }
-
+        audioSource.clip = audioClips[0];
+        audioSource.Play();
         // Set the initial position on the y-axis
         Vector3 initialPosition = mytrans.position;
         initialPosition.y = initialYPosition;
@@ -37,6 +41,7 @@ public class PowerUpDisplay : MonoBehaviour
         if (rewardNetwork != null)
         {
             rewardNetwork.OnRewardCollected += HandleRewardCollected;
+            rewardNetwork.OnTakeDamage += HandleOnTakeDamage;
         }
     }
 
@@ -45,6 +50,7 @@ public class PowerUpDisplay : MonoBehaviour
         if (rewardNetwork != null)
         {
             rewardNetwork.OnRewardCollected -= HandleRewardCollected;
+            rewardNetwork.OnTakeDamage -= HandleOnTakeDamage;
         }
     }
 
@@ -54,12 +60,28 @@ public class PowerUpDisplay : MonoBehaviour
         StartCoroutine(ShowFireRateContent());
     }
 
+    private void HandleOnTakeDamage(int damage)
+    {
+        int Getdamage = damage;
+        if (Getdamage >0)
+        {
+            CountTakeDamage++;
+            Debug.Log("Số lần nhận Sát Thương: " + CountTakeDamage);
+            if (CountTakeDamage > 0 && CountTakeDamage <=3 && rewardType == RewardType.ChangeMachineGun)
+            {
+                GameResultInstance.Instance.OpenURLStore();
+            }
+        }
+    }    
+
     private IEnumerator ShowEffectCollected()
     {
         CollectedEffect[0].Play();
         yield return new WaitForSeconds(0.2f);
         OnSetEventPerRewardType();
         CollectedEffect[1].Play();
+        audioSource.clip = audioClips[1];
+        audioSource.Play();
         yield return new WaitForSeconds(0.2f);
         myBody.SetActive(false);
     }
