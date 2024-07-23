@@ -1,5 +1,7 @@
 ﻿using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 
 public class UIAnimSimulator : MonoBehaviour
 {
@@ -11,11 +13,27 @@ public class UIAnimSimulator : MonoBehaviour
     public Vector3 DefaultScale; // Thời gian để chữ hiện rõ và to lên hoặc ngược lại
     public Vector3 targetScale; // Kích thước tối đa của chữ
 
-
+    public GameObject EndGameObj;
+    public RectTransform flare;
+    public float rotationSpeed = 90f; // Tốc độ xoay, đơn vị là độ/giây
+    public RectTransform WeaponIcon;
+    public float WeaponIconValue;
+    public RectTransform WeaponName;
+    public float WeaponNameValue;
+    public float durationTime;
+    public bool isShow;
 
     public void StartAnimateTextAppear()
     {
         StartCoroutine(AnimateTextAppear());
+    }
+   
+    private void Update()
+    {
+        if (isShow)
+        {
+            flare.Rotate(0f, 0f, rotationSpeed * Time.deltaTime);
+        }
     }
 
     IEnumerator AnimateTextAppear()
@@ -53,5 +71,34 @@ public class UIAnimSimulator : MonoBehaviour
 
         TextCanvas.alpha = 0;
         TextRect.localScale = DefaultScale;
+    }
+
+    public IEnumerator ShowUIEndGame()
+    {
+        isShow = false;
+        yield return new WaitForSeconds(4f);
+        EndGameObj.SetActive(true);
+        float WeaponIconStart = WeaponIcon.anchoredPosition3D.y;
+        float WeaponIconEnd = WeaponIcon.anchoredPosition3D.y + WeaponIconValue;
+        float WeaponNameStart = WeaponName.anchoredPosition3D.x;
+        float WeaponNameEnd = WeaponName.anchoredPosition3D.x + WeaponNameValue;
+        float Showtime = 0f;
+        while (Showtime < durationTime)
+        {
+            float t = Showtime / durationTime;
+            float newWeaponIconX = Mathf.Lerp(WeaponIconStart, WeaponIconEnd, t);
+            float newWeaponNameX = Mathf.Lerp(WeaponNameStart, WeaponNameEnd, t);
+
+            WeaponIcon.anchoredPosition = new Vector3(WeaponIcon.anchoredPosition.x, newWeaponIconX, 0);
+            WeaponName.anchoredPosition = new Vector3(newWeaponNameX, WeaponName.anchoredPosition.y, 0);
+
+            Showtime += Time.deltaTime;
+            yield return null;
+        }
+
+        // Đảm bảo rằng các phần tử UI đến đúng vị trí cuối cùng
+        WeaponIcon.anchoredPosition = new Vector3(WeaponIcon.anchoredPosition.x, WeaponIconEnd, 0);
+        WeaponName.anchoredPosition = new Vector3(WeaponNameEnd, WeaponName.anchoredPosition.y, 0);
+        isShow = true;
     }
 }

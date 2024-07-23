@@ -153,8 +153,8 @@ MonoBehaviour:
   shootBasedOnGunDirection: 1
   isDoubleMuzzle: 1
   shakeCam: {fileID: 0}
-  shakeCamMin: -0.5
-  shakeCamMax: 0.5
+  shakeCamMin: -0.75
+  shakeCamMax: 0.75
   IsShowLunaEndGame: 0
   radius: 33
 --- !u!1 &1455856346258970284

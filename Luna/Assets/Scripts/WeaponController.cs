@@ -72,6 +72,11 @@ public class WeaponController : MonoBehaviour
         {
             OnShooting();
         }
+        if (UIEndGame.Instance.IsShowEndGame)
+        {
+            StopGunEffect();
+        }
+
 
 
         // Thêm phím tắt để chuyển đổi chế độ bắn
@@ -216,7 +221,7 @@ public class WeaponController : MonoBehaviour
         if (shootBasedOnGunDirection)
         {
             forward = _muzzleTrans.forward;
-            StartCoroutine(ShakeCamera(0.1f, 0.1f));
+            StartCoroutine(ShakeCamera(0.1f, 0.05f));
         }
         else
         {
@@ -311,14 +316,10 @@ public class WeaponController : MonoBehaviour
         if (IsChange)
         {
             _bullet = bulletAndEffect._bulletPrefab[1];
-            shakeCamMin = -0.75f;
-            shakeCamMax = 0.75f;
         }
         else
         {
             _bullet = bulletAndEffect._bulletPrefab[0];
-            shakeCamMin = -0.5f;
-            shakeCamMax = 0.5f;
         }
     }
 

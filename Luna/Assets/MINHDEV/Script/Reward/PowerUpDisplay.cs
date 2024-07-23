@@ -41,7 +41,6 @@ public class PowerUpDisplay : MonoBehaviour
         if (rewardNetwork != null)
         {
             rewardNetwork.OnRewardCollected += HandleRewardCollected;
-            rewardNetwork.OnTakeDamage += HandleOnTakeDamage;
         }
     }
 
@@ -50,7 +49,6 @@ public class PowerUpDisplay : MonoBehaviour
         if (rewardNetwork != null)
         {
             rewardNetwork.OnRewardCollected -= HandleRewardCollected;
-            rewardNetwork.OnTakeDamage -= HandleOnTakeDamage;
         }
     }
 
@@ -60,19 +58,6 @@ public class PowerUpDisplay : MonoBehaviour
         StartCoroutine(ShowFireRateContent());
     }
 
-    private void HandleOnTakeDamage(int damage)
-    {
-        int Getdamage = damage;
-        if (Getdamage >0)
-        {
-            CountTakeDamage++;
-            Debug.Log("Số lần nhận Sát Thương: " + CountTakeDamage);
-            if (CountTakeDamage > 0 && CountTakeDamage <=3 && rewardType == RewardType.ChangeMachineGun)
-            {
-                GameResultInstance.Instance.OpenURLStore();
-            }
-        }
-    }    
 
     private IEnumerator ShowEffectCollected()
     {

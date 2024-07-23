@@ -6,7 +6,9 @@ public class UIEndGame : MonoBehaviour
 {
     public static UIEndGame Instance;
     public GameObject EndGameObj;
+    public UIAnimSimulator uIAnimSimulator;
     public bool IsShowEndGame;
+    public bool IsCheckEndGame;
 
     private void Awake()
     {
@@ -15,6 +17,16 @@ public class UIEndGame : MonoBehaviour
     private void Start()
     {
         HideUIEndGame();
+    }
+
+    private void Update()
+    {
+        if (IsCheckEndGame)
+        {
+            StartCoroutine(uIAnimSimulator.ShowUIEndGame());
+            IsCheckEndGame = false; 
+        } 
+
     }
 
     public void HideUIEndGame()
@@ -28,6 +40,6 @@ public class UIEndGame : MonoBehaviour
     private void OnShowUIEndGame()
     {
         IsShowEndGame = true;
-        EndGameObj.SetActive(true);
+        StartCoroutine(uIAnimSimulator.ShowUIEndGame());
     }    
 }

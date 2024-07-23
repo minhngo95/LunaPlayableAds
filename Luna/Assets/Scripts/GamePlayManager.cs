@@ -22,13 +22,14 @@ public class GamePlayManager : MonoBehaviour
     {
         BotManager.Instance.TotalBotOnTurn = OnCheckTotalBotOnMap();
         UIManager.Instance.UpdateInitBot(BotManager.Instance.TotalBotOnTurn);
+        EventManager.Invoke(EventName.OnCheckTurnPlay, gameResultData.TurnCount);
         SetData();
         GameStart();
     }
 
     private void Update()
     {
-        if (CheckTurnDone())
+        if (CheckTurnDone() && !UIEndGame.Instance.IsShowEndGame)
         {
             Turn++;
             gameResultData.TurnCount++;
@@ -49,7 +50,7 @@ public class GamePlayManager : MonoBehaviour
 
     private void OnDisable()
     {
-        EventManager.AddListener<bool>(EventName.OnShowLunaEndGame, OnShowLunaEndGame);
+        EventManager.RemoveListener<bool>(EventName.OnShowLunaEndGame, OnShowLunaEndGame);
         OnResetResultData();
     }
 

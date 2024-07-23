@@ -50,16 +50,7 @@ public class BotPlayItaAttackState : BaseState<PlayItaState>
     private void OnTakeDame(int damage)
     {
         isTakeDame = true;
-
         int randomDeadStyle = Random.Range(0, 100);
-        if (randomDeadStyle % 2 == 0)
-        {
-            ator.SetFloat("DeadStyle", 1);
-        }
-        else
-        {
-            ator.SetFloat("DeadStyle", 0);
-        }
         //ator.SetBool("isHit", true);
         muzzle.SetActive(false);
 

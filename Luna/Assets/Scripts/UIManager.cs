@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
@@ -7,6 +8,7 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
     public GameObject InGame;
+    public GameObject HUD;
 
     public Text TotalBotText;
     [FormerlySerializedAs("initBot")] public int TotalBotinConfig;
@@ -23,7 +25,6 @@ public class UIManager : MonoBehaviour
         Instance = this;
         InGame.SetActive(true);
         gameProcess.SetActive(true);
-        RoundTxt.text = "ROUND " + 1;
         uIAnimSimulator.StartAnimateTextAppear();
         
     }
@@ -36,12 +37,14 @@ public class UIManager : MonoBehaviour
     {
         EventManager.AddListener<int>(EventName.UpdateBulletCount, UpdateBulletCount);
         EventManager.AddListener<int>(EventName.OnCheckTurnPlay, OnCheckTurnPlay);
+        EventManager.AddListener<bool>(EventName.OnShowLunaEndGame, OnShowLunaEndGame);
     }
 
     private void OnDisable()
     {
         EventManager.RemoveListener<int>(EventName.UpdateBulletCount, UpdateBulletCount);
         EventManager.RemoveListener<int>(EventName.OnCheckTurnPlay, OnCheckTurnPlay);
+        EventManager.RemoveListener<bool>(EventName.OnShowLunaEndGame, OnShowLunaEndGame);
     }
 
     private void OnCheckTurnPlay(int Turn)
@@ -72,12 +75,30 @@ public class UIManager : MonoBehaviour
         StartCoroutine(ShowEndCard());
     }
 
+    private void OnShowLunaEndGame(bool IsShow)
+    {
+        if (IsShow)
+        {
+            StartCoroutine(DelayHideHUD());
+        }    
+    }    
+
+    private IEnumerator DelayHideHUD()
+    {
+        RoundTxt.text = "ROUND COMPLETED!";
+        uIAnimSimulator.StartAnimateTextAppear();
+        yield return new WaitForSeconds(3f);
+        HUD.SetActive(false);
+        uIAnimSimulator.StartAnimateTextAppear();
+    }    
+
     void Update()
     {
         if (Input.GetMouseButton(0))
         {
             tapToPlay.SetActive(false);
         }
+        
         TotalBotText.text = $"{GameResultInstance.Instance.GetGameResultData().BotKillCount} / {TotalBotinConfig}";
         process.fillAmount = ((float)(GameResultInstance.Instance.GetGameResultData().BotKillCount) / TotalBotinConfig);
     }

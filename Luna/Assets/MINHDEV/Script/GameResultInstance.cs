@@ -6,7 +6,7 @@ public class GameResultInstance : MonoBehaviour
 {
     public static GameResultInstance Instance;
     public GameResultData gameResultData;
-    public string url = "https://play.google.com/store/apps/details?id=com.horus.sky.defense";
+   // public string url = "https://play.google.com/store/apps/details?id=com.horus.sky.defense";
 
     private void Awake()
     {
@@ -18,8 +18,8 @@ public class GameResultInstance : MonoBehaviour
         return gameResultData;
     }    
 
-    public void OpenURLStore()
-    {
-        Application.OpenURL(url);
-    }    
+    //public void OpenURLStore()
+    //{
+    //    Application.OpenURL(url);
+    //}    
 }

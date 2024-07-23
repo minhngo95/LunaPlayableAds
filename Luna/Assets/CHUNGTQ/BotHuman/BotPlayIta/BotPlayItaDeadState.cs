@@ -24,15 +24,15 @@ public class BotPlayItaDeadState : BaseState<PlayItaState>
         botNetwork.Path.IsUse = false;
         BotDeath.Instance.GetBotDeath();
         ator.SetBool("isDead", true);
-        //int randomDeadStyle = Random.Range(0, 100);
-        //if (randomDeadStyle % 2 == 0)
-        //{
-        //    ator.SetFloat("DeadStyle", 1);
-        //}
-        //else
-        //{
-        //    ator.SetFloat("DeadStyle", 0);
-        //}
+        int randomDeadStyle = Random.Range(0, 100);
+        if (randomDeadStyle % 2 == 0)
+        {
+            ator.SetFloat("DeadStyle", 1);
+        }
+        else
+        {
+            ator.SetFloat("DeadStyle", 0);
+        }
         StartCoroutine(HideBotOnDie());
     }
     IEnumerator HideBotOnDie()
