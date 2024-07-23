@@ -5733,9 +5733,9 @@ MonoBehaviour:
   Mytrans: {fileID: 1312138446727467938}
   _source: {fileID: 1312138446727467936}
   listSoundAttack:
-  - {fileID: 8300000, guid: c7763022601b42e4296aa62afbe0dbb5, type: 3}
-  - {fileID: 8300000, guid: 732acf820ebba7540aed76dabd7f19fa, type: 3}
-  - {fileID: 8300000, guid: 35dc586ac1725b947b97f66b24cfc0fb, type: 3}
+  - {fileID: 8300000, guid: 6ee388033b5fd184790411d5e6297ee5, type: 3}
+  - {fileID: 8300000, guid: 3a87f2f475530814d8e079da01e7a9ef, type: 3}
+  - {fileID: 8300000, guid: 7a261042e3e61ab468594aa23ad9a355, type: 3}
   BotVoice: []
 --- !u!1 &1312138446776946386
 GameObject:
