@@ -148,7 +148,11 @@ public class GamePlayManager : MonoBehaviour
             int botCount = 0;
             for (int i = 0; i < configBotInGame.fightRound[Turn].botConfigs.Length; i++)
             {
-                botCount += configBotInGame.fightRound[Turn].botConfigs[i].botQuantity;
+                if (!configBotInGame.fightRound[Turn].botConfigs[i].isNotCount)
+                {
+                    botCount += configBotInGame.fightRound[Turn].botConfigs[i].botQuantity;
+                }  
+
             }
             Debug.Log($"Total bots on Turn {Turn}: {botCount}");
             return botCount;

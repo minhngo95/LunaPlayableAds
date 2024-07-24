@@ -9,7 +9,6 @@ public class BotPlayItaDeadState : BaseState<PlayItaState>
     [SerializeField] private AudioSource _source;
     [SerializeField] private AudioClip[] listSounDead;
     [SerializeField] protected GameObject muzzle;
-    [SerializeField] protected GameObject DeadIcon;
     public bool IsUserIconDeadOnBot;
     public Vector3 BotDeadPos;
     public override void EnterState()
@@ -42,16 +41,6 @@ public class BotPlayItaDeadState : BaseState<PlayItaState>
 
     }
 
-    IEnumerator ShowIconBotDead()
-    {
-        if (IsUserIconDeadOnBot)
-        {
-            DeadIcon.SetActive(true);
-            yield return new WaitForSeconds(0.5f);
-            DeadIcon.SetActive(false);
-        }
-
-    }    
     public override void UpdateState()
     {
 

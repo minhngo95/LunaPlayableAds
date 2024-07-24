@@ -5796,7 +5796,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1312138447281108577}
   - {fileID: 1312138447804474118}
   m_Father: {fileID: 1312138447803326034}
   m_RootOrder: 0
@@ -6019,37 +6018,6 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.00000023841858, y: -0.14791816, z: 0.0070158243}
     m_Extent: {x: 0.93600273, y: 1.0113385, z: 0.325616}
   m_DirtyAABB: 0
---- !u!1 &1312138447281108578
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1312138447281108577}
-  m_Layer: 6
-  m_Name: 'BangDan_Hand (Missing Prefab with guid: 4fbb33ea3602b4440870dd367042634e)'
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1312138447281108577
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1312138447281108578}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1312138446820675930}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1312138447393729896
 GameObject:
   m_ObjectHideFlags: 0
@@ -11280,7 +11248,7 @@ Transform:
   m_Children:
   - {fileID: 1312138446776946385}
   m_Father: {fileID: 1312138446820675930}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 81.93, y: 0, z: 0}
 --- !u!1 &1312138447877103880
 GameObject:
