@@ -36,6 +36,8 @@ public class BotConfig
 
     [Tooltip("Thời gian Delay giữa các lần thả bot")]
     public float botDelaySpawn;
+    [Tooltip("Thời gian Spawn của Lính")]
+    public float WaitToSpawn;
 
 }
 

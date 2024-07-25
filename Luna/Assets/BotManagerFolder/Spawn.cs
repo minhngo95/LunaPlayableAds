@@ -36,6 +36,7 @@ public class Spawn : MonoBehaviour
 
     private IEnumerator OnSpawnBot(BotConfig config)
     {
+        yield return new WaitForSeconds(config.WaitToSpawn);
         for (var i = 0; i < config.botQuantity; i++)
         {
             WayPoint path = PathManager.Instance.GetWayPoint(botType);
