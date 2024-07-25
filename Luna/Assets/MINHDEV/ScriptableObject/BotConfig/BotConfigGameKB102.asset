@@ -14,20 +14,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fightRound:
   - botConfigs:
-    - botPrefab: {fileID: 5129223786313370449, guid: 9ba7b4dcb20149f428ca8f9a3db28cda, type: 3}
+    - botPrefab: {fileID: 5129223786313370449, guid: bbd04cbc5ea773a4696adb6c3f94868c, type: 3}
       botType: 2
       isNotUse: 0
       isNotCount: 0
       botQuantity: 10
       botDelaySpawn: 0.2
-    - botPrefab: {fileID: 5129223786313370449, guid: d83b50a17ac15fe49ad1b1ef4850e7da, type: 3}
-      botType: 2
+    - botPrefab: {fileID: 2807929077495207021, guid: 68611f37b57f4804f99d39457b17a368, type: 3}
+      botType: 1
       isNotUse: 0
       isNotCount: 0
       botQuantity: 10
       botDelaySpawn: 0.2
-    - botPrefab: {fileID: 5129223786313370449, guid: aa75c47c7ea0ba54f8c8d153592a9f06, type: 3}
-      botType: 2
+    - botPrefab: {fileID: 5954677888002334249, guid: c0cdb395c8e4cc04e8179adb635c8ad2, type: 3}
+      botType: 1
       isNotUse: 0
       isNotCount: 0
       botQuantity: 10
@@ -38,13 +38,13 @@ MonoBehaviour:
       isNotCount: 0
       botQuantity: 10
       botDelaySpawn: 0.2
-    - botPrefab: {fileID: 5129223786313370449, guid: bbd04cbc5ea773a4696adb6c3f94868c, type: 3}
-      botType: 2
+    - botPrefab: {fileID: 1312138446727467939, guid: 9d229833d6b648a43aebc874bc95e966, type: 3}
+      botType: 1
       isNotUse: 0
       isNotCount: 0
       botQuantity: 10
       botDelaySpawn: 0.2
-    - botPrefab: {fileID: 2807929077495207021, guid: 68611f37b57f4804f99d39457b17a368, type: 3}
+    - botPrefab: {fileID: 4553882886089298111, guid: c45f830870b276748be2cadc1126887d, type: 3}
       botType: 1
       isNotUse: 0
       isNotCount: 0

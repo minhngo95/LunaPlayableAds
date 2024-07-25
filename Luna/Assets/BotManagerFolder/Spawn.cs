@@ -1,11 +1,12 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using static GameConstants;
 
 public class Spawn : MonoBehaviour
 {
-    private BotConfig _botConfig;
+    private List<BotConfig> _botConfigs = new List<BotConfig>();
     private RewardConfig _rewardConfig;
     [SerializeField] public BotType botType;
     [SerializeField] public RewardType rewardType;
@@ -15,32 +16,32 @@ public class Spawn : MonoBehaviour
 
     public void InitDataBot(BotConfig[] botConfigs)
     {
+        _botConfigs.Clear();
         foreach (var config in botConfigs)
         {
             if (config.botType == botType && !config.isNotUse)
             {
-                _botConfig = config;
-                break;
+                _botConfigs.Add(config);
             }
         }
     }
 
     public void SpawnBot()
     {
-        if (_botConfig != null)
+        foreach (var config in _botConfigs)
         {
-            StartCoroutine(OnSpawnBot());
+            StartCoroutine(OnSpawnBot(config));
         }
     }
 
-    private IEnumerator OnSpawnBot()
+    private IEnumerator OnSpawnBot(BotConfig config)
     {
-        for (var i = 0; i < _botConfig.botQuantity; i++)
+        for (var i = 0; i < config.botQuantity; i++)
         {
             WayPoint path = PathManager.Instance.GetWayPoint(botType);
             var spawnPosition = path.WayPoints[0].position;
-            BotManager.Instance.SpawnBot(_botConfig.botPrefab, spawnPosition, path);
-            yield return new WaitForSeconds(_botConfig.botDelaySpawn);
+            BotManager.Instance.SpawnBot(config.botPrefab, spawnPosition, path);
+            yield return new WaitForSeconds(config.botDelaySpawn);
         }
     }
 

@@ -102,6 +102,7 @@ public class GamePlayManager : MonoBehaviour
                 spawn.SpawnReward();
             }
         }
+
     }
 
     private bool ShouldSpawnBot(Spawn spawn)
