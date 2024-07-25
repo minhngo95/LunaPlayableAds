@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d90feb38dc69fbf459ba5b1300feb5af, type: 3}
+  m_Name: Du_hunter
+  m_EditorClassIdentifier: 
+  id: 1
+  health: 1
+  attackDuration: 0
+  damageMinPercent: 0
+  damageMaxPercent: 0
+  damageOnBot: 10
+  botType: 2
+  Model: {fileID: 6012998059739138773, guid: c0cdb395c8e4cc04e8179adb635c8ad2, type: 3}
+  moveSpeed: 0
+  carryAttributes:
+  - botConfig: {fileID: 11400000, guid: 27d763cd41b71ff46bb00f639b5a6e12, type: 2}
+    Quantity: 1

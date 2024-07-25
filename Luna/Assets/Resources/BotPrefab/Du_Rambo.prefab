@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 5129223786313370449}
   - component: {fileID: 708426299696985096}
   m_Layer: 0
-  m_Name: Du
+  m_Name: Du_Rambo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -170,7 +170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adb442eaa1eae2a4990e1707e14c512a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _botDuConfig: {fileID: 11400000, guid: 911535684df7b6840aa3e6bb2eb2578a, type: 2}
+  _botDuConfig: {fileID: 11400000, guid: b74328772b00ba24a872f76b802ff1f2, type: 2}
   botNetwork: {fileID: 5129223786313370449}
   ground:
     serializedVersion: 2

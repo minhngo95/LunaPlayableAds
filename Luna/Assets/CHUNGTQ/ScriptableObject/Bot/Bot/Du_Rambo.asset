@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d90feb38dc69fbf459ba5b1300feb5af, type: 3}
+  m_Name: Du_Rambo
+  m_EditorClassIdentifier: 
+  id: 1
+  health: 1
+  attackDuration: 0
+  damageMinPercent: 0
+  damageMaxPercent: 0
+  damageOnBot: 10
+  botType: 2
+  Model: {fileID: 4203737987491139995, guid: 68611f37b57f4804f99d39457b17a368, type: 3}
+  moveSpeed: 0
+  carryAttributes:
+  - botConfig: {fileID: 11400000, guid: b99c4a423f4606e46be03c58aaabe4fe, type: 2}
+    Quantity: 1
