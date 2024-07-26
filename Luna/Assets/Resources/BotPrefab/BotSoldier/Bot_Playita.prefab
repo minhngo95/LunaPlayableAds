@@ -5670,6 +5670,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   botNet: {fileID: 1312138446727467939}
+  BotConfigSO: {fileID: 11400000, guid: 0273158c1f90794409b532499fc406ba, type: 2}
   ator: {fileID: 1312138448328766699}
   muzzle: {fileID: 1312138446311196461}
   isHaveParent: 0
@@ -5710,7 +5711,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 1ef7fda26c77b094da52cf7f38c06f9c, type: 3}
   - {fileID: 8300000, guid: eafbb1328e5ae5542b73b3c849aafbc5, type: 3}
   muzzle: {fileID: 1312138446311196461}
-  DeadIcon: {fileID: 0}
   IsUserIconDeadOnBot: 0
   BotDeadPos: {x: 0, y: 0, z: 0}
 --- !u!114 &3372194945317671985

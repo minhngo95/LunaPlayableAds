@@ -3,11 +3,13 @@
 public class HumanMoveBase : MonoBehaviour
 {
     [SerializeField] protected BotNetwork botNet;
+    [SerializeField] protected BotConfigSO BotConfigSO;
     [SerializeField] protected Animator ator;
     [SerializeField] protected GameObject muzzle;
     public bool isHaveParent;
     public Transform myTrans;
     public bool isTakeDame;
+
  
     private void Awake()
     {
@@ -29,15 +31,6 @@ public class HumanMoveBase : MonoBehaviour
     private void OnTakeDame(int dame)
     {
         isTakeDame = true;
-        int randomDeadStyle = Random.Range(0, 100);
-        if (randomDeadStyle % 2 == 0)
-        {
-            ator.SetFloat("DeadStyle", 1);
-        }
-        else
-        {
-            ator.SetFloat("DeadStyle", 0);
-        }
         //ator.SetBool("isHit", true);
         Invoke(nameof(ResetTakeDame), 0.17f);
     }
@@ -67,7 +60,7 @@ public class HumanMoveBase : MonoBehaviour
         {
             var targetRotation = Quaternion.LookRotation(point.position - myTrans.position);
             myTrans.rotation = Quaternion.Slerp(myTrans.rotation, targetRotation, 10 * Time.deltaTime);
-            myTrans.position = Vector3.MoveTowards(myTrans.position, point.position, 5f * Time.deltaTime);
+            myTrans.position = Vector3.MoveTowards(myTrans.position, point.position, BotConfigSO.moveSpeed * Time.deltaTime);
         }
        
     }

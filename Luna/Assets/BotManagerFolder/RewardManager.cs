@@ -49,7 +49,11 @@ public class RewardManager : MonoBehaviour
     {
         foreach (var reward in _rewardNetworks)
         {
-            Destroy(reward.gameObject);
+            if (reward.IsCollected)
+            {
+                Destroy(reward.gameObject);
+            }
+
         }
         _rewardNetworks.Clear();
     }

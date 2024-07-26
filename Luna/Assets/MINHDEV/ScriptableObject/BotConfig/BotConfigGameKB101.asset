@@ -14,29 +14,68 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fightRound:
   - botConfigs:
-    - botPrefab: {fileID: 5129223786313370449, guid: 9ba7b4dcb20149f428ca8f9a3db28cda, type: 3}
+    - botPrefab: {fileID: 4553882886089298111, guid: c45f830870b276748be2cadc1126887d, type: 3}
+      botType: 1
+      isNotUse: 0
+      isNotCount: 0
+      botQuantity: 15
+      botDelaySpawn: 0.2
+      WaitToSpawn: 0
+    - botPrefab: {fileID: 5129223786313370449, guid: bbd04cbc5ea773a4696adb6c3f94868c, type: 3}
       botType: 2
       isNotUse: 0
       isNotCount: 0
-      botQuantity: 50
-      botDelaySpawn: 0.5
+      botQuantity: 15
+      botDelaySpawn: 0.2
+      WaitToSpawn: 5
+    rewardConfig:
+    - rewardPrefab: {fileID: 4836216111489335372, guid: 4dd06d8c554c75843940b4dfdcbe9082, type: 3}
+      rewardType: 1
+      isNotUse: 0
+      rewardQuantity: 1
+      RewardDelaySpawn: 0
+      WaitToSpawn: 10
   - botConfigs:
-    - botPrefab: {fileID: 5129223786313370449, guid: 9ba7b4dcb20149f428ca8f9a3db28cda, type: 3}
-      botType: 2
+    - botPrefab: {fileID: 5954677888002334249, guid: c0cdb395c8e4cc04e8179adb635c8ad2, type: 3}
+      botType: 1
       isNotUse: 0
       isNotCount: 0
-      botQuantity: 30
+      botQuantity: 40
       botDelaySpawn: 0.5
+      WaitToSpawn: 0
+    - botPrefab: {fileID: 2024162317518760557, guid: f18523b34f61e954484be9c47a4307a7, type: 3}
+      botType: 1
+      isNotUse: 0
+      isNotCount: 0
+      botQuantity: 10
+      botDelaySpawn: 0.2
+      WaitToSpawn: 0
+    rewardConfig:
+    - rewardPrefab: {fileID: 513784016035025631, guid: d73e90a46f4e2454f9b58b29f844d2d5, type: 3}
+      rewardType: 2
+      isNotUse: 0
+      rewardQuantity: 1
+      RewardDelaySpawn: 0
+      WaitToSpawn: 5
+  - botConfigs:
     - botPrefab: {fileID: 1312138446727467939, guid: 9d229833d6b648a43aebc874bc95e966, type: 3}
       botType: 1
       isNotUse: 0
       isNotCount: 0
       botQuantity: 20
-      botDelaySpawn: 0.5
-  - botConfigs:
-    - botPrefab: {fileID: 5129223786313370449, guid: 9ba7b4dcb20149f428ca8f9a3db28cda, type: 3}
-      botType: 2
+      botDelaySpawn: 0.2
+      WaitToSpawn: 0
+    - botPrefab: {fileID: 2807929077495207021, guid: ff7e73af08591ad48a5bea733fd055fd, type: 3}
+      botType: 1
       isNotUse: 0
       isNotCount: 0
-      botQuantity: 20
-      botDelaySpawn: 0
+      botQuantity: 1
+      botDelaySpawn: 0.2
+      WaitToSpawn: 0
+    rewardConfig:
+    - rewardPrefab: {fileID: 4836216111489335372, guid: 4dd06d8c554c75843940b4dfdcbe9082, type: 3}
+      rewardType: 1
+      isNotUse: 1
+      rewardQuantity: 1
+      RewardDelaySpawn: 0
+      WaitToSpawn: 0

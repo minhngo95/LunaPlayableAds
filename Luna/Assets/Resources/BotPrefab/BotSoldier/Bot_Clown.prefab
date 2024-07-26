@@ -493,6 +493,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   botNet: {fileID: 2024162317518760557}
+  BotConfigSO: {fileID: 11400000, guid: cc8572a62435ebc4682d35b2645eb09a, type: 2}
   ator: {fileID: 3887235286121719283}
   muzzle: {fileID: 8200295013381899829}
   isHaveParent: 0

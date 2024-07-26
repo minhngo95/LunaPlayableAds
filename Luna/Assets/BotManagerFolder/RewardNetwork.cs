@@ -1,3 +1,4 @@
+using Luna.Unity.FacebookInstantGames;
 using System;
 using System.Collections;
 using System.Collections.Generic;
